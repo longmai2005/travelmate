@@ -13,6 +13,7 @@ test("Email: dùng API HTTPS đúng sender, không coi API chấp nhận là đ�
   const result = await mailer.sendResetEmail("recipient@example.test", "https://travelmate.example.test/reset-password#test-token", async (url, options) => {
     calls++; assert.equal(url, "https://api.brevo.com/v3/smtp/email"); assert.equal(options.method, "POST");
     const body = JSON.parse(options.body); assert.equal(body.sender.email, "sender@example.test"); assert.equal(body.to[0].email, "recipient@example.test"); assert.ok(body.htmlContent.includes("/reset-password#test-token"));
+    assert.ok(body.textContent.includes("https://travelmate.example.test/reset-password#test-token"));
     return reply(201, { messageId: "provider-test-id" });
   });
   assert.deepEqual(result, { accepted: true }); assert.equal(calls, 1);

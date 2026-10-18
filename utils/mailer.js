@@ -1,4 +1,5 @@
 const API = "https://api.brevo.com/v3";
+const passwordResetEmail = require("./passwordResetEmail");
 const knownCodes = new Set(["unauthorized", "permission_denied", "invalid_parameter", "missing_parameter", "not_enough_credits", "account_inactive", "invalid_request", "method_not_allowed", "out_of_range", "duplicate_parameter", "document_not_found"]);
 let cachedHealth, healthUntil = 0, healthKey;
 function settings() {
@@ -68,8 +69,8 @@ function deliveryHealth() {
 async function sendResetEmail(email, url, fetcher = fetch) {
   if (!configured()) throw new Error("Email is not configured");
   const result = await request("/smtp/email", { fetcher, method: "POST", body: {
-    sender: { name: "TravelMate", email: settings().sender }, to: [{ email }], subject: "Đặt lại mật khẩu TravelMate",
-    htmlContent: `<html><body><h2>Đặt lại mật khẩu TravelMate</h2><p>Bạn đã yêu cầu đặt lại mật khẩu. Liên kết dùng một lần và hết hạn sau 15 phút.</p><p><a href="${url.replaceAll("&", "&amp;")}">Đặt lại mật khẩu</a></p><p>Nếu không phải bạn yêu cầu, hãy bỏ qua email này.</p></body></html>`
+    sender: { name: "TravelMate", email: settings().sender }, to: [{ email }],
+    ...passwordResetEmail(url)
   } });
   if (typeof result.messageId !== "string" || !result.messageId) {
     const error = new Error("Email provider acknowledgement is missing");
