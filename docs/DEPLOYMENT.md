@@ -1,5 +1,13 @@
 # Triển khai TravelMate: Render + MongoDB Atlas
 
+## Dịch vụ đã triển khai
+
+- URL: https://travelmate-tj0k.onrender.com
+- Render: TravelMate trong My Workspace, Free, Singapore; lấy code từ `main`, Auto-Deploy **After CI Checks Pass**, health check `/healthz`.
+- Atlas: cluster `travelmate`, Project 0, AWS Singapore, Free. Database production riêng trên Atlas; `.env` cục bộ tiếp tục trỏ tới MongoDB trên máy.
+- Đã chuyển tài khoản và điểm đến hiện có sang Atlas, giữ nguyên mật khẩu đăng nhập đã mã hóa. Không chuyển sessions hay dữ liệu QA. Sau khi deploy, đăng nhập lại bằng tài khoản hiện có.
+- CI kiểm tra cả `long_branch` và `main`; đổi dữ liệu qua admin không cần deploy lại.
+
 ## Cấu hình đã có trong repo
 
 - `.github/workflows/ci.yml`: mỗi push lên `main`, `long_branch`, `codex/**`, và PR vào `main` chạy kiểm tra cú pháp, unit test, integration test với MongoDB 8 trong service riêng. Không sử dụng database thật hay secrets của production.

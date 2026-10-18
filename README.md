@@ -4,6 +4,10 @@
 
 TravelMate giúp sinh viên và người trẻ tìm điểm đến tại Việt Nam, lưu nơi yêu thích, sắp xếp lịch từng ngày và dự tính chi phí cả chuyến đi. Giao diện chủ yếu bằng tiếng Việt, dùng tông Ocean & Tropical. Dùng HTML/CSS/JavaScript, Express và MongoDB; gợi ý lịch trình dựa trên quy tắc, không cần AI API.
 
+**Website:** [travelmate-tj0k.onrender.com](https://travelmate-tj0k.onrender.com) · [Quản trị](https://travelmate-tj0k.onrender.com/admin) (đăng nhập admin).
+
+Cập nhật trên `long_branch`, kiểm tra CI rồi merge vào `main`; Render tự deploy sau khi CI đạt. Xem [hướng dẫn triển khai](docs/DEPLOYMENT.md).
+
 ## 1. Chức năng
 
 - **Trang chủ `/`**: ảnh cảnh quan, tìm kiếm, sáu địa điểm nổi bật lấy từ MongoDB, lọc trải nghiệm, vùng miền, hướng dẫn ba bước.

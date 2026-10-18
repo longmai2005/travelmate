@@ -62,3 +62,13 @@ Giữ quản lý điểm đến: tìm/lọc/phân trang, thêm, sửa, ẩn và 
 | `GET /api/admin/itineraries/:id` | Người tạo, ngân sách, ngày, hoạt động và ghi chú |
 
 Trang tối đa 100 bản ghi; mặc định 10. `from`/`to` lọc ngày khởi hành, không lọc ngày tạo bản ghi. Các API điểm đến giữ như README.
+
+## Theo dõi hoạt động và chi phí đầy đủ
+
+Menu Nhật ký hoạt động lưu sự kiện đăng ký, tạo/sửa/xóa/chia sẻ lịch trình, quản lý điểm đến và khóa/mở khóa người dùng. Có lọc nhóm, phân trang, người thực hiện và thời điểm theo giờ Việt Nam; tự xóa sau 90 ngày. Chỉ admin được đọc. Các hoạt động trước khi tính năng này triển khai không được tạo lại giả.
+
+Tự cập nhật mỗi 30 giây khi tab hiển thị, có thể tắt. Nếu đang nhập bộ lọc, chọn nội dung hoặc mở hộp thoại, bảng giữ nguyên và hiện nút báo hoạt động mới để bấm cập nhật. Lỗi kết nối hiển thị rõ.
+
+Chi tiết lịch trình tính cả hoạt động, lưu trú, di chuyển, ăn uống và phát sinh. Hiển thị bảng phân loại và các khoản chi theo cả chuyến hoặc mỗi người. Admin xem được nội dung để hỗ trợ; quyền sửa lịch trình vẫn thuộc chủ sở hữu.
+
+Trong mục Điểm đến, nhập thêm địa chỉ, giờ mở cửa, ghi chú giá, URL nguồn và ngày kiểm tra. Chưa có dữ liệu thì để trống; website hiển thị cần đối chiếu. Ngày kiểm tra chỉ nhập ngày thực trong quá khứ/hiện tại và phải kèm URL nguồn HTTP(S).
