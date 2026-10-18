@@ -51,10 +51,12 @@ async function loadTrips() {
     trips = result.items;
     if (heldDraft) {
       if (heldDraft.userId === TM.user._id && trips.some(trip => trip._id === heldDraft.trip._id)) {
-        currentTrip = heldDraft.trip; dirty = true;
+        currentTrip = heldDraft.trip;
+        currentTrip.permissions = trips.find(trip => trip._id === currentTrip._id).permissions;
+        dirty = true;
         dashboard.hidden = true; editor.hidden = false;
         document.querySelector("#planner-heading").hidden = true;
-        TM.toast("Đã khôi phục thay đổi chưa lưu. Kiểm tra rồi bấm Lưu thay đổi.");
+        TM.toast(currentTrip.permissions.canEdit ? "Đã khôi phục thay đổi chưa lưu. Kiểm tra rồi bấm Lưu thay đổi." : "Bản nháp vẫn ở tab này, nhưng quyền đã chuyển sang chỉ xem. Hãy sao chép nội dung cần giữ.");
       }
       heldDraft = null;
     }
