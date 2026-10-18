@@ -101,6 +101,8 @@ Script hỏi email và họ tên, sau đó tạo/cập nhật tài khoản tươ
 
 Có thể đặt `ADMIN_EMAIL` và `ADMIN_NAME` trong môi trường để bỏ qua câu hỏi, phù hợp kiểm thử tự động. Script không hardcode tài khoản hoặc mật khẩu. Chạy lại sẽ cập nhật mật khẩu tài khoản đã chọn; dùng đúng email mong muốn.
 
+```
+
 ## 5. Cấu trúc thư mục
 
 ```text
