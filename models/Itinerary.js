@@ -53,6 +53,11 @@ const schema = new mongoose.Schema(
       validate: Number.isSafeInteger,
     },
     notes: { type: String, maxlength: 2000, default: "" },
+    ownerName: { type: String, maxlength: 100, default: "" },
+    collaborators: [{ userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }, role: { type: String, enum: ["editor", "viewer"], required: true }, _id: false }],
+    participants: [{ id: { type: String, required: true }, name: { type: String, required: true, maxlength: 80 }, _id: false }],
+    actualExpenses: [{ id: String, label: String, category: String, date: String, amountVnd: Number, paidBy: String, splitBetween: [String], note: String, _id: false }],
+    settlements: [{ id: String, from: String, to: String, amountVnd: Number, note: String, _id: false }],
     expenses: [{
       label: { type: String, required: true, maxlength: 120 },
       category: { type: String, enum: ["accommodation", "transport", "food", "other"], required: true },
@@ -64,7 +69,8 @@ const schema = new mongoose.Schema(
     sharedAt: { type: Date, default: null },
     days: [day],
   },
-  { timestamps: true },
+  { timestamps: true, optimisticConcurrency: true },
 );
 schema.index({ shareTokenHash: 1 }, { unique: true, sparse: true });
+schema.index({ "collaborators.userId": 1, updatedAt: -1 });
 module.exports = mongoose.model("Itinerary", schema);

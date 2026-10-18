@@ -261,7 +261,7 @@ body[data-page="admin"] {
   min-height: 42px;
 }
 .admin-stats {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 15px;
   margin: 0 0 26px;
 }

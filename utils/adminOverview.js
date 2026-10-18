@@ -47,6 +47,7 @@ module.exports = async function overview(req, res) {
     userDaily,
     tripDaily,
     popular,
+    pendingFeedback,
   ] = await Promise.all([
     Destination.countDocuments(),
     Destination.countDocuments({ isActive: true }),
@@ -96,6 +97,7 @@ module.exports = async function overview(req, res) {
         },
       },
     ]),
+    require("../models/Feedback").countDocuments({ status: { $in: ["open", "in_review"] } }),
   ]);
   const dailyMap = (rows) => new Map(rows.map((d) => [d._id, d.count]));
   const um = dailyMap(userDaily),
@@ -114,6 +116,7 @@ module.exports = async function overview(req, res) {
     ongoing,
     completed,
     today,
+    pendingFeedback,
     recentUsers: recentUsers.map(safeUser),
     recentItineraries: recentTrips.map((trip) =>
       serializeTrip(trip, false, today),

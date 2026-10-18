@@ -112,3 +112,17 @@ Chênh lệch 15px là thanh cuộn. Số đo lấy trực tiếp từ DOM, lưu
 - Đã sửa một tên icon Lucide không tồn tại; console error/warn lượt kiểm tra cuối trả danh sách rỗng.
 - Ảnh: `admin-complete-overview.jpg`, `admin-users.jpg`, `admin-all-itineraries.jpg`, `admin-itinerary-detail.jpg` và ảnh mobile tương ứng. Ảnh dùng tài khoản/lịch trình QA tạm; số đếm thay đổi sau khi dọn.
 - Đã kiểm tra menu di động mở/chuyển mục/đóng đúng. Đã đăng xuất và dọn 3 tài khoản, 4 lịch trình, 1 yêu thích QA; số lượng còn lại khớp trước kiểm tra: 1 tài khoản có sẵn, 0 lịch trình, 32 điểm đến. Không thay đổi dữ liệu của tài khoản có sẵn.
+
+## Kiểm thử nâng cấp cộng tác (18/10/2026)
+
+`npm test` bao gồm database riêng ngẫu nhiên cho từng suite, không sử dụng database production. Mở rộng với:
+
+- Cộng tác: mời đúng email/hash token, hạn dùng một lần, editor/viewer, thu hồi ngay, người ngoài không truy cập, phiên bản chống lưu đè.
+- Chi tiêu: số dư bằng không, chia lẻ VND, người trả không tham gia chia, hoàn trả và tham chiếu thành viên hợp lệ; public share không lộ sổ chi.
+- Phản hồi: cách ly tài khoản, admin trả lời có lịch sử, đếm cần xử lý, phiên bản cập nhật.
+- Thời tiết: ngày VN, giới hạn 16 ngày, lỗi dịch vụ, cache, địa danh trùng tên khác tỉnh không được chọn. API ngoài được mô phỏng trong CI, không phụ thuộc mạng.
+- Tài khoản: đổi mật khẩu thu hồi phiên khác, reset token hash/15 phút/một lần, thông báo khôi phục chung và chưa cấu hình email.
+- Idle: backdate session trong database thử để kiểm tra chính xác mốc 5/10 phút, đọc/poll không kéo dài, tương tác gia hạn; mô phỏng client kiểm tra tab/đăng xuất/clear dữ liệu. Không cần chờ 10 phút trong CI.
+- Service worker: không intercept API, admin, lời mời, link chia sẻ, reset hoặc request ghi.
+
+QA giao diện dùng server riêng cổng 3002 và database dữ liệu giả. Đã kiểm tra thêm khoản chi/lưu số dư, bình luận, quyền chỉ xem, gửi phản hồi/admin trả lời, đọc ngoại tuyến sau khi tắt server rồi tải lại. Kiểm tra bố cục phản hồi một cột ở viewport 390px. Email thực chỉ được xác minh sau khi người dùng cấu hình Brevo và tự thử bằng địa chỉ của họ.

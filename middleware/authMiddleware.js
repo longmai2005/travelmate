@@ -1,7 +1,13 @@
 const User = require("../models/User");
 const { fail } = require("../utils/validation");
 async function requireAuth(req, res, next) {
-  if (!req.session.userId) fail("Bạn hãy đăng nhập để tiếp tục.", 401);
+  if (!req.session.userId) {
+    if (req.sessionExpired) {
+      const error = new Error("Phiên đã hết hạn do không hoạt động. Vui lòng đăng nhập lại.");
+      error.status = 401; error.code = "SESSION_EXPIRED"; throw error;
+    }
+    fail("Bạn hãy đăng nhập để tiếp tục.", 401);
+  }
   const user = await User.findById(req.session.userId).select(
     "+sessionVersion",
   );

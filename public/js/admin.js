@@ -1,6 +1,7 @@
 const adminForm = document.querySelector("#admin-filters");
 adminForm.elements.category.innerHTML = TM.categoryOptions();
 const peopleForms = {
+  feedback: document.querySelector("#feedback-filters"),
   users: document.querySelector("#users-filters"),
   itineraries: document.querySelector("#itineraries-filters"),
   activity: document.querySelector("#activity-filters"),
@@ -13,6 +14,7 @@ let adminItems = [],
   activeOwner = "",
   ownerCache = null;
 const views = {
+  feedback: ["Phản hồi", "Lắng nghe thành viên", "Tiếp nhận góp ý, kiểm tra thông tin và trả lời để người dùng theo dõi kết quả."],
   overview: [
     "Tổng quan",
     "Tổng quan hệ thống",
@@ -105,7 +107,7 @@ function renderView() {
     if (selected) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   });
-  ["overview", "users", "itineraries", "destinations", "activity"].forEach((view) => {
+  ["overview", "users", "itineraries", "destinations", "activity", "feedback"].forEach((view) => {
     document.querySelector(`#admin-${view}`).hidden =
       view === "destinations"
         ? !["destinations", "hidden"].includes(currentView)
@@ -122,6 +124,7 @@ function renderView() {
 }
 function renderStats(stats) {
   const labels = [
+    ["pendingFeedback", "message-square-text", "Phản hồi cần xử lý", "feedback"],
     ["users", "users-round", "Tài khoản đăng ký", "users"],
     ["itineraries", "route", "Lịch trình đã lưu", "itineraries"],
     [
@@ -149,6 +152,7 @@ function renderStats(stats) {
         `<a class="admin-stat" href="#${href}"><div class="admin-stat-top"><span class="admin-stat-icon"><i data-lucide="${icon}"></i></span><i data-lucide="arrow-up-right"></i></div><strong>${stats[key]}</strong><span class="admin-stat-label">${label}</span></a>`,
     )
     .join("");
+  document.querySelectorAll("[data-admin-pending-feedback]").forEach(el => el.textContent = stats.pendingFeedback);
   ["total", "active", "inactive", "users", "itineraries"].forEach((key) =>
     document
       .querySelectorAll(`[data-admin-${key}]`)
@@ -189,7 +193,7 @@ async function loadAdmin(refreshStats = false) {
       params.set("userId", activeOwner);
     params.set("page", adminPage);
     params.set("limit", "10");
-    const endpoint = ["users", "itineraries", "activity"].includes(view)
+    const endpoint = ["users", "itineraries", "activity", "feedback"].includes(view)
       ? view
       : "destinations";
     const [stats, result, owner] = await Promise.all([
@@ -217,7 +221,8 @@ async function loadAdmin(refreshStats = false) {
         syncAdminHash();
         return loadAdmin();
       }
-      if (view === "activity") AdminActivity.render(result);
+      if (view === "feedback") AdminFeedback.render(result);
+      else if (view === "activity") AdminActivity.render(result);
       else if (view === "users") AdminPeople.users(result, stats);
       else if (view === "itineraries") {
         AdminPeople.itineraries(result);

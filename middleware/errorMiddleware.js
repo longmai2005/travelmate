@@ -2,10 +2,12 @@ module.exports = (error, req, res, next) => {
   if (res.headersSent) return next(error);
   let status = error.status || 500;
   let message = error.message;
+  if (error.name === "VersionError") { status = 409; message = "Lịch trình đã được cập nhật ở nơi khác. Hãy tải bản mới rồi đối chiếu thay đổi."; }
   if (error.type === "entity.parse.failed") {
     status = 400;
     message = "Nội dung JSON không hợp lệ.";
   }
+  if (error.type === "entity.too.large") { status = 413; message = "Nội dung quá lớn. Hãy rút gọn ghi chú hoặc giảm số khoản ghi nhận."; }
   if (error.code === 11000) {
     status = 409;
     message = "Dữ liệu đã tồn tại. Vui lòng kiểm tra email hoặc tên định danh.";
@@ -28,5 +30,5 @@ module.exports = (error, req, res, next) => {
     console.error("Lỗi máy chủ:", error.message);
     if (status !== 503) message = "Máy chủ gặp lỗi. Vui lòng thử lại.";
   }
-  res.status(status).json({ message });
+  res.status(status).json({ message, ...(error.code === "SESSION_EXPIRED" ? { code: error.code } : {}) });
 };

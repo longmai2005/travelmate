@@ -5,7 +5,7 @@ const { pagination } = require("../utils/adminData");
 router.get("/activity", async (req, res) => {
   const filter = {};
   if (req.query.group) {
-    if (!["user", "itinerary", "destination"].includes(req.query.group)) fail("Nhóm hoạt động không hợp lệ.");
+    if (!["user", "itinerary", "destination", "feedback"].includes(req.query.group)) fail("Nhóm hoạt động không hợp lệ.");
     filter.action = new RegExp(`^${req.query.group}\\.`);
   }
   const after = req.query.after ? objectId(req.query.after) : null;

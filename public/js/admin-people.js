@@ -162,7 +162,7 @@ window.AdminPeople = {
       )
       .join(
         "",
-      )}</div>${TripView.breakdown(t.budget)}${TripView.expenses(t)}<p class="field-help">Chi phí dựa trên các hoạt động và khoản chi đã nhập, cần đối chiếu trước khi đặt dịch vụ. Trạng thái chỉ dựa trên ngày đi, không xác nhận chuyến đi đã thực hiện.</p></div>`;
+      )}</div>${t.collaborators?.length ? `<section class="admin-trip-note"><h3>Cộng tác viên · ${t.collaborators.length}</h3>${t.collaborators.map(m => `<p>${e(m.user?.fullName || "Tài khoản đã xóa")} · ${e(m.user?.email || "")} · ${m.role === "editor" ? "Chỉnh sửa" : "Chỉ xem"}</p>`).join("")}</section>` : ""}${TripView.breakdown(t.budget)}${TripView.expenses(t)}${TripView.actual(t)}<p class="field-help">Chi phí dựa trên các hoạt động và khoản chi đã nhập, cần đối chiếu trước khi đặt dịch vụ. Trạng thái chỉ dựa trên ngày đi, không xác nhận chuyến đi đã thực hiện.</p></div>`;
   },
   changeStatus(user) {
     if (

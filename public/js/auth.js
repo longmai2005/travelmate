@@ -7,6 +7,10 @@ TM.openAuth = function (mode = "login") {
     register ? "Đăng ký" : "Đăng nhập",
   );
   dialog.id = "auth-dialog";
+  if (!register) {
+    dialog.querySelector("form").insertAdjacentHTML("afterend", '<p class="auth-switch"><button id="forgot-password">Quên mật khẩu?</button></p>');
+    dialog.querySelector("#forgot-password").onclick = () => { dialog.close(); TM.forgotPassword(); };
+  }
   dialog.querySelector("#auth-switch").addEventListener("click", () => {
     dialog.close();
     this.openAuth(register ? "login" : "register");
@@ -25,6 +29,7 @@ TM.openAuth = function (mode = "login") {
         { method: "POST", body: values },
       );
       this.user = result.user;
+      SessionIdle.start(result.user, result.session);
       await this.loadFavorites();
       this.renderHeader();
       dialog.close();
@@ -48,13 +53,31 @@ TM.openAuth = function (mode = "login") {
 };
 TM.ready = (async () => {
   try {
-    const { user } = await api.request("/auth/me");
+    let { user, session } = await api.request("/auth/me");
+    const logout = JSON.parse(localStorage.getItem("tm-auth-event") || "null");
+    if (user && logout?.userId === user._id && logout.generation === session?.generation) {
+      await api.request("/auth/logout", { method: "POST" }); user = null; session = null; api.token = null;
+    }
     TM.user = user;
+    SessionIdle.start(user, session);
+    if (!user) { const cached = OfflineTrips.identity(); if (cached) await OfflineTrips.clearUser(cached.user._id); }
     if (user && document.body.dataset.page !== "admin")
       await TM.loadFavorites();
   } catch (error) {
-    TM.toast(error.message, true);
+    const cached = !error.status && document.body.dataset.page === "offline" ? OfflineTrips.identity() : null;
+    if (cached) { TM.offlineMode = true; TM.user = cached.user; SessionIdle.start(cached.user, cached.session); }
+    else TM.toast(error.message, true);
   }
   TM.renderHeader();
   return TM.user;
 })();
+
+TM.forgotPassword = function() {
+  const dialog = TM.dialog('<div class="modal-body"><div class="modal-heading"><h2>Khôi phục mật khẩu</h2><button class="icon-btn" data-close aria-label="Đóng">×</button></div><p>Nhập email tài khoản để nhận liên kết dùng một lần trong 15 phút.</p><form><label class="form-field">Email<input name="email" type="email" required maxlength="254" autocomplete="email"></label><p class="form-error" role="alert"></p><button class="btn" type="submit">Gửi liên kết khôi phục</button></form><p id="reset-status" role="status"></p></div>');
+  dialog.querySelector("form").onsubmit = async event => {
+    event.preventDefault(); const form = event.target, b = form.querySelector("button"); b.disabled = true;
+    try { const result = await api.request("/auth/forgot-password", {method:"POST",body:Object.fromEntries(new FormData(form))}); dialog.querySelector("#reset-status").textContent = result.message; form.hidden = true; }
+    catch(e) { form.querySelector(".form-error").textContent = e.message; b.disabled = false; }
+  };
+};
+TM.ready.then(() => { if (new URLSearchParams(location.search).get("login") === "1" && !TM.user) TM.openAuth(); });

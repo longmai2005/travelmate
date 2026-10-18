@@ -5,7 +5,9 @@ const tripForm = document.querySelector("#trip-form");
 let trips = [],
   currentTrip = null,
   dirty = false,
-  editingMetadata = false;
+  editingMetadata = false,
+  heldDraft = null,
+  tripLoadRequest = 0;
 const pendingDestination = new URLSearchParams(location.search).get("add");
 function makeDates(start, end) {
   const count = (Date.parse(end) - Date.parse(start)) / 86400000 + 1;
@@ -22,6 +24,7 @@ function markDirty() {
   editor.querySelector("#save-status").textContent = "Có thay đổi chưa lưu";
 }
 async function loadTrips() {
+  const request = ++tripLoadRequest, generation = SessionIdle.state?.generation;
   if (!TM.user) {
     currentTrip = null;
     dirty = false;
@@ -44,11 +47,22 @@ async function loadTrips() {
     '<div class="loading">Đang mở những hành trình của bạn...</div>';
   try {
     const result = await api.request("/itineraries");
+    if (request !== tripLoadRequest || !TM.user || generation !== SessionIdle.state?.generation) return;
     trips = result.items;
+    if (heldDraft) {
+      if (heldDraft.userId === TM.user._id && trips.some(trip => trip._id === heldDraft.trip._id)) {
+        currentTrip = heldDraft.trip; dirty = true;
+        dashboard.hidden = true; editor.hidden = false;
+        document.querySelector("#planner-heading").hidden = true;
+        TM.toast("Đã khôi phục thay đổi chưa lưu. Kiểm tra rồi bấm Lưu thay đổi.");
+      }
+      heldDraft = null;
+    }
     if (currentTrip && !dirty)
       currentTrip = trips.find((t) => t._id === currentTrip._id) || null;
     renderDashboard();
     if (currentTrip) renderEditor();
+    else { const id = new URLSearchParams(location.search).get("trip"); if (id && trips.some(t => t._id === id)) openEditor(id); }
   } catch (error) {
     TM.error(dashboard, error);
   }
@@ -86,7 +100,7 @@ function renderDashboard() {
       const first = trip.days
         .flatMap((d) => d.items)
         .find((i) => i.destinationId?.imageUrl)?.destinationId;
-      return `<article class="trip-card"><div class="trip-cover"><img src="${TM.escape(first?.imageUrl || "/images/halong.jpg")}" alt="Ảnh minh họa hành trình" loading="lazy"><span class="badge">${tripStatus(trip)}</span></div><div class="trip-content"><h3>${TM.escape(trip.title)}</h3><p><i data-lucide="calendar-days"></i> ${TM.date(trip.startDate)} – ${TM.date(trip.endDate)}</p><p>${trip.days.length} ngày khám phá · ${trip.travelers} người đồng hành</p><div class="trip-stats"><span>Chi phí ước tính${b.missing ? " (chưa đủ)" : ""}</span><strong>${TM.money(b.total)}</strong></div><div class="trip-actions"><button class="btn light small" data-edit-trip="${trip._id}">Xem & chỉnh sửa <i data-lucide="arrow-up-right"></i></button><button class="btn danger small" data-delete-trip="${trip._id}" aria-label="Xóa ${TM.escape(trip.title)}"><i data-lucide="trash-2"></i></button></div></div></article>`;
+      return `<article class="trip-card"><div class="trip-cover"><img src="${TM.escape(first?.imageUrl || "/images/halong.jpg")}" alt="Ảnh minh họa hành trình" loading="lazy"><span class="badge">${tripStatus(trip)}</span></div><div class="trip-content"><h3>${TM.escape(trip.title)}</h3><p><i data-lucide="calendar-days"></i> ${TM.date(trip.startDate)} – ${TM.date(trip.endDate)}</p><p>${trip.days.length} ngày khám phá · ${trip.travelers} người đồng hành</p><div class="trip-stats"><span>Chi phí ước tính${b.missing ? " (chưa đủ)" : ""}</span><strong>${TM.money(b.total)}</strong></div><div class="trip-actions"><button class="btn light small" data-edit-trip="${trip._id}">${trip.permissions?.canEdit ? "Xem & chỉnh sửa" : "Xem lịch trình"} <i data-lucide="arrow-up-right"></i></button>${trip.permissions?.canManage ? `<button class="btn danger small" data-delete-trip="${trip._id}" aria-label="Xóa ${TM.escape(trip.title)}"><i data-lucide="trash-2"></i></button>` : ""}</div><p class="field-help">${trip.permissions?.role === "owner" ? "Bạn là chủ chuyến đi" : trip.permissions?.canEdit ? "Được mời chỉnh sửa" : "Được mời xem"}</p></div></article>`;
     })
     .join("");
   TM.icons();
@@ -141,6 +155,7 @@ tripForm.addEventListener("submit", async (event) => {
       budgetLimitVnd: Number(values.budgetLimitVnd),
     };
     if (editingMetadata) {
+      if (data.travelers < (currentTrip.participants?.length || 0)) throw new Error("Hãy giảm số thành viên ghi chi tiêu trước khi giảm số người của chuyến đi.");
       const removed = currentTrip.days.filter(
         (day) => !dates.includes(day.date) && (day.items.length || day.notes),
       );
@@ -224,10 +239,19 @@ function renderEditor() {
     })
     .join(
       "",
-    )}<section class="day-card"><div class="day-heading"><div><h3>Các khoản chi bổ sung</h3><p class="field-help">Nhập tổng tiền cho cả chuyến hoặc số tiền mỗi người.</p></div><button class="btn light small" id="add-expense"><i data-lucide="plus"></i> Thêm khoản chi</button></div>${PlannerExtras.expenseList(trip)}</section></div><aside class="budget-panel"><div class="eyebrow"><i data-lucide="wallet"></i> CHỦ ĐỘNG KHOẢN CHI</div><h3>Ngân sách chuyến đi</h3><p>Hoạt động tính theo số người; các khoản chi bổ sung theo cách bạn chọn. Giá là ước tính, chưa phải xác nhận đặt dịch vụ.</p><div class="budget-amount">${TM.money(b.total)}</div><p>${b.missing ? "Tạm tính · chưa đầy đủ" : "Tổng chi phí dự kiến"}</p><div class="progress ${b.remaining < 0 ? "over" : ""}" role="progressbar" aria-valuenow="${Math.min(100, b.percent)}" aria-valuemin="0" aria-valuemax="100" aria-label="Tỷ lệ dùng ngân sách"><span style="width:${Math.min(100, b.percent)}%"></span></div><div class="budget-row"><span>Ngân sách đã đặt</span><strong>${TM.money(trip.budgetLimitVnd)}</strong></div><div class="budget-row"><span>${b.remaining < 0 ? "Vượt ngân sách" : "Còn lại"}</span><strong>${TM.money(Math.abs(b.remaining))}</strong></div><div class="budget-row"><span>Đã dùng</span><strong>${b.percent}%</strong></div>${b.remaining < 0 ? '<p class="status-note warning">Chi phí đang vượt ngân sách của bạn.</p>' : ""}${b.missing ? `<p class="status-note warning">${b.missing} hoạt động chưa có giá. Hãy nhập ước tính để hoàn thiện ngân sách.</p>` : ""}${TripView.breakdown(b)}<p class="field-help">Các khoản chưa nhập sẽ chưa được tính vào tổng.</p><hr><p id="save-status">${dirty ? "Có thay đổi chưa lưu" : "Đã lưu lịch trình"}</p><button class="btn" id="save-trip"><i data-lucide="save"></i> ${dirty ? "Lưu thay đổi" : "Lưu lịch trình"}</button><button class="btn outline small" id="delete-current"><i data-lucide="trash-2"></i> Xóa chuyến đi</button></aside></div>`;
+    )}<section class="day-card"><div class="day-heading"><div><h3>Các khoản chi bổ sung</h3><p class="field-help">Nhập tổng tiền cho cả chuyến hoặc số tiền mỗi người.</p></div><button class="btn light small" id="add-expense"><i data-lucide="plus"></i> Thêm khoản chi</button></div>${PlannerExtras.expenseList(trip)}</section>${TripGroup.render(trip)}</div><aside class="budget-panel"><div class="eyebrow"><i data-lucide="wallet"></i> CHỦ ĐỘNG KHOẢN CHI</div><h3>Ngân sách chuyến đi</h3><p>Hoạt động tính theo số người; các khoản chi bổ sung theo cách bạn chọn. Giá là ước tính, chưa phải xác nhận đặt dịch vụ.</p><div class="budget-amount">${TM.money(b.total)}</div><p>${b.missing ? "Tạm tính · chưa đầy đủ" : "Tổng chi phí dự kiến"}</p><div class="progress ${b.remaining < 0 ? "over" : ""}" role="progressbar" aria-valuenow="${Math.min(100, b.percent)}" aria-valuemin="0" aria-valuemax="100" aria-label="Tỷ lệ dùng ngân sách"><span style="width:${Math.min(100, b.percent)}%"></span></div><div class="budget-row"><span>Ngân sách đã đặt</span><strong>${TM.money(trip.budgetLimitVnd)}</strong></div><div class="budget-row"><span>${b.remaining < 0 ? "Vượt ngân sách" : "Còn lại"}</span><strong>${TM.money(Math.abs(b.remaining))}</strong></div><div class="budget-row"><span>Đã dùng</span><strong>${b.percent}%</strong></div>${b.remaining < 0 ? '<p class="status-note warning">Chi phí đang vượt ngân sách của bạn.</p>' : ""}${b.missing ? `<p class="status-note warning">${b.missing} hoạt động chưa có giá. Hãy nhập ước tính để hoàn thiện ngân sách.</p>` : ""}${TripView.breakdown(b)}<p class="field-help">Các khoản chưa nhập sẽ chưa được tính vào tổng.</p><hr><p id="save-status">${dirty ? "Có thay đổi chưa lưu" : "Đã lưu lịch trình"}</p><button class="btn" id="save-trip"><i data-lucide="save"></i> ${dirty ? "Lưu thay đổi" : "Lưu lịch trình"}</button><button class="btn outline small" id="delete-current"><i data-lucide="trash-2"></i> Xóa chuyến đi</button></aside></div>`;
+  const tools = editor.querySelector(".planner-tools");
+  tools.insertAdjacentHTML("beforeend", `<button class="btn outline small" id="team-trip">${trip.permissions?.canManage ? "Cộng tác viên" : "Quyền cộng tác"}</button><button class="btn outline small" id="comments-trip">Trao đổi nhóm</button><button class="btn outline small" id="weather-trip">Thời tiết</button><button class="btn outline small" id="offline-trip">Lưu ngoại tuyến</button><button class="btn ghost small" id="reload-trip">Tải bản mới nhất</button>`);
+  if (!trip.permissions?.canManage) editor.querySelectorAll("#delete-current, #share-trip").forEach(el => el.hidden = true);
+  if (!trip.permissions?.canEdit) {
+    editor.querySelectorAll("#edit-trip-info, #suggest-trip, [data-add-day], .activity-tools, #add-expense, .expense-tools, #save-trip").forEach(el => el.hidden = true);
+    editor.querySelectorAll(".day-notes").forEach(el => el.readOnly = true);
+    editor.querySelector("#save-status").textContent = "Bạn có quyền chỉ xem lịch trình này.";
+  }
   TM.icons();
 }
 async function saveTrip() {
+  const generation = SessionIdle.state?.generation;
   const button = editor.querySelector("#save-trip");
   button.disabled = true;
   try {
@@ -237,6 +261,7 @@ async function saveTrip() {
       method: "PUT",
       body,
     });
+    if (!TM.user || generation !== SessionIdle.state?.generation) return false;
     currentTrip = itinerary;
     trips = trips.map((t) => (t._id === itinerary._id ? itinerary : t));
     dirty = false;
@@ -245,6 +270,7 @@ async function saveTrip() {
     return true;
   } catch (error) {
     TM.toast(error.message, true);
+    if (error.status === 409) editor.querySelector("#save-status").textContent = "Bản lưu đã thay đổi. Giữ tab này để tham khảo rồi bấm Tải bản mới nhất khi sẵn sàng.";
     return false;
   } finally {
     button.disabled = false;
@@ -430,3 +456,7 @@ document.addEventListener("tripchange", () => {
   if (!dirty) loadTrips();
 });
 TM.ready.then(loadTrips);
+
+document.addEventListener("before-session-clear", event => {
+  heldDraft = event.detail.reason === "idle" && dirty && currentTrip ? { userId: event.detail.user._id, trip: structuredClone(currentTrip) } : null;
+});

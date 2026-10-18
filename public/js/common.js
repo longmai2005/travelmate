@@ -117,7 +117,7 @@ window.TM = {
   },
   renderHeader() {
     const page = document.body.dataset.page;
-    if (page === "admin") return;
+    if (page === "admin" || !document.querySelector("#site-header")) return;
     const links = [
       ["home", "/", "house", "Trang chủ"],
       ["explore", "/explore", "compass", "Khám phá"],
@@ -125,7 +125,7 @@ window.TM = {
       ["favorites", "/favorites", "heart", "Yêu thích"],
     ];
     document.querySelector("#site-header").innerHTML =
-      `<div class="site-header"><a href="/" class="brand" aria-label="TravelMate – Trang chủ"><img src="/images/logo.svg" alt=""><span>Travel<span>Mate</span></span></a><nav class="nav" aria-label="Điều hướng chính">${links.map(([key, href, icon, label]) => `<a href="${href}" class="${page === key ? "active" : ""}" ${page === key ? 'aria-current="page"' : ""}><i data-lucide="${icon}"></i>${label}</a>`).join("")}</nav><div class="header-actions">${this.user ? `<details class="user-menu"><summary class="btn light"><i data-lucide="circle-user-round"></i> ${this.escape(this.user.fullName.split(" ").slice(-2).join(" "))} <i data-lucide="chevron-down"></i></summary><div class="user-dropdown"><small>${this.escape(this.user.email)}</small>${this.user.role === "admin" ? '<a href="/admin">Quản trị hệ thống</a>' : ""}<button class="btn ghost" id="logout-button">Đăng xuất <i data-lucide="log-out"></i></button></div></details>` : '<button class="btn" id="login-button"><i data-lucide="user-round"></i> Đăng nhập <i data-lucide="arrow-up-right"></i></button>'}<button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Mở điều hướng" aria-expanded="false"><i data-lucide="menu"></i></button></div></div>`;
+      `<div class="site-header"><a href="/" class="brand" aria-label="TravelMate – Trang chủ"><img src="/images/logo.svg" alt=""><span>Travel<span>Mate</span></span></a><nav class="nav" aria-label="Điều hướng chính">${links.map(([key, href, icon, label]) => `<a href="${href}" class="${page === key ? "active" : ""}" ${page === key ? 'aria-current="page"' : ""}><i data-lucide="${icon}"></i>${label}</a>`).join("")}</nav><div class="header-actions">${this.user ? `<details class="user-menu"><summary class="btn light"><i data-lucide="circle-user-round"></i> ${this.escape(this.user.fullName.split(" ").slice(-2).join(" "))} <i data-lucide="chevron-down"></i></summary><div class="user-dropdown"><small>${this.escape(this.user.email)}</small>${this.user.role === "admin" ? '<a href="/admin">Quản trị hệ thống</a>' : ""}<a href="/account">Tài khoản của tôi</a><a href="/support">Phản hồi của tôi</a><a href="/offline">Lịch trình ngoại tuyến</a><button class="btn ghost" id="logout-button">Đăng xuất <i data-lucide="log-out"></i></button></div></details>` : '<button class="btn" id="login-button"><i data-lucide="user-round"></i> Đăng nhập <i data-lucide="arrow-up-right"></i></button>'}<button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Mở điều hướng" aria-expanded="false"><i data-lucide="menu"></i></button></div></div>`;
     document.querySelector("#menu-toggle").addEventListener("click", (e) => {
       const open = document.querySelector(".nav").classList.toggle("open");
       e.currentTarget.setAttribute("aria-expanded", open);
@@ -139,24 +139,22 @@ window.TM = {
     this.icons();
   },
   async logout() {
-    try {
-      await api.request("/auth/logout", { method: "POST" });
-      api.token = null;
-      this.user = null;
-      this.favorites.clear();
-      if (document.body.dataset.page === "admin") return location.assign("/");
-      this.renderHeader();
-      this.refreshHearts();
-      document.dispatchEvent(new Event("authchange"));
-      this.toast("Đã đăng xuất. Hẹn gặp bạn ở hành trình tiếp theo!");
-    } catch (error) {
-      this.toast(error.message, true);
-    }
+    const user = this.user;
+    SessionIdle.stop(user);
+    document.dispatchEvent(new CustomEvent("before-session-clear", { detail: { user, reason: "logout" } }));
+    this.user = null; this.favorites.clear(); this.pendingAction = null;
+    this.renderHeader(); this.refreshHearts();
+    document.dispatchEvent(new Event("authchange"));
+    try { await api.request("/auth/logout", { method: "POST" }); }
+    catch { /* Local sign-out stays effective offline; reconnect retries invalidation. */ }
+    api.token = null;
+    if (document.body.dataset.page === "admin") return location.assign("/");
+    this.toast("Đã đăng xuất. Hẹn gặp bạn ở hành trình tiếp theo!");
   },
   renderFooter() {
     if (!document.querySelector("#site-footer")) return;
     document.querySelector("#site-footer").innerHTML =
-      `<div class="container"><div class="footer-main"><div><a class="brand" href="/"><img src="/images/logo.svg" alt=""><span>Travel<span>Mate</span></span></a><p>Đi để khám phá. Lên lịch để thảnh thơi.<br>Người bạn nhỏ cho những hành trình lớn trên khắp Việt Nam.</p></div><div class="footer-links"><div><strong>Cùng khám phá</strong><a href="/explore">Điểm đến Việt Nam</a><a href="/planner">Lên lịch trình</a><a href="/favorites">Nơi bạn yêu thích</a></div><div><strong>Về TravelMate</strong><a href="/">Đồ án EM3 · Advanced Web Design</a><a href="mailto:travelmate@example.com">travelmate@example.com</a><a href="/README.md">Tài liệu dự án</a></div></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} TravelMate. Được tạo nên từ niềm yêu Việt Nam.</span><span>Khám phá. Kết nối. Lên đường.</span></div></div>`;
+      `<div class="container"><div class="footer-main"><div><a class="brand" href="/"><img src="/images/logo.svg" alt=""><span>Travel<span>Mate</span></span></a><p>Đi để khám phá. Lên lịch để thảnh thơi.<br>Người bạn nhỏ cho những hành trình lớn trên khắp Việt Nam.</p></div><div class="footer-links"><div><strong>Cùng khám phá</strong><a href="/explore">Điểm đến Việt Nam</a><a href="/planner">Lên lịch trình</a><a href="/favorites">Nơi bạn yêu thích</a></div><div><strong>Về TravelMate</strong><a href="/">Đồ án EM3 · Advanced Web Design</a><a href="/support">Gửi góp ý & phản hồi</a><a href="/README.md">Tài liệu dự án</a></div></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} TravelMate. Được tạo nên từ niềm yêu Việt Nam.</span><span>Khám phá. Kết nối. Lên đường.</span></div></div>`;
   },
   cache(items) {
     items.forEach((item) => this.destinationCache.set(item._id, item));
@@ -305,7 +303,7 @@ window.TM = {
       }
       const e = this.escape;
       const dialog = this.dialog(
-        `<div class="detail-hero"><img class="detail-image" src="${e(d.imageUrl)}" alt="${e(d.name)} · ảnh minh họa"><button class="icon-btn modal-close" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><div class="modal-body"><div class="eyebrow"><i data-lucide="map-pin"></i>${e(d.province)}</div><h2>${e(d.name)}</h2>${!d.isActive ? '<p class="status-note warning">Địa điểm đã ngừng hoạt động. Thông tin được giữ lại cho lịch sử chuyến đi.</p>' : ""}<div class="detail-meta"><span><i data-lucide="compass"></i> ${this.categories[d.category]}</span><span><i data-lucide="clock-3"></i> Khoảng ${d.recommendedDurationHours} giờ</span><span><i data-lucide="wallet"></i> ${this.money(d.estimatedCostPerPersonVnd)} / người</span></div><p class="detail-description">${e(d.description)}</p><div class="destination-facts"><p><strong>Địa chỉ:</strong> ${e(d.address || "Chưa bổ sung")}</p><p><strong>Giờ mở cửa:</strong> ${e(d.openingHours || "Cần kiểm tra trước khi đi")}</p><p><strong>Lưu ý chi phí:</strong> ${e(d.priceNote || "Giá tham khảo, cần đối chiếu với đơn vị cung cấp dịch vụ.")}</p>${d.sourceUrl ? `<p><a href="${e(d.sourceUrl)}" target="_blank" rel="noopener noreferrer">Xem nguồn thông tin ↗</a>${d.verifiedOn ? ` · Kiểm tra ngày ${TM.date(d.verifiedOn)}` : " · Chưa ghi ngày kiểm tra"}</p>` : '<p class="field-help">Thông tin chưa có nguồn đối chiếu; vui lòng xác nhận trước khi đặt dịch vụ.</p>'}</div><p class="field-help">${d.latitude == null ? "Chưa có tọa độ xác minh cho điểm đến này." : `Tọa độ tham khảo: ${d.latitude}, ${d.longitude}`}</p><div class="detail-map" id="detail-map"></div><p class="field-help" id="detail-map-note"></p><div class="detail-actions"><button class="btn outline favorite-btn ${this.favorites.has(id) ? "selected" : ""}" data-favorite="${id}" aria-pressed="${this.favorites.has(id)}"><i data-lucide="heart"></i> Lưu yêu thích</button>${d.isActive ? `<button class="btn" id="detail-plan"><i data-lucide="calendar-plus"></i> Thêm vào lịch trình</button>` : ""}</div></div>`,
+        `<div class="detail-hero"><img class="detail-image" src="${e(d.imageUrl)}" alt="${e(d.name)} · ảnh minh họa"><button class="icon-btn modal-close" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><div class="modal-body"><div class="eyebrow"><i data-lucide="map-pin"></i>${e(d.province)}</div><h2>${e(d.name)}</h2>${!d.isActive ? '<p class="status-note warning">Địa điểm đã ngừng hoạt động. Thông tin được giữ lại cho lịch sử chuyến đi.</p>' : ""}<div class="detail-meta"><span><i data-lucide="compass"></i> ${this.categories[d.category]}</span><span><i data-lucide="clock-3"></i> Khoảng ${d.recommendedDurationHours} giờ</span><span><i data-lucide="wallet"></i> ${this.money(d.estimatedCostPerPersonVnd)} / người</span></div><p class="detail-description">${e(d.description)}</p><div class="destination-facts"><p><strong>Địa chỉ:</strong> ${e(d.address || "Chưa bổ sung")}</p><p><strong>Giờ mở cửa:</strong> ${e(d.openingHours || "Cần kiểm tra trước khi đi")}</p><p><strong>Lưu ý chi phí:</strong> ${e(d.priceNote || "Giá tham khảo, cần đối chiếu với đơn vị cung cấp dịch vụ.")}</p>${d.sourceUrl ? `<p><a href="${e(d.sourceUrl)}" target="_blank" rel="noopener noreferrer">Xem nguồn thông tin ↗</a>${d.verifiedOn ? ` · Kiểm tra ngày ${TM.date(d.verifiedOn)}` : " · Chưa ghi ngày kiểm tra"}</p>` : '<p class="field-help">Thông tin chưa có nguồn đối chiếu; vui lòng xác nhận trước khi đặt dịch vụ.</p>'}</div><p class="field-help">${d.latitude == null ? "Chưa có tọa độ xác minh cho điểm đến này." : `Tọa độ tham khảo: ${d.latitude}, ${d.longitude}`}</p><div class="detail-map" id="detail-map"></div><p class="field-help" id="detail-map-note"></p><p><a href="/support?destination=${id}">Báo thông tin chưa chính xác →</a></p><div class="detail-actions"><button class="btn outline favorite-btn ${this.favorites.has(id) ? "selected" : ""}" data-favorite="${id}" aria-pressed="${this.favorites.has(id)}"><i data-lucide="heart"></i> Lưu yêu thích</button>${d.isActive ? `<button class="btn" id="detail-plan"><i data-lucide="calendar-plus"></i> Thêm vào lịch trình</button>` : ""}</div></div>`,
         "modal-detail",
         d.name,
       );
@@ -329,7 +327,8 @@ window.TM = {
   async addToPlan(id) {
     if (!this.requireLogin(() => this.addToPlan(id))) return;
     try {
-      const { items: trips } = await api.request("/itineraries");
+      const response = await api.request("/itineraries");
+      const trips = response.items.filter(trip => trip.permissions?.canEdit);
       if (!trips.length) {
         const go = await this.confirm(
           "Tạo lịch trình đầu tiên",
@@ -408,6 +407,10 @@ window.TM = {
       travelers: trip.travelers,
       budgetLimitVnd: trip.budgetLimitVnd,
       notes: trip.notes,
+      version: trip.version,
+      participants: trip.participants || [],
+      actualExpenses: trip.actualExpenses || [],
+      settlements: trip.settlements || [],
       expenses: trip.expenses || [],
       days: trip.days.map((d) => ({
         date: d.date,

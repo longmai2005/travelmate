@@ -11,16 +11,22 @@
     <link rel="icon" href="/images/logo.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/upgrades.css" />
     <link rel="stylesheet" href="/css/trip.css" />
     <link rel="stylesheet" href="/css/admin.css" />
     <script defer src="/vendor/lucide.js"></script>
     <script defer src="/js/api.js"></script>
     <script defer src="/js/budget.js"></script>
     <script defer src="/js/common.js"></script>
+    <script defer src="/js/group-budget.js"></script>
     <script defer src="/js/trip-view.js"></script>
+    <script defer src="/js/offline.js"></script>
+    <script defer src="/js/session-idle.js"></script>
     <script defer src="/js/auth.js"></script>
     <script defer src="/js/admin-people.js"></script>
     <script defer src="/js/admin-activity.js"></script>
+    <script defer src="/js/support.js"></script>
+    <script defer src="/js/admin-feedback.js"></script>
     <script defer src="/js/admin.js"></script>
   </head>
   <body data-page="admin">
@@ -58,6 +64,7 @@
           ><i data-lucide="archive"></i> Điểm đến đã ẩn
           <span data-admin-inactive>—</span></a
         >
+        <a href="#feedback" data-admin-view="feedback"><i data-lucide="message-square-text"></i> Phản hồi người dùng <span data-admin-pending-feedback>—</span></a>
         <a href="#activity" data-admin-view="activity"><i data-lucide="history"></i> Nhật ký hoạt động</a>
       </nav>
       <div class="admin-sidebar-note">
@@ -399,10 +406,11 @@
         </section>
         <section id="admin-activity" aria-label="Nhật ký hoạt động" hidden>
           <div class="admin-section-summary"><span><strong id="activity-total">—</strong> hoạt động phù hợp</span><span>Nhật ký tự lưu 90 ngày. Các bản ghi chỉ đọc.</span></div>
-          <form id="activity-filters" class="toolbar"><label>Nhóm hoạt động<select name="group"><option value="">Tất cả hoạt động</option><option value="user">Người dùng</option><option value="itinerary">Lịch trình</option><option value="destination">Điểm đến</option></select></label><button type="button" class="btn outline small" data-reset-admin="activity">Xóa bộ lọc</button></form>
+          <form id="activity-filters" class="toolbar"><label>Nhóm hoạt động<select name="group"><option value="">Tất cả hoạt động</option><option value="user">Người dùng</option><option value="itinerary">Lịch trình</option><option value="destination">Điểm đến</option><option value="feedback">Phản hồi</option></select></label><button type="button" class="btn outline small" data-reset-admin="activity">Xóa bộ lọc</button></form>
           <div id="activity-list" class="admin-audit-list"></div>
           <div class="pagination"><button id="activity-prev" class="btn outline small">← Trang trước</button><span id="activity-page"></span><button id="activity-next" class="btn outline small">Trang sau →</button></div>
         </section>
+        <section id="admin-feedback" aria-label="Phản hồi người dùng" hidden><div class="admin-section-summary"><span><strong id="feedback-total">—</strong> phản hồi phù hợp</span><span>Kiểm tra thông tin trước khi sửa dữ liệu điểm đến.</span></div><form id="feedback-filters" class="toolbar"><label>Trạng thái<select name="status"><option value="">Mọi trạng thái</option><option value="open">Chờ xử lý</option><option value="in_review">Đang kiểm tra</option><option value="resolved">Đã giải quyết</option><option value="dismissed">Đã đóng</option></select></label><button class="btn outline small" type="button" data-reset-admin="feedback">Xóa bộ lọc</button></form><div id="admin-feedback-list"></div><div class="pagination"><button id="feedback-prev" class="btn outline small">← Trang trước</button><span id="feedback-page"></span><button id="feedback-next" class="btn outline small">Trang sau →</button></div></section>
         <footer class="admin-footer">
           <span>TravelMate Administration · EM3</span
           ><span id="admin-last-updated">Đang kết nối dữ liệu...</span>

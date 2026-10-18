@@ -57,6 +57,7 @@ function safeUser(user) {
 function populateTrip(query) {
   return query
     .populate("userId", userFields)
+    .populate("collaborators.userId", userFields)
     .populate(
       "days.items.destinationId",
       "name province imageUrl estimatedCostPerPersonVnd isActive",
@@ -79,7 +80,7 @@ function serializeTrip(trip, detail = false, today = todayInVietnam()) {
     createdAt: d.createdAt,
     updatedAt: d.updatedAt,
   };
-  return detail ? { ...summary, notes: d.notes, expenses: d.expenses || [], days: d.days } : summary;
+  return detail ? { ...summary, notes: d.notes, collaborators: (d.collaborators || []).map(m => ({ role: m.role, user: m.userId ? safeUser(m.userId) : null })), expenses: d.expenses || [], participants: d.participants || [], actualExpenses: d.actualExpenses || [], settlements: d.settlements || [], days: d.days } : summary;
 }
 module.exports = {
   userFields,

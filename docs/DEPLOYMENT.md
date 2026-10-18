@@ -41,3 +41,9 @@ Thay đổi điểm đến trong admin và lịch trình người dùng được
 - Nhật ký hoạt động chỉ admin đọc và tự hết hạn sau 90 ngày. Lịch trình mặc định riêng tư; liên kết chia sẻ chỉ xem, có thể đổi hoặc thu hồi. Bản PDF đã tải xuống không thể thu hồi từ xa.
 
 Tham khảo: [Render Blueprint](https://render.com/docs/blueprint-spec), [Auto-deploy](https://render.com/docs/deploys), [Render Free](https://render.com/docs/free), [Atlas IP access list](https://www.mongodb.com/docs/atlas/security/ip-access-list/).
+
+### Cấu hình thêm khi bật email
+
+Các nâng cấp nhóm/ngoại tuyến/phản hồi/thời tiết/idle không cần secret mới. Khi muốn bật Quên mật khẩu, thêm `APP_ORIGIN`, `BREVO_API_KEY` và `MAIL_FROM_EMAIL` theo [EMAIL.md](EMAIL.md). HTTPS API tương thích Render Free. Không đưa key vào GitHub, Blueprint công khai hoặc chat.
+
+Bản nâng cấp idle yêu cầu đăng nhập lại với những phiên cũ chưa có thời điểm hoạt động. Các collection/index mới được khởi tạo lúc server khởi động, không cần xóa dữ liệu cũ. Lịch trình cũ mặc định có sổ chi và cộng tác viên rỗng.

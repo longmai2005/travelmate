@@ -7,7 +7,7 @@ const MongoStoreModule = require("connect-mongo");
 const MongoStore = MongoStoreModule.default || MongoStoreModule;
 const { requireAuth, requireAdmin } = require("./middleware/authMiddleware");
 const { fail } = require("./utils/validation");
-function createApp() {
+function createApp(options = {}) {
   if (
     !process.env.SESSION_SECRET ||
     process.env.SESSION_SECRET.length < 32 ||
@@ -15,6 +15,8 @@ function createApp() {
   )
     throw new Error("SESSION_SECRET cần ít nhất 32 ký tự ngẫu nhiên.");
   const app = express();
+  app.locals.sendResetEmail = options.sendResetEmail;
+  app.locals.weatherFetcher = options.weatherFetcher;
   app.disable("x-powered-by");
   app.get("/healthz", (req, res) => {
     res.setHeader("Cache-Control", "no-store");
@@ -32,6 +34,8 @@ function createApp() {
     );
     next();
   });
+  // A full group ledger with Vietnamese notes can exceed the general JSON limit.
+  app.use("/api/itineraries", express.json({ limit: "2mb" }));
   app.use(express.json({ limit: "150kb" }));
   app.use((req, res, next) => {
     if (
@@ -60,6 +64,7 @@ function createApp() {
       },
     }),
   );
+  app.use(require("./utils/sessionIdle").enforceIdle);
   app.use("/api", (req, res, next) => {
     res.setHeader("Cache-Control", "no-store");
     if (mongoose.connection.readyState !== 1)
@@ -89,6 +94,7 @@ function createApp() {
   });
   app.use("/api/auth", require("./routes/authRoutes"));
   app.use("/api/destinations", require("./routes/destinationRoutes"));
+  app.use("/api/feedback", require("./routes/feedbackRoutes"));
   app.use("/api/favorites", require("./routes/favoriteRoutes"));
   app.use("/api/itineraries", require("./routes/itineraryRoutes"));
   app.use("/api/shared-itineraries", require("./routes/sharedItineraryRoutes"));
@@ -109,11 +115,19 @@ function createApp() {
     res.setHeader("X-Robots-Tag", "noindex, nofollow");
     res.sendFile(path.join(__dirname, "views/trip.html"));
   });
+  app.get("/join/:token", (req, res) => {
+    res.setHeader("Cache-Control", "no-store"); res.setHeader("Referrer-Policy", "no-referrer"); res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    res.sendFile(path.join(__dirname, "views/join.html"));
+  });
+  app.get("/reset-password", (req, res) => {
+    res.setHeader("Cache-Control", "no-store"); res.setHeader("Referrer-Policy", "no-referrer"); res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    res.sendFile(path.join(__dirname, "views/reset-password.html"));
+  });
   app.get("/trip-print/:id", requireAuth, (req, res) => {
     res.setHeader("Cache-Control", "no-store");
     res.sendFile(path.join(__dirname, "views/trip.html"));
   });
-  ["explore", "planner", "favorites"].forEach((page) =>
+  ["explore", "planner", "favorites", "support", "account", "offline"].forEach((page) =>
     app.get(`/${page}`, (req, res) =>
       res.sendFile(path.join(__dirname, `public/${page}.html`)),
     ),

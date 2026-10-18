@@ -40,12 +40,16 @@ async function establish(req, user) {
   );
   req.session.userId = user._id.toString();
   req.session.authVersion = user.sessionVersion || 0;
+  req.session.idleRole = user.role;
+  req.session.publicGeneration = crypto.randomBytes(16).toString("hex");
+  req.session.lastActivityAt = Date.now();
   req.session.csrfToken = crypto.randomBytes(32).toString("hex");
   await new Promise((resolve, reject) =>
     req.session.save((error) => (error ? reject(error) : resolve())),
   );
-  return { user: safeUser(user), csrfToken: req.session.csrfToken };
+  return { user: safeUser(user), csrfToken: req.session.csrfToken, session: require("../utils/sessionIdle").sessionState(req.session) };
 }
+router.use(require("./passwordRoutes"));
 router.get("/csrf", (req, res) => {
   req.session.csrfToken ||= crypto.randomBytes(32).toString("hex");
   res.json({ csrfToken: req.session.csrfToken });
@@ -58,7 +62,15 @@ router.get("/me", async (req, res) => {
     user &&
     user.isActive !== false &&
     (req.session.authVersion || 0) === (user.sessionVersion || 0);
-  res.json({ user: valid ? safeUser(user) : null });
+  res.json({ user: valid ? safeUser(user) : null, session: valid ? require("../utils/sessionIdle").sessionState(req.session) : null, sessionExpired: !!req.sessionExpired });
+});
+router.post("/activity", requireAuth, async (req, res) => {
+  const age = req.body.activityAgeMs ?? 0;
+  require("../utils/validation").integer(age, "Thời gian hoạt động", 0, 15000);
+  req.session.lastActivityAt = Date.now() - age;
+  req.session.idleRole = req.user.role;
+  await new Promise((resolve, reject) => req.session.save(error => error ? reject(error) : resolve()));
+  res.json({ session: require("../utils/sessionIdle").sessionState(req.session) });
 });
 router.post("/register", limiter, async (req, res) => {
   const { email, password } = credentials(req.body);
@@ -84,6 +96,23 @@ router.post("/login", limiter, async (req, res) => {
     fail("Email hoặc mật khẩu chưa đúng.", 401);
   if (user.isActive === false)
     fail("Tài khoản đang bị tạm khóa. Vui lòng liên hệ quản trị viên.", 403);
+  res.json(await establish(req, user));
+});
+router.put("/profile", requireAuth, async (req, res) => {
+  req.user.fullName = text(req.body.fullName, "Họ tên", 100);
+  await req.user.save();
+  await recordActivity(req.user, "user.profile_updated", req.user);
+  res.json({ user: safeUser(req.user) });
+});
+router.put("/password", requireAuth, limiter, async (req, res) => {
+  const user = await User.findById(req.user._id).select("+passwordHash +sessionVersion");
+  if (typeof req.body.currentPassword !== "string" || !await bcrypt.compare(req.body.currentPassword, user.passwordHash)) fail("Mật khẩu hiện tại chưa đúng.", 400);
+  const { password } = credentials({ email: user.email, password: req.body.password });
+  if (password !== req.body.confirmPassword) fail("Mật khẩu xác nhận chưa khớp.");
+  user.passwordHash = await bcrypt.hash(password, 12); user.sessionVersion++;
+  await user.save();
+  await require("../models/PasswordReset").deleteMany({ userId: user._id });
+  await recordActivity(user, "user.password_changed", user);
   res.json(await establish(req, user));
 });
 router.post("/logout", requireAuth, async (req, res) => {

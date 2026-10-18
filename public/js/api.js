@@ -6,6 +6,7 @@ window.api = {
       const result = await this.request("/auth/csrf");
       this.token = result.csrfToken;
     }
+    const generation = window.SessionIdle?.state?.generation;
     let response;
     try {
       response = await fetch(`/api${path}`, {
@@ -29,6 +30,11 @@ window.api = {
     if (!response.ok) {
       const error = new Error(result.message || "Không thể thực hiện yêu cầu.");
       error.status = response.status;
+      error.code = result.code;
+      if ((result.code === "SESSION_EXPIRED" || response.status === 401 && path !== "/auth/login" && window.SessionIdle?.user) && generation === window.SessionIdle?.state?.generation) {
+        this.token = null;
+        document.dispatchEvent(new CustomEvent("sessionexpired", { detail: { reason: result.code === "SESSION_EXPIRED" ? "idle" : "invalidated" } }));
+      }
       throw error;
     }
     if (result.csrfToken) this.token = result.csrfToken;

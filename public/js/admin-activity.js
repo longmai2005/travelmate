@@ -1,5 +1,6 @@
 window.AdminActivity = {
   labels: {
+    "user.profile_updated": "Cập nhật hồ sơ", "user.password_changed": "Đổi mật khẩu", "feedback.created": "Gửi phản hồi", "feedback.updated": "Xử lý phản hồi",
     "user.registered": "Đăng ký tài khoản", "user.locked": "Tạm khóa tài khoản", "user.unlocked": "Mở khóa tài khoản",
     "itinerary.created": "Tạo lịch trình", "itinerary.updated": "Cập nhật lịch trình", "itinerary.deleted": "Xóa lịch trình",
     "itinerary.shared": "Bật / đổi liên kết chia sẻ", "itinerary.unshared": "Thu hồi liên kết chia sẻ",
@@ -9,7 +10,7 @@ window.AdminActivity = {
     document.querySelector("#activity-total").textContent = result.total;
     document.querySelector("#activity-list").innerHTML = result.items.length ? result.items.map((activity) => {
       const group = activity.action.split(".")[0];
-      const canOpen = !["itinerary.deleted", "destination.hidden"].includes(activity.action) && group !== "destination";
+      const canOpen = !["itinerary.deleted", "destination.hidden"].includes(activity.action) && !["destination", "feedback"].includes(group);
       return `<article class="admin-audit-row"><span class="admin-preview-icon"><i data-lucide="${group === "user" ? "user-round" : group === "itinerary" ? "route" : "map-pin"}"></i></span><div><span class="badge">${this.labels[activity.action] || TM.escape(activity.action)}</span><h3>${canOpen ? `<button class="admin-text-button" data-view-${group === "user" ? "user" : "trip"}="${activity.targetId}">${TM.escape(activity.targetLabel)}</button>` : TM.escape(activity.targetLabel)}</h3><p>Thực hiện bởi ${TM.escape(activity.actorName)}</p>${activity.detail ? `<p class="admin-audit-detail">${TM.escape(activity.detail)}</p>` : ""}</div><time>${AdminPeople.date(activity.createdAt, true)}</time></article>`;
     }).join("") : '<div class="admin-empty"><p>Chưa ghi nhận hoạt động phù hợp.</p><p>Nhật ký bắt đầu từ khi phiên bản này được triển khai.</p></div>';
     AdminPeople.pagination("activity", result);

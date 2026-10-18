@@ -72,3 +72,11 @@ Tự cập nhật mỗi 30 giây khi tab hiển thị, có thể tắt. Nếu đ
 Chi tiết lịch trình tính cả hoạt động, lưu trú, di chuyển, ăn uống và phát sinh. Hiển thị bảng phân loại và các khoản chi theo cả chuyến hoặc mỗi người. Admin xem được nội dung để hỗ trợ; quyền sửa lịch trình vẫn thuộc chủ sở hữu.
 
 Trong mục Điểm đến, nhập thêm địa chỉ, giờ mở cửa, ghi chú giá, URL nguồn và ngày kiểm tra. Chưa có dữ liệu thì để trống; website hiển thị cần đối chiếu. Ngày kiểm tra chỉ nhập ngày thực trong quá khứ/hiện tại và phải kèm URL nguồn HTTP(S).
+
+## Phản hồi và cộng tác
+
+Mục **Phản hồi người dùng** nhận góp ý giá, địa chỉ, đóng cửa và góp ý chung. Lọc trạng thái; mở **Xem & trả lời** để kiểm tra nội dung và ghi kết quả. Mỗi lần trả lời có trạng thái, người xử lý và thời điểm; người gửi đọc được tại **Phản hồi của tôi**. Có kiểm tra phiên bản để tránh ghi đè phản hồi của admin khác. Không tự sửa điểm đến chỉ vì có báo cáo: đối chiếu rồi cập nhật riêng trong Điểm đến. Tổng quan và menu hiển thị số phản hồi `Chờ xử lý`/`Đang kiểm tra`.
+
+Chi tiết lịch trình có danh sách cộng tác viên, quyền và chi tiêu thực tế. Admin xem dữ liệu để hỗ trợ; quyền quản lý lời mời thuộc chủ chuyến đi. Người đồng hành chia tiền có thể chưa có tài khoản, khác với cộng tác viên đăng nhập.
+
+Admin tự thoát sau 10 phút không thao tác. Tự cập nhật mỗi 30 giây không giữ phiên. Mở lại tab sau khi hết hạn sẽ yêu cầu đăng nhập lại.

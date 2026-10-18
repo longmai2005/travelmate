@@ -33,10 +33,11 @@ window.PlannerExtras = {
     if (!await this.ensureSaved()) return;
     const dialog = TM.dialog(`<div class="modal-body"><div class="modal-heading"><h2>Chia sẻ hành trình</h2><button class="icon-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><p>Bất kỳ ai có liên kết đều có thể xem các hoạt động, ghi chú và ngân sách đã lưu. Email và thông tin tài khoản không được hiển thị. Hãy bỏ thông tin riêng tư trong ghi chú trước khi chia sẻ.</p><p id="share-state" class="status-note">${currentTrip.sharedAt ? "Đang bật chia sẻ. Tạo liên kết mới sẽ vô hiệu hóa liên kết cũ." : "Chuyến đi đang riêng tư."}</p><div id="share-result" hidden><label class="form-field">Liên kết chỉ xem<input class="share-link-input" readonly aria-label="Liên kết chia sẻ"></label><div class="form-actions"><button class="btn outline small" id="copy-share">Sao chép liên kết</button><a class="btn light small" id="open-share" target="_blank" rel="noopener noreferrer">Mở bản chia sẻ ↗</a></div></div><p class="form-error" role="alert"></p><div class="form-actions"><button class="btn outline" id="revoke-share" ${currentTrip.sharedAt ? "" : "disabled"}>Thu hồi liên kết</button><button class="btn" id="create-share">${currentTrip.sharedAt ? "Tạo liên kết mới" : "Bật chia sẻ"}</button></div></div>`, "", "Quản lý chia sẻ");
     const create = dialog.querySelector("#create-share"), revoke = dialog.querySelector("#revoke-share"), error = dialog.querySelector(".form-error");
-    const setState = (sharedAt) => {
+    const setState = (sharedAt, version) => {
+      currentTrip.version = version;
       currentTrip.sharedAt = sharedAt;
       const saved = trips.find((trip) => trip._id === currentTrip._id);
-      if (saved) saved.sharedAt = sharedAt;
+      if (saved) { saved.sharedAt = sharedAt; saved.version = version; }
       renderEditor();
     };
     create.addEventListener("click", async () => {
@@ -45,7 +46,7 @@ window.PlannerExtras = {
       try {
         const result = await api.request(`/itineraries/${currentTrip._id}/share`, { method: "POST" });
         const url = new URL(result.path, location.origin).href;
-        setState(result.sharedAt);
+        setState(result.sharedAt, result.version);
         dialog.querySelector("#share-result").hidden = false;
         dialog.querySelector("input").value = url;
         dialog.querySelector("#open-share").href = url;
@@ -58,8 +59,8 @@ window.PlannerExtras = {
       create.disabled = revoke.disabled = true;
       error.textContent = "";
       try {
-        await api.request(`/itineraries/${currentTrip._id}/share`, { method: "DELETE" });
-        setState(null);
+        const result = await api.request(`/itineraries/${currentTrip._id}/share`, { method: "DELETE" });
+        setState(null, result.version);
         dialog.querySelector("#share-result").hidden = true;
         dialog.querySelector("input").value = "";
         dialog.querySelector("#share-state").textContent = "Đã thu hồi. Liên kết cũ không còn mở được lịch trình.";

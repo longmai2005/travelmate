@@ -9,6 +9,7 @@ router.use(requireAuth, requireAdmin);
 router.get("/stats", require("../utils/adminOverview"));
 router.use(require("./adminPeopleRoutes"));
 router.use(require("./activityRoutes"));
+router.use(require("./adminFeedbackRoutes"));
 router.get("/destinations", (req, res) => listing(req, res, true));
 router.post("/destinations", async (req, res) => {
   const destination = await Destination.create(input(req.body));

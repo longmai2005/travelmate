@@ -298,3 +298,18 @@ API bổ sung:
 | GET | /api/shared-itineraries/:token | Dữ liệu chỉ xem qua token, không trả userId/email/hash |
 | GET | /share/:token | Trang xem chia sẻ, noindex, no-referrer, no-store |
 | GET | /trip-print/:id | Trang in yêu cầu đăng nhập, API kiểm tra chủ sở hữu |
+
+## Cộng tác, chi tiêu thực tế và hỗ trợ thành viên
+
+- **Chi tiêu nhóm:** Trong lịch trình, thêm tên thành viên chia tiền, ghi người đã trả, người cùng chia và hoàn trả đã diễn ra. Số dư/gợi ý hoàn trả tính bằng VND nguyên; dự toán và thực tế được trình bày riêng. Tên người chia tiền không bắt buộc có tài khoản. Các thay đổi chỉ lên máy chủ khi bấm **Lưu thay đổi**.
+- **Cộng tác:** Chủ chuyến đi tạo lời mời theo đúng email, chọn người chỉnh sửa/chỉ xem, rồi sao chép liên kết gửi riêng. Liên kết có hạn 7 ngày và dùng một lần. Chủ có thể đổi quyền, thu hồi hoặc hủy lời mời; cộng tác viên có thể rời chuyến đi. Người xem không sửa, gửi trao đổi hoặc xóa chuyến đi. Chủ/người chỉnh sửa có bình luận và đề xuất; đề xuất không tự thay hoạt động. Cơ chế phiên bản chặn hai người âm thầm ghi đè khi cùng lưu; dùng **Tải bản mới nhất** sau khi giữ lại nội dung cần thiết.
+- **Thời tiết:** Open-Meteo, tối đa 16 ngày từ hôm nay, tại điểm đầu tiên có dữ liệu của mỗi ngày. Ưu tiên tọa độ điểm đến; nếu dùng địa danh khu vực phải khớp tỉnh/thành và có nhãn tham khảo. Thiếu dữ liệu hoặc ngoài khoảng dự báo sẽ có thông báo riêng. Không tính tuyến đường trả phí.
+- **Ngoại tuyến:** Khi có mạng và đăng nhập, bấm **Lưu ngoại tuyến** trong chuyến đi, sau đó mở `/offline` để đọc. Chỉ lưu bản chụp lịch trình đã chọn vào IndexedDB, không cache API hay trang admin/chia sẻ/lời mời. Có nút cập nhật và xóa bản lưu. Nội dung ngoại tuyến có thể cũ, cần mạng để kiểm tra quyền và lấy bản mới. Bản trên thiết bị bị xóa khi đăng xuất/hết idle; nếu trình duyệt đã đóng, kiểm tra và dọn ở lần mở kế tiếp. Không dùng thiết bị chung để lưu nội dung riêng tư.
+- **Phản hồi:** Thành viên gửi và theo dõi phản hồi tại `/support`. Admin có hàng đợi lọc theo trạng thái, bộ đếm cần xử lý trên tổng quan, trả lời và lịch sử cập nhật. Trả lời hiển thị trong website; không tự sửa điểm đến và không tự gửi email.
+- **Tài khoản:** `/account` sửa tên, đổi mật khẩu và thu hồi phiên khác. Email không đổi trực tiếp vì cần xác minh. Quên mật khẩu dùng Brevo miễn phí; xem [cấu hình email](docs/EMAIL.md). Chưa có cấu hình thì dịch vụ email chưa kích hoạt.
+
+### Phiên đăng nhập khi không hoạt động
+
+Người dùng tự đăng xuất sau **5 phút**, quản trị viên sau **10 phút** không thao tác. Cảnh báo trước khoảng 30 giây; gõ phím, di chuột hoặc cuộn trang đang hiển thị sẽ ghi nhận hoạt động. Các lần admin tự cập nhật/poll không gia hạn phiên. Máy chủ kiểm tra độc lập, kể cả khi tắt JavaScript. Tab đang mở đồng bộ hoạt động/đăng xuất cùng phiên; tab ẩn hoặc thiết bị ngủ kiểm tra lại khi quay về. Dữ liệu chưa lưu của lịch trình được giữ tạm trong RAM của tab khi hết idle, chỉ khôi phục nếu đăng nhập lại đúng tài khoản và còn quyền truy cập. Tải lại/đóng tab sẽ mất bản nháp RAM. Đăng xuất chủ động sẽ bỏ bản nháp và xóa bản ngoại tuyến.
+
+Liên kết chia sẻ công khai vẫn chỉ xem lịch trình/dự toán, không công khai danh sách cộng tác, sổ chi thực tế hoặc thông tin tài khoản. Bản in riêng và admin hiển thị chi tiêu thực tế cho người có quyền.
