@@ -2,7 +2,7 @@
 
 **Hệ thống khám phá và lập kế hoạch du lịch thông minh** · Đồ án cuối kỳ EM3 – Advanced Web Design.
 
-TravelMate giúp sinh viên và người trẻ tìm điểm đến tại Việt Nam, lưu nơi yêu thích, sắp xếp lịch từng ngày và dự tính chi phí hoạt động. Giao diện chủ yếu bằng tiếng Việt, dùng tông Ocean & Tropical. Không sử dụng React, bundler, AI API hoặc dữ liệu giả lưu bằng localStorage.
+TravelMate giúp sinh viên và người trẻ tìm điểm đến tại Việt Nam, lưu nơi yêu thích, sắp xếp lịch từng ngày và dự tính chi phí cả chuyến đi. Giao diện chủ yếu bằng tiếng Việt, dùng tông Ocean & Tropical. Dùng HTML/CSS/JavaScript, Express và MongoDB; gợi ý lịch trình dựa trên quy tắc, không cần AI API.
 
 ## 1. Chức năng
 
@@ -13,7 +13,7 @@ TravelMate giúp sinh viên và người trẻ tìm điểm đến tại Việt 
 - **Đăng nhập/đăng ký**: dialog dùng chung trên bốn trang, email/password, phiên lưu trong MongoDB, menu người dùng, đăng xuất.
 - **Quản trị `/admin`**: dashboard hoạt động, quản lý người dùng và khóa/mở khóa, xem toàn bộ lịch trình cùng người tạo, ngày, ngân sách và chi tiết hoạt động; quản lý điểm đến/khôi phục. Có tìm kiếm, bộ lọc và phân trang. Admin đăng nhập chuyển thẳng tới bảng điều khiển; HTML được bảo vệ ngoài thư mục public. Xem [hướng dẫn admin](docs/ADMIN.md).
 
-Giá seed là **ước tính minh họa cho hoạt động mỗi người**, không phải giá vé niêm yết và không phải tổng chi phí cả chuyến đi. Chưa gồm khách sạn, di chuyển, ăn uống. `null` nghĩa là chưa có ước tính; `0` chỉ dùng khi hoạt động thực sự miễn phí. Ngân sách thiếu giá được báo chưa đầy đủ.
+Giá seed là **ước tính minh họa cho hoạt động mỗi người**, không phải giá vé niêm yết và không phải tổng chi phí cả chuyến đi. Bạn bổ sung khách sạn, di chuyển, ăn uống trong phần Các khoản chi bổ sung. `null` nghĩa là chưa có ước tính; `0` chỉ dùng khi hoạt động thực sự miễn phí. Ngân sách thiếu giá được báo chưa đầy đủ.
 
 ## 2. Công nghệ và kiến trúc
 
@@ -131,7 +131,8 @@ docs/                     Nguồn dữ liệu, kiểm thử, kịch bản trình
 | users | fullName, email, passwordHash, role, isActive, lastLoginAt, lockedAt, lockReason, lockedBy, sessionVersion, timestamps | Email unique; hash và sessionVersion không select mặc định; API admin dùng allowlist |
 | destinations | name, slug, province, region, category, description, imageUrl, coordinates, estimatedCostPerPersonVnd, duration, tags, isFeatured, isActive | Slug unique; tiền nguyên ≥ 0 hoặc null; tọa độ tùy chọn |
 | favorites | userId, destinationId, createdAt | Compound unique `(userId, destinationId)` |
-| itineraries | userId, title, startDate, endDate, travelers, budgetLimitVnd, notes, days, timestamps | API cá nhân kiểm tra chủ sở hữu; API admin xem toàn bộ sau kiểm tra role |
+| itineraries | userId, title, startDate, endDate, travelers, budgetLimitVnd, notes, expenses, days, sharedAt, shareTokenHash, timestamps | API cá nhân kiểm tra chủ sở hữu; API admin xem toàn bộ sau kiểm tra role |
+| activities | actorId, actorName, action, targetId, targetLabel, detail, createdAt | Chỉ admin đọc; TTL 90 ngày |
 | sessions | session, expires | Do connect-mongo quản lý, TTL tự dọn |
 
 ```text
@@ -151,7 +152,9 @@ Không lưu dư tổng tiền trong document. Khi đọc, backend tính:
 
 ```text
 Tổng hoạt động = Σ (customCost ?? destinationCost) × travelers
-Còn lại = budgetLimitVnd − tổng hoạt động
+Tổng khoản chi = Σ amountVnd × (scope == person ? travelers : 1)
+Tổng chuyến đi = tổng hoạt động + tổng khoản chi
+Còn lại = budgetLimitVnd − tổng chuyến đi
 ```
 
 Giá điểm đến cập nhật sẽ được phản ánh khi đọc lại lịch trình. Để chốt một ước tính cụ thể, nhập override cho item. Điểm đến bị ẩn vẫn tồn tại và được populate trong lịch sử, không thể thêm mới vào lịch trình khác.
@@ -267,3 +270,27 @@ Admin có layout riêng trong `views/admin.html`, CSS `public/css/admin.css`, Ja
 Dashboard lấy số liệu, biểu đồ 7 ngày, thành viên mới và lịch trình mới từ MongoDB. Người dùng có hồ sơ và khóa/mở khóa có lý do; toàn bộ lịch trình xem được cùng người tạo, ngày, hoạt động và ngân sách. Bộ lọc được lưu trong URL, có phân trang và nút Làm mới. Các màn chính không tràn ngang tại 375/768/1024/1440px; bảng cuộn trong khung trên màn hình hẹp.
 
 Xem [hướng dẫn admin và API](docs/ADMIN.md), [kết quả kiểm thử](docs/TESTING.md). Google Maps dạng nhúng giữ theo yêu cầu; [chi tiết tích hợp](docs/MAP_SOURCE.md).
+
+## 11. Tự deploy và các nâng cấp
+
+Xem [hướng dẫn triển khai Render + Atlas](docs/DEPLOYMENT.md). CI chạy syntax check và integration test MongoDB riêng. `render.yaml` dùng nhánh `main` và chỉ tự deploy sau khi CI đạt.
+
+- Ngân sách gồm hoạt động, lưu trú, di chuyển, ăn uống và phát sinh; khoản chi áp dụng cho cả chuyến hoặc mỗi người. Tối đa 100 khoản chi. Tổng và bảng phân loại được tính cùng một module ở client/server.
+- Điểm đến có địa chỉ, giờ mở cửa, lưu ý giá, URL nguồn và ngày kiểm tra. Không tự suy diễn dữ liệu thiếu. Chưa có nguồn thì hiển thị rõ cần đối chiếu. Admin chỉnh sửa ngay trong mục Điểm đến.
+- Admin có Nhật ký hoạt động và tùy chọn tự cập nhật mỗi 30 giây khi tab hiển thị, hoãn cập nhật bảng trong lúc thao tác. Đây là polling, không phải WebSocket.
+- Chủ lịch trình bật/đổi/thu hồi liên kết chỉ xem. Token ngẫu nhiên 256 bit, chỉ hash SHA-256 được lưu; link không lộ danh tính chủ tài khoản. Ghi chú và ngân sách được chia sẻ sau khi người dùng bật; tài khoản khóa hoặc lịch trình bị xóa làm link không mở được.
+- In / Lưu PDF dùng bản đã lưu, trang in tối ưu A4 và hộp thoại in của trình duyệt. Người nhận có thể giữ bản PDF ngay cả sau khi link bị thu hồi.
+- Gợi ý lịch trình là quy tắc trên dữ liệu điểm đến hiện có: cùng một tỉnh/thành, ưu tiên sở thích và giá đã biết, tối đa 3 điểm và khoảng 6 giờ tham quan/ngày, không lặp điểm. Giá chưa biết được cảnh báo, ngân sách bằng 0 không mang nghĩa vô hạn. Chưa tính tuyến đường, giờ mở cửa và thời gian di chuyển thực tế. Xem trước, xác nhận thay hoạt động cũ, kiểm tra rồi lưu; API gợi ý không tự sửa lịch trình.
+
+API bổ sung:
+
+| Method | Route | Nội dung |
+| --- | --- | --- |
+| GET | /healthz | 200 khi MongoDB đã kết nối; 503 khi chưa sẵn sàng |
+| GET | /api/admin/activity | Chỉ admin; group=user/itinerary/destination, page, limit, after cursor |
+| POST | /api/itineraries/suggestions | Đăng nhập; province, categories, startDate, endDate, travelers, budgetLimitVnd, expenses |
+| POST | /api/itineraries/:id/share | Chủ sở hữu; tạo token mới và vô hiệu link cũ |
+| DELETE | /api/itineraries/:id/share | Chủ sở hữu; thu hồi link |
+| GET | /api/shared-itineraries/:token | Dữ liệu chỉ xem qua token, không trả userId/email/hash |
+| GET | /share/:token | Trang xem chia sẻ, noindex, no-referrer, no-store |
+| GET | /trip-print/:id | Trang in yêu cầu đăng nhập, API kiểm tra chủ sở hữu |

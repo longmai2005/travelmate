@@ -11,12 +11,16 @@
     <link rel="icon" href="/images/logo.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/trip.css" />
     <link rel="stylesheet" href="/css/admin.css" />
     <script defer src="/vendor/lucide.js"></script>
     <script defer src="/js/api.js"></script>
+    <script defer src="/js/budget.js"></script>
     <script defer src="/js/common.js"></script>
+    <script defer src="/js/trip-view.js"></script>
     <script defer src="/js/auth.js"></script>
     <script defer src="/js/admin-people.js"></script>
+    <script defer src="/js/admin-activity.js"></script>
     <script defer src="/js/admin.js"></script>
   </head>
   <body data-page="admin">
@@ -54,6 +58,7 @@
           ><i data-lucide="archive"></i> Điểm đến đã ẩn
           <span data-admin-inactive>—</span></a
         >
+        <a href="#activity" data-admin-view="activity"><i data-lucide="history"></i> Nhật ký hoạt động</a>
       </nav>
       <div class="admin-sidebar-note">
         <span class="admin-note-icon"><i data-lucide="compass"></i></span
@@ -121,6 +126,7 @@
             </button>
           </div>
         </div>
+        <div class="admin-live-bar"><label><input type="checkbox" id="admin-auto-refresh" checked> Tự cập nhật mỗi 30 giây</label><span id="admin-live-status" role="status">Đang kết nối hoạt động...</span></div><button id="admin-new-activity" class="status-note admin-new-activity" hidden></button>
         <p
           id="admin-load-error"
           class="status-note error"
@@ -390,6 +396,12 @@
               </button>
             </div>
           </div>
+        </section>
+        <section id="admin-activity" aria-label="Nhật ký hoạt động" hidden>
+          <div class="admin-section-summary"><span><strong id="activity-total">—</strong> hoạt động phù hợp</span><span>Nhật ký tự lưu 90 ngày. Các bản ghi chỉ đọc.</span></div>
+          <form id="activity-filters" class="toolbar"><label>Nhóm hoạt động<select name="group"><option value="">Tất cả hoạt động</option><option value="user">Người dùng</option><option value="itinerary">Lịch trình</option><option value="destination">Điểm đến</option></select></label><button type="button" class="btn outline small" data-reset-admin="activity">Xóa bộ lọc</button></form>
+          <div id="activity-list" class="admin-audit-list"></div>
+          <div class="pagination"><button id="activity-prev" class="btn outline small">← Trang trước</button><span id="activity-page"></span><button id="activity-next" class="btn outline small">Trang sau →</button></div>
         </section>
         <footer class="admin-footer">
           <span>TravelMate Administration · EM3</span

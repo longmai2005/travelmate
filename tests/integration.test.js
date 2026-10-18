@@ -859,6 +859,80 @@ test(
           );
         },
       );
+      await t.test("Ngân sách đầy đủ lưu, tải lại và giữ khoản chi cho client cũ", async () => {
+        const original = (await request(a, `/api/itineraries/${trip._id}`)).data.itinerary;
+        const payload = { ...original, days: original.days.map((day) => ({ ...day, items: day.items.map((item) => ({ ...item, destinationId: item.destinationId._id })) })) };
+        delete payload.expenses;
+        const expenses = [{ label: "Khách sạn", category: "accommodation", amountVnd: 900000, scope: "trip" }, { label: "Ăn uống", category: "food", amountVnd: 150000, scope: "person" }];
+        try {
+          const result = await request(a, `/api/itineraries/${trip._id}`, "PUT", { ...payload, expenses });
+          assert.equal(result.status, 200);
+          assert.equal(result.data.itinerary.budget.total, original.budget.total + 900000 + original.travelers * 150000);
+          assert.equal(result.data.itinerary.budget.breakdown.accommodation, 900000);
+          assert.equal((await request(a, `/api/itineraries/${trip._id}`)).data.itinerary.expenses.length, 2);
+          await request(a, `/api/itineraries/${trip._id}`, "PUT", payload);
+          assert.equal((await request(a, `/api/itineraries/${trip._id}`)).data.itinerary.expenses.length, 2);
+          assert.equal((await request(b, `/api/itineraries/${trip._id}`, "PUT", { ...payload, expenses })).status, 404);
+        } finally {
+          await request(a, `/api/itineraries/${trip._id}`, "PUT", { ...payload, expenses: [] });
+        }
+      });
+      await t.test("Chia sẻ chỉ xem, không lộ tài khoản, đổi link và thu hồi có hiệu lực", async () => {
+        assert.equal((await request(b, `/api/itineraries/${trip._id}/share`, "POST")).status, 404);
+        const enabled = await request(a, `/api/itineraries/${trip._id}/share`, "POST");
+        assert.equal(enabled.status, 200);
+        const token = enabled.data.path.split("/").pop();
+        const hash = (await Itinerary.findById(trip._id).select("+shareTokenHash")).shareTokenHash;
+        assert.equal(hash, crypto.createHash("sha256").update(token).digest("hex"));
+        const result = await request(anon, `/api/shared-itineraries/${token}`);
+        assert.equal(result.status, 200);
+        assert.equal(result.data.itinerary.title, trip.title);
+        for (const key of ["userId", "email", "owner", "shareTokenHash", "sharedAt"])
+          assert.equal(result.data.itinerary[key], undefined);
+        assert.equal(result.headers.get("cache-control"), "no-store");
+        assert.equal((await request(anon, enabled.data.path)).headers.get("referrer-policy"), "no-referrer");
+        assert.equal((await request(a, `/trip-print/${trip._id}`)).status, 200);
+        assert.equal((await request(anon, `/trip-print/${trip._id}`)).status, 401);
+        await User.updateOne({ _id: trip.userId }, { isActive: false });
+        try { assert.equal((await request(anon, `/api/shared-itineraries/${token}`)).status, 404); }
+        finally { await User.updateOne({ _id: trip.userId }, { isActive: true }); }
+        const rotated = await request(a, `/api/itineraries/${trip._id}/share`, "POST");
+        const newToken = rotated.data.path.split("/").pop();
+        assert.notEqual(token, newToken);
+        assert.equal((await request(anon, `/api/shared-itineraries/${token}`)).status, 404);
+        assert.equal((await request(anon, `/api/shared-itineraries/${newToken}`)).status, 200);
+        assert.ok(!JSON.stringify((await request(a, `/api/itineraries/${trip._id}`)).data).includes(hash));
+        assert.equal((await request(a, `/api/itineraries/${trip._id}/share`, "DELETE")).status, 200);
+        assert.equal((await request(anon, `/api/shared-itineraries/${newToken}`)).status, 404);
+        assert.equal((await request(anon, "/api/shared-itineraries/invalid")).status, 404);
+      });
+      await t.test("Gợi ý là bản nháp, không sửa lịch trình đã lưu và yêu cầu đăng nhập", async () => {
+        const input = { province: destination.province, categories: [destination.category], startDate: body.startDate, endDate: body.endDate, travelers: 2, budgetLimitVnd: 1000000, expenses: [] };
+        const before = await Itinerary.countDocuments();
+        await request(anon, "/api/auth/csrf");
+        assert.equal((await request(anon, "/api/itineraries/suggestions", "POST", input)).status, 401);
+        const result = await request(a, "/api/itineraries/suggestions", "POST", input);
+        assert.equal(result.status, 200);
+        assert.ok(result.data.days.flatMap((d) => d.items).every((i) => i.destinationId.province === destination.province));
+        assert.equal(await Itinerary.countDocuments(), before);
+      });
+      await t.test("Nhật ký chỉ admin đọc, cursor không lặp và có lý do tạm khóa", async () => {
+        assert.equal((await request(anon, "/api/admin/activity")).status, 401);
+        assert.equal((await request(a, "/api/admin/activity")).status, 403);
+        const feed = (await request(admin, "/api/admin/activity?limit=100")).data;
+        assert.ok(feed.items.some((event) => event.action === "itinerary.created"));
+        assert.ok(feed.items.some((event) => event.action === "user.locked" && event.detail === "Kiểm thử trạng thái"));
+        assert.ok(!JSON.stringify(feed).includes("passwordHash"));
+        assert.equal((await request(admin, `/api/admin/activity?after=${feed.latestCursor}`)).data.total, 0);
+        await request(a, `/api/itineraries/${trip._id}/share`, "POST");
+        const next = (await request(admin, `/api/admin/activity?after=${feed.latestCursor}`)).data;
+        assert.equal(next.total, 1);
+        assert.equal(next.items[0].action, "itinerary.shared");
+        await request(a, `/api/itineraries/${trip._id}/share`, "DELETE");
+        assert.equal((await request(admin, "/api/admin/activity?group=bad")).status, 400);
+        assert.equal((await request(admin, "/api/admin/activity?after=invalid")).status, 400);
+        assert.equal((await request(anon, "/healthz")).status, 200);
+      });
       await t.test("CSRF sai không thể xóa và logout hủy phiên", async () => {
         assert.equal(
           (
@@ -937,6 +1011,7 @@ test(
         await mongoose.disconnect();
         try {
           assert.equal((await request(b, "/api/destinations")).status, 503);
+          assert.equal((await request(anon, "/healthz")).status, 503);
         } finally {
           await connect(`${uri}/${databaseName}`);
         }

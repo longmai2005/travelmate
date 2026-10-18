@@ -102,7 +102,7 @@ window.AdminPeople = {
   },
   itineraries(result) {
     document.querySelector("#itineraries-summary").innerHTML =
-      `<span><strong>${result.total}</strong> lịch trình phù hợp</span><span>Xem người tạo, lịch từng ngày và chi phí hoạt động.</span>`;
+      `<span><strong>${result.total}</strong> lịch trình phù hợp</span><span>Xem người tạo, lịch từng ngày và chi phí chuyến đi.</span>`;
     document.querySelector("#itineraries-table").innerHTML = result.items.length
       ? result.items
           .map(
@@ -141,7 +141,7 @@ window.AdminPeople = {
   },
   tripDetail(t) {
     const e = TM.escape;
-    return `<div class="modal-body"><div class="modal-heading"><div><div class="eyebrow">LỊCH TRÌNH CỦA NGƯỜI DÙNG</div><h2>${e(t.title)}</h2><p>${t.owner ? `Người tạo: ${e(t.owner.fullName)} · ${e(t.owner.email)}` : "Tài khoản người tạo không còn tồn tại"}</p></div><button class="icon-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><div class="admin-detail-trip-top">${this.status(t)}${t.owner ? `<button class="btn ghost small" data-view-user="${t.owner._id}">Xem hồ sơ người tạo ↗</button>` : ""}</div><div class="admin-detail-facts"><div><small>Thời gian</small><strong>${TM.date(t.startDate)} – ${TM.date(t.endDate)}</strong></div><div><small>Quy mô</small><strong>${t.travelers} người · ${t.daysCount} ngày</strong></div><div><small>Ngân sách hoạt động</small><strong>${TM.money(t.budgetLimitVnd)}</strong></div><div><small>Ước tính hiện có</small><strong>${TM.money(t.budget.total)}</strong></div><div><small>${t.budget.remaining < 0 ? "Vượt ngân sách" : "Ngân sách còn lại"}</small><strong class="${t.budget.remaining < 0 ? "admin-budget-warning" : ""}">${TM.money(Math.abs(t.budget.remaining))}</strong></div><div><small>Cập nhật gần nhất</small><strong>${this.date(t.updatedAt, true)}</strong></div></div>${t.budget.missing ? `<p class="status-note warning">Còn ${t.budget.missing} hoạt động chưa có giá. Tổng hiện có và ngân sách còn lại chưa phản ánh đầy đủ chi phí.</p>` : ""}${t.notes ? `<section class="admin-trip-note"><h3>Ghi chú chuyến đi</h3><p>${e(t.notes)}</p></section>` : ""}<div class="admin-itinerary-days">${t.days
+    return `<div class="modal-body"><div class="modal-heading"><div><div class="eyebrow">LỊCH TRÌNH CỦA NGƯỜI DÙNG</div><h2>${e(t.title)}</h2><p>${t.owner ? `Người tạo: ${e(t.owner.fullName)} · ${e(t.owner.email)}` : "Tài khoản người tạo không còn tồn tại"}</p></div><button class="icon-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><div class="admin-detail-trip-top">${this.status(t)}${t.owner ? `<button class="btn ghost small" data-view-user="${t.owner._id}">Xem hồ sơ người tạo ↗</button>` : ""}</div><div class="admin-detail-facts"><div><small>Thời gian</small><strong>${TM.date(t.startDate)} – ${TM.date(t.endDate)}</strong></div><div><small>Quy mô</small><strong>${t.travelers} người · ${t.daysCount} ngày</strong></div><div><small>Ngân sách chuyến đi</small><strong>${TM.money(t.budgetLimitVnd)}</strong></div><div><small>Ước tính hiện có</small><strong>${TM.money(t.budget.total)}</strong></div><div><small>${t.budget.remaining < 0 ? "Vượt ngân sách" : "Ngân sách còn lại"}</small><strong class="${t.budget.remaining < 0 ? "admin-budget-warning" : ""}">${TM.money(Math.abs(t.budget.remaining))}</strong></div><div><small>Cập nhật gần nhất</small><strong>${this.date(t.updatedAt, true)}</strong></div></div>${t.budget.missing ? `<p class="status-note warning">Còn ${t.budget.missing} hoạt động chưa có giá. Tổng hiện có và ngân sách còn lại chưa phản ánh đầy đủ chi phí.</p>` : ""}${t.notes ? `<section class="admin-trip-note"><h3>Ghi chú chuyến đi</h3><p>${e(t.notes)}</p></section>` : ""}<div class="admin-itinerary-days">${t.days
       .map(
         (day, i) =>
           `<section class="admin-itinerary-day"><h3><span>${i + 1}</span>Ngày ${i + 1} · ${TM.date(day.date)}</h3>${day.notes ? `<p class="admin-day-note">${e(day.notes)}</p>` : ""}${
@@ -162,7 +162,7 @@ window.AdminPeople = {
       )
       .join(
         "",
-      )}</div><p class="field-help">Chi phí là ước tính cho hoạt động, chưa gồm lưu trú, di chuyển và ăn uống. Trạng thái chỉ dựa trên ngày đi, không xác nhận chuyến đi đã thực hiện.</p></div>`;
+      )}</div>${TripView.breakdown(t.budget)}${TripView.expenses(t)}<p class="field-help">Chi phí dựa trên các hoạt động và khoản chi đã nhập, cần đối chiếu trước khi đặt dịch vụ. Trạng thái chỉ dựa trên ngày đi, không xác nhận chuyến đi đã thực hiện.</p></div>`;
   },
   changeStatus(user) {
     if (

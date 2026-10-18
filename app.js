@@ -16,6 +16,11 @@ function createApp() {
     throw new Error("SESSION_SECRET cần ít nhất 32 ký tự ngẫu nhiên.");
   const app = express();
   app.disable("x-powered-by");
+  app.get("/healthz", (req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    const healthy = mongoose.connection.readyState === 1;
+    res.status(healthy ? 200 : 503).json({ status: healthy ? "ok" : "unavailable" });
+  });
   if (process.env.NODE_ENV === "production") app.set("trust proxy", 1);
   app.use((req, res, next) => {
     res.setHeader("X-Content-Type-Options", "nosniff");
@@ -86,6 +91,7 @@ function createApp() {
   app.use("/api/destinations", require("./routes/destinationRoutes"));
   app.use("/api/favorites", require("./routes/favoriteRoutes"));
   app.use("/api/itineraries", require("./routes/itineraryRoutes"));
+  app.use("/api/shared-itineraries", require("./routes/sharedItineraryRoutes"));
   app.use("/api/admin", require("./routes/adminRoutes"));
   app.use("/api", (req, res) =>
     res.status(404).json({ message: "API không tồn tại." }),
@@ -96,6 +102,16 @@ function createApp() {
   app.get("/admin", requireAuth, requireAdmin, (req, res) => {
     res.setHeader("Cache-Control", "no-store");
     res.sendFile(path.join(__dirname, "views/admin.html"));
+  });
+  app.get("/share/:token", (req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    res.setHeader("Referrer-Policy", "no-referrer");
+    res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    res.sendFile(path.join(__dirname, "views/trip.html"));
+  });
+  app.get("/trip-print/:id", requireAuth, (req, res) => {
+    res.setHeader("Cache-Control", "no-store");
+    res.sendFile(path.join(__dirname, "views/trip.html"));
   });
   ["explore", "planner", "favorites"].forEach((page) =>
     app.get(`/${page}`, (req, res) =>

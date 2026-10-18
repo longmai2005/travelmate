@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const Itinerary = require("../models/Itinerary");
 const Destination = require("../models/Destination");
+const crypto = require("node:crypto");
+const recordActivity = require("../utils/activity");
 const { requireAuth } = require("../middleware/authMiddleware");
 const {
   validateItinerary,
@@ -10,7 +12,11 @@ const {
 } = require("../utils/validation");
 router.use(requireAuth);
 const populated = (query) => query.populate("days.items.destinationId");
-const serialize = (trip) => ({ ...trip.toObject(), budget: budget(trip) });
+const serialize = (trip) => {
+  const data = trip.toObject();
+  delete data.shareTokenHash;
+  return { ...data, budget: budget(trip) };
+};
 async function owned(req) {
   const trip = await populated(
     Itinerary.findOne({ _id: objectId(req.params.id), userId: req.user._id }),
@@ -40,11 +46,13 @@ router.get("/", async (req, res) => {
   );
   res.json({ items: trips.map(serialize) });
 });
+router.post("/suggestions", require("./suggestionHandler"));
 router.post("/", async (req, res) => {
   const data = validateItinerary(req.body);
   await validDestinations(data);
   const trip = await Itinerary.create({ ...data, userId: req.user._id });
   await trip.populate("days.items.destinationId");
+  await recordActivity(req.user, "itinerary.created", trip);
   res.status(201).json({ itinerary: serialize(trip) });
 });
 router.get("/:id", async (req, res) =>
@@ -52,9 +60,9 @@ router.get("/:id", async (req, res) =>
 );
 router.put("/:id", async (req, res) => {
   const trip = await owned(req);
-  const data = validateItinerary(req.body);
+  const data = validateItinerary({ ...req.body, expenses: req.body.expenses ?? trip.expenses });
   const removedWithItems = trip.days.some(
-    (day) => day.items.length && !data.days.some((d) => d.date === day.date),
+    (day) => (day.items.length || day.notes) && !data.days.some((d) => d.date === day.date),
   );
   if (removedWithItems && req.body.confirmDateRemoval !== true)
     fail("Đổi ngày sẽ xóa hoạt động. Hãy xác nhận trước khi lưu.", 409);
@@ -62,11 +70,28 @@ router.put("/:id", async (req, res) => {
   Object.assign(trip, data);
   await trip.save();
   await trip.populate("days.items.destinationId");
+  await recordActivity(req.user, "itinerary.updated", trip);
   res.json({ itinerary: serialize(trip) });
 });
 router.delete("/:id", async (req, res) => {
   const trip = await owned(req);
   await trip.deleteOne();
+  await recordActivity(req.user, "itinerary.deleted", trip);
   res.json({ message: "Đã xóa lịch trình." });
+});
+router.post("/:id/share", async (req, res) => {
+  const trip = await owned(req);
+  const token = crypto.randomBytes(32).toString("base64url");
+  trip.shareTokenHash = crypto.createHash("sha256").update(token).digest("hex");
+  trip.sharedAt = new Date();
+  await trip.save();
+  await recordActivity(req.user, "itinerary.shared", trip);
+  res.json({ path: `/share/${token}`, sharedAt: trip.sharedAt });
+});
+router.delete("/:id/share", async (req, res) => {
+  const trip = await owned(req);
+  await Itinerary.updateOne({ _id: trip._id }, { $unset: { shareTokenHash: 1 }, $set: { sharedAt: null } });
+  await recordActivity(req.user, "itinerary.unshared", trip);
+  res.json({ message: "Đã thu hồi liên kết chia sẻ." });
 });
 module.exports = router;

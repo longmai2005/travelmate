@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>Lịch trình · TravelMate</title>
+  <link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/trip.css">
+  <script defer src="/js/common.js"></script>
+  <script defer src="/js/trip-view.js"></script>
+  <script defer src="/js/trip-page.js"></script>
+</head>
+<body data-page="trip-view">
+  <header class="trip-view-toolbar"><a class="brand" href="/"><img src="/images/logo.svg" alt="">TravelMate</a><div><a class="btn outline small" href="/planner">Lịch trình của tôi</a><button class="btn small" id="print-trip" disabled>In / Lưu PDF</button></div></header>
+  <main id="trip-document" class="trip-document" aria-live="polite"><p class="loading">Đang tải lịch trình...</p></main>
+  <div id="toast-stack" class="toast-stack" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -79,7 +79,7 @@ function serializeTrip(trip, detail = false, today = todayInVietnam()) {
     createdAt: d.createdAt,
     updatedAt: d.updatedAt,
   };
-  return detail ? { ...summary, notes: d.notes, days: d.days } : summary;
+  return detail ? { ...summary, notes: d.notes, expenses: d.expenses || [], days: d.days } : summary;
 }
 module.exports = {
   userFields,

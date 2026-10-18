@@ -99,6 +99,7 @@ test("Ngân sách tính đúng số người, override bằng 0 và giá còn th
   assert.deepEqual(budget(trip), {
     total: 400000,
     missing: 1,
+    breakdown: { activities: 400000, accommodation: 0, transport: 0, food: 0, other: 0 },
     remaining: -300000,
     percent: 400,
   });

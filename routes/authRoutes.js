@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 const { rateLimit } = require("express-rate-limit");
 const User = require("../models/User");
+const recordActivity = require("../utils/activity");
 const { fail, text } = require("../utils/validation");
 const { requireAuth } = require("../middleware/authMiddleware");
 const limiter = rateLimit({
@@ -71,6 +72,7 @@ router.post("/register", limiter, async (req, res) => {
     passwordHash,
     role: "user",
   });
+  await recordActivity(user, "user.registered", user);
   res.status(201).json(await establish(req, user));
 });
 router.post("/login", limiter, async (req, res) => {

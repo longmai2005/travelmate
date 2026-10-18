@@ -4,7 +4,7 @@ const createApp = require("./app");
 async function start() {
   await connectDatabase();
   await Promise.all(
-    ["User", "Destination", "Favorite", "Itinerary"].map((name) =>
+    ["User", "Destination", "Favorite", "Itinerary", "Activity"].map((name) =>
       require(`./models/${name}`).init(),
     ),
   );

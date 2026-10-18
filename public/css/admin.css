@@ -1660,3 +1660,14 @@ body[data-page="admin"] {
     font-size: 22px;
   }
 }
+/* Activity feed and refresh controls */
+.admin-live-bar { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; margin: -8px 0 24px; color: var(--muted); font-size: 12px; }
+.admin-live-bar label { display: flex; align-items: center; gap: 8px; }
+.admin-new-activity { display: block; width: 100%; text-align: left; border: 1px solid var(--line); cursor: pointer; }
+.admin-audit-list { border: 1px solid var(--line); border-radius: 16px; background: white; padding: 0 24px; margin-bottom: 24px; }
+.admin-audit-row { display: grid; grid-template-columns: 42px minmax(0,1fr) auto; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.admin-audit-row:last-child { border-bottom: 0; }
+.admin-audit-row h3 { font-size: 16px; margin: 8px 0 4px; overflow-wrap: anywhere; }
+.admin-audit-row p, .admin-audit-row time { color: var(--muted); font-size: 12px; margin: 0; }
+.admin-audit-detail { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media(max-width: 600px) { .admin-audit-list { padding: 0 16px; } .admin-audit-row { grid-template-columns: 32px minmax(0,1fr); gap: 12px; } .admin-audit-row time { grid-column: 2; } }

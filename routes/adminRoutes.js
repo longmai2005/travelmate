@@ -4,15 +4,17 @@ const input = require("../utils/destinationInput");
 const { requireAuth, requireAdmin } = require("../middleware/authMiddleware");
 const { objectId, fail } = require("../utils/validation");
 const { listing } = require("./destinationRoutes");
+const recordActivity = require("../utils/activity");
 router.use(requireAuth, requireAdmin);
 router.get("/stats", require("../utils/adminOverview"));
 router.use(require("./adminPeopleRoutes"));
+router.use(require("./activityRoutes"));
 router.get("/destinations", (req, res) => listing(req, res, true));
-router.post("/destinations", async (req, res) =>
-  res
-    .status(201)
-    .json({ destination: await Destination.create(input(req.body)) }),
-);
+router.post("/destinations", async (req, res) => {
+  const destination = await Destination.create(input(req.body));
+  await recordActivity(req.user, "destination.created", destination);
+  res.status(201).json({ destination });
+});
 router.put("/destinations/:id", async (req, res) => {
   const destination = await Destination.findByIdAndUpdate(
     objectId(req.params.id),
@@ -20,6 +22,7 @@ router.put("/destinations/:id", async (req, res) => {
     { returnDocument: "after", runValidators: true },
   );
   if (!destination) fail("Không tìm thấy địa điểm.", 404);
+  await recordActivity(req.user, "destination.updated", destination);
   res.json({ destination });
 });
 async function status(req, res, active) {
@@ -29,6 +32,7 @@ async function status(req, res, active) {
     { returnDocument: "after" },
   );
   if (!destination) fail("Không tìm thấy địa điểm.", 404);
+  await recordActivity(req.user, active ? "destination.restored" : "destination.hidden", destination);
   res.json({ destination });
 }
 router.delete("/destinations/:id", (req, res) => status(req, res, false));

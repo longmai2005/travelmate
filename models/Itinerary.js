@@ -53,8 +53,18 @@ const schema = new mongoose.Schema(
       validate: Number.isSafeInteger,
     },
     notes: { type: String, maxlength: 2000, default: "" },
+    expenses: [{
+      label: { type: String, required: true, maxlength: 120 },
+      category: { type: String, enum: ["accommodation", "transport", "food", "other"], required: true },
+      amountVnd: { type: Number, min: 0, max: 1e9, required: true, validate: Number.isSafeInteger },
+      scope: { type: String, enum: ["trip", "person"], default: "trip" },
+      _id: false,
+    }],
+    shareTokenHash: { type: String, select: false },
+    sharedAt: { type: Date, default: null },
     days: [day],
   },
   { timestamps: true },
 );
+schema.index({ shareTokenHash: 1 }, { unique: true, sparse: true });
 module.exports = mongoose.model("Itinerary", schema);

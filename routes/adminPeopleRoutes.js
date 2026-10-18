@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../models/User");
 const Itinerary = require("../models/Itinerary");
 const Favorite = require("../models/Favorite");
+const recordActivity = require("../utils/activity");
 const { fail, objectId, text } = require("../utils/validation");
 const {
   userFields,
@@ -109,6 +110,7 @@ router.patch("/users/:id/status", async (req, res) => {
     { returnDocument: "after", runValidators: true },
   ).select(userFields);
   if (!user) fail("Tài khoản đã thay đổi. Hãy tải lại dữ liệu.", 409);
+  await recordActivity(req.user, req.body.isActive ? "user.unlocked" : "user.locked", user, reason);
   res.json({ user: safeUser(user) });
 });
 router.get("/itineraries", async (req, res) => {

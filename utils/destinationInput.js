@@ -54,6 +54,20 @@ module.exports = (body) => {
     typeof body.isActive !== "boolean"
   )
     fail("Trạng thái không hợp lệ.");
+  const sourceUrl = text(body.sourceUrl ?? "", "Nguồn thông tin", 2000, false);
+  if (sourceUrl) {
+    let url;
+    try { url = new URL(sourceUrl); } catch { fail("URL nguồn thông tin không hợp lệ."); }
+    if (!['https:', 'http:'].includes(url.protocol) || url.username || url.password)
+      fail("Nguồn thông tin phải là URL http/https công khai.");
+  }
+  const verifiedOn = text(body.verifiedOn ?? "", "Ngày kiểm tra", 10, false);
+  if (verifiedOn) {
+    const { dateFilter, todayInVietnam } = require("./adminData");
+    dateFilter(verifiedOn, "Ngày kiểm tra");
+    if (verifiedOn > todayInVietnam()) fail("Ngày kiểm tra không được ở tương lai.");
+    if (!sourceUrl) fail("Cần có nguồn thông tin khi ghi ngày kiểm tra.");
+  }
   return {
     name,
     slug: slugify(name),
@@ -63,6 +77,11 @@ module.exports = (body) => {
     imageUrl,
     latitude,
     longitude,
+    address: text(body.address ?? "", "Địa chỉ", 300, false),
+    openingHours: text(body.openingHours ?? "", "Giờ mở cửa", 300, false),
+    priceNote: text(body.priceNote ?? "", "Lưu ý giá", 500, false),
+    sourceUrl,
+    verifiedOn,
     shortDescription: text(body.shortDescription, "Mô tả ngắn", 300),
     description: text(body.description, "Mô tả chi tiết", 5000),
     estimatedCostPerPersonVnd:

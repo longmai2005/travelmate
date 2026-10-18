@@ -92,32 +92,26 @@ function validateItinerary(body) {
     travelers,
     budgetLimitVnd,
     notes: text(body.notes ?? "", "Ghi chú", 2000, false),
+    expenses: validateExpenses(body.expenses ?? []),
     days,
   };
 }
-function budget(trip) {
-  let total = 0,
-    missing = 0;
-  trip.days.forEach((day) =>
-    day.items.forEach((item) => {
-      const cost =
-        item.customCostPerPersonVnd ??
-        item.destinationId?.estimatedCostPerPersonVnd;
-      if (cost == null) missing++;
-      else total += cost * trip.travelers;
-    }),
-  );
-  return {
-    total,
-    missing,
-    remaining: trip.budgetLimitVnd - total,
-    percent: trip.budgetLimitVnd
-      ? Math.round((total / trip.budgetLimitVnd) * 100)
-      : total
-        ? 100
-        : 0,
-  };
+function validateExpenses(expenses) {
+  if (!Array.isArray(expenses) || expenses.length > 100)
+    fail("Chỉ được nhập tối đa 100 khoản chi.");
+  return expenses.map((expense) => {
+    if (!expense || typeof expense !== "object" || Array.isArray(expense)) fail("Khoản chi không hợp lệ.");
+    if (!["accommodation", "transport", "food", "other"].includes(expense.category)) fail("Loại khoản chi không hợp lệ.");
+    if (!["trip", "person"].includes(expense.scope)) fail("Cách tính khoản chi không hợp lệ.");
+    return {
+      label: text(expense.label, "Tên khoản chi", 120),
+      category: expense.category,
+      amountVnd: integer(expense.amountVnd, "Khoản chi", 0, 1e9),
+      scope: expense.scope,
+    };
+  });
 }
+const budget = require("../public/js/budget");
 module.exports = {
   fail,
   text,
@@ -126,4 +120,5 @@ module.exports = {
   dates,
   validateItinerary,
   budget,
+  validateExpenses,
 };

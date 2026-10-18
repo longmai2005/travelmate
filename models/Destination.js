@@ -24,6 +24,11 @@ const schema = new mongoose.Schema(
     imageUrl: { type: String, required: true },
     latitude: { type: Number, min: -90, max: 90, default: null },
     longitude: { type: Number, min: -180, max: 180, default: null },
+    address: { type: String, maxlength: 300, default: "" },
+    openingHours: { type: String, maxlength: 300, default: "" },
+    sourceUrl: { type: String, maxlength: 2000, default: "" },
+    verifiedOn: { type: String, default: "" },
+    priceNote: { type: String, maxlength: 500, default: "" },
     estimatedCostPerPersonVnd: {
       type: Number,
       min: 0,

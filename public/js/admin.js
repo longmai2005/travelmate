@@ -3,6 +3,7 @@ adminForm.elements.category.innerHTML = TM.categoryOptions();
 const peopleForms = {
   users: document.querySelector("#users-filters"),
   itineraries: document.querySelector("#itineraries-filters"),
+  activity: document.querySelector("#activity-filters"),
 };
 let adminItems = [],
   adminPage = 1,
@@ -25,13 +26,14 @@ const views = {
   itineraries: [
     "Lịch trình",
     "Mọi hành trình, một nơi quản lý",
-    "Tra cứu tất cả lịch trình đã lưu, người tạo, lịch từng ngày và ngân sách hoạt động.",
+    "Tra cứu tất cả lịch trình đã lưu, người tạo, lịch từng ngày và ngân sách chuyến đi.",
   ],
   destinations: [
     "Điểm đến",
     "Quản lý điểm đến",
     "Tạo, cập nhật và sắp xếp kho điểm đến cho người khám phá.",
   ],
+  activity: ["Nhật ký hoạt động", "Mọi thay đổi đều có dấu vết", "Theo dõi đăng ký, cập nhật lịch trình và thao tác quản trị trong 90 ngày gần nhất."],
   hidden: [
     "Điểm đến đã ẩn",
     "Điểm đến đã tạm ẩn",
@@ -103,7 +105,7 @@ function renderView() {
     if (selected) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   });
-  ["overview", "users", "itineraries", "destinations"].forEach((view) => {
+  ["overview", "users", "itineraries", "destinations", "activity"].forEach((view) => {
     document.querySelector(`#admin-${view}`).hidden =
       view === "destinations"
         ? !["destinations", "hidden"].includes(currentView)
@@ -159,7 +161,7 @@ function renderDestinations(result) {
     ? result.items
         .map(
           (d) =>
-            `<tr><td><div class="table-destination"><img src="${TM.escape(d.imageUrl)}" alt=""><span><strong>${TM.escape(d.name)}</strong><small>${d.isFeatured ? "✦ Điểm đến nổi bật" : ""}</small></span></div></td><td>${TM.escape(d.province)}</td><td>${TM.categories[d.category]}</td><td>${TM.money(d.estimatedCostPerPersonVnd)}</td><td><span class="badge ${d.isActive ? "" : "gray"}">${d.isActive ? "Hoạt động" : "Đã ẩn"}</span></td><td><div class="table-actions"><button class="btn outline small" data-admin-edit="${d._id}"><i data-lucide="pencil"></i> Sửa</button><button class="btn ${d.isActive ? "danger" : "light"} small" data-admin-status="${d._id}">${d.isActive ? "Ẩn" : "Khôi phục"}</button></div></td></tr>`,
+            `<tr><td><div class="table-destination"><img src="${TM.escape(d.imageUrl)}" alt=""><span><strong>${TM.escape(d.name)}</strong><small>${d.isFeatured ? "✦ Điểm đến nổi bật · " : ""}${d.verifiedOn ? `Kiểm tra ${TM.date(d.verifiedOn)}` : "Chưa đối chiếu nguồn"}</small></span></div></td><td>${TM.escape(d.province)}</td><td>${TM.categories[d.category]}</td><td>${TM.money(d.estimatedCostPerPersonVnd)}</td><td><span class="badge ${d.isActive ? "" : "gray"}">${d.isActive ? "Hoạt động" : "Đã ẩn"}</span></td><td><div class="table-actions"><button class="btn outline small" data-admin-edit="${d._id}"><i data-lucide="pencil"></i> Sửa</button><button class="btn ${d.isActive ? "danger" : "light"} small" data-admin-status="${d._id}">${d.isActive ? "Ẩn" : "Khôi phục"}</button></div></td></tr>`,
         )
         .join("")
     : '<tr><td colspan="6" class="admin-empty">Chưa có điểm đến phù hợp với bộ lọc.</td></tr>';
@@ -187,7 +189,7 @@ async function loadAdmin(refreshStats = false) {
       params.set("userId", activeOwner);
     params.set("page", adminPage);
     params.set("limit", "10");
-    const endpoint = ["users", "itineraries"].includes(view)
+    const endpoint = ["users", "itineraries", "activity"].includes(view)
       ? view
       : "destinations";
     const [stats, result, owner] = await Promise.all([
@@ -215,7 +217,8 @@ async function loadAdmin(refreshStats = false) {
         syncAdminHash();
         return loadAdmin();
       }
-      if (view === "users") AdminPeople.users(result, stats);
+      if (view === "activity") AdminActivity.render(result);
+      else if (view === "users") AdminPeople.users(result, stats);
       else if (view === "itineraries") {
         AdminPeople.itineraries(result);
         if (owner) {
@@ -229,6 +232,7 @@ async function loadAdmin(refreshStats = false) {
     document.querySelector("#admin-last-updated").textContent =
       `Cập nhật lúc ${new Intl.DateTimeFormat("vi-VN", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Ho_Chi_Minh" }).format(new Date())}`;
     TM.icons();
+    return true;
   } catch (error) {
     if (request !== adminRequest) return;
     if ([401, 403].includes(error.status)) return location.assign("/");
@@ -237,6 +241,7 @@ async function loadAdmin(refreshStats = false) {
     message.hidden = false;
     document.querySelector("#admin-last-updated").textContent =
       "Chưa cập nhật được dữ liệu";
+    return false;
   } finally {
     if (request === adminRequest) {
       document.querySelector("#admin-refresh").disabled = false;
@@ -270,7 +275,7 @@ function openDestinationForm(destination) {
       .map(([key, label]) => `<option value="${key}">${label}</option>`)
       .join(
         "",
-      )}</select></label><label class="form-field">Ước tính / người (VND)<input name="estimatedCostPerPersonVnd" type="number" min="0" step="1" value="${d.estimatedCostPerPersonVnd ?? ""}" placeholder="Để trống nếu chưa rõ"></label><label class="form-field full">Mô tả ngắn<textarea name="shortDescription" required maxlength="300">${e(d.shortDescription)}</textarea></label><label class="form-field full">Mô tả chi tiết<textarea name="description" required maxlength="5000">${e(d.description)}</textarea></label><label class="form-field full">URL ảnh<input name="imageUrl" required value="${e(d.imageUrl)}" placeholder="https://... hoặc /images/..."></label><label class="form-field">Thời lượng gợi ý (giờ)<input name="recommendedDurationHours" type="number" min="0.25" max="168" step="0.25" required value="${d.recommendedDurationHours}"></label><label class="form-field">Tags (phân cách bằng dấu phẩy)<input name="tags" value="${e(d.tags.join(", "))}"></label><label class="form-field">Vĩ độ<input name="latitude" type="number" min="-90" max="90" step="any" value="${d.latitude ?? ""}"></label><label class="form-field">Kinh độ<input name="longitude" type="number" min="-180" max="180" step="any" value="${d.longitude ?? ""}"></label><label class="form-field"><span><input name="isFeatured" type="checkbox" ${d.isFeatured ? "checked" : ""}> Địa điểm nổi bật</span></label><label class="form-field"><span><input name="isActive" type="checkbox" ${d.isActive ? "checked" : ""}> Đang hoạt động</span></label></div><p class="field-help">Chỉ nhập tọa độ đã xác minh. Không có dữ liệu thì để trống cả hai trường.</p><div class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="btn outline" data-close>Hủy</button><button type="submit" class="btn">Lưu địa điểm</button></div></form></div>`,
+      )}</select></label><label class="form-field">Ước tính / người (VND)<input name="estimatedCostPerPersonVnd" type="number" min="0" step="1" value="${d.estimatedCostPerPersonVnd ?? ""}" placeholder="Để trống nếu chưa rõ"></label><label class="form-field full">Mô tả ngắn<textarea name="shortDescription" required maxlength="300">${e(d.shortDescription)}</textarea></label><label class="form-field full">Mô tả chi tiết<textarea name="description" required maxlength="5000">${e(d.description)}</textarea></label><label class="form-field full">URL ảnh<input name="imageUrl" required value="${e(d.imageUrl)}" placeholder="https://... hoặc /images/..."></label><label class="form-field">Thời lượng gợi ý (giờ)<input name="recommendedDurationHours" type="number" min="0.25" max="168" step="0.25" required value="${d.recommendedDurationHours}"></label><label class="form-field">Tags (phân cách bằng dấu phẩy)<input name="tags" value="${e(d.tags.join(", "))}"></label><label class="form-field">Vĩ độ<input name="latitude" type="number" min="-90" max="90" step="any" value="${d.latitude ?? ""}"></label><label class="form-field">Kinh độ<input name="longitude" type="number" min="-180" max="180" step="any" value="${d.longitude ?? ""}"></label><label class="form-field full">Địa chỉ<input name="address" maxlength="300" value="${e(d.address || "")}" placeholder="Địa chỉ hoặc hướng dẫn tìm vị trí"></label><label class="form-field full">Giờ mở cửa<input name="openingHours" maxlength="300" value="${e(d.openingHours || "")}" placeholder="Để trống nếu chưa kiểm tra"></label><label class="form-field full">Lưu ý giá<textarea name="priceNote" maxlength="500" placeholder="Đối tượng áp dụng, dịch vụ bao gồm, thời điểm giá...">${e(d.priceNote || "")}</textarea></label><label class="form-field full">Nguồn thông tin<input name="sourceUrl" type="url" maxlength="2000" value="${e(d.sourceUrl || "")}" placeholder="https://... ưu tiên nguồn chính thức"></label><label class="form-field">Ngày đã kiểm tra<input name="verifiedOn" type="date" value="${e(d.verifiedOn || "")}"></label><label class="form-field"><span><input name="isFeatured" type="checkbox" ${d.isFeatured ? "checked" : ""}> Địa điểm nổi bật</span></label><label class="form-field"><span><input name="isActive" type="checkbox" ${d.isActive ? "checked" : ""}> Đang hoạt động</span></label></div><p class="field-help">Chỉ nhập tọa độ đã xác minh. Không có dữ liệu thì để trống cả hai trường.</p><div class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="btn outline" data-close>Hủy</button><button type="submit" class="btn">Lưu địa điểm</button></div></form></div>`,
     "modal-wide",
     "Quản lý địa điểm",
   );
@@ -433,7 +438,7 @@ Object.entries(peopleForms).forEach(([view, form]) => {
     event.preventDefault();
     refresh();
   });
-  form.elements.q.addEventListener("input", TM.debounce(refresh));
+  form.elements.q?.addEventListener("input", TM.debounce(refresh));
   form.addEventListener("change", refresh);
   document
     .querySelector(`[data-reset-admin="${view}"]`)
