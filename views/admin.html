@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Khu quản trị TravelMate: quản lý người dùng, lịch trình và dữ liệu điểm đến."
+    />
+    <title>Quản trị hệ thống · TravelMate</title>
+    <link rel="icon" href="/images/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <script defer src="/vendor/lucide.js"></script>
+    <script defer src="/js/api.js"></script>
+    <script defer src="/js/common.js"></script>
+    <script defer src="/js/auth.js"></script>
+    <script defer src="/js/admin-people.js"></script>
+    <script defer src="/js/admin.js"></script>
+  </head>
+  <body data-page="admin">
+    <a href="#main" class="skip-link">Đến nội dung quản trị</a>
+    <button
+      id="admin-backdrop"
+      class="admin-backdrop"
+      aria-label="Đóng menu quản trị"
+      hidden
+    ></button>
+    <aside class="admin-sidebar" id="admin-sidebar" aria-label="Menu quản trị">
+      <a href="/admin" class="brand admin-brand"
+        ><img src="/images/logo.svg" alt="" /><span
+          >Travel<span>Mate</span></span
+        ></a
+      >
+      <span class="admin-workspace-label">KHÔNG GIAN QUẢN TRỊ</span>
+      <nav class="admin-nav" aria-label="Điều hướng quản trị">
+        <a href="#overview" data-admin-view="overview"
+          ><i data-lucide="layout-dashboard"></i> Tổng quan</a
+        >
+        <a href="#users" data-admin-view="users"
+          ><i data-lucide="users-round"></i> Người dùng
+          <span data-admin-users>—</span></a
+        >
+        <a href="#itineraries" data-admin-view="itineraries"
+          ><i data-lucide="route"></i> Lịch trình
+          <span data-admin-itineraries>—</span></a
+        >
+        <a href="#destinations" data-admin-view="destinations"
+          ><i data-lucide="map-pinned"></i> Điểm đến
+          <span data-admin-total>—</span></a
+        >
+        <a href="#hidden" data-admin-view="hidden"
+          ><i data-lucide="archive"></i> Điểm đến đã ẩn
+          <span data-admin-inactive>—</span></a
+        >
+      </nav>
+      <div class="admin-sidebar-note">
+        <span class="admin-note-icon"><i data-lucide="compass"></i></span
+        ><strong>Mỗi hành trình đều có người bắt đầu.</strong>
+        <p>
+          Theo dõi cộng đồng, hỗ trợ người dùng và giữ cho trải nghiệm du lịch
+          luôn trọn vẹn.
+        </p>
+        <a class="admin-note-link" href="#itineraries"
+          >Xem các lịch trình <i data-lucide="arrow-up-right"></i
+        ></a>
+      </div>
+      <div class="admin-sidebar-bottom">
+        <a href="/"><i data-lucide="external-link"></i> Xem website du lịch</a
+        ><a href="/README.md"
+          ><i data-lucide="book-open"></i> Hướng dẫn sử dụng</a
+        ><button id="admin-logout">
+          <i data-lucide="log-out"></i> Đăng xuất
+        </button>
+      </div>
+    </aside>
+    <div class="admin-workspace">
+      <header class="admin-topbar">
+        <div class="admin-topbar-left">
+          <button
+            id="admin-menu-toggle"
+            class="icon-btn"
+            aria-label="Mở menu quản trị"
+            aria-controls="admin-sidebar"
+            aria-expanded="false"
+          >
+            <i data-lucide="menu"></i></button
+          ><span>Quản trị hệ thống</span><i data-lucide="chevron-right"></i
+          ><strong id="admin-breadcrumb">Tổng quan</strong>
+        </div>
+        <div class="admin-account">
+          <span class="admin-role"
+            ><i data-lucide="shield-check"></i> Quản trị viên</span
+          ><span id="admin-avatar" class="admin-avatar">A</span>
+          <div>
+            <strong id="admin-user-name">Đang tải...</strong
+            ><small>Tài khoản quản trị</small>
+          </div>
+        </div>
+      </header>
+      <main id="main" class="admin-main">
+        <div class="admin-page-heading">
+          <div>
+            <span class="eyebrow">TRAVELMATE / ADMIN CONSOLE</span>
+            <h1 id="admin-title">Tổng quan hệ thống</h1>
+            <p id="admin-description">
+              Một góc nhìn rõ ràng về điểm đến và những hành trình đang được tạo
+              nên.
+            </p>
+          </div>
+          <div class="admin-heading-actions">
+            <button
+              id="admin-refresh"
+              class="btn outline"
+              title="Lấy dữ liệu mới nhất"
+            >
+              <i data-lucide="refresh-cw"></i> Làm mới</button
+            ><button id="add-destination" class="btn">
+              <i data-lucide="plus"></i> Thêm địa điểm
+            </button>
+          </div>
+        </div>
+        <p
+          id="admin-load-error"
+          class="status-note error"
+          role="alert"
+          hidden
+        ></p>
+        <section id="admin-overview" aria-label="Tổng quan hệ thống">
+          <div id="admin-stats" class="admin-stats" aria-live="polite">
+            <div class="loading">Đang tải số liệu...</div>
+          </div>
+          <div class="admin-trip-statuses" id="overview-trip-statuses"></div>
+          <div class="admin-dashboard-grid">
+            <section class="admin-panel">
+              <div class="admin-panel-heading">
+                <div>
+                  <h2>Hoạt động trong 7 ngày</h2>
+                  <p>Lượt đăng ký và lịch trình mới, theo giờ Việt Nam.</p>
+                </div>
+                <div class="admin-chart-legend">
+                  <span><i class="chart-dot users"></i> Người dùng</span
+                  ><span><i class="chart-dot trips"></i> Lịch trình</span>
+                </div>
+              </div>
+              <div id="admin-activity-chart" class="admin-activity-chart"></div>
+            </section>
+            <section class="admin-panel">
+              <div class="admin-panel-heading">
+                <div>
+                  <h2>Người dùng mới</h2>
+                  <p>Những thành viên vừa tham gia.</p>
+                </div>
+                <a href="#users" class="btn ghost small">Tất cả ↗</a>
+              </div>
+              <div id="overview-users" class="admin-person-list"></div>
+            </section>
+          </div>
+          <div class="admin-dashboard-grid">
+            <section class="admin-panel">
+              <div class="admin-panel-heading">
+                <div>
+                  <h2>Lịch trình mới nhất</h2>
+                  <p>Ai đang lên kế hoạch cho chuyến đi tiếp theo?</p>
+                </div>
+                <a href="#itineraries" class="btn ghost small">Tất cả ↗</a>
+              </div>
+              <div id="overview-trips" class="admin-trip-list"></div>
+            </section>
+            <section class="admin-panel">
+              <div class="admin-panel-heading">
+                <div>
+                  <h2>Điểm đến được lên kế hoạch</h2>
+                  <p>Số lượt được thêm vào các lịch trình đã lưu.</p>
+                </div>
+                <i data-lucide="trending-up"></i>
+              </div>
+              <div id="overview-popular" class="admin-popular-list"></div>
+            </section>
+          </div>
+        </section>
+        <section id="admin-users" aria-label="Quản lý người dùng" hidden>
+          <div class="admin-section-summary" id="users-summary"></div>
+          <form
+            id="users-filters"
+            class="toolbar admin-people-toolbar"
+            role="search"
+          >
+            <label class="input-wrap"
+              ><i data-lucide="search"></i
+              ><span class="sr-only">Tìm người dùng</span
+              ><input
+                name="q"
+                maxlength="100"
+                placeholder="Tìm họ tên hoặc email..." /></label
+            ><label
+              ><span class="sr-only">Vai trò</span
+              ><select name="role">
+                <option value="">Mọi vai trò</option>
+                <option value="user">Người dùng</option>
+                <option value="admin">Quản trị viên</option>
+              </select></label
+            ><label
+              ><span class="sr-only">Trạng thái tài khoản</span
+              ><select name="status">
+                <option value="">Mọi trạng thái</option>
+                <option value="active">Đang hoạt động</option>
+                <option value="locked">Đã tạm khóa</option>
+              </select></label
+            ><button
+              class="icon-btn"
+              type="button"
+              data-reset-admin="users"
+              aria-label="Xóa bộ lọc người dùng"
+            >
+              <i data-lucide="rotate-ccw"></i>
+            </button>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Thành viên</th>
+                  <th scope="col">Vai trò</th>
+                  <th scope="col">Ngày tham gia</th>
+                  <th scope="col">Lịch trình</th>
+                  <th scope="col">Yêu thích</th>
+                  <th scope="col">Trạng thái</th>
+                  <th scope="col">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="users-table"></tbody>
+            </table>
+          </div>
+          <div class="admin-list-footer">
+            <p>
+              <i data-lucide="shield-check"></i> Tài khoản quản trị được bảo vệ
+              khỏi thao tác khóa.
+            </p>
+            <div class="pagination">
+              <button id="users-prev" class="btn outline small">
+                ← Trang trước</button
+              ><span id="users-page"></span
+              ><button id="users-next" class="btn outline small">
+                Trang sau →
+              </button>
+            </div>
+          </div>
+        </section>
+        <section id="admin-itineraries" aria-label="Quản lý lịch trình" hidden>
+          <div class="admin-section-summary" id="itineraries-summary"></div>
+          <div class="admin-owner-filter" id="itinerary-owner-filter" hidden>
+            <span></span
+            ><button class="btn ghost small" id="clear-owner-filter">
+              Xem mọi người dùng <i data-lucide="x"></i>
+            </button>
+          </div>
+          <form
+            id="itineraries-filters"
+            class="toolbar admin-trip-toolbar"
+            role="search"
+          >
+            <label class="input-wrap"
+              ><i data-lucide="search"></i
+              ><span class="sr-only">Tìm lịch trình</span
+              ><input
+                name="q"
+                maxlength="100"
+                placeholder="Tên chuyến đi, người tạo hoặc email..." /></label
+            ><label
+              ><span class="sr-only">Thời gian chuyến đi</span
+              ><select name="status">
+                <option value="">Mọi thời gian</option>
+                <option value="upcoming">Sắp khởi hành</option>
+                <option value="ongoing">Trong thời gian đi</option>
+                <option value="completed">Đã qua ngày kết thúc</option>
+              </select></label
+            ><label
+              ><span class="sr-only">Sắp xếp lịch trình</span
+              ><select name="sort">
+                <option value="updated">Cập nhật mới nhất</option>
+                <option value="created">Tạo mới nhất</option>
+                <option value="start">Khởi hành sớm nhất</option>
+              </select></label
+            ><label class="admin-date-filter"
+              >Khởi hành từ<input type="date" name="from" /></label
+            ><label class="admin-date-filter"
+              >Đến ngày<input type="date" name="to" /></label
+            ><button
+              class="icon-btn"
+              type="button"
+              data-reset-admin="itineraries"
+              aria-label="Xóa bộ lọc lịch trình"
+            >
+              <i data-lucide="rotate-ccw"></i>
+            </button>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Chuyến đi</th>
+                  <th scope="col">Người tạo</th>
+                  <th scope="col">Thời gian</th>
+                  <th scope="col">Số người</th>
+                  <th scope="col">Ngân sách / Ước tính</th>
+                  <th scope="col">Theo ngày đi</th>
+                  <th scope="col">Chi tiết</th>
+                </tr>
+              </thead>
+              <tbody id="itineraries-table"></tbody>
+            </table>
+          </div>
+          <div class="admin-list-footer">
+            <p>
+              <i data-lucide="info"></i> Trạng thái dựa trên ngày đi theo giờ
+              Việt Nam; chi phí là ước tính hoạt động.
+            </p>
+            <div class="pagination">
+              <button id="itineraries-prev" class="btn outline small">
+                ← Trang trước</button
+              ><span id="itineraries-page"></span
+              ><button id="itineraries-next" class="btn outline small">
+                Trang sau →
+              </button>
+            </div>
+          </div>
+        </section>
+        <section id="admin-destinations" aria-label="Quản lý điểm đến" hidden>
+          <div class="admin-list-summary">
+            <span
+              ><i data-lucide="database"></i>
+              <strong id="admin-result-total">—</strong> điểm đến phù hợp</span
+            >
+            <p>Dữ liệu được cập nhật trực tiếp trên website du lịch.</p>
+          </div>
+          <form id="admin-filters" class="toolbar">
+            <label class="input-wrap"
+              ><i data-lucide="search"></i
+              ><span class="sr-only">Tìm điểm đến</span
+              ><input
+                name="q"
+                placeholder="Tìm tên điểm đến, tỉnh thành..." /></label
+            ><label
+              ><span class="sr-only">Danh mục</span
+              ><select name="category" id="admin-category"></select></label
+            ><label
+              ><span class="sr-only">Trạng thái</span
+              ><select name="status">
+                <option value="">Mọi trạng thái</option>
+                <option value="active">Đang hoạt động</option>
+                <option value="inactive">Đã ẩn</option>
+              </select></label
+            ><button
+              class="icon-btn"
+              type="button"
+              id="admin-reset"
+              aria-label="Xóa bộ lọc"
+            >
+              <i data-lucide="rotate-ccw"></i>
+            </button>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Điểm đến</th>
+                  <th scope="col">Tỉnh / thành phố</th>
+                  <th scope="col">Trải nghiệm</th>
+                  <th scope="col">Chi phí / người</th>
+                  <th scope="col">Trạng thái</th>
+                  <th scope="col">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="admin-table"></tbody>
+            </table>
+          </div>
+          <div class="admin-list-footer">
+            <p>
+              <i data-lucide="info"></i> Điểm đến đã ẩn vẫn được giữ trong các
+              lịch trình cũ.
+            </p>
+            <div class="pagination">
+              <button id="admin-prev" class="btn outline small">
+                ← Trang trước</button
+              ><span id="admin-page"></span
+              ><button id="admin-next" class="btn outline small">
+                Trang sau →
+              </button>
+            </div>
+          </div>
+        </section>
+        <footer class="admin-footer">
+          <span>TravelMate Administration · EM3</span
+          ><span id="admin-last-updated">Đang kết nối dữ liệu...</span>
+        </footer>
+      </main>
+    </div>
+    <div
+      id="toast-stack"
+      class="toast-stack"
+      role="status"
+      aria-live="polite"
+    ></div>
+  </body>
+</html>

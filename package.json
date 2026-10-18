@@ -1,0 +1,43 @@
+{
+  "name": "travelmate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Đồ án EM3 – Khám phá và lập kế hoạch du lịch Việt Nam",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node scripts/seed.js",
+    "seed:admin": "node scripts/seedAdmin.js",
+    "test": "node --test tests/*.test.js",
+    "test:integration": "node --test tests/integration.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "server.js",
+      "app.js",
+      "config",
+      "models",
+      "middleware",
+      "routes",
+      "utils"
+    ],
+    "ext": "js,json"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "express-session": "^1.19.0",
+    "lucide": "^1.58.0",
+    "mongoose": "^9.11.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

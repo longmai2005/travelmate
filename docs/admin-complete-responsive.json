@@ -1,0 +1,74 @@
+[
+  {
+    "contentWidth": 360,
+    "overflow": false,
+    "width": 375,
+    "view": "users"
+  },
+  {
+    "contentWidth": 768,
+    "overflow": false,
+    "width": 768,
+    "view": "users"
+  },
+  {
+    "contentWidth": 1024,
+    "overflow": false,
+    "width": 1024,
+    "view": "users"
+  },
+  {
+    "contentWidth": 1440,
+    "overflow": false,
+    "width": 1440,
+    "view": "users"
+  },
+  {
+    "contentWidth": 360,
+    "overflow": false,
+    "width": 375,
+    "view": "itineraries"
+  },
+  {
+    "contentWidth": 768,
+    "overflow": false,
+    "width": 768,
+    "view": "itineraries"
+  },
+  {
+    "contentWidth": 1024,
+    "overflow": false,
+    "width": 1024,
+    "view": "itineraries"
+  },
+  {
+    "contentWidth": 1440,
+    "overflow": false,
+    "width": 1440,
+    "view": "itineraries"
+  },
+  {
+    "contentWidth": 360,
+    "overflow": false,
+    "width": 375,
+    "view": "overview"
+  },
+  {
+    "contentWidth": 753,
+    "overflow": false,
+    "width": 768,
+    "view": "overview"
+  },
+  {
+    "contentWidth": 1009,
+    "overflow": false,
+    "width": 1024,
+    "view": "overview"
+  },
+  {
+    "contentWidth": 1425,
+    "overflow": false,
+    "width": 1440,
+    "view": "overview"
+  }
+]

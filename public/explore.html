@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Khám phá Việt Nam, lưu điểm đến yêu thích và lên lịch trình mỗi ngày cùng TravelMate."
+    />
+    <title>Khám phá điểm đến · TravelMate</title>
+    <link rel="icon" href="/images/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <script defer src="/vendor/lucide.js"></script>
+    <script defer src="/js/api.js"></script>
+    <script defer src="/js/common.js"></script>
+    <script defer src="/js/auth.js"></script>
+    <script defer src="/js/explore.js"></script>
+  </head>
+  <body data-page="explore">
+    <a href="#main" class="skip-link">Đến nội dung chính</a>
+    <header id="site-header" class="container"></header>
+    <main id="main" class="container">
+      <div class="page-heading">
+        <div>
+          <div class="breadcrumb">Trang chủ / Khám phá</div>
+          <div class="eyebrow">VIỆT NAM ĐANG CHỜ BẠN</div>
+          <h1>Đi đâu cũng có điều hay.</h1>
+          <p>Tìm một điểm đến khiến bạn muốn xách ba lô lên ngay.</p>
+        </div>
+        <span class="badge"
+          ><i data-lucide="compass"></i> Khám phá theo cách của bạn</span
+        >
+      </div>
+      <section class="page-body">
+        <form id="explore-filters" class="toolbar" role="search">
+          <label class="input-wrap"
+            ><i data-lucide="search"></i
+            ><span class="sr-only">Tìm điểm đến</span
+            ><input
+              name="q"
+              placeholder="Tên điểm đến, tỉnh thành, từ khóa..." /></label
+          ><label class="sr-only" for="province-filter">Tỉnh thành</label
+          ><select name="province" id="province-filter">
+            <option value="">Tất cả tỉnh thành</option></select
+          ><label class="sr-only" for="category-filter">Trải nghiệm</label
+          ><select name="category" id="category-filter"></select
+          ><label class="sr-only" for="budget-filter"
+            >Chi phí hoạt động / người</label
+          ><select name="budget" id="budget-filter">
+            <option value="">Mọi mức chi phí</option>
+            <option value="low">Dưới 200.000 ₫</option>
+            <option value="medium">200.000 – 500.000 ₫</option>
+            <option value="high">Trên 500.000 ₫</option></select
+          ><button
+            type="button"
+            class="icon-btn"
+            id="reset-filters"
+            title="Xóa bộ lọc"
+          >
+            <i data-lucide="rotate-ccw"></i>
+          </button>
+        </form>
+        <div class="result-bar">
+          <span id="result-count">Đang tìm điểm đến...</span>
+          <div class="view-toggle">
+            <button class="chip active" id="list-view">
+              <i data-lucide="layout-grid"></i> Danh sách</button
+            ><button class="chip" id="map-view">
+              <i data-lucide="map"></i> Bản đồ
+            </button>
+          </div>
+          <label
+            ><span class="sr-only">Sắp xếp</span
+            ><select id="sort-filter">
+              <option value="featured">Nổi bật trước</option>
+              <option value="name">Tên A – Z</option>
+              <option value="costAsc">Chi phí thấp đến cao</option>
+              <option value="costDesc">Chi phí cao đến thấp</option>
+            </select></label
+          >
+        </div>
+        <div id="explore-layout" class="explore-layout">
+          <div
+            id="destination-grid"
+            class="destination-grid"
+            aria-live="polite"
+          ></div>
+          <aside id="map-panel" class="map-panel" hidden>
+            <div class="map-title">
+              Bản đồ khám phá <span id="marker-count"></span>
+            </div>
+            <div id="explore-map" aria-label="Bản đồ điểm đến"></div>
+            <p class="map-note" id="map-note">
+              Google Maps · Chọn điểm đến để xem vị trí và chỉ đường.
+            </p>
+          </aside>
+        </div>
+        <div class="pagination">
+          <button id="prev-page" class="btn outline small">← Trang trước</button
+          ><span id="page-label"></span
+          ><button id="next-page" class="btn outline small">Trang sau →</button>
+        </div>
+        <p class="field-help">
+          Chi phí là ước tính minh họa cho hoạt động mỗi người, chưa gồm lưu
+          trú, di chuyển và ăn uống. Ảnh có thể minh họa vùng miền.
+        </p>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <div
+      id="toast-stack"
+      class="toast-stack"
+      role="status"
+      aria-live="polite"
+    ></div>
+  </body>
+</html>

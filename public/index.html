@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Khám phá Việt Nam, lưu điểm đến yêu thích và lên lịch trình mỗi ngày cùng TravelMate."
+    />
+    <title>Mỗi hành trình, một câu chuyện mới · TravelMate</title>
+    <link rel="icon" href="/images/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <script defer src="/vendor/lucide.js"></script>
+    <script defer src="/js/api.js"></script>
+    <script defer src="/js/common.js"></script>
+    <script defer src="/js/auth.js"></script>
+    <script defer src="/js/home.js"></script>
+  </head>
+  <body data-page="home">
+    <a href="#main" class="skip-link">Đến nội dung chính</a>
+    <header id="site-header" class="container"></header>
+    <main id="main" class="container">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow">
+          <i data-lucide="sparkles"></i> XÁCH BA LÔ LÊN, VIỆT NAM ĐANG CHỜ
+        </div>
+        <h1 id="hero-title">
+          Khám phá Việt Nam<br />theo <em>cách của bạn.</em>
+        </h1>
+        <p>
+          Từ những miền biển xanh đến núi rừng hùng vĩ.<br />Lưu nơi bạn thích,
+          lên lịch bạn muốn và bắt đầu hành trình.
+        </p>
+        <div class="hero-actions">
+          <a href="/explore" class="btn"
+            >Khám phá ngay <i data-lucide="arrow-up-right"></i></a
+          ><a href="/planner" class="btn outline"
+            ><i data-lucide="calendar-plus"></i> Tạo lịch trình</a
+          >
+        </div>
+        <div class="hero-location">
+          <i data-lucide="map-pin"></i>
+          <div>
+            <strong>Vịnh Hạ Long, Quảng Ninh</strong
+            ><span>Một Việt Nam, ngàn điều để khám phá</span>
+          </div>
+        </div>
+        <div class="hero-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </section>
+      <form id="home-search" class="search-panel" role="search">
+        <div class="search-field">
+          <i data-lucide="map-pin"></i>
+          <div>
+            <label for="home-query">Bạn muốn đi đâu?</label
+            ><input
+              id="home-query"
+              name="q"
+              placeholder="Thành phố, điểm đến bạn yêu thích..."
+            />
+          </div>
+        </div>
+        <div class="search-field">
+          <i data-lucide="compass"></i>
+          <div>
+            <label for="home-category">Trải nghiệm</label
+            ><select id="home-category" name="category">
+              <option value="">Tất cả trải nghiệm</option>
+              <option value="beach">Biển & đảo</option>
+              <option value="mountain">Núi & cao nguyên</option>
+              <option value="nature">Thiên nhiên</option>
+              <option value="cultural">Văn hóa</option>
+              <option value="historical">Di tích</option>
+              <option value="food">Ẩm thực</option>
+              <option value="entertainment">Vui chơi</option>
+            </select>
+          </div>
+        </div>
+        <div class="search-field">
+          <i data-lucide="wallet"></i>
+          <div>
+            <label for="home-budget">Ngân sách / người</label
+            ><select id="home-budget" name="budget">
+              <option value="">Mọi mức chi phí</option>
+              <option value="low">Dưới 200.000 ₫</option>
+              <option value="medium">200.000 – 500.000 ₫</option>
+              <option value="high">Trên 500.000 ₫</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn" type="submit">
+          <i data-lucide="search"></i> Tìm điểm đến
+        </button>
+      </form>
+      <div class="trust-strip">
+        <span><i data-lucide="map"></i> Điểm đến khắp Việt Nam</span
+        ><span
+          ><i data-lucide="sliders-horizontal"></i> Lịch trình theo ý bạn</span
+        ><span><i data-lucide="wallet"></i> Chủ động mọi khoản chi</span>
+      </div>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">ĐI ĐỂ KHÁM PHÁ</div>
+            <h2>Điểm đến nổi bật</h2>
+            <p>Một chút cảm hứng cho chuyến đi tiếp theo của bạn.</p>
+          </div>
+          <a class="btn ghost" href="/explore"
+            >Xem tất cả điểm đến <i data-lucide="arrow-right"></i
+          ></a>
+        </div>
+        <div id="home-categories" class="category-tabs">
+          <button class="chip active" data-category="">
+            <i data-lucide="grid-2x2"></i> Tất cả</button
+          ><button class="chip" data-category="beach">
+            <i data-lucide="waves"></i> Biển & đảo</button
+          ><button class="chip" data-category="mountain">
+            <i data-lucide="mountain"></i> Núi & cao nguyên</button
+          ><button class="chip" data-category="nature">
+            <i data-lucide="trees"></i> Thiên nhiên</button
+          ><button class="chip" data-category="cultural">
+            <i data-lucide="landmark"></i> Văn hóa</button
+          ><button class="chip" data-category="food">
+            <i data-lucide="utensils"></i> Ẩm thực
+          </button>
+        </div>
+        <div id="featured-grid" class="destination-grid" aria-live="polite">
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+        </div>
+      </section>
+      <section class="region-section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">MỖI VÙNG ĐẤT, MỘT SẮC MÀU</div>
+            <h2>Việt Nam đẹp đến thế</h2>
+            <p>Ghé một nơi mới, mang về những câu chuyện của riêng mình.</p>
+          </div>
+        </div>
+        <div class="region-grid">
+          <a class="region-card" href="/explore?q=Hà+Nội"
+            ><img
+              src="/images/city.jpg"
+              alt="Không gian phố thị Việt Nam"
+              loading="lazy"
+            />
+            <div>
+              <strong>Hà Nội</strong><small>Ngàn năm văn hiến</small>
+            </div></a
+          ><a class="region-card" href="/explore?q=Đà+Nẵng"
+            ><img
+              src="/images/beach.jpg"
+              alt="Cảnh quan miền Trung"
+              loading="lazy"
+            />
+            <div>
+              <strong>Đà Nẵng</strong><small>Thành phố bên biển</small>
+            </div></a
+          ><a class="region-card" href="/explore?q=Đà+Lạt"
+            ><img
+              src="/images/dalat.jpg"
+              alt="Hồ Tuyền Lâm tại Đà Lạt"
+              loading="lazy"
+            />
+            <div><strong>Đà Lạt</strong><small>Hẹn với bình yên</small></div></a
+          ><a class="region-card" href="/explore?q=Hội+An"
+            ><img
+              src="/images/hoian.jpg"
+              alt="Đèn lồng Hội An"
+              loading="lazy"
+            />
+            <div><strong>Hội An</strong><small>Một miền ký ức</small></div></a
+          ><a class="region-card" href="/explore?q=Phú+Quốc"
+            ><img
+              src="/images/beach.jpg"
+              alt="Ảnh minh họa du lịch biển"
+              loading="lazy"
+            />
+            <div>
+              <strong>Phú Quốc</strong><small>Chạm vào biển xanh</small>
+            </div></a
+          >
+        </div>
+        <div class="region-links">
+          <a href="/explore?q=Hạ+Long">Hạ Long ↗</a
+          ><a href="/explore?q=Sa+Pa">Sa Pa ↗</a
+          ><a href="/explore?q=Huế">Huế ↗</a
+          ><a href="/explore?q=Nha+Trang">Nha Trang ↗</a
+          ><a href="/explore?q=Hồ+Chí+Minh">TP. Hồ Chí Minh ↗</a
+          ><a href="/explore?q=Cần+Thơ">Cần Thơ ↗</a>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-center">
+          <div class="eyebrow">ĐƠN GIẢN TỪ BƯỚC ĐẦU TIÊN</div>
+          <h2>Hành trình hay, bắt đầu thật dễ</h2>
+          <p>Ít thời gian chuẩn bị hơn. Nhiều khoảnh khắc đáng nhớ hơn.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-icon"><i data-lucide="compass"></i></div>
+            <h3>01. Tìm nơi bạn muốn đến</h3>
+            <p>
+              Khám phá điểm đến theo sở thích,<br />vùng miền và ngân sách của
+              bạn.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-icon"><i data-lucide="calendar-days"></i></div>
+            <h3>02. Lên lịch theo cách của bạn</h3>
+            <p>
+              Sắp xếp điểm đến cho từng ngày,<br />ghi chú và dự tính chi phí dễ
+              dàng.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-icon"><i data-lucide="backpack"></i></div>
+            <h3>03. Sẵn sàng cho chuyến đi</h3>
+            <p>
+              Lưu lịch trình, rủ thêm bạn đồng hành<br />và bắt đầu những trải
+              nghiệm mới.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="cta">
+        <div>
+          <h2>Chuyến đi tiếp theo của bạn bắt đầu từ đây.</h2>
+          <p>Một lịch trình nhỏ, mở ra những trải nghiệm lớn.</p>
+        </div>
+        <a class="btn" href="/planner"
+          >Lên kế hoạch ngay <i data-lucide="arrow-up-right"></i
+        ></a>
+      </section>
+    </main>
+    <footer id="site-footer"></footer>
+    <div
+      id="toast-stack"
+      class="toast-stack"
+      role="status"
+      aria-live="polite"
+    ></div>
+  </body>
+</html>
