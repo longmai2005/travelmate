@@ -9,6 +9,10 @@ async function start() {
     ),
   );
   const app = createApp();
+  const mailer = require("./utils/mailer");
+  if (process.env.NODE_ENV === "production" && mailer.configured()) {
+    mailer.deliveryHealth().catch(error => console.error("Email configuration:", JSON.stringify(mailer.safeDetails(error))));
+  }
   const port = Number(process.env.PORT) || 3000;
   const server = app.listen(port, () =>
     console.log(`TravelMate đang chạy tại http://localhost:${port}`),

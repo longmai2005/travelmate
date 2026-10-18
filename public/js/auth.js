@@ -72,12 +72,29 @@ TM.ready = (async () => {
   return TM.user;
 })();
 
-TM.forgotPassword = function() {
-  const dialog = TM.dialog('<div class="modal-body"><div class="modal-heading"><h2>Khôi phục mật khẩu</h2><button class="icon-btn" data-close aria-label="Đóng">×</button></div><p>Nhập email tài khoản để nhận liên kết dùng một lần trong 15 phút.</p><form><label class="form-field">Email<input name="email" type="email" required maxlength="254" autocomplete="email"></label><p class="form-error" role="alert"></p><button class="btn" type="submit">Gửi liên kết khôi phục</button></form><p id="reset-status" role="status"></p></div>');
-  dialog.querySelector("form").onsubmit = async event => {
-    event.preventDefault(); const form = event.target, b = form.querySelector("button"); b.disabled = true;
-    try { const result = await api.request("/auth/forgot-password", {method:"POST",body:Object.fromEntries(new FormData(form))}); dialog.querySelector("#reset-status").textContent = result.message; form.hidden = true; }
-    catch(e) { form.querySelector(".form-error").textContent = e.message; b.disabled = false; }
+TM.forgotPassword = function(email = "") {
+  if (document.querySelector("#recovery-dialog")?.open) return;
+  const dialog = TM.dialog(`<div class="modal-body"><div class="auth-brand brand"><img src="/images/logo.svg" alt=""><span>Travel<span>Mate</span></span></div><div class="modal-heading"><div><h2>Khôi phục mật khẩu</h2><p>Nhập email đã đăng ký trên TravelMate. Liên kết khôi phục dùng một lần trong 15 phút.</p></div><button type="button" class="icon-btn modal-close" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><form id="recovery-form" class="auth-form"><label class="form-field">Email tài khoản<input name="email" type="email" required maxlength="254" autocomplete="email" placeholder="ban@example.com" value="${TM.escape(email)}"></label><p class="form-error" role="alert"></p><button class="btn" type="submit"><i data-lucide="mail"></i> Gửi liên kết khôi phục</button></form><section id="reset-status" class="recovery-status" aria-live="polite" hidden tabindex="-1"></section><p class="auth-switch"><button type="button" id="back-to-login">Quay lại đăng nhập</button></p></div>`, "recovery-dialog", "Khôi phục mật khẩu");
+  dialog.id = "recovery-dialog";
+  dialog.querySelector("#back-to-login").onclick = () => { dialog.close(); TM.openAuth(); };
+  const form = dialog.querySelector("form"), status = dialog.querySelector("#reset-status");
+  form.onsubmit = async event => {
+    event.preventDefault();
+    const b = form.querySelector('[type="submit"]'), address = form.elements.email.value.trim();
+    b.disabled = true; b.textContent = "Đang gửi yêu cầu…";
+    form.setAttribute("aria-busy", "true"); form.querySelector(".form-error").textContent = "";
+    try {
+      const result = await api.request("/auth/forgot-password", { method: "POST", body: { email: address } });
+      if (!dialog.isConnected) return;
+      form.hidden = true; status.hidden = false;
+      status.innerHTML = `<span class="recovery-status-icon"><i data-lucide="mail-check"></i></span><h3>Đã tiếp nhận yêu cầu</h3><p>${TM.escape(result.message)}</p><p class="field-help">Bạn có thể kiểm tra lại địa chỉ nếu chưa nhận được thư.</p><button type="button" class="btn outline" id="retry-recovery">Kiểm tra email / gửi lại</button>`;
+      TM.icons(); status.focus();
+      status.querySelector("button").onclick = () => { status.hidden = true; form.hidden = false; form.elements.email.focus(); };
+    } catch (error) {
+      if (dialog.isConnected) form.querySelector(".form-error").textContent = error.message;
+    } finally {
+      b.disabled = false; b.textContent = "Gửi liên kết khôi phục"; form.removeAttribute("aria-busy");
+    }
   };
 };
 TM.ready.then(() => { if (new URLSearchParams(location.search).get("login") === "1" && !TM.user) TM.openAuth(); });

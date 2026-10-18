@@ -22,3 +22,16 @@ MAIL_FROM_EMAIL=<địa chỉ người gửi đã xác minh>
 Liên kết có hiệu lực 15 phút, một lần sử dụng, mã ngẫu nhiên chỉ lưu hash trong MongoDB. Mã nằm trong phần fragment của URL để không vào access log; trang đặt lại bỏ fragment khỏi thanh địa chỉ sau khi đọc. Đặt lại hoặc đổi mật khẩu thu hồi các phiên đăng nhập cũ. Yêu cầu khôi phục có thông báo chung cho email tồn tại/không tồn tại, giới hạn tần suất, và không chờ độ trễ từ máy chủ email để trả kết quả. Việc gửi không được bảo đảm nếu nhà cung cấp từ chối hoặc server dừng giữa lúc gửi; hãy xem nhật ký Brevo và yêu cầu lại khi cần.
 
 Tài liệu: https://developers.brevo.com/reference/send-transac-email và https://help.brevo.com/hc/en-us/articles/208589409-About-Brevo-s-pricing-plans
+
+## Khi đã có biến môi trường nhưng vẫn chưa nhận được thư
+
+Server kiểm tra kết nối Brevo/người gửi khi khởi động và cache kết quả trong 60 giây. Kiểm tra này chỉ đọc cấu hình tài khoản, không gửi email thử. Log `Email configuration:` chỉ chứa trạng thái đã lọc, không in key, email cá nhân, mã khôi phục hoặc nội dung phản hồi thô từ Brevo.
+
+- `smtp_key_instead_of_api_key`: `BREVO_API_KEY` đang dùng SMTP key. Tạo key trong tab API Keys của Brevo rồi cập nhật trên Render.
+- `invalid_api_key`: API key không được Brevo chấp nhận. Kiểm tra key còn hoạt động, không có dấu ngoặc kép thừa và đúng tài khoản.
+- `ip_not_authorized`: Brevo từ chối IP máy chủ. Đối chiếu IP với outbound IP của chính dịch vụ Render, rồi cho phép các IP cần thiết trong Brevo; không tắt bảo vệ IP để xử lý nhanh.
+- `transactional_inactive`: Tài khoản Brevo chưa được bật gửi email giao dịch. Hoàn tất bước kích hoạt/kiểm duyệt với Brevo.
+- `sender_not_verified`: `MAIL_FROM_EMAIL` chưa khớp người gửi đã xác minh trong đúng tài khoản Brevo.
+- `ready`: API đọc cấu hình hoạt động, email giao dịch đã bật, người gửi đã xác minh; chưa xác nhận thư đã tới hộp thư người nhận.
+
+Với lỗi cấu hình xác định chắc chắn, yêu cầu Quên mật khẩu trả 503 giống nhau cho mọi địa chỉ, trước khi tìm tài khoản, để không tiết lộ email đã đăng ký. Chỉ email thuộc tài khoản TravelMate đang hoạt động mới được gửi liên kết. API chấp nhận thư chưa đồng nghĩa giao thành công; xem nhật ký giao dịch trong Brevo và thư mục Spam.
