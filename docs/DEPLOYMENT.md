@@ -7,6 +7,7 @@
 - Atlas: cluster `travelmate`, Project 0, AWS Singapore, Free. Database production riêng trên Atlas; `.env` cục bộ tiếp tục trỏ tới MongoDB trên máy.
 - Đã chuyển tài khoản và điểm đến hiện có sang Atlas, giữ nguyên mật khẩu đăng nhập đã mã hóa. Không chuyển sessions hay dữ liệu QA. Sau khi deploy, đăng nhập lại bằng tài khoản hiện có.
 - CI kiểm tra cả `long_branch` và `main`; đổi dữ liệu qua admin không cần deploy lại.
+- CI cố định runner `ubuntu-24.04`: MongoDB 8 có [lỗi tương thích với kernel 6.19–7.0.13](https://www.mongodb.com/docs/v8.0/release-notes/8.0/). Không bỏ kiểm thử MongoDB hoặc tắt kiểm tra sức khỏe container để vượt lỗi; rà lại tương thích khi nâng runner.
 
 ## Cấu hình đã có trong repo
 
