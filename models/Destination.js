@@ -22,6 +22,12 @@ const schema = new mongoose.Schema(
     shortDescription: { type: String, required: true, maxlength: 300 },
     description: { type: String, required: true, maxlength: 5000 },
     imageUrl: { type: String, required: true },
+    imageCredit: { type: String, maxlength: 500, default: "" },
+    imageSourceUrl: { type: String, maxlength: 2000, default: "" },
+    imageLicense: { type: String, maxlength: 100, default: "" },
+    imageLicenseUrl: { type: String, maxlength: 2000, default: "" },
+    imageKind: { type: String, enum: ["place", "area", "illustration"], default: "illustration" },
+    searchText: { type: String, select: false },
     latitude: { type: Number, min: -90, max: 90, default: null },
     longitude: { type: Number, min: -180, max: 180, default: null },
     address: { type: String, maxlength: 300, default: "" },
@@ -43,5 +49,8 @@ const schema = new mongoose.Schema(
   { timestamps: true },
 );
 schema.index({ isActive: 1, province: 1, category: 1 });
+schema.pre("validate", function () {
+  this.searchText = require("../utils/destinationSearch")([this.name, this.province, this.shortDescription, ...(this.tags || [])].join(" "));
+});
 module.exports = mongoose.model("Destination", schema);
 module.exports.categories = categories;

@@ -34,8 +34,16 @@ async function loadDestinations() {
         .map((p) => `<option value="${TM.escape(p)}">${TM.escape(p)}</option>`)
         .join("");
     form.elements.province.value = selectedProvince;
+    const counts = result.provinceCounts || [];
+    const local = counts.find(p => p.province === selectedProvince);
+    const totalCatalogue = counts.reduce((n, p) => n + p.total, 0);
+    document.querySelector("#province-title").textContent = selectedProvince ? `Khám phá ${selectedProvince}` : "Bạn muốn khám phá nơi nào?";
+    document.querySelector("#province-summary").textContent = local ? `${local.total} điểm đến trong danh mục để bạn tự lựa chọn. Gợi ý lịch trình chỉ là một phương án bắt đầu.` : `${totalCatalogue} điểm đến tại ${counts.length} tỉnh, thành đang có trong danh mục. Chọn một nơi để khám phá sâu hơn.`;
+    document.querySelector("#province-chips").innerHTML = `<button type="button" class="chip ${!selectedProvince ? "active" : ""}" data-province="" aria-pressed="${!selectedProvince}">Tất cả <span>${totalCatalogue}</span></button>` + counts.map(p => `<button type="button" class="chip ${p.province === selectedProvince ? "active" : ""}" data-province="${TM.escape(p.province)}" aria-pressed="${p.province === selectedProvince}">${TM.escape(p.province)} <span>${p.total}</span></button>`).join("");
+    document.querySelector("#discover-google").href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`địa điểm tham quan ${selectedProvince || "Việt Nam"}`)}`;
+    document.querySelector("#discovery-more-note").textContent = `Xem thêm địa điểm ${selectedProvince ? `tại ${selectedProvince} ` : ""}ngoài danh mục TravelMate. Thông tin trên Google Maps do bên thứ ba cung cấp.`;
     document.querySelector("#result-count").textContent =
-      `${result.total} điểm đến dành cho bạn`;
+      `${result.total} điểm đến${selectedProvince ? ` tại ${selectedProvince}` : " phù hợp"}`;
     if (currentItems.length) TM.renderCards(grid, currentItems);
     else
       TM.empty(
@@ -120,3 +128,14 @@ grid.addEventListener("click", (event) => {
   if (button) mapController?.focus(button.dataset.detail);
 });
 TM.ready.then(loadDestinations);
+document.querySelector("#province-chips").addEventListener("click", event => {
+  const button = event.target.closest("[data-province]");
+  if (!button) return;
+  selectedProvince = button.dataset.province;
+  form.elements.province.value = selectedProvince;
+  form.elements.q.value = "";
+  form.elements.category.value = "";
+  form.elements.budget.value = "";
+  page = 1;
+  loadDestinations();
+});

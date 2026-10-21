@@ -61,6 +61,20 @@ module.exports = (body) => {
     if (!['https:', 'http:'].includes(url.protocol) || url.username || url.password)
       fail("Nguồn thông tin phải là URL http/https công khai.");
   }
+  const imageMeta = {};
+  for (const field of ["imageSourceUrl", "imageLicenseUrl"]) {
+    const value = text(body[field] ?? "", "Nguồn ảnh", 2000, false);
+    if (value) {
+      let url;
+      try { url = new URL(value); } catch { fail("URL nguồn ảnh không hợp lệ."); }
+      if (!["https:", "http:"].includes(url.protocol) || url.username || url.password) fail("Nguồn ảnh phải là URL http/https công khai.");
+    }
+    imageMeta[field] = value;
+  }
+  imageMeta.imageCredit = text(body.imageCredit ?? "", "Tác giả ảnh", 500, false);
+  imageMeta.imageLicense = text(body.imageLicense ?? "", "Giấy phép ảnh", 100, false);
+  imageMeta.imageKind = body.imageKind || "illustration";
+  if (!["place", "area", "illustration"].includes(imageMeta.imageKind)) fail("Loại ảnh không hợp lệ.");
   const verifiedOn = text(body.verifiedOn ?? "", "Ngày kiểm tra", 10, false);
   if (verifiedOn) {
     const { dateFilter, todayInVietnam } = require("./adminData");
@@ -75,6 +89,8 @@ module.exports = (body) => {
     region: body.region,
     category: body.category,
     imageUrl,
+    ...imageMeta,
+    searchText: require("./destinationSearch")([name, province, body.shortDescription, ...body.tags].join(" ")),
     latitude,
     longitude,
     address: text(body.address ?? "", "Địa chỉ", 300, false),

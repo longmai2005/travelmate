@@ -74,9 +74,11 @@ npm run dev
 
 Mở **http://localhost:3000**. Chạy thường bằng `npm start`. Đừng chạy `start` và `dev` đồng thời trên cùng cổng. Không mở HTML bằng `file://`.
 
-Seed tạo **32 địa điểm** trên ba miền. Script chỉ thêm slug chưa tồn tại, giữ nguyên chỉnh sửa của admin khi chạy lại. Không tự động seed mỗi lần khởi động.
+Seed tạo **102 địa điểm tại 12 tỉnh/thành** trong phạm vi danh mục hiện có. Xem [danh mục, ảnh và cách cập nhật an toàn](docs/CATALOGUE.md). Script chỉ thêm slug chưa tồn tại, giữ nguyên chỉnh sửa của admin khi chạy lại. Không tự động seed mỗi lần khởi động.
 
 ### MongoDB Compass
+
+**Website online lưu vào Atlas, còn `.env` trên máy đang dùng MongoDB local; hai nơi không tự đồng bộ.** Nếu kiểm tra hoạt động trên website online, kết nối Compass tới Project 0 → cluster `travelmate` → database `travelmate` trên Atlas. Xem [hướng dẫn kết nối và các collection cần xem](docs/DATABASE.md). Các bước dưới đây dành cho bản chạy localhost.
 
 1. Mở Compass → Add new connection.
 2. URI: `mongodb://127.0.0.1:27017` → Connect.
@@ -123,7 +125,7 @@ public/                   index/explore/planner/favorites.html
   images/                 Ảnh local, logo và fallback
 views/admin.html          HTML quản trị được bảo vệ
 scripts/                  seed.js, seedAdmin.js
-data/destinations.js      32 địa điểm mẫu
+data/destinations.js      Danh mục 102 điểm đến và nguồn ảnh
 tests/                    Unit và integration với DB test riêng
 docs/                     Nguồn dữ liệu, kiểm thử, kịch bản trình bày
 ```

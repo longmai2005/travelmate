@@ -31,9 +31,17 @@ async function loadSupport() {
   container.querySelector("#support-prev").onclick = () => { page--; render().catch(e => TM.toast(e.message,true)); };
   container.querySelector("#support-next").onclick = () => { page++; render().catch(e => TM.toast(e.message,true)); };
   try {
-    const [destinations] = await Promise.all([api.request("/destinations?limit=100"),render()]);
-    form.elements.destinationId.insertAdjacentHTML("beforeend", destinations.items.map(d => `<option value="${d._id}">${TM.escape(d.name)} · ${TM.escape(d.province)}</option>`).join(""));
-    const chosen = new URLSearchParams(location.search).get("destination"); if (destinations.items.some(d => d._id === chosen)) form.elements.destinationId.value = chosen;
+    await Promise.all([(async () => {
+      let page = 1, result;
+      const chosen = new URLSearchParams(location.search).get("destination");
+      do {
+        result = await api.request(`/destinations?limit=100&page=${page}`);
+        if (!form.isConnected || TM.user?._id !== userId || generation !== SessionIdle.state?.generation) return;
+        form.elements.destinationId.insertAdjacentHTML("beforeend", result.items.map(d => `<option value="${d._id}">${TM.escape(d.name)} · ${TM.escape(d.province)}</option>`).join(""));
+        if (result.items.some(d => d._id === chosen)) form.elements.destinationId.value = chosen;
+        page++;
+      } while (page <= result.pages);
+    })(), render()]);
   } catch (e) { TM.toast(e.message,true); }
 }
 if (document.querySelector("#support-content")) { TM.ready.then(loadSupport); document.addEventListener("authchange", loadSupport); }

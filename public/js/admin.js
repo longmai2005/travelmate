@@ -285,6 +285,14 @@ function openDestinationForm(destination) {
     "Quản lý địa điểm",
   );
   const form = dialog.querySelector("form");
+  form.elements.imageUrl.closest("label").insertAdjacentHTML("afterend", `<label class="form-field">Loại ảnh<select name="imageKind"><option value="place">Ảnh địa điểm</option><option value="area">Ảnh khu vực</option><option value="illustration">Ảnh minh họa</option></select></label><label class="form-field">Tác giả ảnh<input name="imageCredit" maxlength="500" value="${e(d.imageCredit || "")}"></label><label class="form-field full">Trang nguồn ảnh<input type="url" name="imageSourceUrl" maxlength="2000" value="${e(d.imageSourceUrl || "")}" placeholder="Trang chứa tên tác giả và giấy phép"></label><label class="form-field">Giấy phép ảnh<input name="imageLicense" maxlength="100" value="${e(d.imageLicense || "")}" placeholder="Ví dụ: CC BY-SA 4.0"></label><label class="form-field">Liên kết giấy phép<input type="url" name="imageLicenseUrl" maxlength="2000" value="${e(d.imageLicenseUrl || "")}"></label>`);
+  form.elements.imageKind.value = d.imageKind || "illustration";
+  form.elements.imageUrl.addEventListener("change", () => {
+    if (form.elements.imageUrl.value === d.imageUrl) return;
+    for (const key of ["imageCredit", "imageSourceUrl", "imageLicense", "imageLicenseUrl"]) form.elements[key].value = "";
+    form.elements.imageKind.value = "illustration";
+    TM.toast("Đã đổi ảnh. Hãy bổ sung nguồn, tác giả và loại ảnh cho ảnh mới.");
+  });
   form.elements.region.value = d.region;
   form.elements.category.value = d.category;
   form.addEventListener("submit", async (event) => {

@@ -17,9 +17,17 @@ router.post("/destinations", async (req, res) => {
   res.status(201).json({ destination });
 });
 router.put("/destinations/:id", async (req, res) => {
+  const id = objectId(req.params.id);
+  const current = await Destination.findById(id).lean();
+  if (!current) fail("Không tìm thấy địa điểm.", 404);
+  const body = { ...req.body };
+  if (current.imageUrl === body.imageUrl) {
+    for (const key of ["imageCredit", "imageSourceUrl", "imageLicense", "imageLicenseUrl", "imageKind"])
+      if (!Object.hasOwn(body, key)) body[key] = current[key];
+  }
   const destination = await Destination.findByIdAndUpdate(
-    objectId(req.params.id),
-    input(req.body),
+    id,
+    input(body),
     { returnDocument: "after", runValidators: true },
   );
   if (!destination) fail("Không tìm thấy địa điểm.", 404);

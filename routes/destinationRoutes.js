@@ -10,6 +10,7 @@ async function listing(req, res, admin = false) {
     filter.$or = ["name", "province", "shortDescription", "tags"].map(
       (field) => ({ [field]: regex }),
     );
+    filter.$or.push({ searchText: new RegExp(escape(require("../utils/destinationSearch")(q.trim().slice(0, 100))), "i") });
   }
   if (typeof province === "string" && province) filter.province = province;
   if (typeof category === "string" && category) filter.category = category;
@@ -21,6 +22,7 @@ async function listing(req, res, admin = false) {
   if (budget === "medium")
     filter.estimatedCostPerPersonVnd = { $gte: 200000, $lte: 500000 };
   if (budget === "high") filter.estimatedCostPerPersonVnd = { $gt: 500000 };
+  if (budget === "unknown") filter.estimatedCostPerPersonVnd = null;
   const page = Math.max(1, Math.min(10000, parseInt(req.query.page, 10) || 1));
   const limit = Math.max(1, Math.min(100, parseInt(req.query.limit, 10) || 9));
   const sorts = {
@@ -30,7 +32,7 @@ async function listing(req, res, admin = false) {
     featured: { isFeatured: -1, createdAt: 1, _id: 1 },
   };
   if (admin) sorts.updated = { updatedAt: -1, _id: -1 };
-  const [items, total, provinces] = await Promise.all([
+  const [items, total, provinceCounts] = await Promise.all([
     Destination.find(filter)
       .collation({ locale: "vi", strength: 1 })
       .sort(sorts[req.query.sort] || sorts.featured)
@@ -38,14 +40,15 @@ async function listing(req, res, admin = false) {
       .limit(limit)
       .lean(),
     Destination.countDocuments(filter),
-    Destination.distinct("province", admin ? {} : { isActive: true }),
+    Destination.aggregate([{ $match: admin ? {} : { isActive: true } }, { $group: { _id: "$province", total: { $sum: 1 } } }]),
   ]);
   res.json({
     items,
     total,
     page,
     pages: Math.ceil(total / limit),
-    provinces: provinces.sort((a, b) => a.localeCompare(b, "vi")),
+    provinces: provinceCounts.map(p => p._id).sort((a, b) => a.localeCompare(b, "vi")),
+    provinceCounts: provinceCounts.map(p => ({ province: p._id, total: p.total })).sort((a, b) => a.province.localeCompare(b.province, "vi")),
   });
 }
 router.get("/", (req, res) => listing(req, res));

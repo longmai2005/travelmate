@@ -29,13 +29,17 @@
           <div class="breadcrumb">Trang chủ / Khám phá</div>
           <div class="eyebrow">VIỆT NAM ĐANG CHỜ BẠN</div>
           <h1>Đi đâu cũng có điều hay.</h1>
-          <p>Tìm một điểm đến khiến bạn muốn xách ba lô lên ngay.</p>
+          <p>Khám phá từng địa phương, xem thêm trải nghiệm và tự chọn nơi bạn muốn ghé.</p>
         </div>
         <span class="badge"
           ><i data-lucide="compass"></i> Khám phá theo cách của bạn</span
         >
       </div>
       <section class="page-body">
+        <section class="discovery-intro" aria-label="Khám phá theo địa phương">
+          <div><span class="eyebrow">BẮT ĐẦU TỪ MỘT VÙNG ĐẤT</span><h2 id="province-title">Bạn muốn khám phá nơi nào?</h2><p id="province-summary">Đang mở danh mục điểm đến...</p></div>
+          <div id="province-chips" class="province-chips" aria-label="Chọn tỉnh thành"></div>
+        </section>
         <form id="explore-filters" class="toolbar" role="search">
           <label class="input-wrap"
             ><i data-lucide="search"></i
@@ -54,7 +58,7 @@
             <option value="">Mọi mức chi phí</option>
             <option value="low">Dưới 200.000 ₫</option>
             <option value="medium">200.000 – 500.000 ₫</option>
-            <option value="high">Trên 500.000 ₫</option></select
+            <option value="high">Trên 500.000 ₫</option><option value="unknown">Chưa có ước tính</option></select
           ><button
             type="button"
             class="icon-btn"
@@ -105,9 +109,9 @@
           ><button id="next-page" class="btn outline small">Trang sau →</button>
         </div>
         <p class="field-help">
-          Chi phí là ước tính minh họa cho hoạt động mỗi người, chưa gồm lưu
-          trú, di chuyển và ăn uống. Ảnh có thể minh họa vùng miền.
+          Danh mục đang được bổ sung, chưa bao gồm mọi điểm tham quan. Chi phí có số là ước tính cho hoạt động, không phải bảng giá vé. Xem nguồn thông tin và ghi công ảnh trong phần Chi tiết.
         </p>
+        <div class="discovery-more"><div><h3>Muốn tìm thêm một nơi khác?</h3><p id="discovery-more-note">Bạn có thể xem thêm các địa điểm ngoài danh mục trên Google Maps.</p></div><a id="discover-google" class="btn outline" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=địa%20điểm%20du%20lịch%20Việt%20Nam">Khám phá trên Google Maps ↗</a></div>
       </section>
     </main>
     <footer id="site-footer"></footer>

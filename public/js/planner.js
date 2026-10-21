@@ -303,55 +303,56 @@ async function deleteTrip(id) {
 }
 async function openDestinationPicker(dayIndex, selectedId) {
   try {
-    const { items } = await api.request("/destinations?limit=100");
-    TM.cache(items);
     if (selectedId) {
-      const d = items.find((d) => d._id === selectedId);
-      if (d) return editActivity(dayIndex, null, d);
+      const { destination } = await api.request(`/destinations/${selectedId}`);
+      TM.cache([destination]);
+      return editActivity(dayIndex, null, destination);
     }
+    const e = TM.escape;
     const dialog = TM.dialog(
-      `<div class="modal-body"><div class="modal-heading"><div><h2>Ngày ${dayIndex + 1}, đi đâu nhỉ?</h2><p>Chọn một nơi khiến bạn háo hức.</p></div><button class="icon-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><label class="input-wrap"><i data-lucide="search"></i><span class="sr-only">Tìm điểm đến</span><input id="picker-search" placeholder="Tìm điểm đến, tỉnh thành..."></label><div class="selection-list"></div></div>`,
-      "",
-      "Chọn điểm đến",
+      `<div class="modal-body"><div class="modal-heading"><div><h2>Ngày ${dayIndex + 1}, đi đâu nhỉ?</h2><p>Tự chọn từ toàn bộ danh mục, không chỉ các điểm được gợi ý.</p></div><button class="icon-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><label class="input-wrap"><i data-lucide="search"></i><span class="sr-only">Tìm điểm đến</span><input id="picker-search" placeholder="Tìm tên điểm đến hoặc địa phương..."></label><div class="picker-filters"><label class="form-field">Tỉnh / thành phố<select id="picker-province"><option value="">Tất cả tỉnh thành</option></select></label><label class="form-field">Trải nghiệm<select id="picker-category">${TM.categoryOptions()}</select></label></div><p class="picker-summary" aria-live="polite"></p><div class="selection-list"></div><div class="picker-paging"><button type="button" class="btn outline small" id="picker-prev">← Trước</button><span id="picker-page"></span><button type="button" class="btn outline small" id="picker-next">Tiếp →</button></div></div>`,
+      "", "Chọn điểm đến",
     );
-    const list = dialog.querySelector(".selection-list");
-    const render = () => {
-      const query = dialog.querySelector("input").value.toLocaleLowerCase("vi");
-      const filtered = items.filter((d) =>
-        `${d.name} ${d.province} ${d.tags.join(" ")}`
-          .toLocaleLowerCase("vi")
-          .includes(query),
-      );
-      list.innerHTML = filtered.length
-        ? filtered
-            .map(
-              (d) =>
-                `<button class="selection-item" data-pick="${d._id}"><img src="${TM.escape(d.imageUrl)}" alt=""><span><strong>${TM.escape(d.name)}</strong><small>${TM.escape(d.province)} · ${TM.money(d.estimatedCostPerPersonVnd)}</small></span></button>`,
-            )
-            .join("")
-        : '<p class="field-help">Chưa có điểm đến phù hợp.</p>';
+    let page = 1, pages = 0, items = [], requestNumber = 0, province = "";
+    const search = dialog.querySelector("#picker-search"), provinceSelect = dialog.querySelector("#picker-province"), categorySelect = dialog.querySelector("#picker-category"), list = dialog.querySelector(".selection-list");
+    const load = async () => {
+      const request = ++requestNumber;
+      const query = new URLSearchParams({ page, limit: 12, q: search.value, province, category: categorySelect.value });
+      list.innerHTML = '<p class="field-help">Đang tìm điểm đến...</p>';
+      dialog.querySelector("#picker-prev").disabled = true;
+      dialog.querySelector("#picker-next").disabled = true;
+      try {
+        const result = await api.request(`/destinations?${query}`);
+        if (request !== requestNumber || !dialog.isConnected) return;
+        items = result.items; pages = result.pages;
+        TM.cache(items);
+        provinceSelect.innerHTML = '<option value="">Tất cả tỉnh thành</option>' + result.provinces.map(p => `<option value="${e(p)}">${e(p)}</option>`).join("");
+        provinceSelect.value = province;
+        dialog.querySelector(".picker-summary").textContent = `${result.total} điểm đến phù hợp. Bạn có thể đổi bộ lọc và xem các trang tiếp theo.`;
+        list.innerHTML = items.length ? items.map(d => `<button type="button" class="selection-item" data-pick="${d._id}"><img src="${e(d.imageUrl)}" alt="" loading="lazy"><span><strong>${e(d.name)}</strong><small>${e(d.province)} · ${TM.categories[d.category]} · ${TM.money(d.estimatedCostPerPersonVnd)}</small></span></button>`).join("") : '<p class="field-help">Chưa có điểm phù hợp. Thử bỏ bớt bộ lọc hoặc tìm từ khóa khác.</p>';
+        dialog.querySelector("#picker-page").textContent = `Trang ${page} / ${pages || 1}`;
+        dialog.querySelector("#picker-prev").disabled = page <= 1;
+        dialog.querySelector("#picker-next").disabled = page >= pages;
+      } catch (error) { if (request === requestNumber && dialog.isConnected) TM.error(list, error); }
     };
-    render();
-    dialog
-      .querySelector("input")
-      .addEventListener("input", TM.debounce(render, 150));
-    list.addEventListener("click", (event) => {
-      const b = event.target.closest("[data-pick]");
-      if (!b) return;
-      const d = items.find((d) => d._id === b.dataset.pick);
-      if (
-        currentTrip.days[dayIndex].items.some(
-          (item) => item.destinationId?._id === d._id,
-        )
-      )
-        return TM.toast("Địa điểm đã có trong ngày này.", true);
+    search.addEventListener("input", TM.debounce(() => { page = 1; load(); }, 200));
+    provinceSelect.addEventListener("change", () => { province = provinceSelect.value; page = 1; load(); });
+    categorySelect.addEventListener("change", () => { page = 1; load(); });
+    dialog.querySelector("#picker-prev").addEventListener("click", () => { if (page > 1) { page--; load(); } });
+    dialog.querySelector("#picker-next").addEventListener("click", () => { if (page < pages) { page++; load(); } });
+    list.addEventListener("click", event => {
+      const button = event.target.closest("[data-pick]");
+      if (!button) return;
+      const destination = items.find(d => d._id === button.dataset.pick);
+      if (!destination) return;
+      if (currentTrip.days[dayIndex].items.some(item => item.destinationId?._id === destination._id)) return TM.toast("Địa điểm đã có trong ngày này.", true);
       dialog.close();
-      editActivity(dayIndex, null, d);
+      editActivity(dayIndex, null, destination);
     });
-  } catch (error) {
-    TM.toast(error.message, true);
-  }
+    load();
+  } catch (error) { TM.toast(error.message, true); }
 }
+
 function editActivity(dayIndex, itemIndex = null, destination = null) {
   const original =
     itemIndex === null ? null : currentTrip.days[dayIndex].items[itemIndex];
