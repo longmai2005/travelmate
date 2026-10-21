@@ -163,7 +163,7 @@ window.TM = {
     this.cache([destination]);
     const d = destination,
       e = this.escape;
-    return `<article class="destination-card"><div class="card-image"><img src="${e(d.imageUrl)}" alt="${e(d.name)}${d.imageKind === "place" ? "" : " · ảnh khu vực hoặc minh họa"}" loading="lazy"><span class="card-badge">${this.categories[d.category] || "Khám phá"}</span>${d.imageSourceUrl ? `<a class="card-photo-source" href="${e(d.imageSourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Nguồn ảnh ${e(d.name)}">Ảnh ⓘ</a>` : ""}${d.imageKind === "area" ? '<span class="photo-kind">Ảnh khu vực</span>' : d.imageKind !== "place" ? '<span class="photo-kind">Ảnh minh họa</span>' : ""}<button class="icon-btn favorite-btn ${this.favorites.has(d._id) ? "selected" : ""}" data-favorite="${d._id}" aria-label="Lưu yêu thích ${e(d.name)}" aria-pressed="${this.favorites.has(d._id)}"><i data-lucide="heart"></i></button></div><div class="card-content"><div class="card-location"><i data-lucide="map-pin"></i>${e(d.province)}${!d.isActive ? " · Đã ngừng hoạt động" : ""}</div><h3>${e(d.name)}</h3><p>${e(d.shortDescription)}</p><div class="card-meta"><div class="card-price">${this.money(d.estimatedCostPerPersonVnd)}${d.estimatedCostPerPersonVnd == null ? "" : "<small>/ người</small>"}</div><button class="btn ghost" data-detail="${d._id}">Chi tiết <i data-lucide="arrow-up-right"></i></button></div><div class="card-bottom"><span class="field-help">${e(d.recommendedDurationHours)} giờ trải nghiệm</span>${d.isActive ? `<button class="btn ghost" data-plan="${d._id}"><i data-lucide="plus"></i> Thêm vào lịch</button>` : '<span class="field-help">Chỉ xem lịch sử</span>'}</div></div></article>`;
+    return `<article class="destination-card"><div class="card-image"><img src="${e(d.imageUrl)}" alt="${e(d.name)}${d.imageKind === "place" ? "" : " · ảnh khu vực hoặc minh họa"}" loading="lazy"><span class="card-badge">${this.categories[d.category] || "Khám phá"}</span>${d.imageSourceUrl ? `<a class="card-photo-source" href="${e(d.imageSourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Nguồn ảnh ${e(d.name)}">${e(this.photoLabel(d))} ⓘ</a>` : ""}${d.imageKind === "area" ? '<span class="photo-kind">Ảnh khu vực</span>' : d.imageKind !== "place" ? '<span class="photo-kind">Ảnh minh họa</span>' : ""}<button class="icon-btn favorite-btn ${this.favorites.has(d._id) ? "selected" : ""}" data-favorite="${d._id}" aria-label="Lưu yêu thích ${e(d.name)}" aria-pressed="${this.favorites.has(d._id)}"><i data-lucide="heart"></i></button></div><div class="card-content"><div class="card-location"><i data-lucide="map-pin"></i>${e(d.province)}${!d.isActive ? " · Đã ngừng hoạt động" : ""}</div><h3>${e(d.name)}</h3><p>${e(d.shortDescription)}</p><div class="card-meta"><div class="card-price">${this.money(d.estimatedCostPerPersonVnd)}${d.estimatedCostPerPersonVnd == null ? "" : "<small>/ người</small>"}</div><button class="btn ghost" data-detail="${d._id}">Chi tiết <i data-lucide="arrow-up-right"></i></button></div><div class="card-bottom"><span class="field-help">${e(d.recommendedDurationHours)} giờ trải nghiệm</span>${d.isActive ? `<button class="btn ghost" data-plan="${d._id}"><i data-lucide="plus"></i> Thêm vào lịch</button>` : '<span class="field-help">Chỉ xem lịch sử</span>'}</div></div></article>`;
   },
   renderCards(container, items) {
     container.innerHTML = items.map((item) => this.card(item)).join("");
@@ -204,11 +204,15 @@ window.TM = {
       this.toast(error.message, true);
     }
   },
+  photoLabel(destination) {
+    const year = destination.imageTakenOn?.slice(0, 4);
+    if (!year) return "Ảnh · chưa rõ năm";
+    return `${Number(year) < new Date().getFullYear() - 5 ? "Ảnh tư liệu" : "Ảnh"} ${year}`;
+  },
   mapQuery(destination) {
-    return Number.isFinite(destination.latitude) &&
-      Number.isFinite(destination.longitude)
-      ? `${destination.latitude},${destination.longitude}`
-      : `${destination.name}, ${destination.province}, Việt Nam`;
+    // Tọa độ trong danh mục có thể là tâm vịnh/khu vực, không phải lối vào.
+    // Tra cứu địa danh để Google hiển thị điểm tham quan và các lối tiếp cận.
+    return `${destination.name}, ${destination.province}, Việt Nam`;
   },
   googleMapsUrl(destination, directions = false) {
     const url = new URL(
@@ -225,10 +229,12 @@ window.TM = {
   },
   createMap(element, destinations, note) {
     element.classList.add("google-map");
-    element.innerHTML = `<label class="google-map-picker">Xem vị trí điểm đến<select aria-label="Chọn điểm đến trên bản đồ"></select></label><iframe class="google-map-frame" title="Google Maps" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="google-map-info"><div><strong></strong><p></p></div><div class="google-map-actions"><a class="btn outline small" target="_blank" rel="noopener noreferrer" data-google-open>Mở Google Maps ↗</a><a class="btn small" target="_blank" rel="noopener noreferrer" data-google-directions>Chỉ đường ↗</a></div></div><div class="google-map-empty" hidden>Chưa có điểm đến để hiển thị. Hãy thử thay đổi bộ lọc.</div>`;
+    element.innerHTML = `<label class="google-map-picker">Xem vị trí điểm đến<select aria-label="Chọn điểm đến trên bản đồ"></select></label><p class="google-map-load-status" role="status" hidden></p><iframe class="google-map-frame" title="Google Maps" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="google-map-info"><div><strong></strong><p></p></div><div class="google-map-actions"><a class="btn outline small" target="_blank" rel="noopener noreferrer" data-google-open>Mở Google Maps ↗</a><a class="btn small" target="_blank" rel="noopener noreferrer" data-google-directions>Chỉ đường ↗</a></div></div><div class="google-map-empty" hidden>Chưa có điểm đến để hiển thị. Hãy thử thay đổi bộ lọc.</div>`;
     const picker = element.querySelector("select");
     const frame = element.querySelector("iframe");
     const info = element.querySelector(".google-map-info");
+    const loadStatus = element.querySelector(".google-map-load-status");
+    let loadTimer;
     let items = [],
       selectedId;
     function focus(id) {
@@ -241,7 +247,15 @@ window.TM = {
       url.searchParams.set("z", "14");
       url.searchParams.set("hl", "vi");
       url.searchParams.set("output", "embed");
-      if (frame.src !== url.href) frame.src = url.href;
+      if (frame.src !== url.href) {
+        clearTimeout(loadTimer);
+        loadStatus.hidden = false;
+        loadStatus.textContent = "Đang tải Google Maps…";
+        frame.src = url.href;
+        loadTimer = setTimeout(() => {
+          loadStatus.textContent = "Bản đồ đang tải chậm. Bạn có thể bấm Mở Google Maps bên dưới.";
+        }, 12000);
+      }
       frame.title = `Google Maps – ${d.name}`;
       info.querySelector("strong").textContent = d.name;
       info.querySelector("p").textContent = d.province;
@@ -252,9 +266,7 @@ window.TM = {
       );
       if (note)
         note.textContent =
-          Number.isFinite(d.latitude) && Number.isFinite(d.longitude)
-            ? "Google Maps · Vị trí theo tọa độ đã đối chiếu."
-            : "Google Maps · Tìm theo tên và tỉnh thành; hãy đối chiếu kết quả trước khi di chuyển.";
+          "Google Maps · Tra cứu từng địa điểm theo tên và tỉnh thành. Với đảo, vịnh hoặc khu rộng, hãy chọn bến tàu/lối vào trước khi chỉ đường.";
     }
     function update(nextItems) {
       items = nextItems;
@@ -272,6 +284,8 @@ window.TM = {
           items.some((d) => d._id === selectedId) ? selectedId : items[0]._id,
         );
       else {
+        clearTimeout(loadTimer);
+        loadStatus.hidden = true;
         frame.removeAttribute("src");
         if (note)
           note.textContent = "Không có điểm đến phù hợp với bộ lọc hiện tại.";
@@ -279,7 +293,14 @@ window.TM = {
       return items.length;
     }
     picker.addEventListener("change", () => focus(picker.value));
+    frame.addEventListener("load", () => {
+      clearTimeout(loadTimer);
+      loadStatus.hidden = true;
+    });
     frame.addEventListener("error", () => {
+      clearTimeout(loadTimer);
+      loadStatus.hidden = false;
+      loadStatus.textContent = "Chưa tải được bản đồ. Mở Google Maps để xem trực tiếp.";
       if (note)
         note.textContent =
           "Chưa tải được bản đồ. Bạn có thể dùng nút Mở Google Maps để xem vị trí.";
@@ -289,6 +310,7 @@ window.TM = {
       update,
       focus,
       destroy() {
+        clearTimeout(loadTimer);
         element.replaceChildren();
       },
     };
@@ -303,7 +325,7 @@ window.TM = {
       }
       const e = this.escape;
       const dialog = this.dialog(
-        `<div class="detail-hero"><img class="detail-image" src="${e(d.imageUrl)}" alt="${e(d.name)}${d.imageKind === "place" ? "" : " · ảnh khu vực hoặc minh họa"}"><button class="icon-btn modal-close" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><div class="modal-body"><div class="eyebrow"><i data-lucide="map-pin"></i>${e(d.province)}</div><h2>${e(d.name)}</h2>${d.imageSourceUrl ? `<p class="image-attribution">${d.imageKind === "area" ? "Ảnh khu vực" : "Ảnh"}: ${e(d.imageCredit || "Wikimedia Commons")} · <a href="${e(d.imageSourceUrl)}" target="_blank" rel="noopener noreferrer">Nguồn ảnh</a>${d.imageLicenseUrl ? ` · <a href="${e(d.imageLicenseUrl)}" target="_blank" rel="noopener noreferrer">${e(d.imageLicense)}</a>` : ""}</p>` : '<p class="image-attribution">Ảnh minh họa; chưa có ghi công ảnh cho riêng địa điểm này.</p>'}${!d.isActive ? '<p class="status-note warning">Địa điểm đã ngừng hoạt động. Thông tin được giữ lại cho lịch sử chuyến đi.</p>' : ""}<div class="detail-meta"><span><i data-lucide="compass"></i> ${this.categories[d.category]}</span><span><i data-lucide="clock-3"></i> Khoảng ${d.recommendedDurationHours} giờ</span><span><i data-lucide="wallet"></i> ${this.money(d.estimatedCostPerPersonVnd)}${d.estimatedCostPerPersonVnd == null ? "" : " / người"}</span></div><p class="detail-description">${e(d.description)}</p><div class="destination-facts"><p><strong>Địa chỉ:</strong> ${e(d.address || "Chưa bổ sung")}</p><p><strong>Giờ mở cửa:</strong> ${e(d.openingHours || "Cần kiểm tra trước khi đi")}</p><p><strong>Lưu ý chi phí:</strong> ${e(d.priceNote || "Giá tham khảo, cần đối chiếu với đơn vị cung cấp dịch vụ.")}</p>${d.sourceUrl ? `<p><a href="${e(d.sourceUrl)}" target="_blank" rel="noopener noreferrer">Xem nguồn thông tin ↗</a>${d.verifiedOn ? ` · Kiểm tra ngày ${TM.date(d.verifiedOn)}` : " · Chưa ghi ngày kiểm tra"}</p>` : '<p class="field-help">Thông tin chưa có nguồn đối chiếu; vui lòng xác nhận trước khi đặt dịch vụ.</p>'}</div><p class="field-help">${d.latitude == null ? "Chưa có tọa độ xác minh cho điểm đến này." : `Tọa độ tham khảo: ${d.latitude}, ${d.longitude}`}</p><div class="detail-map" id="detail-map"></div><p class="field-help" id="detail-map-note"></p><p><a href="/explore?province=${encodeURIComponent(d.province)}" target="_blank" rel="noopener noreferrer">Khám phá thêm điểm đến tại ${e(d.province)} ↗</a></p><p><a href="/support?destination=${id}">Báo thông tin chưa chính xác →</a></p><div class="detail-actions"><button class="btn outline favorite-btn ${this.favorites.has(id) ? "selected" : ""}" data-favorite="${id}" aria-pressed="${this.favorites.has(id)}"><i data-lucide="heart"></i> Lưu yêu thích</button>${d.isActive && options.allowPlan !== false ? `<button class="btn" id="detail-plan"><i data-lucide="calendar-plus"></i> Thêm vào lịch trình</button>` : ""}</div></div>`,
+        `<div class="detail-hero"><img class="detail-image" src="${e(d.imageUrl)}" alt="${e(d.name)}${d.imageKind === "place" ? "" : " · ảnh khu vực hoặc minh họa"}"><button class="icon-btn modal-close" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><div class="modal-body"><div class="eyebrow"><i data-lucide="map-pin"></i>${e(d.province)}</div><h2>${e(d.name)}</h2>${d.imageSourceUrl ? `<p class="image-attribution">${d.imageKind === "area" ? "Ảnh khu vực" : "Ảnh"}: ${e(d.imageCredit || "Wikimedia Commons")}${d.imageTakenOn ? ` · Chụp ${d.imageTakenOn.length === 4 ? e(d.imageTakenOn) : TM.date(d.imageTakenOn)}` : " · Chưa rõ ngày chụp"}${d.imageTakenOn && Number(d.imageTakenOn.slice(0, 4)) < new Date().getFullYear() - 5 ? " · Ảnh tư liệu, cảnh quan có thể đã thay đổi" : ""} · <a href="${e(d.imageSourceUrl)}" target="_blank" rel="noopener noreferrer">Nguồn ảnh</a>${d.imageLicenseUrl ? ` · <a href="${e(d.imageLicenseUrl)}" target="_blank" rel="noopener noreferrer">${e(d.imageLicense)}</a>` : ""}</p>` : '<p class="image-attribution">Ảnh minh họa; chưa có ghi công ảnh cho riêng địa điểm này.</p>'}${!d.isActive ? '<p class="status-note warning">Địa điểm đã ngừng hoạt động. Thông tin được giữ lại cho lịch sử chuyến đi.</p>' : ""}<div class="detail-meta"><span><i data-lucide="compass"></i> ${this.categories[d.category]}</span><span><i data-lucide="clock-3"></i> Khoảng ${d.recommendedDurationHours} giờ</span><span><i data-lucide="wallet"></i> ${this.money(d.estimatedCostPerPersonVnd)}${d.estimatedCostPerPersonVnd == null ? "" : " / người"}</span></div><p class="detail-description">${e(d.description)}</p><div class="destination-facts"><p><strong>Địa chỉ:</strong> ${e(d.address || "Chưa bổ sung")}</p><p><strong>Giờ mở cửa:</strong> ${e(d.openingHours || "Cần kiểm tra trước khi đi")}</p><p><strong>Lưu ý chi phí:</strong> ${e(d.priceNote || "Giá tham khảo, cần đối chiếu với đơn vị cung cấp dịch vụ.")}</p>${d.sourceUrl ? `<p><a href="${e(d.sourceUrl)}" target="_blank" rel="noopener noreferrer">Xem nguồn thông tin ↗</a>${d.verifiedOn ? ` · Kiểm tra ngày ${TM.date(d.verifiedOn)}` : " · Chưa ghi ngày kiểm tra"}</p>` : '<p class="field-help">Thông tin chưa có nguồn đối chiếu; vui lòng xác nhận trước khi đặt dịch vụ.</p>'}</div><p class="field-help">${d.latitude == null ? "Chưa có tọa độ xác minh cho điểm đến này." : `Tọa độ tham khảo: ${d.latitude}, ${d.longitude}`}</p><div class="detail-map" id="detail-map"></div><p class="field-help" id="detail-map-note"></p><p><a href="/explore?province=${encodeURIComponent(d.province)}" target="_blank" rel="noopener noreferrer">Khám phá thêm điểm đến tại ${e(d.province)} ↗</a></p><p><a href="/support?destination=${id}">Báo thông tin chưa chính xác →</a></p><div class="detail-actions"><button class="btn outline favorite-btn ${this.favorites.has(id) ? "selected" : ""}" data-favorite="${id}" aria-pressed="${this.favorites.has(id)}"><i data-lucide="heart"></i> Lưu yêu thích</button>${d.isActive && options.allowPlan !== false ? `<button class="btn" id="detail-plan"><i data-lucide="calendar-plus"></i> Thêm vào lịch trình</button>` : ""}</div></div>`,
         "modal-detail",
         d.name,
       );

@@ -22,7 +22,7 @@ router.put("/destinations/:id", async (req, res) => {
   if (!current) fail("Không tìm thấy địa điểm.", 404);
   const body = { ...req.body };
   if (current.imageUrl === body.imageUrl) {
-    for (const key of ["imageCredit", "imageSourceUrl", "imageLicense", "imageLicenseUrl", "imageKind"])
+    for (const key of ["imageCredit", "imageSourceUrl", "imageLicense", "imageLicenseUrl", "imageKind", "imageTakenOn"])
       if (!Object.hasOwn(body, key)) body[key] = current[key];
   }
   const destination = await Destination.findByIdAndUpdate(

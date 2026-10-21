@@ -71,7 +71,7 @@ function updateMap() {
     );
   if (mapController) {
     const count = mapController.update(currentItems);
-    document.querySelector("#marker-count").textContent = `${count} vị trí`;
+    document.querySelector("#marker-count").textContent = `${count} điểm · trang ${page}`;
   }
 }
 form.addEventListener("submit", (event) => event.preventDefault());

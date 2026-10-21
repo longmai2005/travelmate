@@ -73,6 +73,14 @@ module.exports = (body) => {
   }
   imageMeta.imageCredit = text(body.imageCredit ?? "", "Tác giả ảnh", 500, false);
   imageMeta.imageLicense = text(body.imageLicense ?? "", "Giấy phép ảnh", 100, false);
+  imageMeta.imageTakenOn = text(body.imageTakenOn ?? "", "Ngày chụp ảnh", 10, false);
+  if (imageMeta.imageTakenOn) {
+    const { dateFilter, todayInVietnam } = require("./adminData");
+    const taken = imageMeta.imageTakenOn;
+    if (!/^(19|20)\d{2}$/.test(taken)) dateFilter(taken, "Ngày chụp ảnh");
+    if (taken > todayInVietnam()) fail("Ngày chụp ảnh không được ở tương lai.");
+    if (!imageMeta.imageSourceUrl) fail("Cần nguồn ảnh để đối chiếu ngày chụp.");
+  }
   imageMeta.imageKind = body.imageKind || "illustration";
   if (!["place", "area", "illustration"].includes(imageMeta.imageKind)) fail("Loại ảnh không hợp lệ.");
   const verifiedOn = text(body.verifiedOn ?? "", "Ngày kiểm tra", 10, false);

@@ -28,6 +28,7 @@ const records = groups.flatMap(([province, region, rows]) => rows.map(([name, ti
     imageSourceUrl: photo.localImageUrl ? photo.imageSourceUrl : "",
     imageLicense: photo.localImageUrl ? photo.imageLicense : "",
     imageLicenseUrl: photo.localImageUrl ? photo.imageLicenseUrl : "",
+    imageTakenOn: photo.localImageUrl ? photo.imageTakenOn || "" : "",
     imageKind: !photo.localImageUrl ? "illustration" : areaPhotos.has(name) ? "area" : "place",
     latitude: old?.latitude ?? (areaPhotos.has(name) ? null : photo.coordinates?.lat ?? null),
     longitude: old?.longitude ?? (areaPhotos.has(name) ? null : photo.coordinates?.lon ?? null),

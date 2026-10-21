@@ -1,0 +1,920 @@
+[
+  {
+    "slug": "vinh-ha-long",
+    "imageUrl": "/images/destinations/vinh-ha-long.jpg",
+    "imageCredit": "NKSTTSSHNVN",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:V%E1%BB%8Bnh_H%E1%BA%A1_Long_-_NKS.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "pho-co-hoi-an",
+    "imageUrl": "/images/destinations/pho-co-hoi-an.jpg",
+    "imageCredit": "Crazy3108",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:PhoCoHoiAn.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ruong-bac-thang-sa-pa",
+    "imageUrl": "/images/destinations/ruong-bac-thang-sa-pa.jpg",
+    "imageCredit": "Eerin25",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Rice_terraces_in_Sapa,_Vietnam.jpg",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageKind": "area"
+  },
+  {
+    "slug": "quan-the-trang-an",
+    "imageUrl": "/images/destinations/quan-the-trang-an.jpg",
+    "imageCredit": "Jakub Hałun",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Trang_An_Landscape_Complex,_Ninh_Binh_Province,_Vietnam,_20240202_1447_5310.jpg",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bien-my-khe",
+    "imageUrl": "/images/destinations/bien-my-khe.jpg",
+    "imageCredit": "Viethavvh at Vietnamese Wikipedia",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bai_bien_My_Khe.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ho-tuyen-lam",
+    "imageUrl": "/images/destinations/ho-tuyen-lam.jpg",
+    "imageCredit": "Diane Selwyn",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Tuyen_Lam_Lake_01.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ho-hoan-kiem",
+    "imageUrl": "/images/destinations/ho-hoan-kiem.jpg",
+    "imageCredit": "Chuhai07",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hoan_Kiem_10082026.jpg",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageKind": "place"
+  },
+  {
+    "slug": "van-mieu-quoc-tu-giam",
+    "imageUrl": "/images/destinations/van-mieu-quoc-tu-giam.jpg",
+    "imageCredit": "Jakub Hałun",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Main_gate_of_the_Temple_of_Literature,_Hanoi,_Vietnam,_20240123_0929_3068.jpg",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "pho-co-ha-noi",
+    "imageUrl": "/images/destinations/pho-co-ha-noi.jpg",
+    "imageCredit": "Sgnpkd",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hanoi_shophouse_2.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "dao-co-to",
+    "imageUrl": "/images/destinations/dao-co-to.jpg",
+    "imageCredit": "Phuotcafe",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:%C3%82u_c%E1%BA%A3ng.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "nui-fansipan",
+    "imageUrl": "/images/destinations/nui-fansipan.jpg",
+    "imageCredit": "Viwikipediaorg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A1p-treo-fansipan-17.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ban-cat-cat",
+    "imageUrl": "/images/destinations/ban-cat-cat.jpg",
+    "imageCredit": "Liftold (thảo luận)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_C%C3%A1t_C%C3%A1t.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "tam-coc",
+    "imageUrl": "/images/destinations/tam-coc.jpg",
+    "imageCredit": "Kien1980v (thảo luận)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Muaxuantamcoc.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "hang-mua",
+    "imageUrl": "/images/destinations/hang-mua.jpg",
+    "imageCredit": "Tuan Mai",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Tam_Coc_by_Tuan_Mai_%22007%22_(8888350545).jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "dai-noi-hue",
+    "imageUrl": "/images/destinations/dai-noi-hue.jpg",
+    "imageCredit": "NguyenThanhBac123",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BA%A1i_n%E1%BB%99i.jpg",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-thien-mu",
+    "imageUrl": "/images/destinations/chua-thien-mu.jpg",
+    "imageCredit": "Lưu Ly",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:ThienMuPagoda.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ba-na-hills",
+    "imageUrl": "/images/destinations/ba-na-hills.jpg",
+    "imageCredit": "Thevu69",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Panoramic_View.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ban-dao-son-tra",
+    "imageUrl": "/images/destinations/ban-dao-son-tra.jpg",
+    "imageCredit": "Phó Nháy (talk)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ban_dao_Son_Tra.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ngu-hanh-son",
+    "imageUrl": "/images/destinations/ngu-hanh-son.jpg",
+    "imageCredit": "Viethavvh at vi.wikipedia",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ngu_hanh_son_toan_canh.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bien-an-bang",
+    "imageUrl": "/images/destinations/bien-an-bang.jpg",
+    "imageCredit": "Alexkom000",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:2024-11-23_An_Bang_Beach_in_Hoi_An_in_November.jpg",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "thanh-dia-my-son",
+    "imageUrl": "/images/destinations/thanh-dia-my-son.jpg",
+    "imageCredit": "Chainwit.",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:2024_-_M%E1%BB%B9_S%C6%A1n_Group_B,_C_and_D_-_img_23.jpg",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bien-nha-trang",
+    "imageUrl": "/images/destinations/bien-nha-trang.jpg",
+    "imageCredit": "Christophe95",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_Trang_Beach_10.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "thap-ba-ponagar",
+    "imageUrl": "/images/destinations/thap-ba-ponagar.jpg",
+    "imageCredit": "Makarenko Sasha",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Th%C3%A1p_B%C3%A0_PONAGAR_-_panoramio.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "eo-gio",
+    "imageUrl": "/images/destinations/eo-gio.jpg",
+    "imageCredit": "Hưng Hồ Bá",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Eo_Gi%C3%B3_-_Nh%C6%A1n_L%C3%BD.jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ky-co",
+    "imageUrl": "/images/destinations/ky-co.jpg",
+    "imageCredit": "Lê Hồ Bắc",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ky_Co_beach,_Quy_Nhon_city,_Binh_Dinh_province,_Vietnam.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "dinh-doc-lap",
+    "imageUrl": "/images/destinations/dinh-doc-lap.jpg",
+    "imageCredit": "Yesvn123",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dinh_%C4%90%E1%BB%99c_L%E1%BA%ADp_v%C3%A0o_n%C3%A0m_2024.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "cho-ben-thanh",
+    "imageUrl": "/images/destinations/cho-ben-thanh.jpg",
+    "imageCredit": "Riza",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ben_Thanh_market_2.jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "pho-di-bo-nguyen-hue",
+    "imageUrl": "/images/destinations/pho-di-bo-nguyen-hue.jpg",
+    "imageCredit": "flowcomm",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_City,_Saigon,_Vietnam_(49579818542).jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "doi-che-cau-dat",
+    "imageUrl": "/images/destinations/doi-che-cau-dat.jpg",
+    "imageCredit": "Hmoong",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Doi_che_Cau_Dat.jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bai-sao-phu-quoc",
+    "imageUrl": "/images/destinations/bai-sao-phu-quoc.jpg",
+    "imageCredit": "[//commons.wikimedia.org/wiki/User:Trantuonglam Trantuonglam]",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bai-sao-phu-quoc-tuonglamphotos.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "cho-dem-phu-quoc",
+    "imageUrl": "/images/destinations/cho-dem-phu-quoc.jpg",
+    "imageCredit": "FrogsLegs71",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_for_sale_in_Phu_Quoc_night_market_Vietnam.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "cho-noi-cai-rang",
+    "imageUrl": "/images/destinations/cho-noi-cai-rang.jpg",
+    "imageCredit": "Bùi Thụy Đào Nguyên",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:M%E1%BB%99t_c%E1%BA%A3nh_%E1%BB%9F_ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "hoang-thanh-thang-long",
+    "imageUrl": "/images/destinations/hoang-thanh-thang-long.jpg",
+    "imageCredit": "katiebordner",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Central_Sector_of_the_Imperial_Citadel_of_Thang_Long_-_Hanoi.jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "lang-chu-tich-ho-chi-minh",
+    "imageUrl": "/images/destinations/lang-chu-tich-ho-chi-minh.jpg",
+    "imageCredit": "NKSTTSSHNVN",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:L%C4%83ng_B%C3%A1c_-_NKS.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-mot-cot",
+    "imageUrl": "/images/destinations/chua-mot-cot.jpg",
+    "imageCredit": "Staffan Scherz",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:One_Pillar_Pagoda_Hanoi.jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-tran-quoc",
+    "imageUrl": "/images/destinations/chua-tran-quoc.jpg",
+    "imageCredit": "Thang Nguyen",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Tr%E1%BA%A5n_Qu%E1%BB%91c,_H%C3%A0_N%E1%BB%99i.jpg",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bao-tang-dan-toc-hoc-viet-nam",
+    "imageUrl": "/images/destinations/bao-tang-dan-toc-hoc-viet-nam.jpg",
+    "imageCredit": "vi:User:Rungbachduong",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dan_toc_hoc_1.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ho-tay",
+    "imageUrl": "/images/destinations/ho-tay.jpg",
+    "imageCredit": "NKSTTSSHNVN",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:H%E1%BB%93_T%C3%A2y_ho%C3%A0ng_h%C3%B4n_-_NKS.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "nha-hat-lon-ha-noi",
+    "imageUrl": "/images/destinations/nha-hat-lon-ha-noi.jpg",
+    "imageCredit": "Dennis G. Jarvis",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hanoi_Opera_House_1.jpg",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "vinh-bai-tu-long",
+    "imageUrl": "/images/destinations/vinh-bai-tu-long.jpg",
+    "imageCredit": "NASA Earth Observatory images by Joshua Stevens, using Landsat data from the U.S. Geological Survey. Story by Kasha Patel.",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bai_Tu_Long_Bay.jpeg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "khu-danh-thang-yen-tu",
+    "imageUrl": "/images/destinations/khu-danh-thang-yen-tu.jpg",
+    "imageCredit": "Thang Nguyen from Nottingham, United Kingdom",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_%C4%90%E1%BB%93ng,_Y%C3%AAn_T%E1%BB%AD.jpg",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "dao-quan-lan",
+    "imageUrl": "/images/destinations/dao-quan-lan.jpg",
+    "imageCredit": "Phó Nháy",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:S%C6%A1n_H%C3%A0o_Beach,_Cao_L%C3%B4n_Island,_V%C3%A2n_%C4%90%E1%BB%93n,_Qu%E1%BA%A3ng_Ninh,_Vi%E1%BB%87t_Nam.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bao-tang-quang-ninh",
+    "imageUrl": "/images/destinations/bao-tang-quang-ninh.jpg",
+    "imageCredit": "Hoangkid",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Quang_Ninh_Museum_facade_1.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "hang-sung-sot",
+    "imageUrl": "/images/destinations/hang-sung-sot.jpg",
+    "imageCredit": "audrey_sel",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hang_S%E1%BB%ADng_S%E1%BB%91t_2.jpg",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "dong-thien-cung",
+    "imageUrl": "/images/destinations/dong-thien-cung.jpg",
+    "imageCredit": "Erik A. Drabløs",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Thien_Cung.jpg",
+    "imageLicense": "CC BY 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ban-ta-van",
+    "imageUrl": "/images/destinations/ban-ta-van.jpg",
+    "imageCredit": "Andre Hospers",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ta_Van_Muong_Ha_vallei_(41498).jpg",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageKind": "area"
+  },
+  {
+    "slug": "nui-ham-rong",
+    "imageUrl": "/images/destinations/nui-ham-rong.jpg",
+    "imageCredit": "mmmmngai@rogers.com",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Vietnam-Sapa-Ham_Rong_Mountain-PANO_20180111_111620.jpg",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "thung-lung-muong-hoa",
+    "imageUrl": "/images/destinations/thung-lung-muong-hoa.jpg",
+    "imageCredit": "Christophe95",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:M%C6%B0%E1%BB%9Dng_Hoa_Valley_15.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "thac-bac-sa-pa",
+    "imageUrl": "/images/destinations/thac-bac-sa-pa.jpg",
+    "imageCredit": "Lori_NY",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Thacbac3.jpg",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "y-ty",
+    "imageUrl": "/images/destinations/y-ty.jpg",
+    "imageCredit": "Kiếm Anh",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Y_T%C3%BD.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "co-do-hoa-lu",
+    "imageUrl": "/images/destinations/co-do-hoa-lu.jpg",
+    "imageCredit": "Jakub Hałun",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dinh_Bo_Linh_Shrine,_Hoa_L%C6%B0,_Ninh_B%C3%ACnh,_Vietnam,_20240203_1458_5685.jpg",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-bich-dong",
+    "imageUrl": "/images/destinations/chua-bich-dong.jpg",
+    "imageCredit": "Jakub Hałun",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bich_Dong_Pagoda,_Ninh_Binh,_Vietnam,_20240203_1132_5634.jpg",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-bai-dinh",
+    "imageUrl": "/images/destinations/chua-bai-dinh.jpg",
+    "imageCredit": "Kien1980v (thảo luận) 01:40, ngày 3 tháng 9 năm 2017 (UTC)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Chua_Bai_Dinh_X8.JPG",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "vuon-quoc-gia-cuc-phuong",
+    "imageUrl": "/images/destinations/vuon-quoc-gia-cuc-phuong.jpg",
+    "imageCredit": "Kien1980v (thảo luận)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Cuc_Phuong_01.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "dam-van-long",
+    "imageUrl": "/images/destinations/dam-van-long.jpg",
+    "imageCredit": "TruongHuynb (thảo luận)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Huyvanlong2.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "cau-rong",
+    "imageUrl": "/images/destinations/cau-rong.jpg",
+    "imageCredit": "Somerset999",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dragon_Bridge,_Da_Nang_during_day_-_20230819_(cropped).jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "cho-han",
+    "imageUrl": "/images/destinations/cho-han.jpg",
+    "imageCredit": "Dragfyre",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Cho_Han_Entrance.JPG",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bao-tang-dieu-khac-cham",
+    "imageUrl": "/images/destinations/bao-tang-dieu-khac-cham.jpg",
+    "imageCredit": "Phó Nháy (talk) 04:57, 27 August 2011 (UTC)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Cham_Sculpture.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bien-non-nuoc",
+    "imageUrl": "/images/destinations/bien-non-nuoc.jpg",
+    "imageCredit": "Vyacheslav Argenberg",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Non_nuoc_Basket_boats.jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-linh-ung-bai-but",
+    "imageUrl": "/images/destinations/chua-linh-ung-bai-but.jpg",
+    "imageCredit": "Dragfyre",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Chua_Linh_Ung_Bai_But_DN.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "lang-minh-mang",
+    "imageUrl": "/images/destinations/lang-minh-mang.jpg",
+    "imageCredit": "Chainwit.",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:L%C4%83ng_Minh_M%E1%BA%A1ng_-_Minh_L%C3%A2u_(2024)_-_img_02.jpg",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "lang-tu-duc",
+    "imageUrl": "/images/destinations/lang-tu-duc.jpg",
+    "imageCredit": "CEphoto, Uwe Aranas",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hue_Vietnam_Tomb-of-Emperor-Tu-Duc-05.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "lang-khai-dinh",
+    "imageUrl": "/images/destinations/lang-khai-dinh.jpg",
+    "imageCredit": "NKSTTSSHNVN",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:L%C4%83ng_Kh%E1%BA%A3i_%C4%90%E1%BB%8Bnh_-_NKS.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "cung-an-dinh",
+    "imageUrl": "/images/destinations/cung-an-dinh.jpg",
+    "imageCredit": "Lưu Ly",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:AnDinhResidence5.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "cho-dong-ba",
+    "imageUrl": "/images/destinations/cho-dong-ba.jpg",
+    "imageCredit": "Chainwit.",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dong_Ba_Market_(Hue)_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_Hu%E1%BA%BF_(July_2024)_-_img_03.jpg",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "cau-ngoi-thanh-toan",
+    "imageUrl": "/images/destinations/cau-ngoi-thanh-toan.jpg",
+    "imageCredit": "Lưu Ly at Vietnamese Wikipedia",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:C%E1%BA%A7u_ng%C3%B3i_Thanh_To%C3%A0n1.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-long-son",
+    "imageUrl": "/images/destinations/chua-long-son.jpg",
+    "imageCredit": "Jame Healy",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_Trang,_Long_Son_pagoda.jpg",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "nha-tho-nui-nha-trang",
+    "imageUrl": "/images/destinations/nha-tho-nui-nha-trang.jpg",
+    "imageCredit": "Ngocquang2502",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ntct3.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "vien-hai-duong-hoc-nha-trang",
+    "imageUrl": "/images/destinations/vien-hai-duong-hoc-nha-trang.jpg",
+    "imageCredit": "Phương Huy (thảo luận)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Vi%E1%BB%87n_H%E1%BA%A3i_d%C6%B0%C6%A1ng_h%E1%BB%8Dc_-_Ph%C3%B2ng_th%C3%AD_nghi%E1%BB%87m_%C4%91%E1%BA%A1i_d%C6%B0%C6%A1ng.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "hon-chong-nha-trang",
+    "imageUrl": "/images/destinations/hon-chong-nha-trang.jpg",
+    "imageCredit": "Vinhtantran",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hon_Chong_from_Co_Tien_beach.JPG",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "vinh-ninh-van",
+    "imageUrl": "/images/destinations/vinh-ninh-van.jpg",
+    "imageCredit": "Tâm Lê Thị Minh",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ninh_Van_Bay.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "vinh-vinh-hy",
+    "imageUrl": "/images/destinations/vinh-vinh-hy.jpg",
+    "imageCredit": "Karel Bilek",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Vinh_hy_bay.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "thap-doi-quy-nhon",
+    "imageUrl": "/images/destinations/thap-doi-quy-nhon.jpg",
+    "imageCredit": "Minh Khiem",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Th%C3%A1p_%C4%90%C3%B4i,_Quy_Nh%C6%A1n_-_43083336701.jpg",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageKind": "place"
+  },
+  {
+    "slug": "thap-banh-it",
+    "imageUrl": "/images/destinations/thap-banh-it.jpg",
+    "imageCredit": "Dongson*vmvn at Vietnamese Wikipedia",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:C%E1%BB%A5m_th%C3%A1p_B%C3%A1nh_%C3%8Dt,_Tuy_Ph%C6%B0%E1%BB%9Bc,_B%C3%ACnh_%C4%90%E1%BB%8Bnh.JPG",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bao-tang-quang-trung",
+    "imageUrl": "/images/destinations/bao-tang-quang-trung.jpg",
+    "imageCredit": "Liftold at Vietnamese Wikipedia",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:T%C6%B0%E1%BB%A3ng_%C4%91%C3%A0i_Quang_Trung_t%E1%BA%A1i_B%E1%BA%A3o_t%C3%A0ng_Quang_Trung.JPG",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "cu-lao-xanh",
+    "imageUrl": "/images/destinations/cu-lao-xanh.jpg",
+    "imageCredit": "Lê Hồ Bắc",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Cu_Lao_Xanh_(Green_Island)_in_Quy_Nhon_city_(31334676355).jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bien-ho-pleiku",
+    "imageUrl": "/images/destinations/bien-ho-pleiku.jpg",
+    "imageCredit": "Genghiskhan",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:To_Nung_Lake.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-minh-thanh-pleiku",
+    "imageUrl": "/images/destinations/chua-minh-thanh-pleiku.jpg",
+    "imageCredit": "VŨ HÙNG",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Minh_Th%C3%A0nh_-_panoramio.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ho-xuan-huong-da-lat",
+    "imageUrl": "/images/destinations/ho-xuan-huong-da-lat.jpg",
+    "imageCredit": "Diane Selwyn",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Xuan_Huong_Lake_08.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ga-da-lat",
+    "imageUrl": "/images/destinations/ga-da-lat.jpg",
+    "imageCredit": "Diane Selwyn",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Da_Lat_train_station_37.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "thien-vien-truc-lam-da-lat",
+    "imageUrl": "/images/destinations/thien-vien-truc-lam-da-lat.jpg",
+    "imageCredit": "The original uploader was Liftold at Vietnamese Wikipedia.",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Zen_Monastery_Truc_Lam_Da_Lat.JPG",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-linh-phuoc",
+    "imageUrl": "/images/destinations/chua-linh-phuoc.jpg",
+    "imageCredit": "Diane Selwyn",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Linh_Phuoc_Pagoda_01.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "thac-datanla",
+    "imageUrl": "/images/destinations/thac-datanla.jpg",
+    "imageCredit": "thalling55",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Th%C3%A1c_Datanla.jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "nui-langbiang",
+    "imageUrl": "/images/destinations/nui-langbiang.jpg",
+    "imageCredit": "Liftold (thảo luận)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%89nh_Langbiang.JPG",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "buu-dien-trung-tam-sai-gon",
+    "imageUrl": "/images/destinations/buu-dien-trung-tam-sai-gon.jpg",
+    "imageCredit": "Yesvn123",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Saigon_Central_Post_Office_2022.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "nha-tho-duc-ba-sai-gon",
+    "imageUrl": "/images/destinations/nha-tho-duc-ba-sai-gon.jpg",
+    "imageCredit": "Diego Delso",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora,_Ciudad_Ho_Chi_Minh,_Vietnam,_2013-08-14,_DD_05.JPG",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bao-tang-chung-tich-chien-tranh",
+    "imageUrl": "/images/destinations/bao-tang-chung-tich-chien-tranh.jpg",
+    "imageCredit": "Prenn",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:War_Remnants_Museum,_HCMC,_front.JPG",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "dia-dao-cu-chi",
+    "imageUrl": "/images/destinations/dia-dao-cu-chi.jpg",
+    "imageCredit": "Phương Huy (thảo luận)",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:W_C%E1%BB%A7_Chi_%C4%90%E1%BB%8Ba_%C4%91%E1%BA%A1o_C%E1%BB%A7_Chi_ng%E1%BB%A5y_trang.JPG",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-ba-thien-hau-cho-lon",
+    "imageUrl": "/images/destinations/chua-ba-thien-hau-cho-lon.jpg",
+    "imageCredit": "Gary Todd from Xinzheng, China",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Thien_Hau_Pagoda_(10017896294).jpg",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageKind": "place"
+  },
+  {
+    "slug": "di-tich-nha-tu-phu-quoc",
+    "imageUrl": "/images/destinations/di-tich-nha-tu-phu-quoc.jpg",
+    "imageCredit": "Bùi Thụy Đào Nguyên",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Tr%E1%BA%A1i_giam_Ph%C3%BA_Qu%E1%BB%91c.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "vuon-quoc-gia-phu-quoc",
+    "imageUrl": "/images/destinations/vuon-quoc-gia-phu-quoc.jpg",
+    "imageCredit": "Tonbi ko",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Rough_road_at_north-east_of_Phu_Quoc.JPG",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "area"
+  },
+  {
+    "slug": "dinh-cau-phu-quoc",
+    "imageUrl": "/images/destinations/dinh-cau-phu-quoc.jpg",
+    "imageCredit": "Bùi Thụy Đào Nguyên",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dinh_C%E1%BA%ADu_%E1%BB%9F_Ph%C3%BA_Qu%E1%BB%91c.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-ho-quoc",
+    "imageUrl": "/images/destinations/chua-ho-quoc.jpg",
+    "imageCredit": "Phương Huy",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_(c%E1%BB%95ng_ch%C3%ADnh,_nh%C3%ACn_th%E1%BA%B3ng).jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "lang-chai-ham-ninh",
+    "imageUrl": "/images/destinations/lang-chai-ham-ninh.jpg",
+    "imageCredit": "trungydang",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ham_Ninh_Phuquoc_Vietnam_-_panoramio.jpg",
+    "imageLicense": "CC BY 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "imageKind": "area"
+  },
+  {
+    "slug": "suoi-tranh-phu-quoc",
+    "imageUrl": "/images/destinations/suoi-tranh-phu-quoc.jpg",
+    "imageCredit": "Stefan from Dresden, Germany",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Th%C3%A1c_Su%E1%BB%91i_Tranh.jpg",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "ben-ninh-kieu",
+    "imageUrl": "/images/destinations/ben-ninh-kieu.jpg",
+    "imageCredit": "Hung190596",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ninhkieuquay.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "nha-co-binh-thuy",
+    "imageUrl": "/images/destinations/nha-co-binh-thuy.jpg",
+    "imageCredit": "Daaé",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_co_Binh_Thuy_1.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "chua-ong-can-tho",
+    "imageUrl": "/images/destinations/chua-ong-can-tho.jpg",
+    "imageCredit": "Bùi Thụy Đào Nguyên",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_%C3%94ng_C%E1%BA%A7n_Th%C6%A1.jpg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageKind": "place"
+  },
+  {
+    "slug": "thien-vien-truc-lam-phuong-nam",
+    "imageUrl": "/images/destinations/thien-vien-truc-lam-phuong-nam.jpg",
+    "imageCredit": "Bennguyennnnn",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Thien-vien-truc-lam-phuong-nam-4.jpg",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageKind": "place"
+  },
+  {
+    "slug": "bao-tang-can-tho",
+    "imageUrl": "/images/destinations/bao-tang-can-tho.jpg",
+    "imageCredit": "Daaé",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Can_Tho_Museum.jpg",
+    "imageLicense": "Public domain",
+    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageKind": "place"
+  },
+  {
+    "slug": "con-son",
+    "imageUrl": "/images/destinations/con-son.jpg",
+    "imageCredit": "Phương Huy",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:C%E1%BB%93n_S%C6%A1n_C%E1%BA%A7n_Th%C6%A1_ng23th4n2023_(c%C3%A1_h%E1%BB%8Fa_ti%E1%BB%85n)_(2).jpg",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageKind": "place"
+  },
+  {
+    "slug": "vuon-co-bang-lang",
+    "imageUrl": "/images/placeholder.svg",
+    "imageCredit": "",
+    "imageSourceUrl": "",
+    "imageLicense": "",
+    "imageLicenseUrl": "",
+    "imageKind": "illustration"
+  }
+]

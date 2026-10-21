@@ -10,7 +10,11 @@
     "imageLicense": "CC0",
     "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "imageDescription": "Hoan Kiem 10082026",
-    "localImageUrl": "/images/destinations/ho-hoan-kiem.jpg"
+    "localImageUrl": "/images/destinations/ho-hoan-kiem.jpg",
+    "imageTakenOn": "2026-08-10",
+    "imageDateSource": "2026-08-10 17:56:58",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Hoan_Kiem_10082026.jpg"
   },
   {
     "name": "Văn Miếu – Quốc Tử Giám",
@@ -23,85 +27,113 @@
     "imageLicense": "CC BY 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "imageDescription": "Main gate of the Temple of Literature in Hanoi - view from inside the complex",
-    "localImageUrl": "/images/destinations/van-mieu-quoc-tu-giam.jpg"
+    "localImageUrl": "/images/destinations/van-mieu-quoc-tu-giam.jpg",
+    "imageTakenOn": "2024-01-23",
+    "imageDateSource": "2024-01-23 09:29:27",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Main_gate_of_the_Temple_of_Literature,_Hanoi,_Vietnam,_20240123_0929_3068.jpg"
   },
   {
     "name": "Phố cổ Hà Nội",
     "articleTitle": "Khu phố cổ Hà Nội",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Khu_ph%E1%BB%91_c%E1%BB%95_H%C3%A0_N%E1%BB%99i",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Hanoi_shophouse_2.jpg/960px-Hanoi_shophouse_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hanoi_shophouse_2.jpg",
-    "imageCredit": "Sgnpkd",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "Hanoi shophouse",
-    "localImageUrl": "/images/destinations/pho-co-ha-noi.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/2024-11-03_H%C3%A0ng_%C4%90%C6%B0%E1%BB%9Dng_Street%2C_Hanoi.jpg/960px-2024-11-03_H%C3%A0ng_%C4%90%C6%B0%E1%BB%9Dng_Street%2C_Hanoi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:2024-11-03_H%C3%A0ng_%C4%90%C6%B0%E1%BB%9Dng_Street,_Hanoi.jpg",
+    "imageCredit": "Alexkom000",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Hàng Đường Street, Hanoi",
+    "localImageUrl": "/images/destinations/pho-co-ha-noi-452b78f35e.jpg",
+    "imageTakenOn": "2024-11-03",
+    "imageDateSource": "Taken on 3 November 2024, 10:18:39",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:2024-11-03_H%C3%A0ng_%C4%90%C6%B0%E1%BB%9Dng_Street,_Hanoi.jpg"
   },
   {
     "name": "Hoàng thành Thăng Long",
     "articleTitle": "Hoàng thành Thăng Long",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Ho%C3%A0ng_th%C3%A0nh_Th%C4%83ng_Long",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Central_Sector_of_the_Imperial_Citadel_of_Thang_Long_-_Hanoi.jpg/960px-Central_Sector_of_the_Imperial_Citadel_of_Thang_Long_-_Hanoi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Central_Sector_of_the_Imperial_Citadel_of_Thang_Long_-_Hanoi.jpg",
-    "imageCredit": "katiebordner",
-    "imageLicense": "CC BY 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageDescription": "Central Sector of the Imperial Citadel of Thang Long - Hanoi",
-    "localImageUrl": "/images/destinations/hoang-thanh-thang-long.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/%C4%90i_du_l%E1%BB%8Bch_Ho%C3%A0ng_th%C3%A0nh_Th%C4%83ng_Long.jpg/960px-%C4%90i_du_l%E1%BB%8Bch_Ho%C3%A0ng_th%C3%A0nh_Th%C4%83ng_Long.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:%C4%90i_du_l%E1%BB%8Bch_Ho%C3%A0ng_th%C3%A0nh_Th%C4%83ng_Long.jpg",
+    "imageCredit": "DefenderTienMinh07",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Đi du lịch Hoàng thành Thăng Long (bằng phương tiện giao thông xe buýt)",
+    "localImageUrl": "/images/destinations/hoang-thanh-thang-long-e331721942.jpg",
+    "imageTakenOn": "2024-04-14",
+    "imageDateSource": "2024-04-14 09:36:33",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:%C4%90i_du_l%E1%BB%8Bch_Ho%C3%A0ng_th%C3%A0nh_Th%C4%83ng_Long.jpg"
   },
   {
     "name": "Lăng Chủ tịch Hồ Chí Minh",
     "articleTitle": "Lăng Chủ tịch Hồ Chí Minh",
     "sourceUrl": "https://vi.wikipedia.org/wiki/L%C4%83ng_Ch%E1%BB%A7_t%E1%BB%8Bch_H%E1%BB%93_Ch%C3%AD_Minh",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/L%C4%83ng_B%C3%A1c_-_NKS.jpg/960px-L%C4%83ng_B%C3%A1c_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:L%C4%83ng_B%C3%A1c_-_NKS.jpg",
-    "imageCredit": "NKSTTSSHNVN",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "Lăng Bác - NKS",
-    "localImageUrl": "/images/destinations/lang-chu-tich-ho-chi-minh.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Mausoleum_of_Ho_Chi_Minh%2C_February_2025.jpg/960px-Mausoleum_of_Ho_Chi_Minh%2C_February_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Mausoleum_of_Ho_Chi_Minh,_February_2025.jpg",
+    "imageCredit": "SerChevalerie",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "Mausoleum of Ho Chi Minh, February 2025",
+    "localImageUrl": "/images/destinations/lang-chu-tich-ho-chi-minh-1fd373a1cd.jpg",
+    "imageTakenOn": "2025-02-22",
+    "imageDateSource": "22 February 2025 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Mausoleum_of_Ho_Chi_Minh,_February_2025.jpg"
   },
   {
     "name": "Chùa Một Cột",
     "articleTitle": "Chùa Một Cột",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Ch%C3%B9a_M%E1%BB%99t_C%E1%BB%99t",
     "coordinates": null,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/One_Pillar_Pagoda_Hanoi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:One_Pillar_Pagoda_Hanoi.jpg",
-    "imageCredit": "Staffan Scherz",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/One_Pillar_Pagoda_2025.jpg/960px-One_Pillar_Pagoda_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:One_Pillar_Pagoda_2025.jpg",
+    "imageCredit": "David Stanley",
     "imageLicense": "CC BY 2.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageDescription": "One Pillar Pagoda",
-    "localImageUrl": "/images/destinations/chua-mot-cot.jpg"
+    "imageDescription": "The One Pillar Pagoda or Lotus Platform (1049) in Hanoi, Vietnam, was built by Emperor Lý Thái Tông to express his gratitude on the birth of a son.",
+    "localImageUrl": "/images/destinations/chua-mot-cot-8442cc0aba.jpg",
+    "imageTakenOn": "2025-01-14",
+    "imageDateSource": "14 January 2025, 15:32:46 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:One_Pillar_Pagoda_2025.jpg"
   },
   {
     "name": "Chùa Trấn Quốc",
     "articleTitle": "Chùa Trấn Quốc",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Ch%C3%B9a_Tr%E1%BA%A5n_Qu%E1%BB%91c",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Ch%C3%B9a_Tr%E1%BA%A5n_Qu%E1%BB%91c%2C_H%C3%A0_N%E1%BB%99i.jpg/960px-Ch%C3%B9a_Tr%E1%BA%A5n_Qu%E1%BB%91c%2C_H%C3%A0_N%E1%BB%99i.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Tr%E1%BA%A5n_Qu%E1%BB%91c,_H%C3%A0_N%E1%BB%99i.jpg",
-    "imageCredit": "Thang Nguyen",
-    "imageLicense": "CC BY-SA 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "imageDescription": "Chùa Trấn Quốc, Hà Nội.",
-    "localImageUrl": "/images/destinations/chua-tran-quoc.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Tran_Quoc_Pagoda%2C_Hanoi%2C_Vietnam.jpg/960px-Tran_Quoc_Pagoda%2C_Hanoi%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Tran_Quoc_Pagoda,_Hanoi,_Vietnam.jpg",
+    "imageCredit": "RB Photo",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Trấn Quốc Pagoda in 2026",
+    "localImageUrl": "/images/destinations/chua-tran-quoc-ad66d30e68.jpg",
+    "imageTakenOn": "2026-03-18",
+    "imageDateSource": "2026-03-18 05:29:09",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Tran_Quoc_Pagoda,_Hanoi,_Vietnam.jpg"
   },
   {
     "name": "Bảo tàng Dân tộc học Việt Nam",
     "articleTitle": "Bảo tàng Dân tộc học Việt Nam",
     "sourceUrl": "https://vi.wikipedia.org/wiki/B%E1%BA%A3o_t%C3%A0ng_D%C3%A2n_t%E1%BB%99c_h%E1%BB%8Dc_Vi%E1%BB%87t_Nam",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Dan_toc_hoc_1.jpg/960px-Dan_toc_hoc_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dan_toc_hoc_1.jpg",
-    "imageCredit": "vi:User:Rungbachduong",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-    "imageDescription": "Entrance to the Vietnam Museum of Ethnology",
-    "localImageUrl": "/images/destinations/bao-tang-dan-toc-hoc-viet-nam.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Museum_of_Ethnoly_Open_luchtmuseum.jpg/960px-Museum_of_Ethnoly_Open_luchtmuseum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Ethnoly_Open_luchtmuseum.jpg",
+    "imageCredit": "Andre Hospers",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Museum of Ethnoly Open luchtmuseum",
+    "localImageUrl": "/images/destinations/bao-tang-dan-toc-hoc-viet-nam-3caa3d112d.jpg",
+    "imageTakenOn": "2025-03-09",
+    "imageDateSource": "9 March 2025 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Ethnoly_Open_luchtmuseum.jpg"
   },
   {
     "name": "Hồ Tây",
@@ -114,20 +146,28 @@
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "Hồ Tây hoàng hôn",
-    "localImageUrl": "/images/destinations/ho-tay.jpg"
+    "localImageUrl": "/images/destinations/ho-tay.jpg",
+    "imageTakenOn": "2022-10-04",
+    "imageDateSource": "2022-10-04",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:H%E1%BB%93_T%C3%A2y_ho%C3%A0ng_h%C3%B4n_-_NKS.jpg"
   },
   {
     "name": "Nhà hát Lớn Hà Nội",
     "articleTitle": "Nhà hát Lớn Hà Nội",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Nh%C3%A0_h%C3%A1t_L%E1%BB%9Bn_H%C3%A0_N%E1%BB%99i",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Hanoi_Opera_House_1.jpg/960px-Hanoi_Opera_House_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hanoi_Opera_House_1.jpg",
-    "imageCredit": "Dennis G. Jarvis",
-    "imageLicense": "CC BY-SA 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "imageDescription": "Hanoi Opera House",
-    "localImageUrl": "/images/destinations/nha-hat-lon-ha-noi.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Hanoi_-_Opera_House.jpg/960px-Hanoi_-_Opera_House.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hanoi_-_Opera_House.jpg",
+    "imageCredit": "Benjamin Smith",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Hanoi (Vietnam) - Opera house",
+    "localImageUrl": "/images/destinations/nha-hat-lon-ha-noi-b6fc4e41d5.jpg",
+    "imageTakenOn": "2023-04-25",
+    "imageDateSource": "2023-04-25 03:25:35",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Hanoi_-_Opera_House.jpg"
   },
   {
     "name": "Vịnh Hạ Long",
@@ -139,13 +179,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/V%E1%BB%8Bnh_H%E1%BA%A1_Long_-_NKS.jpg/960px-V%E1%BB%8Bnh_H%E1%BA%A1_Long_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:V%E1%BB%8Bnh_H%E1%BA%A1_Long_-_NKS.jpg",
-    "imageCredit": "NKSTTSSHNVN",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "Vịnh Hạ Long",
-    "localImageUrl": "/images/destinations/vinh-ha-long.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Submerged_Karst_Landscape.jpg/960px-Submerged_Karst_Landscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Submerged_Karst_Landscape.jpg",
+    "imageCredit": "David Stanley",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Several thousand small limestone islets are scattered around Ha Long Bay, Vietnam. This is the most extensive submerged karst landscape in the world.",
+    "localImageUrl": "/images/destinations/vinh-ha-long-29dc6d6f6e.jpg",
+    "imageTakenOn": "2025-01-13",
+    "imageDateSource": "13 January 2025, 08:49:53 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Submerged_Karst_Landscape.jpg"
   },
   {
     "name": "Đảo Cô Tô",
@@ -157,26 +201,34 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/%C3%82u_c%E1%BA%A3ng.jpg/960px-%C3%82u_c%E1%BA%A3ng.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:%C3%82u_c%E1%BA%A3ng.jpg",
-    "imageCredit": "Phuotcafe",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/To%C3%A0n_c%E1%BA%A3nh_huy%E1%BB%87n_C%C3%B4_T%C3%B4.jpg/960px-To%C3%A0n_c%E1%BA%A3nh_huy%E1%BB%87n_C%C3%B4_T%C3%B4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:To%C3%A0n_c%E1%BA%A3nh_huy%E1%BB%87n_C%C3%B4_T%C3%B4.jpg",
+    "imageCredit": "Phòng văn hóa- thông tin và du lịch huyện Cô Tô",
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "âu cảng dài hơn 200m, là khu vực trú đậu cho tàu thuyền",
-    "localImageUrl": "/images/destinations/dao-co-to.jpg"
+    "imageDescription": "Toàn cảnh huyện Cô Tô",
+    "localImageUrl": "/images/destinations/dao-co-to-19013d8133.jpg",
+    "imageTakenOn": "2023-02-07",
+    "imageDateSource": "2023-02-07",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:To%C3%A0n_c%E1%BA%A3nh_huy%E1%BB%87n_C%C3%B4_T%C3%B4.jpg"
   },
   {
     "name": "Vịnh Bái Tử Long",
     "articleTitle": "Vịnh Bái Tử Long",
     "sourceUrl": "https://vi.wikipedia.org/wiki/V%E1%BB%8Bnh_B%C3%A1i_T%E1%BB%AD_Long",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Bai_Tu_Long_Bay.jpeg/960px-Bai_Tu_Long_Bay.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bai_Tu_Long_Bay.jpeg",
-    "imageCredit": "NASA Earth Observatory images by Joshua Stevens, using Landsat data from the U.S. Geological Survey. Story by Kasha Patel.",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "In traditional Vietnamese culture, the dragon is a powerful and sacred mythical creature. According to legend, Vietnam was constantly fighting off intruders from the north thousands of years ago. The Jade Emperor who ruled heaven (Ngọc Hoàng Thượng đế) sent the Mother Dragon and her children to help defeat the invaders. When the dragons descended, they immediately thwarted an attack in the Eastern",
-    "localImageUrl": "/images/destinations/vinh-bai-tu-long.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/B%C3%A1i_T%E1%BB%AD_Long_Bay_-_silhouettes.jpg/960px-B%C3%A1i_T%E1%BB%AD_Long_Bay_-_silhouettes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1i_T%E1%BB%AD_Long_Bay_-_silhouettes.jpg",
+    "imageCredit": "Hardscarf",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Silhouettes of Bái Tử Long Bay",
+    "localImageUrl": "/images/destinations/vinh-bai-tu-long-fe603066b6.jpg",
+    "imageTakenOn": "2024-12-06",
+    "imageDateSource": "2024-12-06 09:08:40",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1i_T%E1%BB%AD_Long_Bay_-_silhouettes.jpg"
   },
   {
     "name": "Khu danh thắng Yên Tử",
@@ -188,13 +240,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Ch%C3%B9a_%C4%90%E1%BB%93ng%2C_Y%C3%AAn_T%E1%BB%AD.jpg/960px-Ch%C3%B9a_%C4%90%E1%BB%93ng%2C_Y%C3%AAn_T%E1%BB%AD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_%C4%90%E1%BB%93ng,_Y%C3%AAn_T%E1%BB%AD.jpg",
-    "imageCredit": "Thang Nguyen from Nottingham, United Kingdom",
-    "imageLicense": "CC BY-SA 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "imageDescription": "Chùa Đồng, Yên Tử",
-    "localImageUrl": "/images/destinations/khu-danh-thang-yen-tu.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Ch%C3%B9a_%C4%90%E1%BB%93ng%2C_Y%C3%AAn_T%E1%BB%AD_2.jpg/960px-Ch%C3%B9a_%C4%90%E1%BB%93ng%2C_Y%C3%AAn_T%E1%BB%AD_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_%C4%90%E1%BB%93ng,_Y%C3%AAn_T%E1%BB%AD_2.jpg",
+    "imageCredit": "Imgcloud",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Chùa Đồng",
+    "localImageUrl": "/images/destinations/khu-danh-thang-yen-tu-3575594159.jpg",
+    "imageTakenOn": "2024-07-21",
+    "imageDateSource": "21 July 2024 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_%C4%90%E1%BB%93ng,_Y%C3%AAn_T%E1%BB%AD_2.jpg"
   },
   {
     "name": "Đảo Quan Lạn",
@@ -212,7 +268,11 @@
     "imageLicense": "Public domain",
     "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "imageDescription": "Bãi biển Sơn Hào (xã Quan Lạn), đảo Cao Lôn, quần đảo Vân Đồn, Việt Nam",
-    "localImageUrl": "/images/destinations/dao-quan-lan.jpg"
+    "localImageUrl": "/images/destinations/dao-quan-lan.jpg",
+    "imageTakenOn": "2010-10-17",
+    "imageDateSource": "2010-10-17",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:S%C6%A1n_H%C3%A0o_Beach,_Cao_L%C3%B4n_Island,_V%C3%A2n_%C4%90%E1%BB%93n,_Qu%E1%BA%A3ng_Ninh,_Vi%E1%BB%87t_Nam.jpg"
   },
   {
     "name": "Bảo tàng Quảng Ninh",
@@ -225,7 +285,11 @@
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "Quang Ninh Museum's black glass reflective facade with colossal 3D letters for building name: 'BẢO TÀNG QUẢNG NINH'",
-    "localImageUrl": "/images/destinations/bao-tang-quang-ninh.jpg"
+    "localImageUrl": "/images/destinations/bao-tang-quang-ninh.jpg",
+    "imageTakenOn": "2022-04-22",
+    "imageDateSource": "2022-04-22 09:51:31",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Quang_Ninh_Museum_facade_1.jpg"
   },
   {
     "name": "Hang Sửng Sốt",
@@ -237,13 +301,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Hang_S%E1%BB%ADng_S%E1%BB%91t_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hang_S%E1%BB%ADng_S%E1%BB%91t_2.jpg",
-    "imageCredit": "audrey_sel",
-    "imageLicense": "CC BY-SA 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "imageDescription": "The Amazing Cave in Ha Long Bay.",
-    "localImageUrl": "/images/destinations/hang-sung-sot.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Sung_Sot_cave_Ha_Long_Bay_%2854046%29.jpg/960px-Sung_Sot_cave_Ha_Long_Bay_%2854046%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Sung_Sot_cave_Ha_Long_Bay_(54046).jpg",
+    "imageCredit": "Andre Hospers",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Sung Sot cave Ha Long Bay",
+    "localImageUrl": "/images/destinations/hang-sung-sot-e3cd980ea9.jpg",
+    "imageTakenOn": "2025-03-09",
+    "imageDateSource": "9 March 2025 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Sung_Sot_cave_Ha_Long_Bay_(54046).jpg"
   },
   {
     "name": "Động Thiên Cung",
@@ -261,20 +329,28 @@
     "imageLicense": "CC BY 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
     "imageDescription": "Thien Cung grotto in Ha Long Bay, Vietnam",
-    "localImageUrl": "/images/destinations/dong-thien-cung.jpg"
+    "localImageUrl": "/images/destinations/dong-thien-cung.jpg",
+    "imageTakenOn": "2008-02-28",
+    "imageDateSource": "2008-02-28",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Thien_Cung.jpg"
   },
   {
     "name": "Ruộng bậc thang Sa Pa",
     "articleTitle": "Sa Pa",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Sa_Pa",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Rice_terraces_in_Sapa%2C_Vietnam.jpg/960px-Rice_terraces_in_Sapa%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Rice_terraces_in_Sapa,_Vietnam.jpg",
-    "imageCredit": "Eerin25",
-    "imageLicense": "CC0",
-    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "imageDescription": "Rice terraces in Sapa, Vietnam",
-    "localImageUrl": "/images/destinations/ruong-bac-thang-sa-pa.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Rizi%C3%A8re_en_terrasse_%C3%A0_Sapa%2C_Vietnam%2C_offrant_un_paysage_spectaculaire_de_cultures_en_pente.jpg/960px-Rizi%C3%A8re_en_terrasse_%C3%A0_Sapa%2C_Vietnam%2C_offrant_un_paysage_spectaculaire_de_cultures_en_pente.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Rizi%C3%A8re_en_terrasse_%C3%A0_Sapa,_Vietnam,_offrant_un_paysage_spectaculaire_de_cultures_en_pente.jpg",
+    "imageCredit": "Asmara Rodrigue",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Rizière en terrasse à Sapa, Vietnam, offrant un paysage spectaculaire de cultures en pente",
+    "localImageUrl": "/images/destinations/ruong-bac-thang-sa-pa-f206aceadd.jpg",
+    "imageTakenOn": "2023-05-16",
+    "imageDateSource": "2023-05-16",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Rizi%C3%A8re_en_terrasse_%C3%A0_Sapa,_Vietnam,_offrant_un_paysage_spectaculaire_de_cultures_en_pente.jpg"
   },
   {
     "name": "Núi Fansipan",
@@ -286,26 +362,34 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/C%C3%A1p-treo-fansipan-17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A1p-treo-fansipan-17.jpg",
-    "imageCredit": "Viwikipediaorg",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Fansipan_summit_pyramid_monument_sunset_sea_of_clouds_Sa_Pa_Vietnam.jpg/960px-Fansipan_summit_pyramid_monument_sunset_sea_of_clouds_Sa_Pa_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Fansipan_summit_pyramid_monument_sunset_sea_of_clouds_Sa_Pa_Vietnam.jpg",
+    "imageCredit": "Vivu Vietnam",
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "Chinh phục Nóc nhà Đông Dương – đỉnh Phan Si Păng",
-    "localImageUrl": "/images/destinations/nui-fansipan.jpg"
+    "imageDescription": "The summit of Fansipan at sunset above a sea of clouds, Sa Pa, Vietnam.",
+    "localImageUrl": "/images/destinations/nui-fansipan-d23bcbaef5.jpg",
+    "imageTakenOn": "2026-03-21",
+    "imageDateSource": "2026-03-21",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Fansipan_summit_pyramid_monument_sunset_sea_of_clouds_Sa_Pa_Vietnam.jpg"
   },
   {
     "name": "Bản Cát Cát",
     "articleTitle": "Bản Cát Cát",
     "sourceUrl": "https://vi.wikipedia.org/wiki/B%E1%BA%A3n_C%C3%A1t_C%C3%A1t",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/B%E1%BA%A3n_C%C3%A1t_C%C3%A1t.jpg/960px-B%E1%BA%A3n_C%C3%A1t_C%C3%A1t.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_C%C3%A1t_C%C3%A1t.jpg",
-    "imageCredit": "Liftold (thảo luận)",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Đường vào Bản Cát Cát",
-    "localImageUrl": "/images/destinations/ban-cat-cat.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/C%C3%A1t_C%C3%A1t_Village_1.jpg/960px-C%C3%A1t_C%C3%A1t_Village_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A1t_C%C3%A1t_Village_1.jpg",
+    "imageCredit": "Mickey Đại Phát",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Cát Cát Village view",
+    "localImageUrl": "/images/destinations/ban-cat-cat-0d3780677a.jpg",
+    "imageTakenOn": "2025-01-31",
+    "imageDateSource": "2025-01-31 10:04:14",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A1t_C%C3%A1t_Village_1.jpg"
   },
   {
     "name": "Bản Tả Van",
@@ -323,7 +407,11 @@
     "imageLicense": "CC BY 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "imageDescription": "Ta Van Muong Ha vallei Ta Van Muong Ha vallei, Kalfjes van Waterbuffels slapen op de weg Lao Chai San ii Bridge, Beautiful view of the mountains and valleys near the bridge at Lao Chai village in Sa Pa,",
-    "localImageUrl": "/images/destinations/ban-ta-van.jpg"
+    "localImageUrl": "/images/destinations/ban-ta-van.jpg",
+    "imageTakenOn": "2025-03-12",
+    "imageDateSource": "12 March 2025 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ta_Van_Muong_Ha_vallei_(41498).jpg"
   },
   {
     "name": "Núi Hàm Rồng",
@@ -336,20 +424,28 @@
     "imageLicense": "CC BY-SA 2.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "imageDescription": "Sa Pa, Vietnam",
-    "localImageUrl": "/images/destinations/nui-ham-rong.jpg"
+    "localImageUrl": "/images/destinations/nui-ham-rong.jpg",
+    "imageTakenOn": "2018-02-11",
+    "imageDateSource": "2018-02-11 19:22:27",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Vietnam-Sapa-Ham_Rong_Mountain-PANO_20180111_111620.jpg"
   },
   {
     "name": "Thung lũng Mường Hoa",
     "articleTitle": "Thung lũng Mường Hoa",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Thung_l%C5%A9ng_M%C6%B0%E1%BB%9Dng_Hoa",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/M%C6%B0%E1%BB%9Dng_Hoa_Valley_15.jpg/960px-M%C6%B0%E1%BB%9Dng_Hoa_Valley_15.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:M%C6%B0%E1%BB%9Dng_Hoa_Valley_15.jpg",
-    "imageCredit": "Christophe95",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "View of the Mường Hoa Valley.",
-    "localImageUrl": "/images/destinations/thung-lung-muong-hoa.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Ta_Van_Muong_Ha_vallei_%2898742%29.jpg/960px-Ta_Van_Muong_Ha_vallei_%2898742%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ta_Van_Muong_Ha_vallei_(98742).jpg",
+    "imageCredit": "Andre Hospers",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Ta Van Muong Ha vallei Lao Chai San ii Bridge, Beautiful view of the mountains and valleys from the bridge at Lao Chai village in Sapa,",
+    "localImageUrl": "/images/destinations/thung-lung-muong-hoa-f00ea59936.jpg",
+    "imageTakenOn": "2025-03-12",
+    "imageDateSource": "12 March 2025 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ta_Van_Muong_Ha_vallei_(98742).jpg"
   },
   {
     "name": "Thác Bạc Sa Pa",
@@ -367,7 +463,11 @@
     "imageLicense": "CC BY-SA 2.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "imageDescription": "Bac Falls (Silver Falls), Sa Pa, Vietnam",
-    "localImageUrl": "/images/destinations/thac-bac-sa-pa.jpg"
+    "localImageUrl": "/images/destinations/thac-bac-sa-pa.jpg",
+    "imageTakenOn": "2011-10-03",
+    "imageDateSource": "2011-10-03",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Thacbac3.jpg"
   },
   {
     "name": "Y Tý",
@@ -380,7 +480,11 @@
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "Thung lũng tại Y Tý",
-    "localImageUrl": "/images/destinations/y-ty.jpg"
+    "localImageUrl": "/images/destinations/y-ty.jpg",
+    "imageTakenOn": "2020-09-02",
+    "imageDateSource": "2020-09-02",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Y_T%C3%BD.jpg"
   },
   {
     "name": "Quần thể Tràng An",
@@ -393,7 +497,11 @@
     "imageLicense": "CC BY 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "imageDescription": "Trang An Landscape Complex, Ninh Binh Province, Vietnam",
-    "localImageUrl": "/images/destinations/quan-the-trang-an.jpg"
+    "localImageUrl": "/images/destinations/quan-the-trang-an.jpg",
+    "imageTakenOn": "2024-02-02",
+    "imageDateSource": "2024-02-02 14:47:53",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Trang_An_Landscape_Complex,_Ninh_Binh_Province,_Vietnam,_20240202_1447_5310.jpg"
   },
   {
     "name": "Tam Cốc",
@@ -405,26 +513,34 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Muaxuantamcoc.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Muaxuantamcoc.jpg",
-    "imageCredit": "Kien1980v (thảo luận)",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "Tam Cốc-Bích Động, Ninh Binh province, Vietnam",
-    "localImageUrl": "/images/destinations/tam-coc.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Tam_Coc_Ninh_Binh_%2812995%29.jpg/960px-Tam_Coc_Ninh_Binh_%2812995%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Tam_Coc_Ninh_Binh_(12995).jpg",
+    "imageCredit": "Andre Hospers",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Tam Coc Ninh Binh",
+    "localImageUrl": "/images/destinations/tam-coc-7a6b563ff9.jpg",
+    "imageTakenOn": "2025-03-07",
+    "imageDateSource": "7 March 2025 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Tam_Coc_Ninh_Binh_(12995).jpg"
   },
   {
     "name": "Hang Múa",
     "articleTitle": "Hang Múa",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Hang_M%C3%BAa",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Tam_Coc_by_Tuan_Mai_%22007%22_%288888350545%29.jpg/960px-Tam_Coc_by_Tuan_Mai_%22007%22_%288888350545%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Tam_Coc_by_Tuan_Mai_%22007%22_(8888350545).jpg",
-    "imageCredit": "Tuan Mai",
-    "imageLicense": "CC BY 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageDescription": "Tam Cốc - Bích Động, còn được biết đến với những cái tên nổi tiếng như \"vịnh Hạ Long trên cạn\" hay \"Nam thiên đệ nhị động\" là một khu du lịch trọng điểm quốc gia Việt Nam.",
-    "localImageUrl": "/images/destinations/hang-mua.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/2024-03-30-Mua_Cave_Dragon_Mountain-3758.jpg/960px-2024-03-30-Mua_Cave_Dragon_Mountain-3758.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:2024-03-30-Mua_Cave_Dragon_Mountain-3758.jpg",
+    "imageCredit": "Superbass",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Mua Cave / Ninh Binh",
+    "localImageUrl": "/images/destinations/hang-mua-a0fe2883f0.jpg",
+    "imageTakenOn": "2024-03-30",
+    "imageDateSource": "2024-03-30",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:2024-03-30-Mua_Cave_Dragon_Mountain-3758.jpg"
   },
   {
     "name": "Cố đô Hoa Lư",
@@ -437,7 +553,11 @@
     "imageLicense": "CC BY 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "imageDescription": "Dinh Bo Linh Shrine, Hoa Lư, Ninh Bình, Vietnam",
-    "localImageUrl": "/images/destinations/co-do-hoa-lu.jpg"
+    "localImageUrl": "/images/destinations/co-do-hoa-lu.jpg",
+    "imageTakenOn": "2024-02-03",
+    "imageDateSource": "2024-02-03 14:58:56",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Dinh_Bo_Linh_Shrine,_Hoa_L%C6%B0,_Ninh_B%C3%ACnh,_Vietnam,_20240203_1458_5685.jpg"
   },
   {
     "name": "Chùa Bích Động",
@@ -450,7 +570,11 @@
     "imageLicense": "CC BY 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "imageDescription": "Bich Dong Pagoda, Ninh Binh, Vietnam",
-    "localImageUrl": "/images/destinations/chua-bich-dong.jpg"
+    "localImageUrl": "/images/destinations/chua-bich-dong.jpg",
+    "imageTakenOn": "2024-02-03",
+    "imageDateSource": "2024-02-03 11:32:42",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Bich_Dong_Pagoda,_Ninh_Binh,_Vietnam,_20240203_1132_5634.jpg"
   },
   {
     "name": "Chùa Bái Đính",
@@ -462,13 +586,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Chua_Bai_Dinh_X8.JPG/960px-Chua_Bai_Dinh_X8.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Chua_Bai_Dinh_X8.JPG",
-    "imageCredit": "Kien1980v (thảo luận) 01:40, ngày 3 tháng 9 năm 2017 (UTC)",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "Overview of Tam The Temple in Bai Dinh Temple Complex in Ninh Binh",
-    "localImageUrl": "/images/destinations/chua-bai-dinh.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/B%C3%A1i_%C4%90%C3%ADnh_Temple_Pagodas.png/960px-B%C3%A1i_%C4%90%C3%ADnh_Temple_Pagodas.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1i_%C4%90%C3%ADnh_Temple_Pagodas.png",
+    "imageCredit": "Cosinus01",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "Pagodas of Bái Đính Temple, Vietnam, lit up at night",
+    "localImageUrl": "/images/destinations/chua-bai-dinh-c83a764185.jpg",
+    "imageTakenOn": "2024-12-05",
+    "imageDateSource": "2024-12-05",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1i_%C4%90%C3%ADnh_Temple_Pagodas.png"
   },
   {
     "name": "Vườn quốc gia Cúc Phương",
@@ -481,20 +609,28 @@
     "imageLicense": "Public domain",
     "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "imageDescription": "Vườn quốc gia Cúc Phương ở Hòa Bình - Ninh Bình - Thanh Hóa",
-    "localImageUrl": "/images/destinations/vuon-quoc-gia-cuc-phuong.jpg"
+    "localImageUrl": "/images/destinations/vuon-quoc-gia-cuc-phuong.jpg",
+    "imageTakenOn": "",
+    "imageDateSource": "",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Cuc_Phuong_01.jpg"
   },
   {
     "name": "Đầm Vân Long",
     "articleTitle": "Khu bảo tồn thiên nhiên đất ngập nước Vân Long",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Khu_b%E1%BA%A3o_t%E1%BB%93n_thi%C3%AAn_nhi%C3%AAn_%C4%91%E1%BA%A5t_ng%E1%BA%ADp_n%C6%B0%E1%BB%9Bc_V%C3%A2n_Long",
     "coordinates": null,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Huyvanlong2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Huyvanlong2.jpg",
-    "imageCredit": "TruongHuynb (thảo luận)",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "cảnh đẹp Khu bảo tồn thiên nhiên Vân Long ở thành phố Ninh Bình",
-    "localImageUrl": "/images/destinations/dam-van-long.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Van_Long_Nature_Reserve_Lowland_Wetland_Halong_Bay_Ninh_Binh_Limestone_Karst_Red_River_Delta.jpg/960px-Van_Long_Nature_Reserve_Lowland_Wetland_Halong_Bay_Ninh_Binh_Limestone_Karst_Red_River_Delta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Van_Long_Nature_Reserve_Lowland_Wetland_Halong_Bay_Ninh_Binh_Limestone_Karst_Red_River_Delta.jpg",
+    "imageCredit": "JakobHosp",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Van Long Nature Reserve Wetland Halong Bay Ninh Binh Limestone pinnacles",
+    "localImageUrl": "/images/destinations/dam-van-long-dd7758948c.jpg",
+    "imageTakenOn": "2025-03-07",
+    "imageDateSource": "7 March 2025 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Van_Long_Nature_Reserve_Lowland_Wetland_Halong_Bay_Ninh_Binh_Limestone_Karst_Red_River_Delta.jpg"
   },
   {
     "name": "Phố cổ Hội An",
@@ -506,13 +642,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/PhoCoHoiAn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:PhoCoHoiAn.jpg",
-    "imageCredit": "Crazy3108",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-    "imageDescription": "A photo of Hoi An Ancient Town",
-    "localImageUrl": "/images/destinations/pho-co-hoi-an.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Hoi_An_by_night.jpg/960px-Hoi_An_by_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hoi_An_by_night.jpg",
+    "imageCredit": "Andre Hospers",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Hoi An by night",
+    "localImageUrl": "/images/destinations/pho-co-hoi-an-dbf83a1c79.jpg",
+    "imageTakenOn": "2025-03-02",
+    "imageDateSource": "2 March 2025 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Hoi_An_by_night.jpg"
   },
   {
     "name": "Biển Mỹ Khê",
@@ -524,26 +664,34 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Bai_bien_My_Khe.jpg/960px-Bai_bien_My_Khe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bai_bien_My_Khe.jpg",
-    "imageCredit": "Viethavvh at Vietnamese Wikipedia",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "",
-    "localImageUrl": "/images/destinations/bien-my-khe.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/My_Khe_Beach%2C_Da_Nang%2C_Vietnam.jpg/960px-My_Khe_Beach%2C_Da_Nang%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:My_Khe_Beach,_Da_Nang,_Vietnam.jpg",
+    "imageCredit": ". Ray in Manila",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageDescription": "My Khe Beach, Da Nang, Vietnam",
+    "localImageUrl": "/images/destinations/bien-my-khe-ed6921ff9e.jpg",
+    "imageTakenOn": "2024-02-26",
+    "imageDateSource": "26 February 2024, 14:21:00 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:My_Khe_Beach,_Da_Nang,_Vietnam.jpg"
   },
   {
     "name": "Bà Nà Hills",
     "articleTitle": "Bà Nà",
     "sourceUrl": "https://vi.wikipedia.org/wiki/B%C3%A0_N%C3%A0",
     "coordinates": null,
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Panoramic_View.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Panoramic_View.jpg",
-    "imageCredit": "Thevu69",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "View from Morin Hotel",
-    "localImageUrl": "/images/destinations/ba-na-hills.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Aerial_view_of_the_Golden_Bridge%2C_Ba_Na_Hills%2C_Da_Nang%2C_Vietnam.jpg/960px-Aerial_view_of_the_Golden_Bridge%2C_Ba_Na_Hills%2C_Da_Nang%2C_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Golden_Bridge,_Ba_Na_Hills,_Da_Nang,_Vietnam.jpg",
+    "imageCredit": "Vivu Vietnam",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Golden Bridge Danang is a project located in Sun World Ba Na Hills Danang tourism complex. The bridge is \"shocked\" not only by its unique location but also by its extremely impressive design.",
+    "localImageUrl": "/images/destinations/ba-na-hills-b84a518241.jpg",
+    "imageTakenOn": "2026-03-07",
+    "imageDateSource": "2026-03-07",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Golden_Bridge,_Ba_Na_Hills,_Da_Nang,_Vietnam.jpg"
   },
   {
     "name": "Bán đảo Sơn Trà",
@@ -561,20 +709,28 @@
     "imageLicense": "Public domain",
     "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "imageDescription": "Son Tra Peninsular in Danang, Vietnam.The Tien Sa Terminal of Danang Port.Thuan Phuoc Bridge.",
-    "localImageUrl": "/images/destinations/ban-dao-son-tra.jpg"
+    "localImageUrl": "/images/destinations/ban-dao-son-tra.jpg",
+    "imageTakenOn": "2007-07-10",
+    "imageDateSource": "2007-07-10",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ban_dao_Son_Tra.jpg"
   },
   {
     "name": "Ngũ Hành Sơn",
     "articleTitle": "Ngũ Hành Sơn",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Ng%C5%A9_H%C3%A0nh_S%C6%A1n",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Ngu_hanh_son_toan_canh.jpg/960px-Ngu_hanh_son_toan_canh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ngu_hanh_son_toan_canh.jpg",
-    "imageCredit": "Viethavvh at vi.wikipedia",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "",
-    "localImageUrl": "/images/destinations/ngu-hanh-son.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Ch%C3%B9a_Tam_Thai%2C_Th%E1%BB%A7y_S%C6%A1n%2C_%C4%90%C3%A0_N%E1%BA%B5ng_%28Tam_Thai_Pagoda%2C_Thuy_Son_Marble_Mountain%29_-_img_02.jpg/960px-Ch%C3%B9a_Tam_Thai%2C_Th%E1%BB%A7y_S%C6%A1n%2C_%C4%90%C3%A0_N%E1%BA%B5ng_%28Tam_Thai_Pagoda%2C_Thuy_Son_Marble_Mountain%29_-_img_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Tam_Thai,_Th%E1%BB%A7y_S%C6%A1n,_%C4%90%C3%A0_N%E1%BA%B5ng_(Tam_Thai_Pagoda,_Thuy_Son_Marble_Mountain)_-_img_02.jpg",
+    "imageCredit": "Chainwit.",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Tam Thai Pagoda, Thuy Son, Marble Mountains, Vietnam",
+    "localImageUrl": "/images/destinations/ngu-hanh-son-1889a47eb5.jpg",
+    "imageTakenOn": "2024-08-01",
+    "imageDateSource": "2024-08-01 14:48:05",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Tam_Thai,_Th%E1%BB%A7y_S%C6%A1n,_%C4%90%C3%A0_N%E1%BA%B5ng_(Tam_Thai_Pagoda,_Thuy_Son_Marble_Mountain)_-_img_02.jpg"
   },
   {
     "name": "Biển An Bàng",
@@ -587,7 +743,11 @@
     "imageLicense": "CC BY 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "imageDescription": "An Bang Beach in Hoi An in November",
-    "localImageUrl": "/images/destinations/bien-an-bang.jpg"
+    "localImageUrl": "/images/destinations/bien-an-bang.jpg",
+    "imageTakenOn": "2024-11-23",
+    "imageDateSource": "Taken on 23 November 2024, 14:15:21",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:2024-11-23_An_Bang_Beach_in_Hoi_An_in_November.jpg"
   },
   {
     "name": "Thánh địa Mỹ Sơn",
@@ -605,33 +765,45 @@
     "imageLicense": "CC BY 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "imageDescription": "Mỹ Sơn Sanctuary Group B, C and D",
-    "localImageUrl": "/images/destinations/thanh-dia-my-son.jpg"
+    "localImageUrl": "/images/destinations/thanh-dia-my-son.jpg",
+    "imageTakenOn": "2024-08-02",
+    "imageDateSource": "2024-08-02 06:26:30",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:2024_-_M%E1%BB%B9_S%C6%A1n_Group_B,_C_and_D_-_img_23.jpg"
   },
   {
     "name": "Cầu Rồng",
     "articleTitle": "Cầu Rồng",
     "sourceUrl": "https://vi.wikipedia.org/wiki/C%E1%BA%A7u_R%E1%BB%93ng",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Dragon_Bridge%2C_Da_Nang_during_day_-_20230819_%28cropped%29.jpg/960px-Dragon_Bridge%2C_Da_Nang_during_day_-_20230819_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dragon_Bridge,_Da_Nang_during_day_-_20230819_(cropped).jpg",
-    "imageCredit": "Somerset999",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "",
-    "localImageUrl": "/images/destinations/cau-rong.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Dragon_Bridge%2C_Da_Nang%2C_2026_04_30_Reunification_Day_anniversary.jpg/960px-Dragon_Bridge%2C_Da_Nang%2C_2026_04_30_Reunification_Day_anniversary.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Dragon_Bridge,_Da_Nang,_2026_04_30_Reunification_Day_anniversary.jpg",
+    "imageCredit": "Shenzybaby",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "Dragon Bridge, Da Nang, Vietnam, 2026 04 30",
+    "localImageUrl": "/images/destinations/cau-rong-bf58f31faf.jpg",
+    "imageTakenOn": "2026",
+    "imageDateSource": "2026",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Dragon_Bridge,_Da_Nang,_2026_04_30_Reunification_Day_anniversary.jpg"
   },
   {
     "name": "Chợ Hàn",
     "articleTitle": "Chợ Hàn",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Ch%E1%BB%A3_H%C3%A0n",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Cho_Han_Entrance.JPG/960px-Cho_Han_Entrance.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Cho_Han_Entrance.JPG",
-    "imageCredit": "Dragfyre",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "The main entrance to Han Market, Da Nang, Vietnam.",
-    "localImageUrl": "/images/destinations/cho-han.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Han_Market_1.jpg/960px-Han_Market_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Han_Market_1.jpg",
+    "imageCredit": "Christophe95",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "The Han Market in Da Nang.",
+    "localImageUrl": "/images/destinations/cho-han-9c5ddc3a05.jpg",
+    "imageTakenOn": "2018-07-29",
+    "imageDateSource": "2018-07-29 16:38:36",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Han_Market_1.jpg"
   },
   {
     "name": "Bảo tàng Điêu khắc Chăm",
@@ -644,7 +816,11 @@
     "imageLicense": "Public domain",
     "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "imageDescription": "Museum of Cham Sculpture, Danang, Vietnam",
-    "localImageUrl": "/images/destinations/bao-tang-dieu-khac-cham.jpg"
+    "localImageUrl": "/images/destinations/bao-tang-dieu-khac-cham.jpg",
+    "imageTakenOn": "2011-08-23",
+    "imageDateSource": "2011-08-23",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Cham_Sculpture.jpg"
   },
   {
     "name": "Biển Non Nước",
@@ -657,20 +833,28 @@
     "imageLicense": "CC BY 2.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "imageDescription": "Round \"coracle\" fishing boats on Non Nuoc beach, Da Nang.",
-    "localImageUrl": "/images/destinations/bien-non-nuoc.jpg"
+    "localImageUrl": "/images/destinations/bien-non-nuoc.jpg",
+    "imageTakenOn": "2008-03-03",
+    "imageDateSource": "2008-03-03 15:05:51",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Non_nuoc_Basket_boats.jpg"
   },
   {
     "name": "Chùa Linh Ứng – Bãi Bụt",
     "articleTitle": "Chùa Linh Ứng",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Ch%C3%B9a_Linh_%E1%BB%A8ng",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Chua_Linh_Ung_Bai_But_DN.jpg/960px-Chua_Linh_Ung_Bai_But_DN.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Chua_Linh_Ung_Bai_But_DN.jpg",
-    "imageCredit": "Dragfyre",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Statue of Quán Thế Âm (Guanyin) under construction on Son Tra Mountain, Da Nang. Supposedly, this is the largest such statue in Vietnam.",
-    "localImageUrl": "/images/destinations/chua-linh-ung-bai-but.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Linh_Ung_Pagoda_in_Vietnam.jpg/960px-Linh_Ung_Pagoda_in_Vietnam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Linh_Ung_Pagoda_in_Vietnam.jpg",
+    "imageCredit": "Skaterlight2013",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "Linh Ung Pagoda on Son Tra mountain",
+    "localImageUrl": "/images/destinations/chua-linh-ung-bai-but-c1a6106475.jpg",
+    "imageTakenOn": "2026-04-15",
+    "imageDateSource": "2026-04-15 17:58:15",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Linh_Ung_Pagoda_in_Vietnam.jpg"
   },
   {
     "name": "Đại Nội Huế",
@@ -688,7 +872,11 @@
     "imageLicense": "CC0",
     "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "imageDescription": "Đại nội",
-    "localImageUrl": "/images/destinations/dai-noi-hue.jpg"
+    "localImageUrl": "/images/destinations/dai-noi-hue.jpg",
+    "imageTakenOn": "2024-10-13",
+    "imageDateSource": "2024-10-13 08:30:05",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BA%A1i_n%E1%BB%99i.jpg"
   },
   {
     "name": "Chùa Thiên Mụ",
@@ -700,13 +888,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/ThienMuPagoda.jpg/960px-ThienMuPagoda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:ThienMuPagoda.jpg",
-    "imageCredit": "Lưu Ly",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "Tháp Phước Duyên, Chùa Thiên Mụ",
-    "localImageUrl": "/images/destinations/chua-thien-mu.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Ch%C3%B9a_Thi%C3%AAn_M%E1%BB%A5_-_Hu%E1%BA%BF_%282024%29_-_img_16.jpg/960px-Ch%C3%B9a_Thi%C3%AAn_M%E1%BB%A5_-_Hu%E1%BA%BF_%282024%29_-_img_16.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Thi%C3%AAn_M%E1%BB%A5_-_Hu%E1%BA%BF_(2024)_-_img_16.jpg",
+    "imageCredit": "Chainwit.",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Thiên Mụ Pagoda, Huế",
+    "localImageUrl": "/images/destinations/chua-thien-mu-c9bafee5bd.jpg",
+    "imageTakenOn": "2024-07-30",
+    "imageDateSource": "2024-07-30 15:02:27",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Thi%C3%AAn_M%E1%BB%A5_-_Hu%E1%BA%BF_(2024)_-_img_16.jpg"
   },
   {
     "name": "Lăng Minh Mạng",
@@ -724,7 +916,11 @@
     "imageLicense": "CC BY 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "imageDescription": "Minh Lâu Pavilion, Mausoleum of Minh Mang",
-    "localImageUrl": "/images/destinations/lang-minh-mang.jpg"
+    "localImageUrl": "/images/destinations/lang-minh-mang.jpg",
+    "imageTakenOn": "2024-07-31",
+    "imageDateSource": "2024-07-31 13:08:13",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:L%C4%83ng_Minh_M%E1%BA%A1ng_-_Minh_L%C3%A2u_(2024)_-_img_02.jpg"
   },
   {
     "name": "Lăng Tự Đức",
@@ -736,13 +932,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Hue_Vietnam_Tomb-of-Emperor-Tu-Duc-05.jpg/960px-Hue_Vietnam_Tomb-of-Emperor-Tu-Duc-05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hue_Vietnam_Tomb-of-Emperor-Tu-Duc-05.jpg",
-    "imageCredit": "CEphoto, Uwe Aranas",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Hue, Vietnam: Lake on the compound of the Tomb of Emperor Tự Đức .",
-    "localImageUrl": "/images/destinations/lang-tu-duc.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Burial_place_tower_tomb_tu_duc.jpg/960px-Burial_place_tower_tomb_tu_duc.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Burial_place_tower_tomb_tu_duc.jpg",
+    "imageCredit": "Gaodanielbo",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "​谦陵圣德神功碑",
+    "localImageUrl": "/images/destinations/lang-tu-duc-4122b3c6dc.jpg",
+    "imageTakenOn": "2024-09-11",
+    "imageDateSource": "2024-09-11 13:50:04",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Burial_place_tower_tomb_tu_duc.jpg"
   },
   {
     "name": "Lăng Khải Định",
@@ -754,26 +954,34 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/L%C4%83ng_Kh%E1%BA%A3i_%C4%90%E1%BB%8Bnh_-_NKS.jpg/960px-L%C4%83ng_Kh%E1%BA%A3i_%C4%90%E1%BB%8Bnh_-_NKS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:L%C4%83ng_Kh%E1%BA%A3i_%C4%90%E1%BB%8Bnh_-_NKS.jpg",
-    "imageCredit": "NKSTTSSHNVN",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "Lăng Khải Định",
-    "localImageUrl": "/images/destinations/lang-khai-dinh.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Hu%E1%BA%BF_%282024%29_-_Mausoleum_of_Emperor_Kh%E1%BA%A3i_%C4%90%E1%BB%8Bnh_-_exterior_-_img_12.jpg/960px-Hu%E1%BA%BF_%282024%29_-_Mausoleum_of_Emperor_Kh%E1%BA%A3i_%C4%90%E1%BB%8Bnh_-_exterior_-_img_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Hu%E1%BA%BF_(2024)_-_Mausoleum_of_Emperor_Kh%E1%BA%A3i_%C4%90%E1%BB%8Bnh_-_exterior_-_img_12.jpg",
+    "imageCredit": "Chainwit.",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Exterior of the Mausoleum of Emperor Khải Định",
+    "localImageUrl": "/images/destinations/lang-khai-dinh-c265b40594.jpg",
+    "imageTakenOn": "2024-07-31",
+    "imageDateSource": "2024-07-31 14:12:24",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Hu%E1%BA%BF_(2024)_-_Mausoleum_of_Emperor_Kh%E1%BA%A3i_%C4%90%E1%BB%8Bnh_-_exterior_-_img_12.jpg"
   },
   {
     "name": "Cung An Định",
     "articleTitle": "Cung An Định",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Cung_An_%C4%90%E1%BB%8Bnh",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/AnDinhResidence5.jpg/960px-AnDinhResidence5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:AnDinhResidence5.jpg",
-    "imageCredit": "Lưu Ly",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "Palais An Dinh construit en 1917-1919 par Kai Dinh, puis demeure de la reine-mère Tu Cung. Confisqué en 1954.",
-    "localImageUrl": "/images/destinations/cung-an-dinh.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/An_Dinh_Palace_-_Cung_An_%C4%90%E1%BB%8Bnh_%282024%29_-_front_facade_-_img_01.jpg/960px-An_Dinh_Palace_-_Cung_An_%C4%90%E1%BB%8Bnh_%282024%29_-_front_facade_-_img_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:An_Dinh_Palace_-_Cung_An_%C4%90%E1%BB%8Bnh_(2024)_-_front_facade_-_img_01.jpg",
+    "imageCredit": "Chainwit.",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "An Dinh Palace, Hue",
+    "localImageUrl": "/images/destinations/cung-an-dinh-3708c0f2d8.jpg",
+    "imageTakenOn": "2024-07-31",
+    "imageDateSource": "2024-07-31 11:54:22",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:An_Dinh_Palace_-_Cung_An_%C4%90%E1%BB%8Bnh_(2024)_-_front_facade_-_img_01.jpg"
   },
   {
     "name": "Chợ Đông Ba",
@@ -791,7 +999,11 @@
     "imageLicense": "CC BY 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "imageDescription": "Dong Ba Market, Hue",
-    "localImageUrl": "/images/destinations/cho-dong-ba.jpg"
+    "localImageUrl": "/images/destinations/cho-dong-ba.jpg",
+    "imageTakenOn": "2024-07-31",
+    "imageDateSource": "2024-07-31 17:38:12",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Dong_Ba_Market_(Hue)_-_Ch%E1%BB%A3_%C4%90%C3%B4ng_Ba_Hu%E1%BA%BF_(July_2024)_-_img_03.jpg"
   },
   {
     "name": "Cầu ngói Thanh Toàn",
@@ -804,20 +1016,28 @@
     "imageLicense": "Public domain",
     "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "imageDescription": "Kiến trúc Cầu ngói Thanh Toàn.",
-    "localImageUrl": "/images/destinations/cau-ngoi-thanh-toan.jpg"
+    "localImageUrl": "/images/destinations/cau-ngoi-thanh-toan.jpg",
+    "imageTakenOn": "",
+    "imageDateSource": "15 June 2008 (original upload date)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:C%E1%BA%A7u_ng%C3%B3i_Thanh_To%C3%A0n1.jpg"
   },
   {
     "name": "Biển Nha Trang",
     "articleTitle": "Nha Trang",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Nha_Trang",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nha_Trang_Beach_10.jpg/960px-Nha_Trang_Beach_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_Trang_Beach_10.jpg",
-    "imageCredit": "Christophe95",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "The beach in Nha Trang, Vietnam.",
-    "localImageUrl": "/images/destinations/bien-nha-trang.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Nha_trang_beach.jpg/960px-Nha_trang_beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_trang_beach.jpg",
+    "imageCredit": "Jeong seolah",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "Nha trang beach",
+    "localImageUrl": "/images/destinations/bien-nha-trang-2b48f640e5.jpg",
+    "imageTakenOn": "2024-01-27",
+    "imageDateSource": "2024-01-27 09:52:50",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_trang_beach.jpg"
   },
   {
     "name": "Tháp Bà Ponagar",
@@ -829,26 +1049,34 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Th%C3%A1p_B%C3%A0_PONAGAR_-_panoramio.jpg/960px-Th%C3%A1p_B%C3%A0_PONAGAR_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Th%C3%A1p_B%C3%A0_PONAGAR_-_panoramio.jpg",
-    "imageCredit": "Makarenko Sasha",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Tháp Bà PONAGAR",
-    "localImageUrl": "/images/destinations/thap-ba-ponagar.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/04052023_Ponagar_Hindu_temples_complex%2C_Nha_Trang_Vietnam_-_274.jpg/960px-04052023_Ponagar_Hindu_temples_complex%2C_Nha_Trang_Vietnam_-_274.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:04052023_Ponagar_Hindu_temples_complex,_Nha_Trang_Vietnam_-_274.jpg",
+    "imageCredit": "Ms Sarah Welch",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "The above photo shows the mandapa pillars, the steps leading to the Uma temple, and the Cham-style Hindu temple tower. The mandapa pillars are massive, it was once covered with a roof, but only the pillars survive. The steps are steep, and now closed for visitor safety. Above this main temple entrance is Durga Mahisasuramardini. The tower has four Tala (most Cham temples in Vietnam have three Tala",
+    "localImageUrl": "/images/destinations/thap-ba-ponagar-775e3972e0.jpg",
+    "imageTakenOn": "2023-04-05",
+    "imageDateSource": "2023-04-05 13:26:05",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:04052023_Ponagar_Hindu_temples_complex,_Nha_Trang_Vietnam_-_274.jpg"
   },
   {
     "name": "Chùa Long Sơn",
     "articleTitle": "Chùa Long Sơn (Nha Trang)",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Ch%C3%B9a_Long_S%C6%A1n_(Nha_Trang)",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Nha_Trang%2C_Long_Son_pagoda.jpg/960px-Nha_Trang%2C_Long_Son_pagoda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_Trang,_Long_Son_pagoda.jpg",
-    "imageCredit": "Jame Healy",
-    "imageLicense": "CC BY-SA 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "imageDescription": "Long Son pagoda in Nha Trang.",
-    "localImageUrl": "/images/destinations/chua-long-son.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Long_Son_Pagoda_3.jpg/960px-Long_Son_Pagoda_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Long_Son_Pagoda_3.jpg",
+    "imageCredit": "Christophe95",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "The Long Son Pagoda in Nha Trang.",
+    "localImageUrl": "/images/destinations/chua-long-son-110889d743.jpg",
+    "imageTakenOn": "2018-07-23",
+    "imageDateSource": "2018-07-23 14:57:29",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Long_Son_Pagoda_3.jpg"
   },
   {
     "name": "Nhà thờ Núi Nha Trang",
@@ -860,13 +1088,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Ntct3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ntct3.jpg",
-    "imageCredit": "Ngocquang2502",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Ntct3",
-    "localImageUrl": "/images/destinations/nha-tho-nui-nha-trang.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Nha_Trang%2C_Vietnam_-_53120927853.jpg/960px-Nha_Trang%2C_Vietnam_-_53120927853.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_Trang,_Vietnam_-_53120927853.jpg",
+    "imageCredit": "Leonid",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageDescription": "Ngã sáu Thành phố Nha Trang và Nhà thờ Núi",
+    "localImageUrl": "/images/destinations/nha-tho-nui-nha-trang-8aa60ae46d.jpg",
+    "imageTakenOn": "2023-06-18",
+    "imageDateSource": "2023-06-18 15:58:11",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_Trang,_Vietnam_-_53120927853.jpg"
   },
   {
     "name": "Viện Hải dương học Nha Trang",
@@ -879,7 +1111,11 @@
     "imageLicense": "Public domain",
     "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "imageDescription": "Viện Hải dương học - Phòng thí nghiệm đại dương",
-    "localImageUrl": "/images/destinations/vien-hai-duong-hoc-nha-trang.jpg"
+    "localImageUrl": "/images/destinations/vien-hai-duong-hoc-nha-trang.jpg",
+    "imageTakenOn": "",
+    "imageDateSource": "",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Vi%E1%BB%87n_H%E1%BA%A3i_d%C6%B0%C6%A1ng_h%E1%BB%8Dc_-_Ph%C3%B2ng_th%C3%AD_nghi%E1%BB%87m_%C4%91%E1%BA%A1i_d%C6%B0%C6%A1ng.jpg"
   },
   {
     "name": "Hòn Chồng Nha Trang",
@@ -892,7 +1128,11 @@
     "imageLicense": "CC BY-SA 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "imageDescription": "Hon Chong seen from Co Tien beach",
-    "localImageUrl": "/images/destinations/hon-chong-nha-trang.jpg"
+    "localImageUrl": "/images/destinations/hon-chong-nha-trang.jpg",
+    "imageTakenOn": "2008-08-27",
+    "imageDateSource": "2008-08-27",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Hon_Chong_from_Co_Tien_beach.JPG"
   },
   {
     "name": "Vịnh Ninh Vân",
@@ -905,7 +1145,11 @@
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "cảng vào khu resort",
-    "localImageUrl": "/images/destinations/vinh-ninh-van.jpg"
+    "localImageUrl": "/images/destinations/vinh-ninh-van.jpg",
+    "imageTakenOn": "2020-06-15",
+    "imageDateSource": "2020-06-15",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ninh_Van_Bay.jpg"
   },
   {
     "name": "Vịnh Vĩnh Hy",
@@ -917,26 +1161,34 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Vinh_hy_bay.jpg/960px-Vinh_hy_bay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Vinh_hy_bay.jpg",
-    "imageCredit": "Karel Bilek",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/V%E1%BB%8Bnh_V%C4%A9nh_Hy_th%C3%A1ng_02-2022.jpg/960px-V%E1%BB%8Bnh_V%C4%A9nh_Hy_th%C3%A1ng_02-2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:V%E1%BB%8Bnh_V%C4%A9nh_Hy_th%C3%A1ng_02-2022.jpg",
+    "imageCredit": "Windrain",
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "Vĩnh Hy Bay, Ninh Thuận, Vietnam",
-    "localImageUrl": "/images/destinations/vinh-vinh-hy.jpg"
+    "imageDescription": "Vịnh Vĩnh Hy tháng 02-2022",
+    "localImageUrl": "/images/destinations/vinh-vinh-hy-adc878fc5a.jpg",
+    "imageTakenOn": "2022-02-04",
+    "imageDateSource": "2022-02-04",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:V%E1%BB%8Bnh_V%C4%A9nh_Hy_th%C3%A1ng_02-2022.jpg"
   },
   {
     "name": "Eo Gió",
     "articleTitle": "Eo Gió",
     "sourceUrl": "",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Eo_Gi%C3%B3_-_Nh%C6%A1n_L%C3%BD.jpg/960px-Eo_Gi%C3%B3_-_Nh%C6%A1n_L%C3%BD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Eo_Gi%C3%B3_-_Nh%C6%A1n_L%C3%BD.jpg",
-    "imageCredit": "Hưng Hồ Bá",
-    "imageLicense": "CC BY 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageDescription": "Eo Gió - Nhơn Lý",
-    "localImageUrl": "/images/destinations/eo-gio.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Ky-co-eo-gio-1-1048.jpg/960px-Ky-co-eo-gio-1-1048.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ky-co-eo-gio-1-1048.jpg",
+    "imageCredit": "Bennguyennnnn",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "Ky Co Eo Gio",
+    "localImageUrl": "/images/destinations/eo-gio-b808b89471.jpg",
+    "imageTakenOn": "2024-09-14",
+    "imageDateSource": "2024-09-14",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ky-co-eo-gio-1-1048.jpg"
   },
   {
     "name": "Kỳ Co",
@@ -949,33 +1201,45 @@
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "Ky Co beach, Quy Nhon city, Binh Dinh province, Vietnam",
-    "localImageUrl": "/images/destinations/ky-co.jpg"
+    "localImageUrl": "/images/destinations/ky-co.jpg",
+    "imageTakenOn": "2015-05-12",
+    "imageDateSource": "2015-05-12 09:22:14",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ky_Co_beach,_Quy_Nhon_city,_Binh_Dinh_province,_Vietnam.jpg"
   },
   {
     "name": "Tháp Đôi Quy Nhơn",
     "articleTitle": "Tháp Đôi",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Th%C3%A1p_%C4%90%C3%B4i",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Th%C3%A1p_%C4%90%C3%B4i%2C_Quy_Nh%C6%A1n_-_43083336701.jpg/960px-Th%C3%A1p_%C4%90%C3%B4i%2C_Quy_Nh%C6%A1n_-_43083336701.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Th%C3%A1p_%C4%90%C3%B4i,_Quy_Nh%C6%A1n_-_43083336701.jpg",
-    "imageCredit": "Minh Khiem",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/0040323_Thap_Doi_Cham_Hindu_complex%2C_Quy_Nhon%2C_Binh_Dinh_Vietnam_014.jpg/960px-0040323_Thap_Doi_Cham_Hindu_complex%2C_Quy_Nhon%2C_Binh_Dinh_Vietnam_014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:0040323_Thap_Doi_Cham_Hindu_complex,_Quy_Nhon,_Binh_Dinh_Vietnam_014.jpg",
+    "imageCredit": "Ms Sarah Welch",
     "imageLicense": "CC0",
     "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "imageDescription": "Tháp Đôi, Quy Nhơn",
-    "localImageUrl": "/images/destinations/thap-doi-quy-nhon.jpg"
+    "imageDescription": "The Thap Doi twin towers are 12th century Cham Hindu temples site located near the coast within the city limits of Quy Nhon, Binh Dinh province of Viet Nam. The site is located near the Ha Thanh river and it originally had three temples. However, the northern tower that was closest to the river collapsed in the 19th-century. The other two stand, were restored and strengthened in the 1990s. The Tha",
+    "localImageUrl": "/images/destinations/thap-doi-quy-nhon-7a538814fb.jpg",
+    "imageTakenOn": "2023-04-03",
+    "imageDateSource": "2023-04-03 16:51:25",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:0040323_Thap_Doi_Cham_Hindu_complex,_Quy_Nhon,_Binh_Dinh_Vietnam_014.jpg"
   },
   {
     "name": "Tháp Bánh Ít",
     "articleTitle": "Tháp Bánh Ít",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Th%C3%A1p_B%C3%A1nh_%C3%8Dt",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/C%E1%BB%A5m_th%C3%A1p_B%C3%A1nh_%C3%8Dt%2C_Tuy_Ph%C6%B0%E1%BB%9Bc%2C_B%C3%ACnh_%C4%90%E1%BB%8Bnh.JPG/960px-C%E1%BB%A5m_th%C3%A1p_B%C3%A1nh_%C3%8Dt%2C_Tuy_Ph%C6%B0%E1%BB%9Bc%2C_B%C3%ACnh_%C4%90%E1%BB%8Bnh.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:C%E1%BB%A5m_th%C3%A1p_B%C3%A1nh_%C3%8Dt,_Tuy_Ph%C6%B0%E1%BB%9Bc,_B%C3%ACnh_%C4%90%E1%BB%8Bnh.JPG",
-    "imageCredit": "Dongson*vmvn at Vietnamese Wikipedia",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Cham towers Banh It in Tuy Phuoc district, Binh Dinh province, Vietnam",
-    "localImageUrl": "/images/destinations/thap-banh-it.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/0040323_Thap_Banh_It_complex%2C_Nhon_Hoa%2C_Binh_Dinh_Vietnam_001.jpg/960px-0040323_Thap_Banh_It_complex%2C_Nhon_Hoa%2C_Binh_Dinh_Vietnam_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:0040323_Thap_Banh_It_complex,_Nhon_Hoa,_Binh_Dinh_Vietnam_001.jpg",
+    "imageCredit": "Ms Sarah Welch",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "The Thap Banh It is one of a dozen Cham heritage sites near Quy Nhon in Binh Dinh province of central Vietnam. Visible from the highway and railway tracks, the Thap Banh It site sits on top of a hill. It is a major Cham Hindu site with many structures. The complex includes Thap Bia (Posah), a main brick temple (kalan) that is also called the stele tower, a mandapa in front of eastern gopura, a sad",
+    "localImageUrl": "/images/destinations/thap-banh-it-a889131a5a.jpg",
+    "imageTakenOn": "2023-04-03",
+    "imageDateSource": "2023-04-03 15:34:24",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:0040323_Thap_Banh_It_complex,_Nhon_Hoa,_Binh_Dinh_Vietnam_001.jpg"
   },
   {
     "name": "Bảo tàng Quang Trung",
@@ -988,7 +1252,11 @@
     "imageLicense": "CC BY-SA 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "imageDescription": "",
-    "localImageUrl": "/images/destinations/bao-tang-quang-trung.jpg"
+    "localImageUrl": "/images/destinations/bao-tang-quang-trung.jpg",
+    "imageTakenOn": "",
+    "imageDateSource": "19 January 2009 (original upload date)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:T%C6%B0%E1%BB%A3ng_%C4%91%C3%A0i_Quang_Trung_t%E1%BA%A1i_B%E1%BA%A3o_t%C3%A0ng_Quang_Trung.JPG"
   },
   {
     "name": "Cù Lao Xanh",
@@ -1006,20 +1274,28 @@
     "imageLicense": "CC BY 2.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "imageDescription": "Cu Lao Xanh (Green Island) in Quy Nhon city",
-    "localImageUrl": "/images/destinations/cu-lao-xanh.jpg"
+    "localImageUrl": "/images/destinations/cu-lao-xanh.jpg",
+    "imageTakenOn": "2016-11-26",
+    "imageDateSource": "2016-11-26 16:49:38",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Cu_Lao_Xanh_(Green_Island)_in_Quy_Nhon_city_(31334676355).jpg"
   },
   {
     "name": "Biển Hồ Pleiku",
     "articleTitle": "Hồ T'Nưng",
     "sourceUrl": "https://vi.wikipedia.org/wiki/H%E1%BB%93_T%27N%C6%B0ng",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/To_Nung_Lake.jpg/960px-To_Nung_Lake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:To_Nung_Lake.jpg",
-    "imageCredit": "Genghiskhan",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Tơ Nưng Lake in Pleiku, Vietnam",
-    "localImageUrl": "/images/destinations/bien-ho-pleiku.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Bi%E1%BB%83n_H%E1%BB%93_-_Pleiku%2C_Gia_Lai%2C_Vi%E1%BB%87t_Nam.jpg/960px-Bi%E1%BB%83n_H%E1%BB%93_-_Pleiku%2C_Gia_Lai%2C_Vi%E1%BB%87t_Nam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bi%E1%BB%83n_H%E1%BB%93_-_Pleiku,_Gia_Lai,_Vi%E1%BB%87t_Nam.jpg",
+    "imageCredit": "Pxchanh",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "Cảnh Biển Hồ ở thành phố Pleiku, Gia Lai, Việt Nam",
+    "localImageUrl": "/images/destinations/bien-ho-pleiku-9fe79830b6.jpg",
+    "imageTakenOn": "2019-02-11",
+    "imageDateSource": "Taken on 11 February 2019, 10:09:17",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Bi%E1%BB%83n_H%E1%BB%93_-_Pleiku,_Gia_Lai,_Vi%E1%BB%87t_Nam.jpg"
   },
   {
     "name": "Chùa Minh Thành Pleiku",
@@ -1032,7 +1308,11 @@
     "imageLicense": "CC BY-SA 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "imageDescription": "Chùa Minh Thành",
-    "localImageUrl": "/images/destinations/chua-minh-thanh-pleiku.jpg"
+    "localImageUrl": "/images/destinations/chua-minh-thanh-pleiku.jpg",
+    "imageTakenOn": "2012-02-28",
+    "imageDateSource": "Taken on 28 February 2012",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Minh_Th%C3%A0nh_-_panoramio.jpg"
   },
   {
     "name": "Hồ Tuyền Lâm",
@@ -1044,13 +1324,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Tuyen_Lam_Lake_01.jpg/960px-Tuyen_Lam_Lake_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Tuyen_Lam_Lake_01.jpg",
-    "imageCredit": "Diane Selwyn",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "Tuyen Lam Lake, Da Lat",
-    "localImageUrl": "/images/destinations/ho-tuyen-lam.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Tuyen_Lam_Reservoir_%2833527864608%29.jpg/960px-Tuyen_Lam_Reservoir_%2833527864608%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Tuyen_Lam_Reservoir_(33527864608).jpg",
+    "imageCredit": "Lê Minh Phát from 6, Việt Nam",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageDescription": "DSC_1620-Pano",
+    "localImageUrl": "/images/destinations/ho-tuyen-lam-717937f3b7.jpg",
+    "imageTakenOn": "2019-02-17",
+    "imageDateSource": "2019-02-17 06:23",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Tuyen_Lam_Reservoir_(33527864608).jpg"
   },
   {
     "name": "Đồi chè Cầu Đất",
@@ -1068,20 +1352,28 @@
     "imageLicense": "CC BY 2.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "imageDescription": "Đồi chè Cầu Đất, gần Đà Lạt",
-    "localImageUrl": "/images/destinations/doi-che-cau-dat.jpg"
+    "localImageUrl": "/images/destinations/doi-che-cau-dat.jpg",
+    "imageTakenOn": "2011-11-13",
+    "imageDateSource": "2011-11-13",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Doi_che_Cau_Dat.jpg"
   },
   {
     "name": "Hồ Xuân Hương Đà Lạt",
     "articleTitle": "Hồ Xuân Hương (hồ nước)",
     "sourceUrl": "https://vi.wikipedia.org/wiki/H%E1%BB%93_Xu%C3%A2n_H%C6%B0%C6%A1ng_(h%E1%BB%93_n%C6%B0%E1%BB%9Bc)",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Xuan_Huong_Lake_08.jpg/960px-Xuan_Huong_Lake_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Xuan_Huong_Lake_08.jpg",
-    "imageCredit": "Diane Selwyn",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "Xuan Huong lake in the morning",
-    "localImageUrl": "/images/destinations/ho-xuan-huong-da-lat.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Xuan_Huong_Lake_%28panorama%29.jpg/960px-Xuan_Huong_Lake_%28panorama%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Xuan_Huong_Lake_(panorama).jpg",
+    "imageCredit": "Trần Huy Phương",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "imageDescription": "Xuan Huong Lake, Da Lat",
+    "localImageUrl": "/images/destinations/ho-xuan-huong-da-lat-2f6e47709c.jpg",
+    "imageTakenOn": "2026-08-28",
+    "imageDateSource": "2026-08-28",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Xuan_Huong_Lake_(panorama).jpg"
   },
   {
     "name": "Ga Đà Lạt",
@@ -1093,13 +1385,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Da_Lat_train_station_37.jpg/960px-Da_Lat_train_station_37.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Da_Lat_train_station_37.jpg",
-    "imageCredit": "Diane Selwyn",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Da Lat train station",
-    "localImageUrl": "/images/destinations/ga-da-lat.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ga_%C4%90%C3%A0_L%E1%BA%A1t_2022.jpg/960px-Ga_%C4%90%C3%A0_L%E1%BA%A1t_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ga_%C4%90%C3%A0_L%E1%BA%A1t_2022.jpg",
+    "imageCredit": "Huynhdat1909",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Ga Đà Lạt năm 2022",
+    "localImageUrl": "/images/destinations/ga-da-lat-5385d17cb9.jpg",
+    "imageTakenOn": "2023-05-28",
+    "imageDateSource": "2023-05-28",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ga_%C4%90%C3%A0_L%E1%BA%A1t_2022.jpg"
   },
   {
     "name": "Thiền viện Trúc Lâm Đà Lạt",
@@ -1111,13 +1407,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Zen_Monastery_Truc_Lam_Da_Lat.JPG/960px-Zen_Monastery_Truc_Lam_Da_Lat.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Zen_Monastery_Truc_Lam_Da_Lat.JPG",
-    "imageCredit": "The original uploader was Liftold at Vietnamese Wikipedia.",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Gardens at Truc Lam Zen Monastery, Da Lat, Vietnam.",
-    "localImageUrl": "/images/destinations/thien-vien-truc-lam-da-lat.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Thi%E1%BB%81n_vi%E1%BB%87n_Tr%C3%BAc_L%C3%A2m_%28ch%C3%A1nh_%C4%91i%E1%BB%87n_nh%C3%ACn_nghi%C3%AAng%29_%281%29.jpg/960px-Thi%E1%BB%81n_vi%E1%BB%87n_Tr%C3%BAc_L%C3%A2m_%28ch%C3%A1nh_%C4%91i%E1%BB%87n_nh%C3%ACn_nghi%C3%AAng%29_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Thi%E1%BB%81n_vi%E1%BB%87n_Tr%C3%BAc_L%C3%A2m_(ch%C3%A1nh_%C4%91i%E1%BB%87n_nh%C3%ACn_nghi%C3%AAng)_(1).jpg",
+    "imageCredit": "Phương Huy",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Truc Lam Zen Monastery, Da Lat",
+    "localImageUrl": "/images/destinations/thien-vien-truc-lam-da-lat-2d626a45d4.jpg",
+    "imageTakenOn": "2022-02-20",
+    "imageDateSource": "2022-02-20 15:14:25",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Thi%E1%BB%81n_vi%E1%BB%87n_Tr%C3%BAc_L%C3%A2m_(ch%C3%A1nh_%C4%91i%E1%BB%87n_nh%C3%ACn_nghi%C3%AAng)_(1).jpg"
   },
   {
     "name": "Chùa Linh Phước",
@@ -1129,13 +1429,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Linh_Phuoc_Pagoda_01.jpg/960px-Linh_Phuoc_Pagoda_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Linh_Phuoc_Pagoda_01.jpg",
-    "imageCredit": "Diane Selwyn",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Ch%C3%B9a_Linh_Ph%C6%B0%E1%BB%9Bc_%28ngo%E1%BA%A1i_c%E1%BA%A3nh%2C_%C4%90i%E1%BB%87n_Quan_%C3%82m%29_%281%29.jpg/960px-Ch%C3%B9a_Linh_Ph%C6%B0%E1%BB%9Bc_%28ngo%E1%BA%A1i_c%E1%BA%A3nh%2C_%C4%90i%E1%BB%87n_Quan_%C3%82m%29_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Linh_Ph%C6%B0%E1%BB%9Bc_(ngo%E1%BA%A1i_c%E1%BA%A3nh,_%C4%90i%E1%BB%87n_Quan_%C3%82m)_(1).jpg",
+    "imageCredit": "Phương Huy",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "Linh Phuoc Pagoda",
-    "localImageUrl": "/images/destinations/chua-linh-phuoc.jpg"
+    "localImageUrl": "/images/destinations/chua-linh-phuoc-6e2c7ba202.jpg",
+    "imageTakenOn": "2022-02-21",
+    "imageDateSource": "2022-02-21 12:36:30",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Linh_Ph%C6%B0%E1%BB%9Bc_(ngo%E1%BA%A1i_c%E1%BA%A3nh,_%C4%90i%E1%BB%87n_Quan_%C3%82m)_(1).jpg"
   },
   {
     "name": "Thác Datanla",
@@ -1147,13 +1451,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Th%C3%A1c_Datanla.jpg/960px-Th%C3%A1c_Datanla.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Th%C3%A1c_Datanla.jpg",
-    "imageCredit": "thalling55",
-    "imageLicense": "CC BY 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageDescription": "Datanla Waterfall",
-    "localImageUrl": "/images/destinations/thac-datanla.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Datanla_falls_%28August_8%2C_2018%29_%2830149106378%29.jpg/960px-Datanla_falls_%28August_8%2C_2018%29_%2830149106378%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Datanla_falls_(August_8,_2018)_(30149106378).jpg",
+    "imageCredit": "Damian Vo",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageDescription": "Datanla falls (August 8, 2018)",
+    "localImageUrl": "/images/destinations/thac-datanla-8bf321f7e0.jpg",
+    "imageTakenOn": "2018-08-08",
+    "imageDateSource": "2018-08-08 09:46",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Datanla_falls_(August_8,_2018)_(30149106378).jpg"
   },
   {
     "name": "Núi Langbiang",
@@ -1166,7 +1474,11 @@
     "imageLicense": "CC BY-SA 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "imageDescription": "Langbiang Mountain in Lac Duong District, Lam Dong Province, Vietnam",
-    "localImageUrl": "/images/destinations/nui-langbiang.jpg"
+    "localImageUrl": "/images/destinations/nui-langbiang.jpg",
+    "imageTakenOn": "2008-12-01",
+    "imageDateSource": "2008-12-01",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%89nh_Langbiang.JPG"
   },
   {
     "name": "Dinh Độc Lập",
@@ -1184,7 +1496,11 @@
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "Hình ảnh mặt trước của Dinh Độc Lập",
-    "localImageUrl": "/images/destinations/dinh-doc-lap.jpg"
+    "localImageUrl": "/images/destinations/dinh-doc-lap.jpg",
+    "imageTakenOn": "2024-08-01",
+    "imageDateSource": "2024-08-01",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Dinh_%C4%90%E1%BB%99c_L%E1%BA%ADp_v%C3%A0o_n%C3%A0m_2024.jpg"
   },
   {
     "name": "Chợ Bến Thành",
@@ -1196,26 +1512,34 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Ben_Thanh_market_2.jpg/960px-Ben_Thanh_market_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ben_Thanh_market_2.jpg",
-    "imageCredit": "Riza",
-    "imageLicense": "CC BY 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageDescription": "Bến Thành Market",
-    "localImageUrl": "/images/destinations/cho-ben-thanh.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Ben_Thanh_Market_2025.jpg/960px-Ben_Thanh_Market_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ben_Thanh_Market_2025.jpg",
+    "imageCredit": "HuangWending18072009",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "Ben Thanh Market 2025",
+    "localImageUrl": "/images/destinations/cho-ben-thanh-d19b2f21c5.jpg",
+    "imageTakenOn": "2025-01-17",
+    "imageDateSource": "2025-01-17 20:46:06",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ben_Thanh_Market_2025.jpg"
   },
   {
     "name": "Phố đi bộ Nguyễn Huệ",
     "articleTitle": "Đường Nguyễn Huệ, Thành phố Hồ Chí Minh",
     "sourceUrl": "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_Nguy%E1%BB%85n_Hu%E1%BB%87,_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Ho_Chi_Minh_City%2C_Saigon%2C_Vietnam_%2849579818542%29.jpg/960px-Ho_Chi_Minh_City%2C_Saigon%2C_Vietnam_%2849579818542%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_City,_Saigon,_Vietnam_(49579818542).jpg",
-    "imageCredit": "flowcomm",
-    "imageLicense": "CC BY 2.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "imageDescription": "Vietnam",
-    "localImageUrl": "/images/destinations/pho-di-bo-nguyen-hue.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/04-12-24_Nguyen_Hue_Street%2C_Ho_Chi_Minh_City.jpg/960px-04-12-24_Nguyen_Hue_Street%2C_Ho_Chi_Minh_City.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:04-12-24_Nguyen_Hue_Street,_Ho_Chi_Minh_City.jpg",
+    "imageCredit": "Xuanphuocle",
+    "imageLicense": "CC0",
+    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "imageDescription": "Bùng binh Cây Liễu",
+    "localImageUrl": "/images/destinations/pho-di-bo-nguyen-hue-f4adcc5c70.jpg",
+    "imageTakenOn": "2024-12-04",
+    "imageDateSource": "2024-12-04 21:54:56",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:04-12-24_Nguyen_Hue_Street,_Ho_Chi_Minh_City.jpg"
   },
   {
     "name": "Bưu điện Trung tâm Sài Gòn",
@@ -1227,13 +1551,17 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Saigon_Central_Post_Office_2022.jpg/960px-Saigon_Central_Post_Office_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Saigon_Central_Post_Office_2022.jpg",
-    "imageCredit": "Yesvn123",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "The main gate of Saigon Central Post Office",
-    "localImageUrl": "/images/destinations/buu-dien-trung-tam-sai-gon.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Saigon_Central_Post_Office_2025.jpg/960px-Saigon_Central_Post_Office_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Saigon_Central_Post_Office_2025.jpg",
+    "imageCredit": "David Stanley",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "The Saigon Central Post Office (1891) in Ho Chi Minh City, Vietnam, was designed by Alfred Foulhoux. Today it is a favorite shopping mall for tourists as well as a post office.",
+    "localImageUrl": "/images/destinations/buu-dien-trung-tam-sai-gon-e7f1a1248c.jpg",
+    "imageTakenOn": "2025-01-25",
+    "imageDateSource": "25 January 2025, 15:59:26 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Saigon_Central_Post_Office_2025.jpg"
   },
   {
     "name": "Nhà thờ Đức Bà Sài Gòn",
@@ -1245,52 +1573,68 @@
       "primary": "",
       "globe": "earth"
     },
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora%2C_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_05.JPG/960px-Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora%2C_Ciudad_Ho_Chi_Minh%2C_Vietnam%2C_2013-08-14%2C_DD_05.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora,_Ciudad_Ho_Chi_Minh,_Vietnam,_2013-08-14,_DD_05.JPG",
-    "imageCredit": "Diego Delso",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Notre-Dame Basilica, Ho Chi Minh City, Vietnam.",
-    "localImageUrl": "/images/destinations/nha-tho-duc-ba-sai-gon.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Saigon_Notre-Dame_Cathedral.jpg/960px-Saigon_Notre-Dame_Cathedral.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Saigon_Notre-Dame_Cathedral.jpg",
+    "imageCredit": "Allan Henderson",
+    "imageLicense": "CC BY 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "imageDescription": "Saigon Notre-Dame Cathedral",
+    "localImageUrl": "/images/destinations/nha-tho-duc-ba-sai-gon-bc279747e4.jpg",
+    "imageTakenOn": "2025-02-01",
+    "imageDateSource": "2025-02-01 18:34:04",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Saigon_Notre-Dame_Cathedral.jpg"
   },
   {
     "name": "Bảo tàng Chứng tích Chiến tranh",
     "articleTitle": "Bảo tàng Chứng tích chiến tranh",
     "sourceUrl": "https://vi.wikipedia.org/wiki/B%E1%BA%A3o_t%C3%A0ng_Ch%E1%BB%A9ng_t%C3%ADch_chi%E1%BA%BFn_tranh",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/War_Remnants_Museum%2C_HCMC%2C_front.JPG/960px-War_Remnants_Museum%2C_HCMC%2C_front.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:War_Remnants_Museum,_HCMC,_front.JPG",
-    "imageCredit": "Prenn",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Front view of War Remnants Museum in Ho Chi Minh City",
-    "localImageUrl": "/images/destinations/bao-tang-chung-tich-chien-tranh.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/War_Remnants_Museum_2025.jpg/960px-War_Remnants_Museum_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:War_Remnants_Museum_2025.jpg",
+    "imageCredit": "David Stanley",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "The War Remnants Museum in Ho Chi Minh City (Saigon), Vietnam, is perhaps the best place to learn about the American War in Vietnam. The many atrocities committed by the Americans are photographically brought to life.",
+    "localImageUrl": "/images/destinations/bao-tang-chung-tich-chien-tranh-1046f649e7.jpg",
+    "imageTakenOn": "2025-01-26",
+    "imageDateSource": "26 January 2025, 15:06:46 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:War_Remnants_Museum_2025.jpg"
   },
   {
     "name": "Địa đạo Củ Chi",
     "articleTitle": "Địa đạo Củ Chi",
     "sourceUrl": "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%8Ba_%C4%91%E1%BA%A1o_C%E1%BB%A7_Chi",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/W_C%E1%BB%A7_Chi_%C4%90%E1%BB%8Ba_%C4%91%E1%BA%A1o_C%E1%BB%A7_Chi_ng%E1%BB%A5y_trang.JPG/960px-W_C%E1%BB%A7_Chi_%C4%90%E1%BB%8Ba_%C4%91%E1%BA%A1o_C%E1%BB%A7_Chi_ng%E1%BB%A5y_trang.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:W_C%E1%BB%A7_Chi_%C4%90%E1%BB%8Ba_%C4%91%E1%BA%A1o_C%E1%BB%A7_Chi_ng%E1%BB%A5y_trang.JPG",
-    "imageCredit": "Phương Huy (thảo luận)",
-    "imageLicense": "Public domain",
-    "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-    "imageDescription": "W Củ Chi Địa đạo Củ Chi ngụy trang",
-    "localImageUrl": "/images/destinations/dia-dao-cu-chi.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/A_Part_Of_Cu_Chi_Tunnels.jpg/960px-A_Part_Of_Cu_Chi_Tunnels.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:A_Part_Of_Cu_Chi_Tunnels.jpg",
+    "imageCredit": "MinhVN123",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "A Part Of Cu Chi Tunnels",
+    "localImageUrl": "/images/destinations/dia-dao-cu-chi-28014a5422.jpg",
+    "imageTakenOn": "2025-08-09",
+    "imageDateSource": "2025-08-09 14:52:18",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:A_Part_Of_Cu_Chi_Tunnels.jpg"
   },
   {
     "name": "Chùa Bà Thiên Hậu Chợ Lớn",
     "articleTitle": "Hội quán Tuệ Thành",
     "sourceUrl": "https://vi.wikipedia.org/wiki/H%E1%BB%99i_qu%C3%A1n_Tu%E1%BB%87_Th%C3%A0nh",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Thien_Hau_Pagoda_%2810017896294%29.jpg/960px-Thien_Hau_Pagoda_%2810017896294%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Thien_Hau_Pagoda_(10017896294).jpg",
-    "imageCredit": "Gary Todd from Xinzheng, China",
-    "imageLicense": "CC0",
-    "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "imageDescription": "Cholon, Ho Chi Minh City/Saigon. Complete indexed photo collection at WorldHistoryPics.com.",
-    "localImageUrl": "/images/destinations/chua-ba-thien-hau-cho-lon.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Thien_Hau_Temple.jpg/960px-Thien_Hau_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Thien_Hau_Temple.jpg",
+    "imageCredit": "Trung geo",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "imageDescription": "Thien Hau Temple, District 5, Ho Chi Minh City, Vietnam",
+    "localImageUrl": "/images/destinations/chua-ba-thien-hau-cho-lon-1d2735ff05.jpg",
+    "imageTakenOn": "2022-05-24",
+    "imageDateSource": "2022-05-24 13:52:33",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Thien_Hau_Temple.jpg"
   },
   {
     "name": "Bãi Sao Phú Quốc",
@@ -1308,7 +1652,11 @@
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "Sao Beach - Phu Quoc",
-    "localImageUrl": "/images/destinations/bai-sao-phu-quoc.jpg"
+    "localImageUrl": "/images/destinations/bai-sao-phu-quoc.jpg",
+    "imageTakenOn": "2021-05-01",
+    "imageDateSource": "2021-05-01 13:10:16",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Bai-sao-phu-quoc-tuonglamphotos.jpg"
   },
   {
     "name": "Chợ đêm Phú Quốc",
@@ -1321,7 +1669,11 @@
     "imageLicense": "CC BY-SA 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "imageDescription": "Fish for sale in Phu Quoc night market Vietnam",
-    "localImageUrl": "/images/destinations/cho-dem-phu-quoc.jpg"
+    "localImageUrl": "/images/destinations/cho-dem-phu-quoc.jpg",
+    "imageTakenOn": "2025-12-28",
+    "imageDateSource": "2025-12-28 19:15:10",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_for_sale_in_Phu_Quoc_night_market_Vietnam.jpg"
   },
   {
     "name": "Di tích Nhà tù Phú Quốc",
@@ -1339,7 +1691,11 @@
     "imageLicense": "CC BY-SA 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "imageDescription": "Trại giam Tù binh Chiến tranh Phú Quốc (Kiên Giang, Việt Nam).",
-    "localImageUrl": "/images/destinations/di-tich-nha-tu-phu-quoc.jpg"
+    "localImageUrl": "/images/destinations/di-tich-nha-tu-phu-quoc.jpg",
+    "imageTakenOn": "2012-12-30",
+    "imageDateSource": "2012-12-30 09:51:02",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Tr%E1%BA%A1i_giam_Ph%C3%BA_Qu%E1%BB%91c.jpg"
   },
   {
     "name": "Vườn quốc gia Phú Quốc",
@@ -1352,7 +1708,11 @@
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "rough road at north-east of Phu Quoc Island. bridge was falled so we must use mountain pass.",
-    "localImageUrl": "/images/destinations/vuon-quoc-gia-phu-quoc.jpg"
+    "localImageUrl": "/images/destinations/vuon-quoc-gia-phu-quoc.jpg",
+    "imageTakenOn": "2015-02-27",
+    "imageDateSource": "2015-02-27",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Rough_road_at_north-east_of_Phu_Quoc.JPG"
   },
   {
     "name": "Dinh Cậu Phú Quốc",
@@ -1370,20 +1730,28 @@
     "imageLicense": "CC BY-SA 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "imageDescription": "Dinh Cậu còn có tên gọi là Miếu thờ Long Vương, tọa lạc trên một ghềnh đá vươn ra biển, bên cửa sông Dương Đông thuộc thị trấn Dương Đông (Phú Quốc, Kiên Giang, Việt Nam).",
-    "localImageUrl": "/images/destinations/dinh-cau-phu-quoc.jpg"
+    "localImageUrl": "/images/destinations/dinh-cau-phu-quoc.jpg",
+    "imageTakenOn": "2012-12-31",
+    "imageDateSource": "2012-12-31 07:57:08",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Dinh_C%E1%BA%ADu_%E1%BB%9F_Ph%C3%BA_Qu%E1%BB%91c.jpg"
   },
   {
     "name": "Chùa Hộ Quốc",
     "articleTitle": "Chùa Hộ Quốc",
     "sourceUrl": "",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_%28c%E1%BB%95ng_ch%C3%ADnh%2C_nh%C3%ACn_th%E1%BA%B3ng%29.jpg/960px-Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_%28c%E1%BB%95ng_ch%C3%ADnh%2C_nh%C3%ACn_th%E1%BA%B3ng%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_(c%E1%BB%95ng_ch%C3%ADnh,_nh%C3%ACn_th%E1%BA%B3ng).jpg",
-    "imageCredit": "Phương Huy",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "imageDescription": "Pagoda gates in Vietnam",
-    "localImageUrl": "/images/destinations/chua-ho-quoc.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_%2852681168609%29.jpg/960px-Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_%2852681168609%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_(52681168609).jpg",
+    "imageCredit": "Kevin Rutherford from United States",
+    "imageLicense": "CC BY-SA 2.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "imageDescription": "109A6915",
+    "localImageUrl": "/images/destinations/chua-ho-quoc-5926ce71e9.jpg",
+    "imageTakenOn": "2023-01-25",
+    "imageDateSource": "2023-01-25 13:29",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_(52681168609).jpg"
   },
   {
     "name": "Làng chài Hàm Ninh",
@@ -1401,7 +1769,11 @@
     "imageLicense": "CC BY 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/3.0",
     "imageDescription": "Ham Ninh Phuquoc Vietnam",
-    "localImageUrl": "/images/destinations/lang-chai-ham-ninh.jpg"
+    "localImageUrl": "/images/destinations/lang-chai-ham-ninh.jpg",
+    "imageTakenOn": "2013-09-15",
+    "imageDateSource": "Taken on 15 September 2013",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ham_Ninh_Phuquoc_Vietnam_-_panoramio.jpg"
   },
   {
     "name": "Suối Tranh Phú Quốc",
@@ -1414,20 +1786,28 @@
     "imageLicense": "CC BY 2.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "imageDescription": "Waterfall Suoi Tranh",
-    "localImageUrl": "/images/destinations/suoi-tranh-phu-quoc.jpg"
+    "localImageUrl": "/images/destinations/suoi-tranh-phu-quoc.jpg",
+    "imageTakenOn": "2006-11-20",
+    "imageDateSource": "2006-11-20 10:27",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Th%C3%A1c_Su%E1%BB%91i_Tranh.jpg"
   },
   {
     "name": "Chợ nổi Cái Răng",
     "articleTitle": "Chợ nổi Cái Răng",
     "sourceUrl": "https://vi.wikipedia.org/wiki/Ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng",
     "coordinates": null,
-    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/M%E1%BB%99t_c%E1%BA%A3nh_%E1%BB%9F_ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng.jpg/960px-M%E1%BB%99t_c%E1%BA%A3nh_%E1%BB%9F_ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:M%E1%BB%99t_c%E1%BA%A3nh_%E1%BB%9F_ch%E1%BB%A3_n%E1%BB%95i_C%C3%A1i_R%C4%83ng.jpg",
-    "imageCredit": "Bùi Thụy Đào Nguyên",
-    "imageLicense": "CC BY-SA 3.0",
-    "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "imageDescription": "Một cảnh ở chợ nổi Cái Răng, thuộc quận Cái Răng, thành phố Cần Thơ, Việt Nam.",
-    "localImageUrl": "/images/destinations/cho-noi-cai-rang.jpg"
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Floating_market_Can_Tho.jpg/960px-Floating_market_Can_Tho.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Floating_market_Can_Tho.jpg",
+    "imageCredit": "Andre Hospers",
+    "imageLicense": "CC BY 4.0",
+    "imageLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "imageDescription": "Mekong Delta Floating market Can Tho",
+    "localImageUrl": "/images/destinations/cho-noi-cai-rang-0a2ce21120.jpg",
+    "imageTakenOn": "2025-02-28",
+    "imageDateSource": "28 February 2025 (according to Exif data)",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Floating_market_Can_Tho.jpg"
   },
   {
     "name": "Bến Ninh Kiều",
@@ -1440,7 +1820,11 @@
     "imageLicense": "CC BY-SA 4.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "imageDescription": "nkquay",
-    "localImageUrl": "/images/destinations/ben-ninh-kieu.jpg"
+    "localImageUrl": "/images/destinations/ben-ninh-kieu.jpg",
+    "imageTakenOn": "2017-10-21",
+    "imageDateSource": "2017-10-21",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ninhkieuquay.jpg"
   },
   {
     "name": "Nhà cổ Bình Thủy",
@@ -1453,7 +1837,11 @@
     "imageLicense": "Public domain",
     "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "imageDescription": "La maison ancienne Binh Thuy, Can Tho",
-    "localImageUrl": "/images/destinations/nha-co-binh-thuy.jpg"
+    "localImageUrl": "/images/destinations/nha-co-binh-thuy.jpg",
+    "imageTakenOn": "2008-08-07",
+    "imageDateSource": "2008-08-07 07:46:45",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Nha_co_Binh_Thuy_1.jpg"
   },
   {
     "name": "Chùa Ông Cần Thơ",
@@ -1466,7 +1854,11 @@
     "imageLicense": "CC BY-SA 3.0",
     "imageLicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "imageDescription": "Chùa Ông (Quảng Triệu Hội Quán) tọa lạc tại số 32 đường Hai Bà Trưng, thuộc phường Tân An, quận Ninh Kiều, thành phố Cần Thơ, Việt Nam.",
-    "localImageUrl": "/images/destinations/chua-ong-can-tho.jpg"
+    "localImageUrl": "/images/destinations/chua-ong-can-tho.jpg",
+    "imageTakenOn": "2013-07-19",
+    "imageDateSource": "2013-07-19 12:57:05",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_%C3%94ng_C%E1%BA%A7n_Th%C6%A1.jpg"
   },
   {
     "name": "Thiền viện Trúc Lâm Phương Nam",
@@ -1479,7 +1871,11 @@
     "imageLicense": "CC0",
     "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "imageDescription": "Thien vien Truc lam Phuong Nam",
-    "localImageUrl": "/images/destinations/thien-vien-truc-lam-phuong-nam.jpg"
+    "localImageUrl": "/images/destinations/thien-vien-truc-lam-phuong-nam.jpg",
+    "imageTakenOn": "2024-09-01",
+    "imageDateSource": "2024-09-01",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Thien-vien-truc-lam-phuong-nam-4.jpg"
   },
   {
     "name": "Bảo tàng Cần Thơ",
@@ -1492,7 +1888,11 @@
     "imageLicense": "Public domain",
     "imageLicenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
     "imageDescription": "Can Tho Museum",
-    "localImageUrl": "/images/destinations/bao-tang-can-tho.jpg"
+    "localImageUrl": "/images/destinations/bao-tang-can-tho.jpg",
+    "imageTakenOn": "",
+    "imageDateSource": "",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:Can_Tho_Museum.jpg"
   },
   {
     "name": "Cồn Sơn",
@@ -1505,7 +1905,11 @@
     "imageLicense": "CC0",
     "imageLicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "imageDescription": "Fish farming in Vietnam",
-    "localImageUrl": "/images/destinations/con-son.jpg"
+    "localImageUrl": "/images/destinations/con-son.jpg",
+    "imageTakenOn": "2023-04-23",
+    "imageDateSource": "2023-04-23 12:47:22",
+    "imageReviewedOn": "2026-10-21",
+    "imageAssetSourceUrl": "https://commons.wikimedia.org/wiki/File:C%E1%BB%93n_S%C6%A1n_C%E1%BA%A7n_Th%C6%A1_ng23th4n2023_(c%C3%A1_h%E1%BB%8Fa_ti%E1%BB%85n)_(2).jpg"
   },
   {
     "name": "Vườn cò Bằng Lăng",

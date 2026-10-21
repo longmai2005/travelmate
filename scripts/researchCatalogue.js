@@ -3,6 +3,8 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 const groups = require("../data/catalogue-source");
 const overrides = require("../data/catalogue-photo-overrides.json");
+const existing = require("../data/catalogue-media.json");
+const { captureDate } = require("../utils/photoMetadata");
 const rows = groups.flatMap(([province, region, items]) => items.map(item => ({ province, region, name: item[0], title: item[1] })));
 const root = path.resolve(__dirname, "..");
 const headers = { "User-Agent": "TravelMate-Catalogue/1.0 (educational project; https://github.com/longmai2005/travelmate)" };
@@ -40,10 +42,23 @@ async function main() {
     for (const page of Object.values(data.query.pages)) {
       const info = page.imageinfo?.[0], meta = info?.extmetadata;
       if (!info || !meta || !/^(CC BY|CC0|Public domain)/i.test(meta.LicenseShortName?.value || "") || /NC|ND/.test(meta.LicenseShortName?.value || "")) continue;
-      media[page.title.slice(5).replaceAll("_", " ").normalize("NFC")] = { imageUrl: info.thumburl || info.url, imageSourceUrl: info.descriptionurl, imageCredit: plain(meta.Artist?.value).slice(0, 500), imageLicense: plain(meta.LicenseShortName?.value), imageLicenseUrl: meta.LicenseUrl?.value || "https://creativecommons.org/publicdomain/mark/1.0/", imageDescription: plain(meta.ImageDescription?.value).slice(0, 400) };
+      media[page.title.slice(5).replaceAll("_", " ").normalize("NFC")] = { imageUrl: info.thumburl || info.url, imageSourceUrl: info.descriptionurl, imageCredit: plain(meta.Artist?.value).slice(0, 500), imageLicense: plain(meta.LicenseShortName?.value), imageLicenseUrl: meta.LicenseUrl?.value || "https://creativecommons.org/publicdomain/mark/1.0/", imageDescription: plain(meta.ImageDescription?.value).slice(0, 400), imageTakenOn: captureDate(meta.DateTimeOriginal?.value), imageDateSource: plain(meta.DateTimeOriginal?.value) };
     }
   }
   const output = research.map(row => ({ name: row.name, articleTitle: row.articleTitle, sourceUrl: row.sourceUrl || "", coordinates: row.coordinates, ...(media[row.image?.replaceAll("_", " ").normalize("NFC")] || {}) }));
+  for (const row of output) {
+    const prior = existing.find(p => p.name === row.name);
+    if (prior?.localImageUrl && prior.imageSourceUrl === row.imageSourceUrl) {
+      row.localImageUrl = prior.localImageUrl;
+      row.imageAssetSourceUrl = prior.imageAssetSourceUrl;
+      row.imageReviewedOn = prior.imageReviewedOn;
+    }
+    // Research must not silently replace a reviewed photograph with a Wikipedia
+    // thumbnail. Human review and an explicit override are needed for changes.
+    if (prior?.localImageUrl && prior.imageSourceUrl !== row.imageSourceUrl && !overrides[row.name]) {
+      Object.assign(row, Object.fromEntries(Object.entries(prior).filter(([key]) => key.startsWith("image") || key === "localImageUrl")));
+    }
+  }
   await fs.writeFile(path.join(root, "data/catalogue-media.json"), JSON.stringify(output, null, 2) + "\n");
   console.log(JSON.stringify({ licensedPhotos: output.filter(r => r.imageUrl).length, noCommonsPhoto: output.filter(r => !r.imageUrl).map(r => [r.name, research.find(x => x.name === r.name).image]) }));
 }

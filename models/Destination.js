@@ -26,6 +26,7 @@ const schema = new mongoose.Schema(
     imageSourceUrl: { type: String, maxlength: 2000, default: "" },
     imageLicense: { type: String, maxlength: 100, default: "" },
     imageLicenseUrl: { type: String, maxlength: 2000, default: "" },
+    imageTakenOn: { type: String, maxlength: 10, default: "" },
     imageKind: { type: String, enum: ["place", "area", "illustration"], default: "illustration" },
     searchText: { type: String, select: false },
     latitude: { type: Number, min: -90, max: 90, default: null },

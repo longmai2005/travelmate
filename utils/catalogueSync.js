@@ -1,7 +1,8 @@
 const { isDeepStrictEqual: same } = require("node:util");
 const legacy = require("../data/legacy-destinations");
 const normalize = require("./destinationSearch");
-const photoFields = ["imageUrl", "imageCredit", "imageSourceUrl", "imageLicense", "imageLicenseUrl", "imageKind"];
+const photoHistory = require("../data/catalogue-photo-history.json");
+const photoFields = ["imageUrl", "imageCredit", "imageSourceUrl", "imageLicense", "imageLicenseUrl", "imageKind", "imageTakenOn"];
 module.exports = function cataloguePlan(existing, catalogue) {
   const inserts = [], updates = [], protectedFields = [];
   for (const next of catalogue) {
@@ -19,7 +20,11 @@ module.exports = function cataloguePlan(existing, catalogue) {
     if ((current.latitude == null && current.longitude == null) || (previous && same(current.latitude, previous.latitude) && same(current.longitude, previous.longitude))) {
       for (const key of ["latitude", "longitude"]) if (!same(current[key], next[key])) patch[key] = next[key];
     }
-    if (!current.imageUrl || current.imageUrl === previous?.imageUrl)
+    // Only migrate a previously shipped photo when its entire attribution still
+    // matches. An administrator may have corrected credits without changing URL.
+    const shippedPhoto = photoHistory.some(photo => photo.slug === current.slug &&
+      photoFields.every(key => (current[key] ?? "") === (photo[key] ?? "")));
+    if (!current.imageUrl || current.imageUrl === previous?.imageUrl || shippedPhoto)
       for (const key of photoFields) if (!same(current[key], next[key])) patch[key] = next[key];
     else if (current.imageUrl === next.imageUrl) {
       for (const key of photoFields) if ((current[key] == null || current[key] === "") && !same(current[key], next[key])) patch[key] = next[key];
