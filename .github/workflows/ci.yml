@@ -13,8 +13,9 @@ jobs:
   test:
     name: JavaScript and MongoDB integration
     # MongoDB 8 cannot start on kernels 6.19–7.0.13 (SERVER-121912).
-    # Keep a compatible runner instead of following ubuntu-latest OS changes.
-    runs-on: ubuntu-24.04
+    # Ubuntu 24.04's newer hosted image also hits this startup guard.
+    # Use the compatible 22.04 runner until MongoDB supports the newer kernel.
+    runs-on: ubuntu-22.04
     timeout-minutes: 10
     services:
       mongodb:

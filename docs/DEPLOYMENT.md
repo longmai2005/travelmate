@@ -7,7 +7,7 @@
 - Atlas: cluster `travelmate`, Project 0, AWS Singapore, Free. Database production riêng trên Atlas; `.env` cục bộ tiếp tục trỏ tới MongoDB trên máy.
 - Đã chuyển tài khoản và điểm đến hiện có sang Atlas, giữ nguyên mật khẩu đăng nhập đã mã hóa. Không chuyển sessions hay dữ liệu QA. Sau khi deploy, đăng nhập lại bằng tài khoản hiện có.
 - CI kiểm tra cả `long_branch` và `main`; đổi dữ liệu qua admin không cần deploy lại.
-- CI cố định runner `ubuntu-24.04`: MongoDB 8 có [lỗi tương thích với kernel 6.19–7.0.13](https://www.mongodb.com/docs/v8.0/release-notes/8.0/). Không bỏ kiểm thử MongoDB hoặc tắt kiểm tra sức khỏe container để vượt lỗi; rà lại tương thích khi nâng runner.
+- CI dùng runner `ubuntu-22.04`: MongoDB 8 có [lỗi tương thích với kernel 6.19–7.0.13](https://www.mongodb.com/docs/v8.0/release-notes/8.0/), và bản runner 24.04 mới đã gặp lỗi khởi động này. Không bỏ kiểm thử MongoDB hoặc tắt kiểm tra sức khỏe container để vượt lỗi. Đây là cấu hình tạm thời; nâng lại runner sau khi đối chiếu kernel/MongoDB tương thích, trước khi [runner 22.04 hết hỗ trợ](https://github.com/actions/runner-images/issues/14254).
 
 ## Cấu hình đã có trong repo
 
