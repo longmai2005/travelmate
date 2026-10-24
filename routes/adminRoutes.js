@@ -11,6 +11,11 @@ router.use(require("./adminPeopleRoutes"));
 router.use(require("./activityRoutes"));
 router.use(require("./adminFeedbackRoutes"));
 router.get("/destinations", (req, res) => listing(req, res, true));
+router.get("/destinations/:id", async (req, res) => {
+  const destination = await Destination.findById(objectId(req.params.id)).lean();
+  if (!destination) fail("Không tìm thấy địa điểm.", 404);
+  res.json({ destination });
+});
 router.post("/destinations", async (req, res) => {
   const destination = await Destination.create(input(req.body));
   await recordActivity(req.user, "destination.created", destination);

@@ -6,6 +6,15 @@ router.get("/feedback", async (req, res) => {
   const { page, limit, skip, } = require("../utils/adminData").pagination(req.query);
   const filter = {};
   if (req.query.status) { if (!statuses.includes(req.query.status)) fail("Trạng thái phản hồi không hợp lệ."); filter.status = req.query.status; }
+  if (req.query.type) {
+    if (!Feedback.schema.path("type").enumValues.includes(req.query.type)) fail("Loại phản hồi không hợp lệ.");
+    filter.type = req.query.type;
+  }
+  if (req.query.scope) {
+    if (!["destination", "general"].includes(req.query.scope)) fail("Phạm vi phản hồi không hợp lệ.");
+    filter.destinationId = req.query.scope === "destination" ? { $ne: null } : null;
+  }
+  if (req.query.destinationId) filter.$and = [{ destinationId: objectId(req.query.destinationId) }];
   const [items, total] = await Promise.all([Feedback.find(filter).populate("userId", "fullName email").populate("destinationId", "name province isActive").sort({ createdAt: -1, _id: -1 }).skip(skip).limit(limit).lean(), Feedback.countDocuments(filter)]);
   res.json({ items, total, page, pages: Math.ceil(total / limit) });
 });

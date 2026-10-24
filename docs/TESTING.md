@@ -1,5 +1,15 @@
 # Báo cáo kiểm thử TravelMate
 
+## Báo cáo riêng từng điểm đến — 24/10/2026
+
+- `npm run check`: cú pháp hợp lệ. `npm test`: **89 passed, 0 failed, 0 skipped** với MongoDB thật trong database thử riêng, tự dọn sau kiểm thử.
+- Báo cáo ảnh, giờ mở cửa và mô tả giữ đúng `destinationId`, lưu nguồn đối chiếu; không tự sửa bản ghi điểm đến.
+- Chặn URL không dùng HTTP(S), URL kèm tài khoản/mật khẩu, kiểu dữ liệu sai và điểm không tồn tại/đã ẩn. Phản hồi cũ vẫn đọc được.
+- Admin lọc kết hợp loại, phạm vi và điểm đến; API mở bản ghi để sửa đọc được điểm đã ẩn và chặn người dùng thường/khách.
+- Kiểm thử quyền riêng tư và lịch sử trả lời tiếp tục được thực hiện trong suite cộng tác. Các đợt kiểm thử cũ bên dưới là bằng chứng theo thời điểm, không thay thế kết quả cập nhật này.
+- UI trên server QA cổng 8287, database tạm riêng: khách bấm báo cáo → đăng nhập → gửi báo cáo ảnh Mỹ Khê → xem Phản hồi của tôi → admin lọc loại/điểm đến → mở đúng form Mỹ Khê → trả lời → người gửi đăng nhập lại đọc được lịch sử. Kiểm tra bỏ lọc điểm đến hoạt động; không sửa dữ liệu thực tế trong lượt QA.
+- Viewport 390×844: admin không tràn ngang; dialog báo cáo có chiều rộng nội dung bằng chiều rộng khung, cuộn dọc được khi cần. Console error/warn ở cuối luồng rỗng. Đây là kiểm tra viewport, chưa phải kiểm thử thiết bị vật lý.
+
 Thực hiện ngày **17/10/2026**, môi trường macOS, Node.js **24.19.0**, MongoDB local tại `127.0.0.1:27017`, trình duyệt tích hợp Codex.
 
 ## Kết quả đã thực hiện

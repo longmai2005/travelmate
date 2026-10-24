@@ -3,6 +3,15 @@ window.TM = {
   favorites: new Set(),
   destinationCache: new Map(),
   pendingAction: null,
+  feedbackTypes: {
+    price: "Giá vé / chi phí",
+    address: "Địa chỉ / vị trí bản đồ",
+    hours: "Giờ mở cửa",
+    photo: "Hình ảnh chưa phù hợp",
+    description: "Mô tả / thông tin điểm đến",
+    closed: "Điểm đã đóng cửa",
+    other: "Góp ý khác",
+  },
   categories: {
     beach: "Biển & đảo",
     mountain: "Núi & cao nguyên",
@@ -325,7 +334,7 @@ window.TM = {
       }
       const e = this.escape;
       const dialog = this.dialog(
-        `<div class="detail-hero"><img class="detail-image" src="${e(d.imageUrl)}" alt="${e(d.name)}${d.imageKind === "place" ? "" : " · ảnh khu vực hoặc minh họa"}"><button class="icon-btn modal-close" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><div class="modal-body"><div class="eyebrow"><i data-lucide="map-pin"></i>${e(d.province)}</div><h2>${e(d.name)}</h2>${d.imageSourceUrl ? `<p class="image-attribution">${d.imageKind === "area" ? "Ảnh khu vực" : "Ảnh"}: ${e(d.imageCredit || "Wikimedia Commons")}${d.imageTakenOn ? ` · Chụp ${d.imageTakenOn.length === 4 ? e(d.imageTakenOn) : TM.date(d.imageTakenOn)}` : " · Chưa rõ ngày chụp"}${d.imageTakenOn && Number(d.imageTakenOn.slice(0, 4)) < new Date().getFullYear() - 5 ? " · Ảnh tư liệu, cảnh quan có thể đã thay đổi" : ""} · <a href="${e(d.imageSourceUrl)}" target="_blank" rel="noopener noreferrer">Nguồn ảnh</a>${d.imageLicenseUrl ? ` · <a href="${e(d.imageLicenseUrl)}" target="_blank" rel="noopener noreferrer">${e(d.imageLicense)}</a>` : ""}</p>` : '<p class="image-attribution">Ảnh minh họa; chưa có ghi công ảnh cho riêng địa điểm này.</p>'}${!d.isActive ? '<p class="status-note warning">Địa điểm đã ngừng hoạt động. Thông tin được giữ lại cho lịch sử chuyến đi.</p>' : ""}<div class="detail-meta"><span><i data-lucide="compass"></i> ${this.categories[d.category]}</span><span><i data-lucide="clock-3"></i> Khoảng ${d.recommendedDurationHours} giờ</span><span><i data-lucide="wallet"></i> ${this.money(d.estimatedCostPerPersonVnd)}${d.estimatedCostPerPersonVnd == null ? "" : " / người"}</span></div><p class="detail-description">${e(d.description)}</p><div class="destination-facts"><p><strong>Địa chỉ:</strong> ${e(d.address || "Chưa bổ sung")}</p><p><strong>Giờ mở cửa:</strong> ${e(d.openingHours || "Cần kiểm tra trước khi đi")}</p><p><strong>Lưu ý chi phí:</strong> ${e(d.priceNote || "Giá tham khảo, cần đối chiếu với đơn vị cung cấp dịch vụ.")}</p>${d.sourceUrl ? `<p><a href="${e(d.sourceUrl)}" target="_blank" rel="noopener noreferrer">Xem nguồn thông tin ↗</a>${d.verifiedOn ? ` · Kiểm tra ngày ${TM.date(d.verifiedOn)}` : " · Chưa ghi ngày kiểm tra"}</p>` : '<p class="field-help">Thông tin chưa có nguồn đối chiếu; vui lòng xác nhận trước khi đặt dịch vụ.</p>'}</div><p class="field-help">${d.latitude == null ? "Chưa có tọa độ xác minh cho điểm đến này." : `Tọa độ tham khảo: ${d.latitude}, ${d.longitude}`}</p><div class="detail-map" id="detail-map"></div><p class="field-help" id="detail-map-note"></p><p><a href="/explore?province=${encodeURIComponent(d.province)}" target="_blank" rel="noopener noreferrer">Khám phá thêm điểm đến tại ${e(d.province)} ↗</a></p><p><a href="/support?destination=${id}">Báo thông tin chưa chính xác →</a></p><div class="detail-actions"><button class="btn outline favorite-btn ${this.favorites.has(id) ? "selected" : ""}" data-favorite="${id}" aria-pressed="${this.favorites.has(id)}"><i data-lucide="heart"></i> Lưu yêu thích</button>${d.isActive && options.allowPlan !== false ? `<button class="btn" id="detail-plan"><i data-lucide="calendar-plus"></i> Thêm vào lịch trình</button>` : ""}</div></div>`,
+        `<div class="detail-hero"><img class="detail-image" src="${e(d.imageUrl)}" alt="${e(d.name)}${d.imageKind === "place" ? "" : " · ảnh khu vực hoặc minh họa"}"><button class="icon-btn modal-close" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><div class="modal-body"><div class="eyebrow"><i data-lucide="map-pin"></i>${e(d.province)}</div><h2>${e(d.name)}</h2>${d.imageSourceUrl ? `<p class="image-attribution">${d.imageKind === "area" ? "Ảnh khu vực" : "Ảnh"}: ${e(d.imageCredit || "Wikimedia Commons")}${d.imageTakenOn ? ` · Chụp ${d.imageTakenOn.length === 4 ? e(d.imageTakenOn) : TM.date(d.imageTakenOn)}` : " · Chưa rõ ngày chụp"}${d.imageTakenOn && Number(d.imageTakenOn.slice(0, 4)) < new Date().getFullYear() - 5 ? " · Ảnh tư liệu, cảnh quan có thể đã thay đổi" : ""} · <a href="${e(d.imageSourceUrl)}" target="_blank" rel="noopener noreferrer">Nguồn ảnh</a>${d.imageLicenseUrl ? ` · <a href="${e(d.imageLicenseUrl)}" target="_blank" rel="noopener noreferrer">${e(d.imageLicense)}</a>` : ""}</p>` : '<p class="image-attribution">Ảnh minh họa; chưa có ghi công ảnh cho riêng địa điểm này.</p>'}${!d.isActive ? '<p class="status-note warning">Địa điểm đã ngừng hoạt động. Thông tin được giữ lại cho lịch sử chuyến đi.</p>' : ""}<div class="detail-meta"><span><i data-lucide="compass"></i> ${this.categories[d.category]}</span><span><i data-lucide="clock-3"></i> Khoảng ${d.recommendedDurationHours} giờ</span><span><i data-lucide="wallet"></i> ${this.money(d.estimatedCostPerPersonVnd)}${d.estimatedCostPerPersonVnd == null ? "" : " / người"}</span></div><p class="detail-description">${e(d.description)}</p><div class="destination-facts"><p><strong>Địa chỉ:</strong> ${e(d.address || "Chưa bổ sung")}</p><p><strong>Giờ mở cửa:</strong> ${e(d.openingHours || "Cần kiểm tra trước khi đi")}</p><p><strong>Lưu ý chi phí:</strong> ${e(d.priceNote || "Giá tham khảo, cần đối chiếu với đơn vị cung cấp dịch vụ.")}</p>${d.sourceUrl ? `<p><a href="${e(d.sourceUrl)}" target="_blank" rel="noopener noreferrer">Xem nguồn thông tin ↗</a>${d.verifiedOn ? ` · Kiểm tra ngày ${TM.date(d.verifiedOn)}` : " · Chưa ghi ngày kiểm tra"}</p>` : '<p class="field-help">Thông tin chưa có nguồn đối chiếu; vui lòng xác nhận trước khi đặt dịch vụ.</p>'}</div><p class="field-help">${d.latitude == null ? "Chưa có tọa độ xác minh cho điểm đến này." : `Tọa độ tham khảo: ${d.latitude}, ${d.longitude}`}</p><div class="detail-map" id="detail-map"></div><p class="field-help" id="detail-map-note"></p><p><a href="/explore?province=${encodeURIComponent(d.province)}" target="_blank" rel="noopener noreferrer">Khám phá thêm điểm đến tại ${e(d.province)} ↗</a></p>${d.isActive ? '<p><button class="btn outline destination-report-button" type="button" id="detail-report"><i data-lucide="flag"></i> Báo cáo thông tin điểm đến</button></p>' : ""}<div class="detail-actions"><button class="btn outline favorite-btn ${this.favorites.has(id) ? "selected" : ""}" data-favorite="${id}" aria-pressed="${this.favorites.has(id)}"><i data-lucide="heart"></i> Lưu yêu thích</button>${d.isActive && options.allowPlan !== false ? `<button class="btn" id="detail-plan"><i data-lucide="calendar-plus"></i> Thêm vào lịch trình</button>` : ""}</div></div>`,
         "modal-detail",
         d.name,
       );
@@ -338,6 +347,10 @@ window.TM = {
         );
       }
       dialog.addEventListener("cleanup", () => map?.destroy());
+      dialog.querySelector("#detail-report")?.addEventListener("click", () => {
+        dialog.close();
+        this.reportDestination(id);
+      });
       dialog.querySelector("#detail-plan")?.addEventListener("click", () => {
         dialog.close();
         this.addToPlan(id);
@@ -345,6 +358,43 @@ window.TM = {
     } catch (error) {
       this.toast(error.message, true);
     }
+  },
+  async reportDestination(id) {
+    if (!this.requireLogin(() => this.reportDestination(id))) return;
+    if (document.querySelector(".destination-report-dialog")) return;
+    const userId = this.user._id, generation = window.SessionIdle?.state?.generation;
+    try {
+      const d = this.destinationCache.get(id) || (await api.request(`/destinations/${id}`)).destination;
+      if (this.user?._id !== userId || generation !== window.SessionIdle?.state?.generation) return;
+      if (!d.isActive) throw new Error("Điểm đến này đã ngừng hiển thị.");
+      const e = this.escape;
+      const dialog = this.dialog(
+        `<div class="modal-body"><div class="modal-heading"><div><div class="eyebrow">CÙNG HOÀN THIỆN TRAVELMATE</div><h2>Báo cáo thông tin</h2></div><button class="icon-btn" data-close aria-label="Đóng"><i data-lucide="x"></i></button></div><div class="report-destination"><i data-lucide="map-pin"></i><div><strong>${e(d.name)}</strong><span>${e(d.province)}</span></div></div><p class="field-help">Báo cáo được gửi riêng cho quản trị viên và gắn với điểm đến này. Bạn có thể theo dõi câu trả lời trong Phản hồi của tôi.</p><form class="destination-report-form"><label class="form-field">Nội dung cần kiểm tra<select name="type" required>${Object.entries(this.feedbackTypes).map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}</select></label><label class="form-field">Thông tin cần thay đổi<textarea name="content" rows="5" required maxlength="2000" placeholder="Thông tin hiện tại chưa đúng ở đâu? Bạn đề nghị sửa thành gì? Nếu đã đến đây, hãy ghi thêm thời điểm bạn ghi nhận."></textarea></label><label class="form-field">Liên kết nguồn đối chiếu (không bắt buộc)<input name="sourceUrl" type="url" maxlength="2000" placeholder="https://... ví dụ trang chính thức của điểm đến"></label><p class="field-help">Tối đa 10 phản hồi mỗi giờ. Không ghi mật khẩu hoặc thông tin riêng tư.</p><p class="form-error" role="alert"></p><div class="form-actions"><button type="button" class="btn outline" data-close>Hủy</button><button type="submit" class="btn"><i data-lucide="send"></i> Gửi quản trị viên</button></div></form></div>`,
+        "destination-report-dialog", "Báo cáo thông tin điểm đến",
+      );
+      dialog.querySelector("form").addEventListener("submit", async event => {
+        event.preventDefault();
+        const form = event.currentTarget, button = form.querySelector('[type="submit"]');
+        if (button.disabled) return;
+        button.disabled = true;
+        button.textContent = "Đang gửi…";
+        form.querySelector(".form-error").textContent = "";
+        try {
+          await api.request("/feedback", { method: "POST", body: {
+            ...Object.fromEntries(new FormData(form)), destinationId: id,
+            subject: `Báo cáo: ${d.name}`.slice(0, 150),
+          } });
+          if (!dialog.isConnected || this.user?._id !== userId || generation !== window.SessionIdle?.state?.generation) return;
+          form.outerHTML = '<div class="report-success" role="status"><i data-lucide="circle-check"></i><h3>Đã gửi báo cáo</h3><p>Quản trị viên sẽ kiểm tra thông tin bạn cung cấp. Nội dung điểm đến được cập nhật sau khi đối chiếu.</p><div class="form-actions"><button class="btn outline" data-close>Tiếp tục khám phá</button><a class="btn" href="/support">Theo dõi phản hồi</a></div></div>';
+          this.icons();
+        } catch (error) {
+          if (form.isConnected) form.querySelector(".form-error").textContent = error.message;
+        } finally {
+          button.disabled = false;
+          button.textContent = "Gửi quản trị viên";
+        }
+      });
+    } catch (error) { this.toast(error.message, true); }
   },
   async addToPlan(id) {
     if (!this.requireLogin(() => this.addToPlan(id))) return;

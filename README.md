@@ -16,6 +16,9 @@ Cập nhật trên `long_branch`, kiểm tra CI rồi merge vào `main`; Render 
 - **Yêu thích `/favorites`**: bộ sưu tập riêng từng tài khoản, tìm trong danh sách, bỏ lưu, thêm vào chuyến đi.
 - **Đăng nhập/đăng ký**: dialog dùng chung trên bốn trang, email/password, phiên lưu trong MongoDB, menu người dùng, đăng xuất.
 - **Quản trị `/admin`**: dashboard hoạt động, quản lý người dùng và khóa/mở khóa, xem toàn bộ lịch trình cùng người tạo, ngày, ngân sách và chi tiết hoạt động; quản lý điểm đến/khôi phục. Có tìm kiếm, bộ lọc và phân trang. Admin đăng nhập chuyển thẳng tới bảng điều khiển; HTML được bảo vệ ngoài thư mục public. Xem [hướng dẫn admin](docs/ADMIN.md).
+- **Báo cáo điểm đến**: nút báo cáo trong từng chi tiết địa điểm; chọn thông tin cần sửa, mô tả và nguồn đối chiếu. Admin lọc, mở đúng địa điểm và trả lời; người gửi theo dõi riêng tại `/support`.
+
+Các nâng cấp tiếp theo và phạm vi đã thống nhất nằm trong [kế hoạch nâng cấp](docs/ROADMAP.md); tách riêng với chức năng hiện có.
 
 Giá seed là **ước tính minh họa cho hoạt động mỗi người**, không phải giá vé niêm yết và không phải tổng chi phí cả chuyến đi. Bạn bổ sung khách sạn, di chuyển, ăn uống trong phần Các khoản chi bổ sung. `null` nghĩa là chưa có ước tính; `0` chỉ dùng khi hoạt động thực sự miễn phí. Ngân sách thiếu giá được báo chưa đầy đủ.
 

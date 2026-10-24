@@ -64,6 +64,38 @@ test("Cộng tác, chi tiêu, phản hồi, mật khẩu và idle trên MongoDB 
       const update={status:"in_review",reply:"Đang đối chiếu với đơn vị quản lý.",version:f.__v};assert.equal((await request(admin,`/api/admin/feedback/${f._id}`,"PATCH",update)).status,200);assert.equal((await request(admin,`/api/admin/feedback/${f._id}`,"PATCH",update)).status,409);
       const result=(await request(owner,"/api/feedback")).data.items[0];assert.equal(result.history[0].reply,update.reply);assert.ok(!JSON.stringify((await request(admin,"/api/admin/feedback")).data).includes("passwordHash"));assert.equal((await request(admin,"/api/admin/activity?group=feedback")).data.total,2);assert.equal((await request(admin,"/api/admin/stats")).data.pendingFeedback,1);
     });
+    await t.test("Báo cáo ảnh, giờ và mô tả gắn đúng điểm đến, có nguồn và lọc riêng cho admin",async()=>{
+      const before=await Destination.findById(destination._id).lean(),id=String(destination._id);
+      for(const type of ["photo","hours","description"]){
+        const body={destinationId:id,subject:`Báo cáo: ${destination.name}`,type,content:"Thông tin hiện tại cần kiểm tra. <img src=x onerror=alert(1)>",sourceUrl:"https://example.test/doi-chieu?a=1&b=2"};
+        const saved=await request(owner,"/api/feedback","POST",body);assert.equal(saved.status,201,JSON.stringify(saved.data));
+        assert.equal(saved.data.feedback.destinationId,id);assert.equal((await Feedback.findById(saved.data.feedback._id)).sourceUrl,body.sourceUrl);
+        const filtered=await request(admin,`/api/admin/feedback?scope=destination&type=${type}&destinationId=${id}`);
+        assert.equal(filtered.status,200);assert.equal(filtered.data.total,1);assert.equal(filtered.data.items[0].destinationId.name,destination.name);assert.equal(filtered.data.items[0].content,body.content);
+      }
+      assert.deepEqual(await Destination.findById(id).lean(),before,"Gửi báo cáo không tự thay đổi điểm đến");
+      assert.equal((await request(other,"/api/feedback")).data.total,0);
+      assert.equal((await request(other,"/api/feedback","POST",{subject:"Góp ý chung",type:"other",content:"Cảm ơn đội ngũ"})).status,201);
+      assert.equal((await request(admin,"/api/admin/feedback?scope=general")).data.total,1);
+      assert.equal((await request(admin,`/api/admin/feedback?scope=general&destinationId=${id}`)).data.total,0);
+      assert.equal((await request(owner,`/api/admin/destinations/${id}`)).status,403);
+      assert.equal((await request({},`/api/admin/destinations/${id}`)).status,401);
+      await Destination.updateOne({_id:id},{$set:{isActive:false}});
+      assert.equal((await request(admin,`/api/admin/destinations/${id}`)).data.destination.isActive,false);
+      assert.equal((await request(other,"/api/feedback","POST",{destinationId:id,subject:"Điểm đã ẩn",type:"photo",content:"Ảnh khác"})).status,404);
+      await Destination.updateOne({_id:id},{$set:{isActive:true}});
+    });
+    await t.test("Báo cáo chặn URL nguy hiểm, ID và bộ lọc sai; giữ dữ liệu phản hồi cũ",async()=>{
+      const body={subject:"Đối chiếu ảnh",type:"photo",content:"Cần kiểm tra",destinationId:String(destination._id)};
+      for(const sourceUrl of ["javascript:alert(1)","https://user:secret@example.test/",{url:"https://example.test"}])
+        assert.equal((await request(other,"/api/feedback","POST",{...body,sourceUrl})).status,400);
+      assert.equal((await request(other,"/api/feedback","POST",{...body,destinationId:String(new mongoose.Types.ObjectId())})).status,404);
+      assert.equal((await request(other,"/api/feedback","POST",{...body,type:"invalid"})).status,400);
+      for(const query of ["type=invalid","scope=invalid","destinationId=invalid"])
+        assert.equal((await request(admin,`/api/admin/feedback?${query}`)).status,400);
+      assert.equal((await request(admin,`/api/admin/destinations/${new mongoose.Types.ObjectId()}`)).status,404);
+      const legacy=await Feedback.findOne({subject:"Giờ mở cửa"});assert.ok(legacy);assert.equal(legacy.sourceUrl,"");assert.equal(legacy.history.length,1);
+    });
     await t.test("Hồ sơ an toàn, đổi mật khẩu giữ phiên mới và thu hồi phiên khác",async()=>{
       const second=await login("owner@example.test");assert.equal((await request(owner,"/api/auth/profile","PUT",{fullName:"Tên mới",role:"admin"})).data.user.role,"user");
       assert.equal((await request(owner,"/api/auth/password","PUT",{currentPassword:"wrong",password:"Password-new-123",confirmPassword:"Password-new-123"})).status,400);

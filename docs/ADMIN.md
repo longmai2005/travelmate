@@ -75,7 +75,9 @@ Trong mục Điểm đến, nhập thêm địa chỉ, giờ mở cửa, ghi ch�
 
 ## Phản hồi và cộng tác
 
-Mục **Phản hồi người dùng** nhận góp ý giá, địa chỉ, đóng cửa và góp ý chung. Lọc trạng thái; mở **Xem & trả lời** để kiểm tra nội dung và ghi kết quả. Mỗi lần trả lời có trạng thái, người xử lý và thời điểm; người gửi đọc được tại **Phản hồi của tôi**. Có kiểm tra phiên bản để tránh ghi đè phản hồi của admin khác. Không tự sửa điểm đến chỉ vì có báo cáo: đối chiếu rồi cập nhật riêng trong Điểm đến. Tổng quan và menu hiển thị số phản hồi `Chờ xử lý`/`Đang kiểm tra`.
+Mục **Phản hồi người dùng** nhận báo cáo từ nút riêng trong từng chi tiết điểm đến, gồm giá, địa chỉ/bản đồ, giờ mở cửa, hình ảnh, mô tả, đóng cửa và góp ý khác. Báo cáo có đúng điểm đến, người gửi, nội dung cần sửa và liên kết nguồn đối chiếu nếu có; góp ý chung về website vẫn được tiếp nhận.
+
+Lọc theo trạng thái, phạm vi hoặc loại nội dung. **Báo cáo cùng điểm đến** lọc toàn bộ phản hồi của một địa điểm; **Sửa điểm đến** mở đúng bản ghi, kể cả điểm đã ẩn. Mở **Xem & trả lời** để ghi kết quả. Mỗi lần trả lời có trạng thái, người xử lý và thời điểm; người gửi đọc được tại **Phản hồi của tôi**. Có kiểm tra phiên bản để tránh ghi đè phản hồi của admin khác. Đối chiếu trước khi cập nhật; chuyển trạng thái báo cáo không tự sửa dữ liệu điểm đến. Tổng quan và menu hiển thị số phản hồi `Chờ xử lý`/`Đang kiểm tra`.
 
 Chi tiết lịch trình có danh sách cộng tác viên, quyền và chi tiêu thực tế. Admin xem dữ liệu để hỗ trợ; quyền quản lý lời mời thuộc chủ chuyến đi. Người đồng hành chia tiền có thể chưa có tài khoản, khác với cộng tác viên đăng nhập.
 

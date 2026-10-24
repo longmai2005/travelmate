@@ -410,7 +410,18 @@
           <div id="activity-list" class="admin-audit-list"></div>
           <div class="pagination"><button id="activity-prev" class="btn outline small">← Trang trước</button><span id="activity-page"></span><button id="activity-next" class="btn outline small">Trang sau →</button></div>
         </section>
-        <section id="admin-feedback" aria-label="Phản hồi người dùng" hidden><div class="admin-section-summary"><span><strong id="feedback-total">—</strong> phản hồi phù hợp</span><span>Kiểm tra thông tin trước khi sửa dữ liệu điểm đến.</span></div><form id="feedback-filters" class="toolbar"><label>Trạng thái<select name="status"><option value="">Mọi trạng thái</option><option value="open">Chờ xử lý</option><option value="in_review">Đang kiểm tra</option><option value="resolved">Đã giải quyết</option><option value="dismissed">Đã đóng</option></select></label><button class="btn outline small" type="button" data-reset-admin="feedback">Xóa bộ lọc</button></form><div id="admin-feedback-list"></div><div class="pagination"><button id="feedback-prev" class="btn outline small">← Trang trước</button><span id="feedback-page"></span><button id="feedback-next" class="btn outline small">Trang sau →</button></div></section>
+        <section id="admin-feedback" aria-label="Phản hồi người dùng" hidden>
+          <div class="admin-section-summary"><span><strong id="feedback-total">—</strong> phản hồi phù hợp</span><span>Kiểm tra thông tin trước khi sửa dữ liệu điểm đến.</span></div>
+          <form id="feedback-filters" class="toolbar">
+            <label>Trạng thái<select name="status"><option value="">Mọi trạng thái</option><option value="open">Chờ xử lý</option><option value="in_review">Đang kiểm tra</option><option value="resolved">Đã giải quyết</option><option value="dismissed">Đã đóng</option></select></label>
+            <label>Phạm vi<select name="scope"><option value="">Tất cả phản hồi</option><option value="destination">Báo cáo điểm đến</option><option value="general">Góp ý chung</option></select></label>
+            <label>Nội dung<select name="type"><option value="">Mọi nội dung</option></select></label>
+            <input name="destinationId" hidden aria-label="Điểm đến đang lọc">
+            <button class="btn outline small" type="button" data-reset-admin="feedback">Xóa bộ lọc</button>
+          </form>
+          <div id="feedback-destination-filter" class="feedback-destination-filter" hidden><span></span><button class="btn ghost small" type="button">Bỏ lọc điểm đến</button></div>
+          <div id="admin-feedback-list"></div><div class="pagination"><button id="feedback-prev" class="btn outline small">← Trang trước</button><span id="feedback-page"></span><button id="feedback-next" class="btn outline small">Trang sau →</button></div>
+        </section>
         <footer class="admin-footer">
           <span>TravelMate Administration · EM3</span
           ><span id="admin-last-updated">Đang kết nối dữ liệu...</span>

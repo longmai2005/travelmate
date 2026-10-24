@@ -13,11 +13,18 @@ router.get("/", async (req, res) => {
 });
 router.post("/", rateLimit({ windowMs: 3600000, limit: 10, keyGenerator: req => String(req.user._id), standardHeaders: "draft-8", legacyHeaders: false,
   message: { message: "Bạn đã gửi nhiều phản hồi. Vui lòng thử lại sau một giờ." } }), async (req, res) => {
-  if (!["price", "address", "closed", "other"].includes(req.body.type)) fail("Loại phản hồi không hợp lệ.");
+  if (!Feedback.schema.path("type").enumValues.includes(req.body.type)) fail("Loại phản hồi không hợp lệ.");
   const destinationId = req.body.destinationId ? objectId(req.body.destinationId) : null;
   if (destinationId && !await Destination.exists({ _id: destinationId, isActive: true })) fail("Không tìm thấy điểm đến đang hiển thị.", 404);
+  const sourceUrl = text(req.body.sourceUrl ?? "", "Nguồn đối chiếu", 2000, false);
+  if (sourceUrl) {
+    let url;
+    try { url = new URL(sourceUrl); } catch { fail("URL nguồn đối chiếu không hợp lệ."); }
+    if (!["https:", "http:"].includes(url.protocol) || url.username || url.password)
+      fail("Nguồn đối chiếu phải là URL http/https không chứa tài khoản hoặc mật khẩu.");
+  }
   const feedback = await Feedback.create({ userId: req.user._id, destinationId, type: req.body.type,
-    subject: text(req.body.subject, "Tiêu đề", 150), content: text(req.body.content, "Nội dung phản hồi", 2000) });
+    subject: text(req.body.subject, "Tiêu đề", 150), content: text(req.body.content, "Nội dung phản hồi", 2000), sourceUrl });
   await require("../utils/activity")(req.user, "feedback.created", { _id: feedback._id, title: feedback.subject });
   res.status(201).json({ feedback });
 });

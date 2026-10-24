@@ -8,3 +8,27 @@
 @media(max-width:600px){.discovery-intro{padding:20px}.discovery-intro h2{font-size:21px}.province-chips{flex-wrap:nowrap;overflow:auto;padding-bottom:8px}.province-chips .chip{flex-shrink:0}.discovery-more{align-items:stretch;flex-direction:column;gap:14px}.suggestion-alternatives{grid-template-columns:1fr}.picker-filters{grid-template-columns:1fr}.picker-paging{gap:8px}.picker-paging .btn{padding:8px 10px;font-size:11px}}
 
 .google-map-load-status { margin: 0; padding: 12px 16px; color: var(--text-muted, #58717b); background: #f3f8f8; font-size: .875rem; }
+
+.destination-report-dialog { width: min(600px, calc(100% - 30px)); }
+.report-destination { display: flex; align-items: center; gap: 12px; padding: 16px; margin-bottom: 16px; border-radius: 12px; background: #eef7f5; }
+.report-destination > svg { flex-shrink: 0; color: var(--primary); }
+.report-destination strong, .report-destination span { display: block; overflow-wrap: anywhere; }
+.report-destination span { color: var(--muted); margin-top: 4px; font-size: 12px; }
+.destination-report-form { display: grid; gap: 18px; margin-top: 20px; }
+.destination-report-form .form-field { font-size: 13px; }
+.destination-report-form .form-error, .destination-report-form .form-actions { margin-top: 0; }
+.destination-report-form textarea, .destination-report-form input, .destination-report-form select { font-size: 14px; }
+.report-success { padding: 24px 0 0; }
+.report-success > svg { color: var(--primary); width: 36px; height: 36px; margin-bottom: 12px; }
+.report-success p { font-size: 14px; line-height: 1.7; margin-top: 12px; }
+.feedback-place-actions, .feedback-destination-filter { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.feedback-destination-filter { padding: 12px 16px; background: #eef7f5; border-radius: 10px; margin: 12px 0; }
+.feedback-destination-filter[hidden] { display: none; }
+.feedback-place-actions { margin-top: 16px; }
+.feedback-card a:not(.btn) { text-decoration: underline; overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .destination-report-button { width: 100%; }
+  .destination-report-form textarea, .destination-report-form input, .destination-report-form select { font-size: 16px; }
+  .destination-report-dialog .form-actions { flex-wrap: wrap; }
+  .destination-report-dialog .form-actions > .btn { flex: 1 1 160px; }
+}
