@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/upgrades.css" />
     <link rel="stylesheet" href="/css/trip.css" />
     <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/next.css" />
     <script defer src="/vendor/lucide.js"></script>
     <script defer src="/js/api.js"></script>
     <script defer src="/js/budget.js"></script>
@@ -27,6 +28,7 @@
     <script defer src="/js/admin-activity.js"></script>
     <script defer src="/js/support.js"></script>
     <script defer src="/js/admin-feedback.js"></script>
+    <script defer src="/js/admin-publishing.js"></script>
     <script defer src="/js/admin.js"></script>
   </head>
   <body data-page="admin">
@@ -64,6 +66,8 @@
           ><i data-lucide="archive"></i> Điểm đến đã ẩn
           <span data-admin-inactive>—</span></a
         >
+        <a href="#editorial" data-admin-view="editorial"><i data-lucide="notebook-pen"></i> Biên tập nội dung <span data-admin-pending-editorial>—</span></a>
+        <a href="#reviews" data-admin-view="reviews"><i data-lucide="star"></i> Duyệt đánh giá <span data-admin-pending-reviews>—</span></a>
         <a href="#feedback" data-admin-view="feedback"><i data-lucide="message-square-text"></i> Phản hồi người dùng <span data-admin-pending-feedback>—</span></a>
         <a href="#activity" data-admin-view="activity"><i data-lucide="history"></i> Nhật ký hoạt động</a>
       </nav>
@@ -346,7 +350,7 @@
               ><i data-lucide="database"></i>
               <strong id="admin-result-total">—</strong> điểm đến phù hợp</span
             >
-            <p>Dữ liệu được cập nhật trực tiếp trên website du lịch.</p>
+            <p>Chỉnh sửa được lưu nháp trước khi kiểm tra và xuất bản.</p>
           </div>
           <form id="admin-filters" class="toolbar">
             <label class="input-wrap"
@@ -409,6 +413,16 @@
           <form id="activity-filters" class="toolbar"><label>Nhóm hoạt động<select name="group"><option value="">Tất cả hoạt động</option><option value="user">Người dùng</option><option value="itinerary">Lịch trình</option><option value="destination">Điểm đến</option><option value="feedback">Phản hồi</option></select></label><button type="button" class="btn outline small" data-reset-admin="activity">Xóa bộ lọc</button></form>
           <div id="activity-list" class="admin-audit-list"></div>
           <div class="pagination"><button id="activity-prev" class="btn outline small">← Trang trước</button><span id="activity-page"></span><button id="activity-next" class="btn outline small">Trang sau →</button></div>
+        </section>
+        <section id="admin-editorial" aria-label="Biên tập nội dung" hidden>
+          <div class="admin-section-summary"><span><strong id="editorial-total">—</strong> điểm đến</span><span>Bản sửa chỉ xuất hiện công khai sau khi được xuất bản.</span></div>
+          <form id="editorial-filters" class="toolbar"><label>Tình trạng<select name="state"><option value="">Tất cả điểm đến</option><option value="draft">Bản nháp</option><option value="pending">Chờ duyệt</option><option value="published">Đã xuất bản</option><option value="due">Cần rà soát nguồn (180 ngày)</option></select></label><button type="button" class="btn outline small" data-reset-admin="editorial">Xóa bộ lọc</button></form>
+          <div id="editorial-list"></div><div class="pagination"><button id="editorial-prev" class="btn outline small">← Trước</button><span id="editorial-page"></span><button id="editorial-next" class="btn outline small">Sau →</button></div>
+        </section>
+        <section id="admin-reviews" aria-label="Duyệt đánh giá cộng đồng" hidden>
+          <div class="admin-section-summary"><span><strong id="reviews-total">—</strong> đánh giá</span><span>Kiểm tra nội dung, ảnh, ngày chụp và thông tin riêng tư trước khi duyệt.</span></div>
+          <form id="reviews-filters" class="toolbar"><label>Trạng thái<select name="status"><option value="pending">Chờ duyệt</option><option value="approved">Đã công khai</option><option value="rejected">Đã từ chối</option><option value="withdrawn">Người gửi đã gỡ</option><option value="">Tất cả</option></select></label><button type="button" class="btn outline small" data-reset-admin="reviews">Xóa bộ lọc</button></form>
+          <div id="reviews-list"></div><div class="pagination"><button id="reviews-prev" class="btn outline small">← Trước</button><span id="reviews-page"></span><button id="reviews-next" class="btn outline small">Sau →</button></div>
         </section>
         <section id="admin-feedback" aria-label="Phản hồi người dùng" hidden>
           <div class="admin-section-summary"><span><strong id="feedback-total">—</strong> phản hồi phù hợp</span><span>Kiểm tra thông tin trước khi sửa dữ liệu điểm đến.</span></div>

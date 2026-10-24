@@ -10,6 +10,8 @@ router.get("/stats", require("../utils/adminOverview"));
 router.use(require("./adminPeopleRoutes"));
 router.use(require("./activityRoutes"));
 router.use(require("./adminFeedbackRoutes"));
+router.use(require("./adminReviewRoutes"));
+router.use(require("./editorialRoutes"));
 router.get("/destinations", (req, res) => listing(req, res, true));
 router.get("/destinations/:id", async (req, res) => {
   const destination = await Destination.findById(objectId(req.params.id)).lean();
@@ -32,7 +34,7 @@ router.put("/destinations/:id", async (req, res) => {
   }
   const destination = await Destination.findByIdAndUpdate(
     id,
-    input(body),
+    { $set: { ...input(body), slug: current.slug }, $push: { "editorial.history": { $each: [require("../utils/destinationEditorial").previous(current, req.user.fullName)], $slice: -15 } }, $inc: { contentVersion: 1, "editorial.version": 1, __v: 1 } },
     { returnDocument: "after", runValidators: true },
   );
   if (!destination) fail("Không tìm thấy địa điểm.", 404);
@@ -42,7 +44,7 @@ router.put("/destinations/:id", async (req, res) => {
 async function status(req, res, active) {
   const destination = await Destination.findByIdAndUpdate(
     objectId(req.params.id),
-    { isActive: active },
+    { $set: { isActive: active }, $inc: { contentVersion: 1, "editorial.version": 1, __v: 1 } },
     { returnDocument: "after" },
   );
   if (!destination) fail("Không tìm thấy địa điểm.", 404);

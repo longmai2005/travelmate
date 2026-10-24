@@ -46,6 +46,20 @@ const schema = new mongoose.Schema(
     tags: [{ type: String, maxlength: 60 }],
     isFeatured: { type: Boolean, default: false },
     isActive: { type: Boolean, default: true },
+    contentVersion: { type: Number, default: 0 },
+    editorial: {
+      type: new mongoose.Schema({
+        version: { type: Number, default: 0 },
+        status: { type: String, enum: ["draft", "pending", "published"], default: "published" },
+        draft: mongoose.Schema.Types.Mixed,
+        baseContentVersion: Number,
+        editedBy: String,
+        editedAt: Date,
+        note: { type: String, maxlength: 1000, default: "" },
+        history: [{ body: mongoose.Schema.Types.Mixed, publishedBy: String, publishedAt: Date }],
+      }, { _id: false }),
+      select: false,
+    },
   },
   { timestamps: true },
 );

@@ -5,8 +5,10 @@ function roleFor(trip, userId) {
   return trip.collaborators?.find(member => String(member.userId?._id || member.userId) === String(userId))?.role || null;
 }
 function accessFilter(userId) { return { $or: [{ userId }, { "collaborators.userId": userId }] }; }
-async function accessible(req, { write = false, owner = false } = {}) {
-  const trip = await Itinerary.findOne({ _id: objectId(req.params.id), ...accessFilter(req.user._id) }).populate("days.items.destinationId");
+async function accessible(req, { write = false, owner = false, history = false } = {}) {
+  const query = Itinerary.findOne({ _id: objectId(req.params.id), ...accessFilter(req.user._id) });
+  if (history) query.select("+planHistory");
+  const trip = await query.populate("days.items.destinationId");
   if (!trip) fail("Không tìm thấy lịch trình hoặc bạn chưa được cấp quyền.", 404);
   const role = roleFor(trip, req.user._id);
   if ((owner && role !== "owner") || (write && role === "viewer")) fail("Bạn không có quyền thực hiện thao tác này.", 403);

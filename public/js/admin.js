@@ -1,6 +1,8 @@
 const adminForm = document.querySelector("#admin-filters");
 adminForm.elements.category.innerHTML = TM.categoryOptions();
 const peopleForms = {
+  editorial: document.querySelector("#editorial-filters"),
+  reviews: document.querySelector("#reviews-filters"),
   feedback: document.querySelector("#feedback-filters"),
   users: document.querySelector("#users-filters"),
   itineraries: document.querySelector("#itineraries-filters"),
@@ -14,6 +16,8 @@ let adminItems = [],
   activeOwner = "",
   ownerCache = null;
 const views = {
+  editorial: ["Biên tập", "Nội dung luôn được chăm chút", "Soạn bản sửa, đối chiếu nguồn, duyệt và xuất bản. Rà soát các điểm chưa kiểm tra trong 180 ngày."],
+  reviews: ["Đánh giá", "Lắng nghe trải nghiệm cộng đồng", "Duyệt nội dung và ảnh trước khi công khai; giải thích rõ khi cần người gửi điều chỉnh."],
   feedback: ["Phản hồi", "Lắng nghe thành viên", "Tiếp nhận góp ý, kiểm tra thông tin và trả lời để người dùng theo dõi kết quả."],
   overview: [
     "Tổng quan",
@@ -107,7 +111,7 @@ function renderView() {
     if (selected) link.setAttribute("aria-current", "page");
     else link.removeAttribute("aria-current");
   });
-  ["overview", "users", "itineraries", "destinations", "activity", "feedback"].forEach((view) => {
+  ["overview", "users", "itineraries", "destinations", "activity", "feedback", "editorial", "reviews"].forEach((view) => {
     document.querySelector(`#admin-${view}`).hidden =
       view === "destinations"
         ? !["destinations", "hidden"].includes(currentView)
@@ -124,6 +128,8 @@ function renderView() {
 }
 function renderStats(stats) {
   const labels = [
+    ["pendingReviews", "star", "Đánh giá chờ duyệt", "reviews"],
+    ["pendingEditorial", "notebook-pen", "Nội dung chờ duyệt", "editorial"],
     ["pendingFeedback", "message-square-text", "Phản hồi cần xử lý", "feedback"],
     ["users", "users-round", "Tài khoản đăng ký", "users"],
     ["itineraries", "route", "Lịch trình đã lưu", "itineraries"],
@@ -153,6 +159,8 @@ function renderStats(stats) {
     )
     .join("");
   document.querySelectorAll("[data-admin-pending-feedback]").forEach(el => el.textContent = stats.pendingFeedback);
+  document.querySelectorAll("[data-admin-pending-reviews]").forEach(el => el.textContent = stats.pendingReviews);
+  document.querySelectorAll("[data-admin-pending-editorial]").forEach(el => el.textContent = stats.pendingEditorial);
   ["total", "active", "inactive", "users", "itineraries"].forEach((key) =>
     document
       .querySelectorAll(`[data-admin-${key}]`)
@@ -193,7 +201,7 @@ async function loadAdmin(refreshStats = false) {
       params.set("userId", activeOwner);
     params.set("page", adminPage);
     params.set("limit", "10");
-    const endpoint = ["users", "itineraries", "activity", "feedback"].includes(view)
+    const endpoint = ["users", "itineraries", "activity", "feedback", "editorial", "reviews"].includes(view)
       ? view
       : "destinations";
     const [stats, result, owner] = await Promise.all([
@@ -221,7 +229,9 @@ async function loadAdmin(refreshStats = false) {
         syncAdminHash();
         return loadAdmin();
       }
-      if (view === "feedback") AdminFeedback.render(result);
+      if (view === "editorial") AdminPublishing.render(result);
+      else if (view === "reviews") AdminReviews.render(result);
+      else if (view === "feedback") AdminFeedback.render(result);
       else if (view === "activity") AdminActivity.render(result);
       else if (view === "users") AdminPeople.users(result, stats);
       else if (view === "itineraries") {
@@ -255,7 +265,16 @@ async function loadAdmin(refreshStats = false) {
   }
 }
 
-function openDestinationForm(destination) {
+async function openDestinationForm(destination) {
+  if (!destination?._id) return renderDestinationForm();
+  const userId=TM.user?._id,generation=SessionIdle.state?.generation;
+  try {
+    const context=await api.request(`/admin/editorial/${destination._id}`);
+    if (TM.user?._id!==userId || SessionIdle.state?.generation!==generation) return;
+    renderDestinationForm({...context.destination,...context.editorial.draft,_id:context.id},context);
+  } catch(e) { TM.toast(e.message,true); }
+}
+function renderDestinationForm(destination, editorialContext) {
   const d = destination || {
     name: "",
     province: "",
@@ -280,11 +299,14 @@ function openDestinationForm(destination) {
       .map(([key, label]) => `<option value="${key}">${label}</option>`)
       .join(
         "",
-      )}</select></label><label class="form-field">Ước tính / người (VND)<input name="estimatedCostPerPersonVnd" type="number" min="0" step="1" value="${d.estimatedCostPerPersonVnd ?? ""}" placeholder="Để trống nếu chưa rõ"></label><label class="form-field full">Mô tả ngắn<textarea name="shortDescription" required maxlength="300">${e(d.shortDescription)}</textarea></label><label class="form-field full">Mô tả chi tiết<textarea name="description" required maxlength="5000">${e(d.description)}</textarea></label><label class="form-field full">URL ảnh<input name="imageUrl" required value="${e(d.imageUrl)}" placeholder="https://... hoặc /images/..."></label><label class="form-field">Thời lượng gợi ý (giờ)<input name="recommendedDurationHours" type="number" min="0.25" max="168" step="0.25" required value="${d.recommendedDurationHours}"></label><label class="form-field">Tags (phân cách bằng dấu phẩy)<input name="tags" value="${e(d.tags.join(", "))}"></label><label class="form-field">Vĩ độ<input name="latitude" type="number" min="-90" max="90" step="any" value="${d.latitude ?? ""}"></label><label class="form-field">Kinh độ<input name="longitude" type="number" min="-180" max="180" step="any" value="${d.longitude ?? ""}"></label><label class="form-field full">Địa chỉ<input name="address" maxlength="300" value="${e(d.address || "")}" placeholder="Địa chỉ hoặc hướng dẫn tìm vị trí"></label><label class="form-field full">Giờ mở cửa<input name="openingHours" maxlength="300" value="${e(d.openingHours || "")}" placeholder="Để trống nếu chưa kiểm tra"></label><label class="form-field full">Lưu ý giá<textarea name="priceNote" maxlength="500" placeholder="Đối tượng áp dụng, dịch vụ bao gồm, thời điểm giá...">${e(d.priceNote || "")}</textarea></label><label class="form-field full">Nguồn thông tin<input name="sourceUrl" type="url" maxlength="2000" value="${e(d.sourceUrl || "")}" placeholder="https://... ưu tiên nguồn chính thức"></label><label class="form-field">Ngày đã kiểm tra<input name="verifiedOn" type="date" value="${e(d.verifiedOn || "")}"></label><label class="form-field"><span><input name="isFeatured" type="checkbox" ${d.isFeatured ? "checked" : ""}> Địa điểm nổi bật</span></label><label class="form-field"><span><input name="isActive" type="checkbox" ${d.isActive ? "checked" : ""}> Đang hoạt động</span></label></div><p class="field-help">Chỉ nhập tọa độ đã xác minh. Không có dữ liệu thì để trống cả hai trường.</p><div class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="btn outline" data-close>Hủy</button><button type="submit" class="btn">Lưu địa điểm</button></div></form></div>`,
+      )}</select></label><label class="form-field">Ước tính / người (VND)<input name="estimatedCostPerPersonVnd" type="number" min="0" step="1" value="${d.estimatedCostPerPersonVnd ?? ""}" placeholder="Để trống nếu chưa rõ"></label><label class="form-field full">Mô tả ngắn<textarea name="shortDescription" required maxlength="300">${e(d.shortDescription)}</textarea></label><label class="form-field full">Mô tả chi tiết<textarea name="description" required maxlength="5000">${e(d.description)}</textarea></label><label class="form-field full">URL ảnh<input name="imageUrl" required value="${e(d.imageUrl)}" placeholder="https://... hoặc /images/..."></label><label class="form-field">Thời lượng gợi ý (giờ)<input name="recommendedDurationHours" type="number" min="0.25" max="168" step="0.25" required value="${d.recommendedDurationHours}"></label><label class="form-field">Tags (phân cách bằng dấu phẩy)<input name="tags" value="${e(d.tags.join(", "))}"></label><label class="form-field">Vĩ độ<input name="latitude" type="number" min="-90" max="90" step="any" value="${d.latitude ?? ""}"></label><label class="form-field">Kinh độ<input name="longitude" type="number" min="-180" max="180" step="any" value="${d.longitude ?? ""}"></label><label class="form-field full">Địa chỉ<input name="address" maxlength="300" value="${e(d.address || "")}" placeholder="Địa chỉ hoặc hướng dẫn tìm vị trí"></label><label class="form-field full">Giờ mở cửa<input name="openingHours" maxlength="300" value="${e(d.openingHours || "")}" placeholder="Để trống nếu chưa kiểm tra"></label><label class="form-field full">Lưu ý giá<textarea name="priceNote" maxlength="500" placeholder="Đối tượng áp dụng, dịch vụ bao gồm, thời điểm giá...">${e(d.priceNote || "")}</textarea></label><label class="form-field full">Nguồn thông tin<input name="sourceUrl" type="url" maxlength="2000" value="${e(d.sourceUrl || "")}" placeholder="https://... ưu tiên nguồn chính thức"></label><label class="form-field">Ngày đã kiểm tra<input name="verifiedOn" type="date" value="${e(d.verifiedOn || "")}"></label><label class="form-field"><span><input name="isFeatured" type="checkbox" ${d.isFeatured ? "checked" : ""}> Địa điểm nổi bật</span></label><label class="form-field"><span><input name="isActive" type="checkbox" ${d.isActive ? "checked" : ""}> Đang hoạt động</span></label></div><p class="field-help">Chỉ nhập tọa độ đã xác minh. Không có dữ liệu thì để trống cả hai trường.</p><div class="form-error" role="alert"></div><div class="form-actions"><button type="button" class="btn outline" data-close>Hủy</button><button type="submit" class="btn outline" name="action" value="draft">Lưu bản nháp</button><button type="submit" class="btn" name="action" value="pending">Gửi duyệt</button></div></form></div>`,
     "modal-wide",
     "Quản lý địa điểm",
   );
   const form = dialog.querySelector("form");
+  form.insertAdjacentHTML("afterbegin", `<p class="status-note">${editorialContext ? "Bạn đang sửa bản nháp. Bản đang công khai được giữ đến khi xuất bản." : "Điểm đến mới được tạo ở trạng thái riêng tư; gửi duyệt và xuất bản để hiển thị."}</p>`);
+  if (editorialContext?.editorial.draft && editorialContext.editorial.baseContentVersion !== editorialContext.publishedVersion)
+    form.insertAdjacentHTML("afterbegin", '<label class="consent-field status-note warning"><input type="checkbox" required> Nội dung công khai đã thay đổi từ lúc tạo bản nháp. Tôi đã đối chiếu và muốn dùng các trường đang sửa làm bản nháp mới.</label>');
   form.elements.imageUrl.closest("label").insertAdjacentHTML("afterend", `<label class="form-field">Loại ảnh<select name="imageKind"><option value="place">Ảnh địa điểm</option><option value="area">Ảnh khu vực</option><option value="illustration">Ảnh minh họa</option></select></label><label class="form-field">Tác giả ảnh<input name="imageCredit" maxlength="500" value="${e(d.imageCredit || "")}"></label><label class="form-field full">Trang nguồn ảnh<input type="url" name="imageSourceUrl" maxlength="2000" value="${e(d.imageSourceUrl || "")}" placeholder="Trang chứa tên tác giả và giấy phép"></label><label class="form-field">Ngày hoặc năm chụp ảnh<input name="imageTakenOn" maxlength="10" value="${e(d.imageTakenOn || "")}" placeholder="YYYY-MM-DD hoặc YYYY"><small class="field-help">Theo nguồn ảnh; để trống nếu chưa rõ. Không dùng ngày tải lên.</small></label><label class="form-field">Giấy phép ảnh<input name="imageLicense" maxlength="100" value="${e(d.imageLicense || "")}" placeholder="Ví dụ: CC BY-SA 4.0"></label><label class="form-field">Liên kết giấy phép<input type="url" name="imageLicenseUrl" maxlength="2000" value="${e(d.imageLicenseUrl || "")}"></label>`);
   form.elements.imageKind.value = d.imageKind || "illustration";
   form.elements.imageUrl.addEventListener("change", () => {
@@ -297,8 +319,8 @@ function openDestinationForm(destination) {
   form.elements.category.value = d.category;
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const button = form.querySelector("[type=submit]");
-    button.disabled = true;
+    const button = event.submitter || form.querySelector("[type=submit]");
+    form.querySelectorAll("[type=submit]").forEach(b => b.disabled = true);
     try {
       const body = Object.fromEntries(new FormData(form));
       ["estimatedCostPerPersonVnd", "latitude", "longitude"].forEach(
@@ -311,17 +333,19 @@ function openDestinationForm(destination) {
         .filter(Boolean);
       body.isFeatured = form.elements.isFeatured.checked;
       body.isActive = form.elements.isActive.checked;
-      await api.request(
-        destination ? `/admin/destinations/${d._id}` : "/admin/destinations",
-        { method: destination ? "PUT" : "POST", body },
-      );
+      const status = event.submitter?.value || "draft";
+      await api.request(destination ? `/admin/editorial/${d._id}` : "/admin/editorial", {
+        method: destination ? "PUT" : "POST",
+        body: { body, status, version: editorialContext?.editorial.version || 0, baseContentVersion: editorialContext?.publishedVersion || 0 },
+      });
       dialog.close();
-      TM.toast("Đã lưu thông tin địa điểm.");
+      TM.toast(status === "pending" ? "Đã gửi duyệt; chưa thay nội dung công khai." : "Đã lưu bản nháp. Mở Biên tập nội dung để xem và gửi duyệt.");
+      location.hash = `#editorial?state=${status}`;
       loadAdmin(true);
     } catch (error) {
       form.querySelector(".form-error").textContent = error.message;
     } finally {
-      button.disabled = false;
+      form.querySelectorAll("[type=submit]").forEach(b => b.disabled = false);
     }
   });
 }

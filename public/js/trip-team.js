@@ -89,7 +89,7 @@ document.querySelector("#trip-editor").addEventListener("click", async event => 
     if (b.id === "weather-trip") await TripTeam.weather();
     if (b.id === "reload-trip") {
       if (dirty && !await TM.confirm("Tải bản mới nhất?", "Các thay đổi chưa lưu trong tab này sẽ bị bỏ. Hãy sao chép nội dung cần giữ trước khi tiếp tục.", "Tải và bỏ bản nháp")) return;
-      await TripTeam.refresh(); TM.toast("Đã tải bản lưu mới nhất.");
+      await window.PlannerDraft?.afterSave(); await TripTeam.refresh(); await window.PlannerDraft?.start(); TM.toast("Đã tải bản lưu mới nhất.");
     }
     if (b.id === "offline-trip" && await PlannerExtras.ensureSaved()) { await OfflineTrips.save(currentTrip); TM.toast("Đã lưu bản ngoại tuyến. Mở mục Lịch trình ngoại tuyến khi mất mạng."); }
   } catch (e) { TM.toast(e.message, true); }

@@ -1,5 +1,6 @@
 window.AdminActivity = {
   labels: {
+    "itinerary.restored": "Khôi phục kế hoạch", "destination.review_moderated": "Duyệt đánh giá", "destination.review_submitted": "Gửi đánh giá điểm đến", "destination.review_withdrawn": "Gỡ đánh giá", "destination.draft_created": "Tạo bản nháp điểm đến", "destination.draft_updated": "Biên tập điểm đến", "destination.published": "Xuất bản điểm đến", "user.preferences_updated": "Cập nhật sở thích",
     "user.profile_updated": "Cập nhật hồ sơ", "user.password_changed": "Đổi mật khẩu", "feedback.created": "Gửi phản hồi", "feedback.updated": "Xử lý phản hồi",
     "user.registered": "Đăng ký tài khoản", "user.locked": "Tạm khóa tài khoản", "user.unlocked": "Mở khóa tài khoản",
     "itinerary.created": "Tạo lịch trình", "itinerary.updated": "Cập nhật lịch trình", "itinerary.deleted": "Xóa lịch trình",

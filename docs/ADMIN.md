@@ -82,3 +82,13 @@ Lọc theo trạng thái, phạm vi hoặc loại nội dung. **Báo cáo cùng 
 Chi tiết lịch trình có danh sách cộng tác viên, quyền và chi tiêu thực tế. Admin xem dữ liệu để hỗ trợ; quyền quản lý lời mời thuộc chủ chuyến đi. Người đồng hành chia tiền có thể chưa có tài khoản, khác với cộng tác viên đăng nhập.
 
 Admin tự thoát sau 10 phút không thao tác. Tự cập nhật mỗi 30 giây không giữ phiên. Mở lại tab sau khi hết hạn sẽ yêu cầu đăng nhập lại.
+
+## Biên tập nội dung và đánh giá cộng đồng (24/10/2026)
+
+- **Duyệt đánh giá**: xem nội dung, ảnh và ngày chụp; duyệt công khai hoặc từ chối có hướng dẫn. Dashboard/menu đếm các đánh giá chờ duyệt. Người gửi sửa hoặc gỡ làm phiên bản cũ không còn được duyệt.
+- **Biên tập nội dung**: sửa điểm đến mở bản nháp. Chọn Lưu bản nháp hoặc Gửi duyệt; bản công khai được giữ đến khi xuất bản. Điểm đến mới giữ ẩn trước bước xuất bản.
+- **Xem & duyệt** so sánh hai bản, nguồn và ngày kiểm tra. Bấm Xuất bản có xác nhận; yêu cầu nguồn/ngày đối chiếu và đúng phiên bản. Lịch sử giữ 15 bản trước, có thể dùng lại làm nháp mới.
+- Bộ lọc **Cần rà soát nguồn (180 ngày)** giúp tìm điểm đang hiển thị có nguồn cũ/chưa ghi ngày. Đây là danh sách làm việc, không tự gửi email nhắc.
+- Khi ẩn/khôi phục hoặc đồng bộ danh mục trong lúc đang biên tập, mở lại bản nháp để đối chiếu; thao tác xuất bản cũ bị chặn.
+
+Chi tiết storage, quyền ảnh, hạn mức và API cũ tương thích: [UPGRADES.md](UPGRADES.md). Nội dung thử nghiệm phải ở môi trường QA riêng; không tạo đánh giá giả trên website thật.

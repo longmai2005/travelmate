@@ -5,7 +5,9 @@ function validateSuggestion(body) {
   const province = text(body.province, "Tỉnh / thành phố", 100);
   if (!Array.isArray(body.categories) || body.categories.length > 7 || body.categories.some((c) => !categories.includes(c)))
     fail("Sở thích không hợp lệ.");
-  return { dayDates, province, categories: [...new Set(body.categories)],
+  const pace = body.pace || "balanced", companions = body.companions || "friends";
+  if (!["relaxed", "balanced", "active"].includes(pace) || !["solo", "couple", "family", "friends"].includes(companions)) fail("Nhịp độ hoặc nhóm đồng hành không hợp lệ.");
+  return { dayDates, province, pace, companions, categories: [...new Set(body.categories)],
     variant: integer(body.variant ?? 0, "Phương án", 0, 1000000),
     travelers: integer(body.travelers, "Số người", 1, 100),
     budgetLimitVnd: integer(body.budgetLimitVnd, "Ngân sách"), expenses: validateExpenses(body.expenses ?? []) };
@@ -22,15 +24,17 @@ function suggest(input, destinations) {
     });
   const days = dayDates.map((date) => {
     let minutes = 9 * 60, hours = 0;
+    const maxHours = input.pace === "relaxed" ? 5 : input.pace === "active" ? 10 : 8;
+    const maxItems = input.pace === "relaxed" || input.companions === "family" ? 2 : 3;
     const items = [];
     for (const d of candidates) {
       const duration = d.recommendedDurationHours || 2;
       const cost = (d.estimatedCostPerPersonVnd ?? 0) * travelers;
-      if (used.has(String(d._id)) || duration > 8 || hours + duration > 8 || cost > remaining || items.length >= 3) continue;
+      if (used.has(String(d._id)) || duration > 8 || hours + duration > maxHours || cost > remaining || items.length >= maxItems) continue;
       used.add(String(d._id));
       remaining -= cost;
       items.push({ destinationId: d, visitTime: `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`,
-        note: "", customCostPerPersonVnd: null, order: items.length });
+        note: input.categories.includes(d.category) ? "Gợi ý vì thuộc trải nghiệm bạn ưu tiên." : "Lựa chọn thêm theo thời lượng và phần ngân sách còn lại.", customCostPerPersonVnd: null, order: items.length });
       minutes += Math.ceil((duration + 0.5) * 60);
       hours += duration + 0.5;
     }

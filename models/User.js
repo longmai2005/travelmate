@@ -15,6 +15,11 @@ const userSchema = new mongoose.Schema(
     isActive: { type: Boolean, default: true },
     sessionVersion: { type: Number, default: 0, select: false },
     lastLoginAt: { type: Date, default: null },
+    preferences: {
+      categories: [{ type: String, enum: ["beach", "mountain", "nature", "historical", "cultural", "entertainment", "food"] }],
+      pace: { type: String, enum: ["relaxed", "balanced", "active"], default: "balanced" },
+      companions: { type: String, enum: ["solo", "couple", "family", "friends"], default: "friends" },
+    },
     lockedAt: { type: Date, default: null },
     lockReason: { type: String, maxlength: 500, default: "" },
     lockedBy: {

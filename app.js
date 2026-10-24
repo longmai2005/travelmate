@@ -36,6 +36,7 @@ function createApp(options = {}) {
   });
   // A full group ledger with Vietnamese notes can exceed the general JSON limit.
   app.use("/api/itineraries", express.json({ limit: "2mb" }));
+  app.use("/api/community", express.json({ limit: "3mb" }));
   app.use(express.json({ limit: "150kb" }));
   app.use((req, res, next) => {
     if (
@@ -93,6 +94,9 @@ function createApp(options = {}) {
     next();
   });
   app.use("/api/auth", require("./routes/authRoutes"));
+  app.use("/api/personal", require("./routes/personalRoutes"));
+  app.use("/api/templates", require("./routes/templateRoutes"));
+  app.use("/api/community", require("./routes/communityRoutes"));
   app.use("/api/destinations", require("./routes/destinationRoutes"));
   app.use("/api/feedback", require("./routes/feedbackRoutes"));
   app.use("/api/favorites", require("./routes/favoriteRoutes"));
@@ -105,6 +109,8 @@ function createApp(options = {}) {
   app.get("/README.md", (req, res) =>
     res.sendFile(require("path").join(__dirname, "README.md")),
   );
+  app.use(require("./routes/destinationPageRoutes"));
+  app.get("/templates",(req,res)=>res.sendFile(path.join(__dirname,"public/templates.html")));
   app.get("/admin", requireAuth, requireAdmin, (req, res) => {
     res.setHeader("Cache-Control", "no-store");
     res.sendFile(path.join(__dirname, "views/admin.html"));

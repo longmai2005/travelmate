@@ -16,24 +16,11 @@ const populated = (query) => query.populate("days.items.destinationId");
 const serialize = (trip, userId) => {
   const data = trip.toObject();
   delete data.shareTokenHash;
+  delete data.planHistory;
   return { ...data, budget: budget(trip), version: trip.__v, permissions: { role: roleFor(trip, userId), canEdit: ["owner", "editor"].includes(roleFor(trip, userId)), canManage: roleFor(trip, userId) === "owner" } };
 };
-async function validDestinations(data, oldTrip) {
-  const ids = [
-    ...new Set(data.days.flatMap((d) => d.items.map((i) => i.destinationId))),
-  ];
-  const destinations = await Destination.find({ _id: { $in: ids } });
-  const oldIds = new Set(
-    oldTrip?.days.flatMap((d) =>
-      d.items.map((i) => i.destinationId?._id.toString()),
-    ) || [],
-  );
-  if (
-    destinations.length !== ids.length ||
-    destinations.some((d) => !d.isActive && !oldIds.has(d._id.toString()))
-  )
-    fail("Có địa điểm không tồn tại hoặc đã ngừng hoạt động.");
-}
+const { validDestinations, rememberPlan } = require("../utils/tripPlan");
+router.use(require("./tripHistoryRoutes"));
 router.get("/", async (req, res) => {
   const trips = await populated(
     Itinerary.find(accessFilter(req.user._id)).sort({ updatedAt: -1 }),
@@ -46,7 +33,7 @@ router.post("/suggestions", require("./suggestionHandler"));
 router.post("/", async (req, res) => {
   const data = validateItinerary(req.body);
   await validDestinations(data);
-  const trip = await Itinerary.create({ ...data, ...groupInput(req.body, data.travelers), userId: req.user._id, ownerName: req.user.fullName });
+  const trip = await Itinerary.create({ ...data, ...groupInput(req.body, data.travelers), userId: req.user._id, ownerName: req.user.fullName, lastPlanAuthor: req.user.fullName, lastPlanSavedAt: new Date() });
   await trip.populate("days.items.destinationId");
   await recordActivity(req.user, "itinerary.created", trip);
   res.status(201).json({ itinerary: serialize(trip, req.user._id) });
@@ -55,7 +42,7 @@ router.get("/:id", async (req, res) =>
   res.json({ itinerary: serialize(await accessible(req), req.user._id) }),
 );
 router.put("/:id", async (req, res) => {
-  const trip = await accessible(req, { write: true });
+  const trip = await accessible(req, { write: true, history: true });
   checkRevision(trip, req.body);
   const data = validateItinerary({ ...req.body, expenses: req.body.expenses ?? trip.expenses });
   Object.assign(data, groupInput({ participants: req.body.participants ?? trip.participants, actualExpenses: req.body.actualExpenses ?? trip.actualExpenses, settlements: req.body.settlements ?? trip.settlements }, data.travelers));
@@ -65,6 +52,7 @@ router.put("/:id", async (req, res) => {
   if (removedWithItems && req.body.confirmDateRemoval !== true)
     fail("Đổi ngày sẽ xóa hoạt động. Hãy xác nhận trước khi lưu.", 409);
   await validDestinations(data, trip);
+  rememberPlan(trip, req.user.fullName);
   Object.assign(trip, data);
   await trip.save();
   await trip.populate("days.items.destinationId");
@@ -74,7 +62,7 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   const trip = await accessible(req, { owner: true });
   await trip.deleteOne();
-  await Promise.all([require("../models/TripInvitation").deleteMany({ tripId: trip._id }), require("../models/TripComment").deleteMany({ tripId: trip._id })]);
+  await Promise.all([require("../models/TripInvitation").deleteMany({ tripId: trip._id }), require("../models/TripComment").deleteMany({ tripId: trip._id }), require("../models/TripDraft").deleteMany({ tripId: trip._id })]);
   await recordActivity(req.user, "itinerary.deleted", trip);
   res.json({ message: "Đã xóa lịch trình." });
 });

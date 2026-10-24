@@ -19,7 +19,7 @@ async function main() {
   for (const destination of plan.inserts) await Destination.updateOne({ slug: destination.slug }, { $setOnInsert: destination }, { upsert: true, runValidators: true });
   let modified = 0;
   for (const operation of plan.updates) {
-    const result = await Destination.updateOne(operation.filter, { $set: operation.patch }, { runValidators: true });
+    const result = await Destination.updateOne(operation.filter, { $set: operation.patch, $inc: { contentVersion: 1, "editorial.version": 1 } }, { runValidators: true });
     if (!result.matchedCount) throw new Error(`Địa điểm ${operation.slug} vừa được chỉnh sửa. Chạy lại chế độ xem trước, không ghi đè.`);
     modified += result.modifiedCount;
   }

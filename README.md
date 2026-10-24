@@ -14,11 +14,17 @@ Cập nhật trên `long_branch`, kiểm tra CI rồi merge vào `main`; Render 
 - **Khám phá `/explore`**: tìm tên, tỉnh/thành và tags; lọc địa phương, trải nghiệm, mức chi phí; sắp xếp; phân trang; chi tiết và Google Maps nhúng đồng bộ trang kết quả, chọn từng điểm và mở chỉ đường.
 - **Lịch trình `/planner`**: tạo, xem, sửa, xóa; 1–7 ngày; thêm điểm vào ngày, sửa giờ/ghi chú/ước tính, chuyển ngày bằng nút, ghi chú từng ngày, sửa ngày có xác nhận; lưu MongoDB và mở lại sau refresh.
 - **Yêu thích `/favorites`**: bộ sưu tập riêng từng tài khoản, tìm trong danh sách, bỏ lưu, thêm vào chuyến đi.
-- **Đăng nhập/đăng ký**: dialog dùng chung trên bốn trang, email/password, phiên lưu trong MongoDB, menu người dùng, đăng xuất.
+- **Đăng nhập/đăng ký**: dialog dùng chung trên các trang, email/password, phiên lưu trong MongoDB, menu người dùng, đăng xuất.
 - **Quản trị `/admin`**: dashboard hoạt động, quản lý người dùng và khóa/mở khóa, xem toàn bộ lịch trình cùng người tạo, ngày, ngân sách và chi tiết hoạt động; quản lý điểm đến/khôi phục. Có tìm kiếm, bộ lọc và phân trang. Admin đăng nhập chuyển thẳng tới bảng điều khiển; HTML được bảo vệ ngoài thư mục public. Xem [hướng dẫn admin](docs/ADMIN.md).
 - **Báo cáo điểm đến**: nút báo cáo trong từng chi tiết địa điểm; chọn thông tin cần sửa, mô tả và nguồn đối chiếu. Admin lọc, mở đúng địa điểm và trả lời; người gửi theo dõi riêng tại `/support`.
 
-Các nâng cấp tiếp theo và phạm vi đã thống nhất nằm trong [kế hoạch nâng cấp](docs/ROADMAP.md); tách riêng với chức năng hiện có.
+- **Bản nháp và lịch sử**: tự lưu nháp riêng sau khi ngừng nhập, khôi phục khi mở lại/đăng nhập lại, kiểm tra xung đột giữa tab và giữ 15 phiên bản kế hoạch để xem/khôi phục.
+- **Lịch trình mẫu `/templates`**: sáu kế hoạch biên tập tại sáu địa phương; chọn ngày, số người và ngân sách để tạo bản riêng.
+- **Trang điểm đến `/destinations/:slug`**: thông tin và nguồn, ngày chụp ảnh, bản đồ, địa điểm liên quan, liên kết chia sẻ và đánh giá/ảnh thành viên đã duyệt.
+- **Cá nhân hóa**: lưu sở thích, nhịp độ và nhóm đồng hành tại Tài khoản; trang chủ giải thích lý do gợi ý, form gợi ý chọn sẵn sở thích và điều chỉnh số điểm/ngày.
+- **Kiểm duyệt và biên tập**: admin duyệt đánh giá/ảnh, soạn bản nháp điểm đến, gửi duyệt, so sánh và xuất bản; lịch sử nội dung và bộ lọc cần rà soát nguồn.
+
+Chi tiết và giới hạn trong [hướng dẫn nâng cấp](docs/UPGRADES.md), [kiến trúc và dữ liệu](docs/ARCHITECTURE.md), [phạm vi đã hoàn thành](docs/ROADMAP.md). PWA, xuất lịch .ics và API tính tuyến đường có phí nằm ngoài phạm vi.
 
 Giá seed là **ước tính minh họa cho hoạt động mỗi người**, không phải giá vé niêm yết và không phải tổng chi phí cả chuyến đi. Bạn bổ sung khách sạn, di chuyển, ăn uống trong phần Các khoản chi bổ sung. `null` nghĩa là chưa có ước tính; `0` chỉ dùng khi hoạt động thực sự miễn phí. Ngân sách thiếu giá được báo chưa đầy đủ.
 
@@ -27,12 +33,12 @@ Giá seed là **ước tính minh họa cho hoạt động mỗi người**, kh�
 - Node.js 22 trở lên (khuyến nghị Node LTS), Express 5, CommonJS.
 - MongoDB Community Server, Mongoose, MongoDB Compass để quan sát dữ liệu.
 - HTML5, CSS Grid/Flexbox, JavaScript ES6, Fetch, async/await, DOM, debounce.
-- bcryptjs, express-session, connect-mongo, express-rate-limit.
+- bcryptjs, express-session, connect-mongo, express-rate-limit; Sharp để xác thực, nén và bỏ metadata ảnh cộng đồng.
 - Google Maps dạng nhúng, không cần cấu hình API key; Lucide; Be Vietnam Pro với fallback hệ thống.
 - Nodemon cho backend. Frontend thay đổi dùng refresh thủ công.
 
 ```text
-Trình duyệt (4 trang HTML + JS thuần)
+Trình duyệt (HTML nhiều trang + JavaScript thuần)
       │ Fetch cùng origin + cookie HttpOnly + CSRF header
       ▼
 Express :3000 (tệp tĩnh, REST API, kiểm tra quyền)

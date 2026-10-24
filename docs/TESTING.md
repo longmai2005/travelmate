@@ -1,5 +1,23 @@
 # Báo cáo kiểm thử TravelMate
 
+## Hoàn thiện sáu nhóm nâng cấp — 24/10/2026
+
+- `npm run check`: cú pháp JavaScript hợp lệ. `npm test`: **107 passed, 0 failed, 0 skipped**, MongoDB thật trong database test riêng; không dùng database production.
+- Trang điểm đến: canonical/Open Graph, thông tin render từ server, nguồn/ảnh, sitemap chỉ gồm điểm đang hiển thị, escape nội dung HTML và không lộ bản biên tập.
+- Sáu mẫu lịch trình: sao chép riêng đúng tài khoản, ngày qua năm chính xác, dùng địa điểm đang hoạt động; mẫu có điểm bị ẩn không được tạo tiếp.
+- Sở thích riêng theo tài khoản, enum hợp lệ, gợi ý có lý do; nhịp thong thả/gia đình giảm số điểm mỗi ngày.
+- Bản nháp: lưu riêng user/trip, không tự ghi kế hoạch chung, phiên bản giữa tab, chặn base cũ; giữ xác nhận đổi ngày khi khôi phục nháp. Client lấy bản mới từ server để đối chiếu và chặn phản hồi đến muộn sau đổi tài khoản.
+- Lịch sử: xem/khôi phục kế hoạch với kiểm tra phiên bản và quyền; giữ thành viên chia tiền/quyền cộng tác, không lộ lịch sử qua API kế hoạch mặc định. Dọn nháp khi xóa chuyến đi.
+- Ảnh/đánh giá: chờ duyệt không công khai, kiểm tra quyền ảnh, bỏ EXIF, sửa cần duyệt lại, ngày chụp/trải nghiệm hợp lệ, ảnh giả bị chặn; điểm trung bình chỉ từ bản đã duyệt. Hạn mức kho/người bị chặn không để lại ảnh hoặc số đặt chỗ sai.
+- Biên tập: lưu nháp không đổi bản công khai, xuất bản có nguồn/ngày đối chiếu và lịch sử; CAS giữa admin, ẩn điểm làm bản duyệt cũ mất hiệu lực, điểm mới giữ ẩn. Nhật ký ghi các thao tác mới.
+- Vá `body-parser` lên **2.4.0** theo [GHSA-27r3-jxmh-p828](https://github.com/advisories/GHSA-27r3-jxmh-p828). Test request nén có byte thừa và kiểm tra server vẫn phục vụ. Lần kiểm tra dependency sau cập nhật báo **0 vulnerabilities**; đây là kết quả tại thời điểm kiểm tra.
+
+QA trình duyệt dùng server riêng cổng 8287 và dữ liệu giả: tạo từ mẫu → sửa ghi chú/tự lưu → mở lại/khôi phục → lưu/lịch sử; gửi đánh giá và chọn ảnh qua hộp thoại macOS → admin xem ảnh/duyệt → trang công khai hiển thị; soạn bản sửa Cồn Sơn → lưu nháp/so sánh → gửi duyệt/xuất bản → đối chiếu trang điểm đến. Lưu sở thích và thấy gợi ý có lý do trên trang chủ. Nội dung thử không được tạo trên Atlas production.
+
+Viewport 390×844: thư viện mẫu, trang điểm đến, tài khoản và biên tập không tràn ngang; thư viện mẫu ở 1024px cũng không tràn. Console error/warn ở cuối lượt kiểm tra rỗng. Giới hạn: viewport mô phỏng, chưa phải thử trên mọi thiết bị vật lý; Google Maps phụ thuộc dịch vụ ngoài.
+
+Các mục cũ bên dưới ghi lại kết quả theo thời điểm, không đại diện số lượng dữ liệu, nguồn bản đồ hoặc chức năng của bản hiện tại.
+
 ## Báo cáo riêng từng điểm đến — 24/10/2026
 
 - `npm run check`: cú pháp hợp lệ. `npm test`: **89 passed, 0 failed, 0 skipped** với MongoDB thật trong database thử riêng, tự dọn sau kiểm thử.

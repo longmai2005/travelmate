@@ -38,7 +38,7 @@ Thay đổi điểm đến trong admin và lịch trình người dùng được
 - Khi đổi schema, ưu tiên thay đổi bổ sung có giá trị mặc định, đọc được dữ liệu cũ. Sao lưu dữ liệu trước thay đổi có thể làm mất thông tin.
 - Có thể rollback code về deploy thành công trước trong Render. Rollback code không rollback dữ liệu MongoDB.
 - Render Free có thể ngủ khi không có truy cập; lượt truy cập đầu cần chờ khởi động. Gói Free là lựa chọn demo, không có cam kết luôn hoạt động.
-- Không lưu file người dùng tải lên trên filesystem tạm của Render. Khi bổ sung upload cần storage riêng.
+- Ảnh cộng đồng không lưu trên filesystem tạm của Render: ảnh JPEG đã xử lý nằm trong collection `communitymedia` trên Atlas. Hạn mức 300 KB/ảnh, 3 MB/tài khoản, 32 MB toàn kho; đây là hạn mức ứng dụng, không phải cam kết toàn bộ dung lượng Atlas còn trống. Xem `UPGRADES.md`.
 - Nhật ký hoạt động chỉ admin đọc và tự hết hạn sau 90 ngày. Lịch trình mặc định riêng tư; liên kết chia sẻ chỉ xem, có thể đổi hoặc thu hồi. Bản PDF đã tải xuống không thể thu hồi từ xa.
 
 Tham khảo: [Render Blueprint](https://render.com/docs/blueprint-spec), [Auto-deploy](https://render.com/docs/deploys), [Render Free](https://render.com/docs/free), [Atlas IP access list](https://www.mongodb.com/docs/atlas/security/ip-access-list/).
