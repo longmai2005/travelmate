@@ -15,7 +15,7 @@ Hai database này độc lập. Thao tác trên website online không tự xuấ
 2. Chọn **Connect → Compass**, lấy URI do Atlas cung cấp.
 3. Trong Compass, tạo kết nối riêng tên **TravelMate – Atlas**, nhập URI tại đây. Dùng database user đã cấp quyền; đây không phải tài khoản admin đăng nhập website. Không đưa mật khẩu/URI có thông tin xác thực vào chat, Git hoặc ảnh báo cáo.
 4. Nếu không kết nối được, kiểm tra Atlas Network Access đã cho phép IP hiện tại của máy. Thêm đúng IP cần thiết, không mở toàn bộ Internet để xử lý nhanh.
-5. Mở database `travelmate`, chọn collection phù hợp, xóa bộ lọc cũ và bấm Refresh sau thao tác trên website.
+5. Mở database `travelmate`, chọn collection phù hợp, xóa bộ lọc cũ và bấm Refresh sau thao tác trên website. 
 
 ## Hành động nào làm thay đổi collection nào?
 
